@@ -60,7 +60,7 @@ export const lektionD4: Lektion = {
         {
           figur: 'tobias',
           ausdruck: 'ueberrascht',
-          text: `Den Bonus für den Großhändler klären wir später. Aber jetzt hat Nolte ${e(S.skontoBrutto)} zu wenig überwiesen!`,
+          text: `Der Bonus für den Großhändler ist gebucht. Aber jetzt hat Nolte ${e(S.skontoBrutto)} zu wenig überwiesen!`,
         },
         { figur: 'jana', ausdruck: 'freut', text: 'Zu wenig? Lies mal den Verwendungszweck.' },
       ],
@@ -219,9 +219,9 @@ export const lektionD4: Lektion = {
         partId: 'buchung',
       },
       cliffhanger: {
-        figur: 'leni',
-        ausdruck: 'gruebelt',
-        text: 'Am 31.12. messen wir die Tanks aus. Ich wette, Tobias fragt dann, warum volle Tanks unseren Erfolg erhöhen.',
+        figur: 'tobias',
+        ausdruck: 'freut',
+        text: 'Für das Landhotel hab ich übrigens „Lieferung frei Haus“ zugesagt. Wer bezahlt eigentlich die Spedition?',
       },
     },
   ],

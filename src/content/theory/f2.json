@@ -1,1 +1,590 @@
-[]
+[
+  {
+    "id": "F9-001",
+    "skill": "F9-guv-aufbau",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 7, S. 163",
+    "frage": "Worin unterscheidet sich die GuV zeitlich von der Bilanz?",
+    "antwort": "Die Bilanz zeigt Vermögen und Kapital an einem Stichtag (stichtagsbezogen). Die GuV erfasst die Aufwendungen und Erträge des gesamten Geschäftsjahres und ist damit zeitraumbezogen. Jeder Kaufmann muss sie zum Ende des Geschäftsjahres aufstellen (§ 242 HGB).",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F9-002",
+    "skill": "F9-guv-aufbau",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 7, S. 163",
+    "frage": "Aus welchen Teilen besteht ein Jahresabschluss höchstens?",
+    "antwort": "Aus Bilanz und GuV (alle Kaufleute). Kapitalgesellschaften und Personengesellschaften mit Haftungsbeschränkung ergänzen einen Anhang; mittelgroße und große dieser Gesellschaften zusätzlich einen Lagebericht.",
+    "beispiel": "Die MBG als OHG mit voll haftenden Gesellschaftern stellt Bilanz und GuV auf.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F9-003",
+    "skill": "F9-guv-aufbau",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 7.1, S. 163",
+    "frage": "Die MBG hat 30.000 € Zinsaufwendungen und 8.000 € Zinserträge. Wie werden sie in der GuV ausgewiesen?",
+    "optionen": [
+      {
+        "text": "Getrennt: 30.000 € Aufwand und 8.000 € Ertrag",
+        "richtig": true
+      },
+      {
+        "text": "Saldiert: 22.000 € Zinsaufwand",
+        "fehlertyp": "verrechnung",
+        "erklaerung": "Das Bruttoprinzip verbietet die Verrechnung von Aufwendungen und Erträgen (§ 246 Abs. 2 HGB)."
+      },
+      {
+        "text": "Nur der Saldo als Finanzergebnis, ohne Einzelposten",
+        "fehlertyp": "verrechnung",
+        "erklaerung": "Das Finanzergebnis ist eine Zwischensumme; die Einzelposten bleiben sichtbar."
+      },
+      {
+        "text": "Gar nicht, Zinsen gehören in die Bilanz",
+        "fehlertyp": "bilanz-statt-guv",
+        "erklaerung": "Zinsen sind Aufwand bzw. Ertrag des Jahres und gehören in die GuV."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F9-004",
+    "skill": "F9-guv-aufbau",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 7.1, S. 163",
+    "frage": "Wer darf die GuV in Kontoform aufstellen, wer muss die Staffelform nutzen?",
+    "antwort": "Einzelunternehmen und Personengesellschaften dürfen zwischen Konto- und Staffelform wählen. Kapitalgesellschaften müssen die übersichtlichere Staffelform verwenden (§ 275 Abs. 1 HGB), und zwar nach dem Gesamtkosten- oder dem Umsatzkostenverfahren.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F9-005",
+    "skill": "F9-guv-aufbau",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 7.1–7.2, S. 163–164",
+    "frage": "Was unterscheidet Gesamtkostenverfahren und Umsatzkostenverfahren?",
+    "antwort": "Das Gesamtkostenverfahren zeigt alle Leistungen des Jahres, auch Erzeugnisse, die noch auf Lager liegen (Bestandsveränderungen). Das Umsatzkostenverfahren berücksichtigt nur die verkauften Produkte und gliedert die Kosten nach Produktion, Vertrieb und Verwaltung; es ist international gebräuchlich.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F9-006",
+    "skill": "F9-guv-aufbau",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 7.2, S. 164",
+    "frage": "Wie setzen sich Gesamtleistung und Rohergebnis zusammen?",
+    "antwort": "Gesamtleistung = Umsatzerlöse + Bestandserhöhung an fertigen und unfertigen Erzeugnissen + andere aktivierte Eigenleistungen + sonstige betriebliche Erträge. Rohergebnis = Gesamtleistung − Materialaufwand (Roh-, Hilfs-, Betriebsstoffe, bezogene Waren) − Aufwendungen für bezogene Leistungen.",
+    "pruefung": {
+      "faktenabgleich": "korrigiert: Zuordnung der sonstigen betrieblichen Erträge zur Gesamtleistung wie im Lehrbrief; als offene Frage in docs/m7/f2.md vermerkt",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F9-007",
+    "skill": "F9-guv-aufbau",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 7.2, S. 165",
+    "frage": "Welcher Posten gehört zum Finanzergebnis?",
+    "optionen": [
+      {
+        "text": "Zinsen für ein Darlehen der Sparkasse",
+        "richtig": true
+      },
+      {
+        "text": "Abschreibung auf die Abfüllanlage",
+        "fehlertyp": "betriebsergebnis",
+        "erklaerung": "Abschreibungen mindern das Betriebsergebnis."
+      },
+      {
+        "text": "Kfz-Steuer für die Lkw",
+        "fehlertyp": "steuern",
+        "erklaerung": "Die Kfz-Steuer gehört zu den sonstigen Steuern."
+      },
+      {
+        "text": "Löhne im Werk",
+        "fehlertyp": "betriebsergebnis",
+        "erklaerung": "Personalaufwand gehört zum Betriebsergebnis."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "korrigiert: Zinsen und ähnliche Aufwendungen werden im Finanzergebnis abgezogen (Lehrbrief-Schema zeigt ein Pluszeichen)",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F9-008",
+    "skill": "F9-guv-aufbau",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 7.2, S. 166",
+    "frage": "Eine Kapitalgesellschaft hat einen Jahresüberschuss von 500.000 € und stellt 200.000 € in die Gewinnrücklagen ein. Wie hoch ist der Bilanzgewinn?",
+    "optionen": [
+      {
+        "text": "300.000 €",
+        "richtig": true
+      },
+      {
+        "text": "500.000 €",
+        "fehlertyp": "jahresueberschuss-gleich-bilanzgewinn",
+        "erklaerung": "Der Jahresüberschuss wird erst um die Einstellung in die Rücklagen gemindert."
+      },
+      {
+        "text": "700.000 €",
+        "fehlertyp": "rucklage-addiert",
+        "erklaerung": "Die Einstellung in die Rücklagen wird abgezogen, nicht addiert."
+      },
+      {
+        "text": "200.000 €",
+        "fehlertyp": "rucklage-als-bilanzgewinn",
+        "erklaerung": "200.000 € werden einbehalten; der Bilanzgewinn ist der Rest."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F9-009",
+    "skill": "F9-guv-aufbau",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 7.2, S. 165",
+    "frage": "Was ist das EBIT?",
+    "antwort": "Earnings Before Interest and Taxes: das Ergebnis der Betriebstätigkeit vor Zinsen und Steuern. Es entspricht im Wesentlichen dem Betriebsergebnis nach HGB.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F9-kurz-001",
+    "skill": "F9-guv-aufbau",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 7.1–7.2, S. 163–164",
+    "frage": "Erläutern Sie den Unterschied zwischen Gesamtkostenverfahren und Umsatzkostenverfahren.",
+    "punkte": 3,
+    "checkliste": [
+      {
+        "aussage": "Beide sind Darstellungsformen der GuV in Staffelform (§ 275 Abs. 1 HGB).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Das Gesamtkostenverfahren zeigt alle Leistungen des Jahres, unabhängig davon, ob die Erzeugnisse verkauft wurden oder noch auf Lager liegen.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Das Umsatzkostenverfahren berücksichtigt nur die verkauften Produkte und gliedert die Kosten nach Produktion, Vertrieb und Verwaltung; es ist international üblich.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Die GuV in Staffelform kann nach zwei Verfahren aufgestellt werden. Das Gesamtkostenverfahren stellt den Erträgen alle Aufwendungen des Jahres gegenüber und zeigt damit die gesamte Leistung, auch noch nicht verkaufte Erzeugnisse über die Bestandsveränderungen. Das Umsatzkostenverfahren erfasst nur die Kosten der verkauften Produkte und ordnet sie den Bereichen Produktion, Vertrieb und Verwaltung zu; es ist international gebräuchlich.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F10-001",
+    "skill": "F10-ifrs",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 8.1, S. 168",
+    "frage": "Was ist der wesentliche Unterschied zwischen einer Bilanzierung nach HGB und nach IFRS?",
+    "antwort": "Die IFRS stellen den Investor in den Mittelpunkt: Sie gewichten die Ertragskraft stärker, um Anleger realitätsnah zu informieren. Das HGB legt seinen Schwerpunkt eher auf den Schutz der Gläubiger.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F10-002",
+    "skill": "F10-ifrs",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 8, S. 168",
+    "frage": "Wer gibt die IFRS heraus und für wen sind sie Pflicht?",
+    "antwort": "Herausgeber ist das International Accounting Standards Board (IASB) mit Sitz in London. Seit 2005 gelten die IFRS in der EU für kapitalmarktorientierte Unternehmen; andere Unternehmen können freiwillig nach IFRS bilanzieren.",
+    "pruefung": {
+      "faktenabgleich": "korrigiert: Lehrbrief spricht von „Kapitalmarktunternehmen“; Pflicht betrifft deren Konzernabschluss (Hinweis in docs/m7/f2.md)",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F10-003",
+    "skill": "F10-ifrs",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 8.2, S. 171",
+    "frage": "Von welchen Basisannahmen geht das Rahmenkonzept der IFRS aus?",
+    "optionen": [
+      {
+        "text": "Unternehmensfortführung (Going Concern) und periodengerechte Erfolgsermittlung",
+        "richtig": true
+      },
+      {
+        "text": "Vorsichtsprinzip und Niederstwertprinzip",
+        "fehlertyp": "hgb-prinzipien",
+        "erklaerung": "Das sind Bewertungsgrundsätze des HGB."
+      },
+      {
+        "text": "Verständlichkeit und Relevanz",
+        "fehlertyp": "qualitative-anforderungen",
+        "erklaerung": "Das sind qualitative Anforderungen, die die Basisannahmen ergänzen."
+      },
+      {
+        "text": "Gläubigerschutz und Kapitalerhaltung",
+        "fehlertyp": "hgb-zweck",
+        "erklaerung": "Gläubigerschutz ist der Schwerpunkt des HGB, nicht eine Basisannahme der IFRS."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "korrigiert: Stand des Lehrbriefs (älteres Rahmenkonzept); als offene Frage in docs/m7/f2.md vermerkt",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F10-004",
+    "skill": "F10-ifrs",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 8.1, S. 169–170",
+    "frage": "Wie sind die IFRS aufgebaut?",
+    "antwort": "Dreistufig: (1) Rahmenkonzept (Framework) mit Zielen und Anforderungen der Rechnungslegung und den Definitionen der Abschlussposten, (2) Interpretationen des IFRIC zur einheitlichen Anwendung, (3) Einzelstandards (IAS/IFRS) zu Ausweis, Gliederung (IAS 1) und Einzelfragen.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F10-005",
+    "skill": "F10-ifrs",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 8.2, S. 171",
+    "frage": "Welche Gruppe nennt die qualitativen Anforderungen an die Rechnungslegung nach IFRS?",
+    "optionen": [
+      {
+        "text": "Verständlichkeit, Relevanz, Verlässlichkeit, Vergleichbarkeit",
+        "richtig": true
+      },
+      {
+        "text": "Vorsicht, Realisation, Imparität, Niederstwert",
+        "fehlertyp": "hgb-prinzipien",
+        "erklaerung": "Das sind Prinzipien der HGB-Bewertung."
+      },
+      {
+        "text": "Going Concern und periodengerechte Erfolgsermittlung",
+        "fehlertyp": "basisannahmen",
+        "erklaerung": "Das sind die Basisannahmen, die durch die qualitativen Anforderungen ergänzt werden."
+      },
+      {
+        "text": "Vollständigkeit, Klarheit, Einzelbewertung, Stetigkeit",
+        "fehlertyp": "gob",
+        "erklaerung": "Das sind Grundsätze ordnungsmäßiger Buchführung nach HGB."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "korrigiert: Stand des Lehrbriefs (älteres Rahmenkonzept); als offene Frage in docs/m7/f2.md vermerkt",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F10-006",
+    "skill": "F10-ifrs",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 8.1, S. 168–169",
+    "frage": "Nennen Sie Vorteile einer Rechnungslegung nach IFRS.",
+    "antwort": "Leichterer Zugang zu internationalen Kapitalmärkten; einheitlicheres, transparenteres Berichtswesen; höhere Akzeptanz bei Lieferanten, Kunden und Kapitalgebern; schnelle Steuerungsinformationen (z. B. Deckungsbeiträge über das Umsatzkostenverfahren); umfassende Information über Vermögens-, Finanz- und Ertragslage.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F10-007",
+    "skill": "F10-ifrs",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 8.1, S. 170",
+    "frage": "Was regelt das Rahmenkonzept (Framework) der IFRS?",
+    "antwort": "Es bildet die gedankliche Grundlage für Abschlüsse an externe Adressaten: Zielsetzung von Abschlüssen, Anforderungen an die Informationen, Definition, Ansatz und Bewertung der Abschlussposten sowie die Konzepte zu Kapital und Kapitalerhaltung.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F10-008",
+    "skill": "F10-ifrs",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 8.1, S. 170",
+    "frage": "Wozu dienen die Interpretationen des IFRIC?",
+    "optionen": [
+      {
+        "text": "Sie erarbeiten Lösungen für die einheitliche Anwendung der Standards in konkreten Fällen.",
+        "richtig": true
+      },
+      {
+        "text": "Sie legen die Ziele der Rechnungslegung fest.",
+        "fehlertyp": "framework",
+        "erklaerung": "Die Ziele beschreibt das Rahmenkonzept."
+      },
+      {
+        "text": "Sie ersetzen das HGB für alle deutschen Unternehmen.",
+        "fehlertyp": "geltung",
+        "erklaerung": "Die IFRS sind nur für kapitalmarktorientierte Unternehmen Pflicht."
+      },
+      {
+        "text": "Sie regeln die Gliederung der Bilanz.",
+        "fehlertyp": "standards",
+        "erklaerung": "Ausweis und Gliederung regeln die Einzelstandards, etwa IAS 1."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F10-kurz-001",
+    "skill": "F10-ifrs",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 8.1, S. 168–169",
+    "frage": "Erläutern Sie vier Vorteile, die eine Rechnungslegung nach IFRS für ein Unternehmen haben kann.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Leichterer Zugang zu den internationalen Kapitalmärkten.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Einheitlicheres und damit transparenteres Berichtswesen.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Höhere Akzeptanz bei Lieferanten, Kunden und Kapitalgebern.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Schnell verfügbare Steuerungsinformationen bzw. umfassende Information über Vermögens-, Finanz- und Ertragslage.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Ein IFRS-Abschluss erleichtert den Zugang zu internationalen Kapitalmärkten, weil Investoren weltweit dieselben Regeln kennen. Das Berichtswesen wird vereinheitlicht und transparenter. Lieferanten, Kunden und Kapitalgeber akzeptieren IFRS-Zahlen eher. Außerdem stehen der Unternehmensführung schnell Informationen zur Steuerung zur Verfügung – etwa Deckungsbeiträge über das Umsatzkostenverfahren – und der Abschluss informiert umfassend über Vermögens-, Finanz- und Ertragslage.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F6-kurz-001",
+    "skill": "F6-forderungsbewertung",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 5.3.5.2, S. 145–148",
+    "frage": "Erläutern Sie, wie zweifelhafte und uneinbringliche Forderungen zu behandeln sind und wann die Umsatzsteuer korrigiert wird.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Zweifelhafte Forderungen (Eingang unsicher, z. B. Insolvenzantrag) werden brutto auf ein eigenes Konto umgebucht.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Der geschätzte Ausfall wird indirekt über eine Einzelwertberichtigung vom Nettobetrag erfasst; die Forderung bleibt für Mahnung und Insolvenzverfahren in voller Höhe stehen.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Uneinbringliche Forderungen (Ausfall steht endgültig fest) werden direkt abgeschrieben.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Die Umsatzsteuer wird erst korrigiert, wenn der Ausfall endgültig feststeht, weil sich erst dann das Entgelt mindert.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Ist der Zahlungseingang einer Forderung unsicher, etwa weil der Kunde trotz Mahnung nicht zahlt oder ein Insolvenzverfahren beantragt ist, wird sie in voller Höhe auf das Konto Zweifelhafte Forderungen umgebucht. Den erwarteten Ausfall erfasst man indirekt über eine Einzelwertberichtigung, berechnet vom Nettobetrag; die Forderung selbst bleibt stehen, weil der volle Betrag für Mahnungen und die Anmeldung im Insolvenzverfahren gebraucht wird. Steht der Ausfall endgültig fest (uneinbringlich), wird direkt abgeschrieben. Erst dann mindert sich das Entgelt, und die Umsatzsteuer wird korrigiert.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F6-mc-001",
+    "skill": "F6-forderungsbewertung",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 5.3.5.2, S. 150–151",
+    "frage": "Forderungsbestand 130.900 € brutto, darin eine zweifelhafte Forderung über 11.900 €. Die PWB beträgt 1 %. Wie hoch ist die erforderliche Pauschalwertberichtigung (19 % USt)?",
+    "optionen": [
+      {
+        "text": "1.000,00 €",
+        "richtig": true
+      },
+      {
+        "text": "1.100,00 €",
+        "fehlertyp": "pwb-auf-gesamtbestand",
+        "erklaerung": "Die zweifelhafte Forderung muss vorher herausgerechnet werden."
+      },
+      {
+        "text": "1.190,00 €",
+        "fehlertyp": "abschreibung-vom-brutto",
+        "erklaerung": "Die PWB rechnet vom Nettobetrag der einwandfreien Forderungen."
+      },
+      {
+        "text": "1.309,00 €",
+        "fehlertyp": "abschreibung-vom-brutto",
+        "erklaerung": "Hier fehlen beide Schritte: zweifelhafte Forderung abziehen und netto rechnen."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F7-kurz-001",
+    "skill": "F7-rap",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 6.1–6.3, S. 155–158",
+    "frage": "Erläutern Sie den Unterschied zwischen antizipativen und transitorischen Abgrenzungen und nennen Sie die jeweiligen Bilanzposten.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Abgrenzungen dienen der periodengerechten Erfolgsermittlung: Aufwand und Ertrag werden dem Jahr zugeordnet, zu dem sie wirtschaftlich gehören.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Antizipativ: Erfolg im alten Jahr, Zahlung erst im neuen Jahr.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Dafür werden sonstige Verbindlichkeiten (Aufwand) bzw. sonstige Forderungen/Vermögensgegenstände (Ertrag) gebildet.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Transitorisch: Zahlung im alten Jahr, Erfolg im neuen; dafür aktive (Aufwand) bzw. passive (Ertrag) Rechnungsabgrenzungsposten.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Zeitliche Abgrenzungen sorgen dafür, dass Aufwendungen und Erträge unabhängig vom Zahlungszeitpunkt dem Geschäftsjahr zugerechnet werden, zu dem sie wirtschaftlich gehören. Bei antizipativen Posten liegt der Erfolg im alten Jahr, die Zahlung folgt erst im neuen: Für Aufwand entsteht eine sonstige Verbindlichkeit, für Ertrag eine sonstige Forderung. Bei transitorischen Posten wird im alten Jahr gezahlt, der Erfolg gehört ins neue Jahr: Vorausgezahlter Aufwand wird aktiv, vorab erhaltener Ertrag passiv abgegrenzt. Diese Rechnungsabgrenzungsposten werden im neuen Jahr aufgelöst.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F8-kurz-001",
+    "skill": "F8-rueckstellungen",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 6.4, S. 160–161",
+    "frage": "Grenzen Sie Rückstellungen von sonstigen Verbindlichkeiten ab und erläutern Sie, wie sich ihre Bildung auf den Gewinn auswirkt.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Rückstellungen sind Passivposten für Aufwendungen, die dem Grunde nach feststehen, deren Höhe und/oder Fälligkeit aber noch ungewiss ist.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Bei sonstigen Verbindlichkeiten stehen Höhe und Fälligkeit fest; nur die Zahlung erfolgt erst im neuen Jahr.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Die Bildung einer Rückstellung ist Aufwand und mindert den Gewinn des alten Jahres (auch den steuerpflichtigen).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Angesetzt wird nur der nach vernünftiger kaufmännischer Beurteilung notwendige Betrag (§ 253 Abs. 1 HGB).",
+        "punkte": 1
+      }
+    ],
+    "muster": "Eine Rückstellung ist eine Schuld, deren Grund am Bilanzstichtag feststeht, deren Höhe oder Fälligkeit aber noch nicht bekannt ist, etwa Prozesskosten oder eine nachzuholende Instandhaltung. Bei einer sonstigen Verbindlichkeit sind dagegen Betrag und Termin sicher; sie entsteht, weil ein Aufwand des alten Jahres erst im neuen bezahlt wird. Die Bildung einer Rückstellung wird als Aufwand gebucht und mindert deshalb den Gewinn des alten Jahres, auch den steuerpflichtigen. Sie darf nur in der Höhe angesetzt werden, die nach vernünftiger kaufmännischer Beurteilung notwendig ist.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F8-mc-001",
+    "skill": "F8-rueckstellungen",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 6.4, S. 160",
+    "frage": "Für welchen Sachverhalt muss die MBG zum 31.12. eine Rückstellung bilden?",
+    "optionen": [
+      {
+        "text": "Eine im Dezember unterlassene Wartung wird im Februar nachgeholt.",
+        "richtig": true
+      },
+      {
+        "text": "Die bekannte Dezembermiete wird erst im Januar überwiesen.",
+        "fehlertyp": "verbindlichkeit-statt-rueckstellung",
+        "erklaerung": "Höhe und Fälligkeit stehen fest: sonstige Verbindlichkeit."
+      },
+      {
+        "text": "Im Dezember wurde die Versicherung für das nächste Jahr bezahlt.",
+        "fehlertyp": "arap-statt-rueckstellung",
+        "erklaerung": "Vorausgezahlter Aufwand wird aktiv abgegrenzt (ARAP)."
+      },
+      {
+        "text": "In zwei Jahren soll eine neue Abfülllinie gekauft werden.",
+        "fehlertyp": "keine-verpflichtung",
+        "erklaerung": "Eine bloße Planung begründet keine Rückstellung."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  }
+]

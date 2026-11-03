@@ -239,9 +239,9 @@ export const lektionE4: Lektion = {
       aufgabe: `Die Inventur ergibt: Unfertige Erzeugnisse Anfangsbestand ${formatEuro(KLAUSUR.ueAB)}, Endbestand ${formatEuro(KLAUSUR.ueEB)}; fertige Erzeugnisse Anfangsbestand ${formatEuro(KLAUSUR.feAB)}, Endbestand ${formatEuro(KLAUSUR.feEB)}. Bilden Sie die Buchungssätze einschließlich Abschluss des Kontos Bestandsveränderungen.`,
       part: KLAUSUR_TEIL,
       cliffhanger: {
-        figur: 'leni',
-        ausdruck: 'erklaert',
-        text: 'Die neue Etikettiermaschine hat 100.000 € gekostet. Wenn wir das alles den Dosen eines Jahres anrechnen, wird jede Dose absurd teuer.',
+        figur: 'jana',
+        ausdruck: 'freut',
+        text: 'Einkauf, Verkauf, Abschreibung, Bestände: Alle Bausteine sind da. Jetzt bucht die MBG ein ganzes Geschäftsjahr am Stück, vom Eröffnungsbilanzkonto bis zur Schlussbilanz.',
       },
     },
   ],

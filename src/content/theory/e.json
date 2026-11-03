@@ -1,1 +1,65 @@
-[]
+[
+  {
+    "id": "E1-001",
+    "skill": "E1-anlagenkauf",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.4.1, S. 107",
+    "frage": "Woran erkennt man, ob ein Gegenstand zum Anlage- oder zum Umlaufvermögen gehört?",
+    "antwort": "An seiner Zweckbestimmung am Bilanzstichtag: Anlagevermögen soll dem Betrieb dauernd dienen und wird mehrmals genutzt (Gebrauchsgut). Umlaufvermögen wird verbraucht oder verkauft und schlägt sich ständig um (Verbrauchsgut).",
+    "beispiel": "Der Auslieferungs-Lkw der MBG ist Anlagevermögen, die Dosen im Lager sind Umlaufvermögen.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "E1-002",
+    "skill": "E1-anlagenkauf",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.3, S. 93; BA 2.3.5.1, S. 64",
+    "frage": "Welche Beträge gehören zu den Anschaffungsnebenkosten einer Maschine?",
+    "antwort": "Alles, was zusätzlich zum Kaufpreis anfällt, um die Maschine zu erwerben und betriebsbereit zu machen: etwa Verpackung, Fracht, Transportversicherung, Fundament und Montage. Sie werden mit aktiviert. Die Vorsteuer gehört nicht dazu.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "E2-001",
+    "skill": "E2-eigenleistung-aib",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.4.3, S. 109",
+    "frage": "Welche Rolle spielt das Konto Aktivierte Eigenleistungen im Abschluss?",
+    "antwort": "Es ist ein Ertragskonto, kein Bilanzposten, und wird über die GuV abgeschlossen. Dort steht der Wert im Haben und gleicht die Aufwendungen aus, die für die selbst erstellte Anlage schon gebucht wurden. Die Aufwandskonten werden nicht direkt korrigiert. Eigenleistungen aus Vorjahren, die erst später aktiviert werden, laufen über sonstige betriebliche Erträge.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "E2-002",
+    "skill": "E2-eigenleistung-aib",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.4.3, S. 110",
+    "frage": "Wann wird eine Reparatur durch die eigene Werkstatt aktiviert?",
+    "antwort": "Wenn sie werterhöhend ist, also die Anlage über ihren bisherigen Zustand hinaus verbessert oder erweitert: dann über Aktivierte Eigenleistungen. Werterhaltende Reparaturen bleiben reiner Aufwand.",
+    "beispiel": "Eine zusätzliche Station an der Abfüllanlage wird aktiviert, neue Dichtungen nicht.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "E2-003",
+    "skill": "E2-eigenleistung-aib",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.4.4, S. 110–111",
+    "frage": "Warum stehen Anlagen im Bau und geleistete Anzahlungen auf Sachanlagen gesondert in der Bilanz?",
+    "antwort": "Beide sind Anlagevermögen, werden aber noch nicht abgeschrieben, weil die Anlage noch nicht genutzt wird. Erst bei Fertigstellung wird auf das endgültige Anlagekonto umgebucht; Anzahlungen werden nach erbrachter Leistung auf Anlagen im Bau übertragen.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "E3-001",
+    "skill": "E3-bilanz-afa",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.3.5.1, S. 65",
+    "frage": "Was bedeutet „pro rata temporis“ bei der linearen Abschreibung?",
+    "antwort": "Im Jahr der Anschaffung wird nur zeitanteilig abgeschrieben, nach Monaten ab der Anschaffung. Die frühere Vereinfachung (erstes Halbjahr voller, zweites Halbjahr halber Jahresbetrag) gilt nicht mehr.",
+    "beispiel": "Anschaffung im September, Jahresbetrag 9.000 €: 4/12 davon, also 3.000 €.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  }
+]

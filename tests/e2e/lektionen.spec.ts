@@ -22,7 +22,12 @@ async function bildschirmBearbeiten(page: Page, s: Screen) {
         for (const k of e.karten)
           await page
             .getByRole('button', {
-              name: new RegExp(`^${k.titel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`),
+              // Titel als Präfix; Leerzeichen dürfen auch geschützte Leerzeichen sein
+              name: new RegExp(
+                `^${k.titel
+                  .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+                  .replace(/[\s  ]+/g, '[\\s\\u00a0\\u202f]+')}`,
+              ),
             })
             .first()
             .click();

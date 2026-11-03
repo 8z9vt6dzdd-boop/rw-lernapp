@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import * as alle from './fehlertypen';
+import { FEHLERTYPEN_A } from './fehlertypen-batches/a';
+import { FEHLERTYPEN_B } from './fehlertypen-batches/b';
 import { FEHLERTYPEN_C1 } from './fehlertypen-batches/c1';
 import { FEHLERTYPEN_C2 } from './fehlertypen-batches/c2';
 import { FEHLERTYPEN_D } from './fehlertypen-batches/d';
@@ -19,6 +21,8 @@ describe('Fehlertypen', () => {
   it('keine ID wird von zwei Bereichen unterschiedlich belegt', () => {
     const quellen = {
       BASIS: alle.FEHLERTYPEN_BASIS,
+      A: FEHLERTYPEN_A,
+      B: FEHLERTYPEN_B,
       C1: FEHLERTYPEN_C1,
       C2: FEHLERTYPEN_C2,
       D: FEHLERTYPEN_D,

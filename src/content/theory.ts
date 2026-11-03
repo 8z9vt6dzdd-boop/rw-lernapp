@@ -1,5 +1,7 @@
 // Theorie-Inhalte im Format aus 07-content-pipeline.md. Nur Elemente mit Status „aktiv“ werden verwendet.
 import beispiele from './theory/beispiele.json' with { type: 'json' };
+import theorie_a from './theory/a.json' with { type: 'json' };
+import theorie_b from './theory/b.json' with { type: 'json' };
 import theorie_c1 from './theory/c1.json' with { type: 'json' };
 import theorie_c2 from './theory/c2.json' with { type: 'json' };
 import theorie_d from './theory/d.json' with { type: 'json' };
@@ -54,6 +56,8 @@ export type TheorieElement =
 
 const ALLE = [
   beispiele,
+  theorie_a,
+  theorie_b,
   theorie_c1,
   theorie_c2,
   theorie_d,

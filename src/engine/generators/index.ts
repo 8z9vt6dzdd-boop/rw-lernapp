@@ -7,6 +7,8 @@ import { simultan, stufenleiter } from './leistungsverrechnung';
 import { skontoEinkauf, skontoVerkauf } from './skonto';
 import { ustAbschluss } from './ust-abschluss';
 import { zuschlag } from './zuschlag';
+import { BATCH_A } from './batches/a';
+import { BATCH_B } from './batches/b';
 import { BATCH_C1 } from './batches/c1';
 import { BATCH_C2 } from './batches/c2';
 import { BATCH_D } from './batches/d';
@@ -24,6 +26,9 @@ import { BATCH_K2 } from './batches/k2';
 export type AnyGenerator = Generator<any, any>;
 
 const BATCHES = [
+  BATCH_A,
+  BATCH_B,
+
   BATCH_C1,
   BATCH_C2,
   BATCH_D,

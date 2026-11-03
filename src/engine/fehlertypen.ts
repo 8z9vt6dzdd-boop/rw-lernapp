@@ -1,4 +1,6 @@
 // Katalog der erkannten Denkfehler mit gezielter Erklärung (01-didaktik.md, Prinzip 6).
+import { FEHLERTYPEN_A } from './fehlertypen-batches/a';
+import { FEHLERTYPEN_B } from './fehlertypen-batches/b';
 import { FEHLERTYPEN_C1 } from './fehlertypen-batches/c1';
 import { FEHLERTYPEN_C2 } from './fehlertypen-batches/c2';
 import { FEHLERTYPEN_D } from './fehlertypen-batches/d';
@@ -209,6 +211,8 @@ export const FEHLERTYPEN_BASIS: Record<string, Fehlertyp> = {
 
 export const FEHLERTYPEN: Record<string, Fehlertyp> = {
   ...FEHLERTYPEN_BASIS,
+  ...FEHLERTYPEN_A,
+  ...FEHLERTYPEN_B,
   ...FEHLERTYPEN_C1,
   ...FEHLERTYPEN_C2,
   ...FEHLERTYPEN_D,

@@ -65,7 +65,7 @@ export const KONTEN: readonly Konto[] = [
   ...stoffKonten('Hilfsstoffe', 'Hilfsstoffe'),
   ...stoffKonten('Betriebsstoffe', 'Betriebsstoffe'),
   ...stoffKonten('Vorprodukte und Fremdbauteile', 'Vorprodukte/Fremdbauteile'),
-  // [ANNAHME – bitte prüfen] Unterkonten für Handelswaren analog zu den Stoffkonten (04-fachregeln.md).
+  // Unterkonten für Handelswaren analog zu den Stoffkonten (04-fachregeln.md, Abschnitt 6, geklärt).
   ...stoffKonten('Handelswaren', 'Handelswaren'),
   k('Unfertige Erzeugnisse', 'aktiv', ['UE']),
   k('Fertige Erzeugnisse', 'aktiv', ['FE']),

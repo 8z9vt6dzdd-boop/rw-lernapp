@@ -188,12 +188,12 @@ Diese Fehler wurden beim Nachrechnen gefunden. Musterlösungen der Hochschule si
 - Leistungsbezogene Abschreibung mit vorab gerundetem Stundensatz.
 - Veraltete Begriffe (DM, 16 % USt, „Vergleichsverfahren" statt Insolvenzverfahren).
 
-## 6. Annahmen aus der Umsetzung
-Diese Punkte waren in den Unterlagen nicht eindeutig geregelt. Die App arbeitet bis zur Klärung mit der jeweils vorsichtigsten Annahme.
+## 6. Geklärte Punkte aus der Umsetzung (Prüfpunkt 1, 03.11.2026)
+Vom Auftraggeber gegen Lehrbriefe und Lehrbuch-Lösungen geprüft und bestätigt.
 
-- [ANNAHME – bitte prüfen] **Unterkonten für Handelswaren:** Analog zu den Stoffkonten gibt es „Bezugskosten für Handelswaren“ und „Nachlässe für Handelswaren“ (Skonto beim Einkauf von Handelswaren wird dort gebucht).
-- [ANNAHME – bitte prüfen] **Geometrisch-degressive kalkulatorische Abschreibung:** Abschreibungsbetrag = fester Satz × Restbuchwert des Vorjahres, Ausgangswert Anschaffungskosten einschließlich Nebenkosten; ein Restwert wird dabei nicht abgezogen. Aufgaben dieses Verfahrens nennen deshalb keinen Restwert.
-- [ANNAHME – bitte prüfen] **Kundenskonto, Bruttomethode:** Die Steuerkorrektur lautet „Umsatzsteuer an Erlösberichtigungen“ (spiegelbildlich zu GC-02).
-- [ANNAHME – bitte prüfen] **USt-Voranmeldung:** Die Zahllast eines Monats wird nach der Verrechnung mit „Umsatzsteuer an Bank“ überwiesen.
-- [ANNAHME – bitte prüfen] **Zusammengefasste Buchungssätze:** Beim USt-Abschluss gilt „Umsatzsteuer an Vorsteuer, an SBK“ als gleichwertig zu zwei getrennten Sätzen. Ein zusammengesetzter Buchungssatz darf in mehrere ausgeglichene Teilsätze aufgeteilt werden (z. B. Zahlung mit Skonto in drei Einzelsätzen). Nicht zusammenfassbar sind zeitlich getrennte Vorgänge (Bruttomethode: Zahlung und spätere Steuerkorrektur) und der Abschluss des Kontos Bestandsveränderungen.
+- [GEKLÄRT] **Unterkonten für Handelswaren:** „Bezugskosten für Handelswaren“ und „Nachlässe für Handelswaren“, analog zu den Rohstoffen.
+- [GEKLÄRT] **Geometrisch-degressive kalkulatorische Abschreibung** (K1 Kap. 2.4): Abschreibungssatz p = 100 · (1 − ⁿ√(Rₙ ÷ A)) mit A = Anschaffungswert (einschließlich Nebenkosten), Rₙ = Restwert nach n Jahren; Abschreibung der Periode t = Restbuchwert(t−1) · p ÷ 100. Ein Restwert von 0 ist damit nicht möglich. Zwei Aufgabenvarianten: (a) Satz aus Anschaffungswert, Restwert und Nutzungsdauer ermitteln, (b) Prozentsatz vorgegeben, dann direkt Satz × Restbuchwert.
+- [GEKLÄRT] **Kundenskonto, Bruttomethode:** bei Zahlung „Bank und Erlösberichtigungen (brutto) an Forderungen a. LL“, am Monatsende „Umsatzsteuer an Erlösberichtigungen“.
+- [GEKLÄRT] **USt-Voranmeldung:** Zahllast überweisen mit „Umsatzsteuer an Bank“.
+- [GEKLÄRT] **Zusammengefasste Buchungssätze beim USt-Abschluss:** „Umsatzsteuer an Vorsteuer, an SBK“ gilt als richtig; das Feedback zeigt aber zwei getrennte Sätze als Klausur-Standard. Ein zusammengesetzter Buchungssatz darf in mehrere ausgeglichene Teilsätze aufgeteilt werden. Nicht zusammenfassbar sind zeitlich getrennte Vorgänge (Bruttomethode: Zahlung und spätere Steuerkorrektur) und der Abschluss des Kontos Bestandsveränderungen.
 - **Echte Geldbeträge** (Zahlungen, Skontobeträge, Steuerkorrekturen) werden in beiden Lösungspfaden auf Cent gerundet, damit Buchungssätze aufgehen. Der Zwei-Pfade-Vergleich aus Abschnitt 3 betrifft Rechengrößen wie Verrechnungssätze, Stückkosten oder Abschreibungssätze.

@@ -16,7 +16,10 @@ export interface KalkAfaParams {
   /** leistungsbezogen: Gesamtleistung und Leistung im 1. Jahr (Betriebsstunden) */
   gesamtLeistung?: number;
   leistungJahr1?: number;
-  /** geometrisch-degressiv: Abschreibungssatz als Dezimal-String */
+  /**
+   * geometrisch-degressiv: Abschreibungssatz als Dezimal-String (Variante „Satz vorgegeben“).
+   * Fehlt er, wird der Satz aus Anschaffungswert, Restwert und Nutzungsdauer ermittelt (K1 Kap. 2.4).
+   */
   satz?: string;
 }
 
@@ -29,6 +32,8 @@ export interface KalkAfaSolution {
   satzJeEinheit?: Val;
   leistungJahr1?: Val;
   restbuchwert?: Val;
+  /** geometrisch-degressiv: Abschreibungssatz als Dezimalzahl */
+  geoSatz?: Val;
 }
 
 interface Rechenweg {
@@ -36,6 +41,20 @@ interface Rechenweg {
   ohneRestwert?: boolean;
   zifferNd?: boolean;
   zifferUmgekehrt?: boolean;
+  /** Fehler: Satz ohne Wurzel, p = (1 − Rn/A) ÷ n */
+  ohneWurzel?: boolean;
+}
+
+/** p = 1 − ⁿ√(Rn ÷ A); Klausurweg: in Prozent auf 2 Nachkommastellen gerundet. */
+export function geometrischerSatz(
+  anschaffungswert: Val,
+  restwert: string,
+  nd: number,
+  ohneWurzel = false,
+): Val {
+  const q = new Val(restwert).div(anschaffungswert).exact;
+  const exact = ohneWurzel ? dec(1).minus(q).div(nd) : dec(1).minus(q.pow(dec(1).div(nd)));
+  return new Val(exact).round(4);
 }
 
 export function solveKalkAfa(p: KalkAfaParams, w: Rechenweg = {}): KalkAfaSolution {
@@ -60,7 +79,7 @@ export function solveKalkAfa(p: KalkAfaParams, w: Rechenweg = {}): KalkAfaSoluti
       };
     }
     case 'geometrisch': {
-      const s = dec(p.satz ?? '0.2');
+      const s = p.satz ? new Val(p.satz) : geometrischerSatz(basis, p.restwert, p.nd, w.ohneWurzel);
       let rbw = basis;
       const jahre: Val[] = [];
       for (let k = 0; k < 3; k++) {
@@ -68,7 +87,7 @@ export function solveKalkAfa(p: KalkAfaParams, w: Rechenweg = {}): KalkAfaSoluti
         jahre.push(afa);
         rbw = rbw.minus(afa);
       }
-      return { basis, jahre, restbuchwert: rbw };
+      return { basis, jahre, restbuchwert: rbw, geoSatz: s };
     }
   }
 }
@@ -93,6 +112,7 @@ function parts(p: KalkAfaParams, s: KalkAfaSolution): TaskPart[] {
       );
       break;
     case 'geometrisch':
+      if (!p.satz) felder.push(feld('p', 'Abschreibungssatz p', s.geoSatz!.times(100), 'prozent'));
       felder.push(
         ...s.jahre!.map((j, i) => feld(`j${i + 1}`, `Abschreibung im ${i + 1}. Jahr`, j)),
         feld('rbw', 'Restbuchwert nach dem 3. Jahr', s.restbuchwert!),
@@ -109,6 +129,7 @@ function variants(p: KalkAfaParams): ErrorVariant[] {
   if (!dec(p.nebenkosten).isZero()) add('nebenkosten-vergessen', { ohneNebenkosten: true });
   if (p.verfahren !== 'geometrisch' && !dec(p.restwert).isZero())
     add('restwert-vergessen', { ohneRestwert: true });
+  if (p.verfahren === 'geometrisch' && !p.satz) add('wurzel-vergessen', { ohneWurzel: true });
   if (p.verfahren === 'arithmetisch') {
     add('jahresziffern-falsch', { zifferNd: true });
     add('jahresziffern-falsch', { zifferUmgekehrt: true });
@@ -177,16 +198,21 @@ export const kalkAfa = defineGenerator<KalkAfaParams, KalkAfaSolution>({
               .toFixed(2);
         break;
       }
-      case 'geometrisch':
-        p.satz = rng.pick(['0.2', '0.25', '0.3']);
+      case 'geometrisch': {
+        const satz = rng.pick(['0.15', '0.2', '0.25', '0.3']);
         basis = String(rng.step(40_000, 400_000, 10_000));
+        // Variante a: Satz aus Restwert ermitteln; Variante b: Satz vorgegeben
+        if (rng.chance(0.5)) p.satz = satz;
+        else
+          p.restwert = dec(basis).times(dec(1).minus(satz).pow(nd)).toDecimalPlaces(0).toFixed(0);
         break;
+      }
     }
     const b = dec(basis);
     const nebenkosten = String(rng.step(500, Math.max(1_000, b.times('0.08').toNumber()), 500));
     const restwert =
       verfahren === 'geometrisch'
-        ? '0'
+        ? (p.restwert ?? '0')
         : String(rng.step(0, Math.max(1_000, b.times('0.1').toNumber()), 1_000));
     p.nebenkosten = nebenkosten;
     p.nebenkostenArt = rng.pick([
@@ -195,14 +221,19 @@ export const kalkAfa = defineGenerator<KalkAfaParams, KalkAfaSolution>({
       'Fundamentarbeiten',
     ]);
     p.restwert = restwert;
-    p.ak = b.minus(nebenkosten).plus(restwert).toFixed(2);
+    // Abschreibungsbasis: geometrisch = Anschaffungswert (Restwert wird nicht abgezogen)
+    p.ak = (
+      verfahren === 'geometrisch' ? b.minus(nebenkosten) : b.minus(nebenkosten).plus(restwert)
+    ).toFixed(2);
     return p as KalkAfaParams;
   },
   render: (p) => {
     const sachverhalt = [
       `Das Controlling der MBG ermittelt die kalkulatorische Abschreibung für eine neue ${p.anlage}.`,
       `Anschaffungspreis ${eur(p.ak)}, zusätzlich ${p.nebenkostenArt} ${eur(p.nebenkosten)}. Nutzungsdauer ${p.nd} Jahre${
-        p.verfahren === 'geometrisch' ? '' : `, erwarteter Restwert am Ende ${eur(p.restwert)}`
+        p.verfahren === 'geometrisch' && p.satz
+          ? ''
+          : `, erwarteter Restwert am Ende ${eur(p.restwert)}`
       }.`,
     ];
     if (p.verfahren === 'leistung') {
@@ -210,8 +241,8 @@ export const kalkAfa = defineGenerator<KalkAfaParams, KalkAfaSolution>({
         `Die Anlage ist auf ${plain(p.gesamtLeistung!)} Betriebsstunden ausgelegt; im ersten Jahr läuft sie ${plain(p.leistungJahr1!)} Stunden.`,
       );
     }
-    if (p.verfahren === 'geometrisch')
-      sachverhalt.push(`Abschreibungssatz: ${pct(p.satz!)} vom jeweiligen Restbuchwert.`);
+    if (p.verfahren === 'geometrisch' && p.satz)
+      sachverhalt.push(`Abschreibungssatz: ${pct(p.satz)} vom jeweiligen Restbuchwert.`);
     return {
       titel: 'Kalkulatorische Abschreibung',
       kontext: 'Januar Folgejahr: Controlling baut die Kostenrechnung auf',
@@ -223,7 +254,9 @@ export const kalkAfa = defineGenerator<KalkAfaParams, KalkAfaSolution>({
             ? 'Ermittle die kalkulatorische Abschreibung arithmetisch-degressiv für die ersten drei Jahre.'
             : p.verfahren === 'leistung'
               ? 'Ermittle die leistungsbezogene kalkulatorische Abschreibung für das erste Jahr.'
-              : 'Ermittle die geometrisch-degressive Abschreibung der ersten drei Jahre und den Restbuchwert.',
+              : p.satz
+                ? 'Ermittle die geometrisch-degressive Abschreibung der ersten drei Jahre und den Restbuchwert.'
+                : 'Ermittle den Abschreibungssatz (geometrisch-degressiv, in Prozent auf 2 Nachkommastellen), die Abschreibung der ersten drei Jahre und den Restbuchwert.',
     };
   },
   solve: (p) => solveKalkAfa(p),
@@ -236,9 +269,20 @@ export const kalkAfa = defineGenerator<KalkAfaParams, KalkAfaSolution>({
           p.verfahren === 'geometrisch'
             ? `${eur(p.ak)} + ${eur(p.nebenkosten)} = ${eur(s.basis)}`
             : `${eur(p.ak)} + ${eur(p.nebenkosten)} − ${eur(p.restwert)} = ${eur(s.basis)}`,
-        erlaeuterung: 'Anschaffungskosten einschließlich Nebenkosten, abzüglich Restwert.',
+        erlaeuterung:
+          p.verfahren === 'geometrisch'
+            ? 'Anschaffungswert einschließlich Nebenkosten; der Restwert steckt im Satz.'
+            : 'Anschaffungskosten einschließlich Nebenkosten, abzüglich Restwert.',
       },
     ];
+    if (p.verfahren === 'geometrisch' && !p.satz && s.geoSatz) {
+      steps.push({
+        titel: 'Abschreibungssatz',
+        rechnung: `p = 100 · (1 − ${p.nd}√(${eur(p.restwert)} ÷ ${eur(s.basis)})) = ${pct(s.geoSatz.valueDp(4))}`,
+        erlaeuterung:
+          'Der Satz ist so gewählt, dass nach der Nutzungsdauer genau der Restwert übrig bleibt.',
+      });
+    }
     if (s.linear)
       steps.push({
         titel: 'Jährlicher Betrag',
@@ -278,7 +322,7 @@ export const kalkAfa = defineGenerator<KalkAfaParams, KalkAfaSolution>({
     if (p.verfahren === 'geometrisch' && s.jahre && s.restbuchwert) {
       let rbw = s.basis;
       const zeilen = s.jahre.map((j, i) => {
-        const z = `Jahr ${i + 1}: ${eur(rbw)} × ${pct(p.satz!)} = ${eur(j)}`;
+        const z = `Jahr ${i + 1}: ${eur(rbw)} × ${pct(s.geoSatz!.stepped)} = ${eur(j)}`;
         rbw = rbw.minus(j);
         return z;
       });
@@ -314,8 +358,10 @@ export const kalkAfa = defineGenerator<KalkAfaParams, KalkAfaSolution>({
       case 'geometrisch':
         return [
           h1,
-          'Restwert spielt hier keine Rolle: Satz × jeweiliger Restbuchwert.',
-          `Jahr 1: ${eur(s.basis)} × ${pct(p.satz!)}.`,
+          p.satz
+            ? 'Jahresbetrag = Satz × Restbuchwert des Vorjahres; im 1. Jahr ist das der Anschaffungswert.'
+            : `Satz: p = 100 · (1 − n-te Wurzel aus Restwert ÷ Anschaffungswert), hier n = ${p.nd}.`,
+          `Jahr 1: ${eur(s.basis)} × ${pct(s.geoSatz!.stepped)}.`,
         ];
     }
   },

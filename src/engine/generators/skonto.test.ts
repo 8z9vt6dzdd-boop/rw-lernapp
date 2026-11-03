@@ -298,3 +298,34 @@ describe('Skonto: keine Fehlmeldung bei bloß unvollständiger Eingabe', () => {
     expect(skontoEinkauf.check(p, s, answer).fehlertypen).toContain('keine-steuerkorrektur');
   });
 });
+
+describe('Zusammengefasster USt-Abschluss', () => {
+  it('gilt als richtig, Feedback zeigt getrennte Sätze als Klausur-Standard', async () => {
+    const { ustAbschluss, solveUstAbschluss } = await import('./ust-abschluss');
+    const p = {
+      vorsteuer: '30000',
+      umsatzsteuer: '45000',
+      anlass: 'jahresabschluss' as const,
+      monat: 'Dezember',
+    };
+    const s = solveUstAbschluss(p);
+    const answer = antwortAusParts(ustAbschluss.parts(p, s));
+    answer['buchung'] = {
+      typ: 'buchung',
+      saetze: [
+        {
+          soll: [{ konto: 'Umsatzsteuer', betrag: '45000' }],
+          haben: [
+            { konto: 'Vorsteuer', betrag: '30000' },
+            { konto: 'SBK', betrag: '15000' },
+          ],
+        },
+      ],
+    };
+    const r = ustAbschluss.check(p, s, answer);
+    expect(r.korrekt).toBe(true);
+    const fb = r.parts.find((x) => x.partId === 'buchung')!.feedback.join(' ');
+    expect(fb).toContain('getrennte Buchungssätze');
+    expect(fb).toContain('Umsatzsteuer 15.000,00');
+  });
+});

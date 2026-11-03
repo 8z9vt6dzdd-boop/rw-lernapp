@@ -16,9 +16,13 @@
 7. **Erroneous Examples.** Fertige Lösungen mit eingebautem Fehler finden und begründen.
 8. **Klausurnähe.** Jeder Abschnitt endet mit einer Mini-Klausur im Originalformat (Punkte, Zeit, Rechenweg).
 
+## Lektionen zuerst
+Neue Inhalte werden in kurzen, interaktiven Lektionen vermittelt (Rätsel-Einstieg, Alltagsvergleich, Figuren, Erkunden, Vorhersage, Merksatz, Klausurbrücke, Cliffhanger), bevor geübt wird. Einzelheiten: `09-lektionen.md`. Wer etwas schon kann, überspringt per Kurztest (Lektion, Abschnitt, Einstufung).
+
 ## Lernmodi
 | Modus | Gerät | Dauer | Inhalt |
 |---|---|---|---|
+| Lektion | beide (mobil zuerst) | 3–8 Min. | Wissen aufbauen: Geschichte, Erkunden, Vorhersage, Merksatz, Klausurbrücke |
 | Kurzmodus | Smartphone | 5–10 Min. | fällige Wiederholungen (FSRS), Buchungssätze, Kontenzuordnung, „Aufgabe erkennen", Theorie-Karten |
 | Fallmodus | Laptop | 30+ Min. | mehrstufige Fälle (Geschäftsgang, BAB, Leistungsverrechnung, Kalkulation) mit Tabellen und Zwischenergebnissen |
 | Mini-Klausur | beide | 15–30 Min. | Abschluss eines Abschnitts, Originalformat, Zeitlimit |
@@ -35,12 +39,12 @@ Beim ersten Start ein adaptiver Einstufungstest (ca. 15 Aufgaben, 10–15 Min.).
 - Anzeige als **Kompetenzring** pro Skill und Abschnitt. Der Ring zeigt die aktuelle Abrufwahrscheinlichkeit aus FSRS und verblasst sichtbar, wenn lange nicht geübt wurde.
 - **Klausur-Readiness** je Abschnitt und gesamt: Mittelwert der Abrufwahrscheinlichkeiten, gewichtet nach Klausurrelevanz.
 
-## Gamification (dezent)
-- **Rahmenhandlung MBG Paderborn:** Die Person führt Buchhaltung und Kostenrechnung der MBG (fiktive Lernversion eines Getränkeherstellers) durch ein Geschäftsjahr; jeder Abschnitt ist ein Kapitel dieses Jahres (Details in `08-firma-mbg.md`). Ein Dashboard zeigt Bilanz und GuV der MBG, die mit jedem abgeschlossenen Abschnitt fortgeschrieben werden.
-- **Wochenziel statt Tagesstreak:** Ziel in Sitzungen pro Woche (Standard: 5). Die Wochenserie zählt erfüllte Wochen. Pro Monat ein automatischer Puffer, der eine verpasste Woche überbrückt.
-- **XP:** sparsam, nur für abgeschlossene Sitzungen und Mini-Klausuren, nie Abzug.
-- **Meilensteine statt Badge-Flut:** z. B. „Erster Jahresabschluss gebucht", „Simultanverfahren sicher". Maximal 15 insgesamt.
-- **Verboten:** Leben/Herzen, Ranglisten, Countdown-Druck, Verlust-Animationen, Konfetti.
+## Motivation (ersetzt durch `10-optik-und-motivation.md`)
+Die frühere Regel „dezent: Wochenziel statt Tagesserie, XP sparsam, kein Konfetti“ ist aufgehoben. Es gilt `10-optik-und-motivation.md`:
+- **Rahmenhandlung MBG Paderborn** mit festen Figuren; der Lernpfad ist eine Karriere mit Beförderungen.
+- **Tagesziel und Tagesserie** mit Serienschutz und Reparatur; alles Verpasste ist reparierbar.
+- **Tagesaufgaben, XP und Stufen** (nie Abzug), Wochenrückblick, rund 25 Erfolge, Belohnungsmomente.
+- **Weiterhin verboten:** Leben/Herzen, Ranglisten, Schuldgefühle-Texte, künstliche Verknappung, roter Druck-Countdown, mehr als eine Erinnerung pro Tag.
 
 ## Fehlerdaten für Version 2
 Jede Antwort wird als Ereignis gespeichert (`AttemptEvent`, siehe `05-technik.md`). Daraus entstehen ein Fehlerprofil („häufigste Denkfehler") und später der Kontext für einen KI-Tutor.

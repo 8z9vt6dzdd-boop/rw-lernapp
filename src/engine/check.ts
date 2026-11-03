@@ -1,6 +1,7 @@
 // Allgemeine Bewertung der Aufgabenteile. Generatoren liefern nur Teile und Fehlervarianten.
 import {
   erkenneBuchungsfehler,
+  formatSatz,
   parseEingabe,
   vergleicheBuchung,
   type BuchungsVergleich,
@@ -138,11 +139,16 @@ function checkBuchung(
   if (saetze.length === 0) {
     feedback.push('Es wurde noch keine Buchung eingegeben.');
   } else if (v.korrekt) {
-    feedback.push(
-      v.zusammengefasst
-        ? 'Richtig gebucht (zusammengefasst bzw. aufgeteilt – fachlich gleichwertig).'
-        : 'Konten, Seiten und Beträge stimmen.',
-    );
+    feedback.push('Konten, Seiten und Beträge stimmen.');
+    if (v.zusammengefasst) {
+      const l = best.loesung;
+      feedback.push(
+        l.saetze.length > 1
+          ? 'Zusammengefasst gilt das als richtig. In der Klausur üblich sind getrennte Buchungssätze:'
+          : 'Aufgeteilt gilt das als richtig. In der Klausur üblich ist ein zusammengesetzter Buchungssatz:',
+        ...l.saetze.map((x, i) => `${l.saetze.length > 1 ? `${i + 1}. ` : ''}${formatSatz(x)}`),
+      );
+    }
     if (best.loesung.methode && part.alternativen?.length) {
       feedback.push(`Erkannt als ${best.loesung.methode}.`);
     }

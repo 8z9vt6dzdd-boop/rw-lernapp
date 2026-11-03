@@ -5,7 +5,8 @@ Claude Code arbeitet die Meilensteine selbstständig ab und hält nur an drei **
 | Prüfpunkt | nach | Was der Auftraggeber tut |
 |---|---|---|
 | 1 | M0 + M1 + M2 | App-Adresse in Safari öffnen, zum Home-Bildschirm hinzufügen, eine Kurz-Sitzung durchspielen, Rückmeldung geben |
-| 2 | M3 + M4 + M5 | Lernpfad, Fallmodus am Laptop und eine Mini-Klausur ausprobieren; MBG-Dashboard ansehen |
+| 1b (Zwischen-Prüfpunkt) | M2b | Pilotlektionen 0.1, 0.3, 0.5, 0.6 und C5 auf dem Handy durchspielen, Figuren, Lernpfad und Motivationssystem ansehen; Freigabe für M2c |
+| 2 | M2c + M3 + M4 + M5 | Lernpfad, Fallmodus am Laptop und eine Mini-Klausur ausprobieren; MBG-Dashboard ansehen |
 | 3 | M6 + M7 | Vorher: kostenloses Cloudflare-Konto anlegen. Dann Handy und Laptop per QR-Code verbinden, auf dem Handy lernen, am Laptop prüfen, ob der Stand ankommt; Stichprobe von Theorie-Karten; danach Link an die lernende Person weitergeben |
 
 ## M0 – Fundament
@@ -27,6 +28,18 @@ Claude Code arbeitet die Meilensteine selbstständig ab und hält nur an drei **
 - Speicherung der `AttemptEvent`s in IndexedDB.
 **Abnahme:** Eine 10-Minuten-Sitzung mit den M1-Generatoren ist auf dem Smartphone flüssig bedienbar; falsche Antworten zeigen den konkreten Denkfehler.
 
+## M2b – Lektionen-Pilot, Figuren, Motivation (nach `09-lektionen.md` und `10-optik-und-motivation.md`)
+- Figuren (Open Peeps, CC0) mit mindestens 6 Ausdrücken, gezeichnete Schauplätze, Lektions-Player mit allen 14 Bildschirmtypen, Visualisierungs-Bausteine T-Konto, Bilanz-Waage, Brutto-Netto-Balken, Beleg-Ansicht, Lager-Ansicht.
+- Lernpfad im Duolingo-Stil (Lektion → Übung → Wiederholung) mit Überspringen auf drei Ebenen (Lektion, Abschnitt, Einstufung).
+- Motivationssystem: Tagesziel, Tagesserie mit Serienschutz und Reparatur, Tagesaufgaben, XP und Stufen, Karrierestufen, Erfolge, Belohnungsmomente, Wochenrückblick, Klausur-Readiness. Push-Erinnerungen folgen mit dem Abgleichsdienst in M6.
+- Tabellenaufgaben auf dem Handy: Laptop-Hinweis, Liste „Am Laptop weitermachen“, Teilschritte im Kurzmodus.
+- Pilotlektionen 0.1, 0.3, 0.5, 0.6, C5.
+**Abnahme:** Eine Person ohne Vorwissen versteht nach 0.1 → 0.6 die Grundidee der Buchhaltung und kann nach C5 die Skonto-Übung lösen; jede Pilotlektion erfüllt die Qualitäts-Checkliste aus `09-lektionen.md`; Serie und Serienschutz funktionieren über simulierte Datumswechsel.
+
+## M2c – Lektionen Ausbau (erst nach Freigabe am Zwischen-Prüfpunkt)
+- Restliche Lektionen von Abschnitt 0 (0.2, 0.4, 0.7), Abschnitt A (A1–A7), Abschnitt B (B1–B3) und Lektionen für alle Skills mit Übungen (D4, E4, H4, I4, I5, J3, J4); fehlende Visualisierungs-Bausteine (Kontenkreislauf, Kostenstellen-Netz, Kalkulations-Treppe, Abschreibungs-Verlauf, Kostenfunktion).
+**Abnahme:** wie M2b für alle neuen Lektionen.
+
 ## M3 – Lernpfad und Wiederholung
 - Curriculum aus `02-curriculum.md`, Lernpfad-Ansicht mit Kompetenzringen.
 - FSRS-Scheduler, Sitzungsmix 70/30, Interleaving.
@@ -40,7 +53,7 @@ Claude Code arbeitet die Meilensteine selbstständig ab und hält nur an drei **
 - Mini-Klausur je Abschnitt und Probeklausur (Verteilung aus `02-curriculum.md`), Zeitlimit, Punktebewertung, Auswertung nach Skills.
 **Abnahme:** Eine Probeklausur ist am Laptop vollständig bearbeitbar und wird mit Punkten und Skill-Auswertung bewertet.
 
-## M5 – Firma und Motivation
+## M5 – Firma und Motivation (Motivationssystem bereits in M2b; hier MBG-Dashboard und Feinschliff)
 - MBG-Dashboard (Bilanz/GuV wachsen mit Abschnitten, Zeitleiste „Geschäftsjahr"), Hinweis auf fiktive Zahlen.
 - Wochenziel mit Puffer, XP, Meilensteine (max. 15).
 - Statistik: Lernzeit, Fehlerprofil (häufigste Fehlertypen).

@@ -240,3 +240,25 @@ describe('Golden Cases', () => {
     expect(w).toMatchObject({ bvp: '106.950,00', zvp: '116.250,00', lvp: '125.000,00' });
   });
 });
+
+describe('Geometrisch-degressive Abschreibung (K1 Kap. 2.4, geklärt am Prüfpunkt 1)', () => {
+  const base: KalkAfaParams = {
+    verfahren: 'geometrisch',
+    anlage: 'Abfüllanlage',
+    ak: '95000',
+    nebenkosten: '5000',
+    nebenkostenArt: 'Montagekosten',
+    restwert: '32768',
+    nd: 5,
+  };
+  it('Satz aus Restwert: p = 100 · (1 − 5√(32.768 ÷ 100.000)) = 20 %', () => {
+    const s = solveKalkAfa(base);
+    expect(f(s.geoSatz!.times(100))).toBe('20,00');
+    expect(s.jahre!.map(f)).toEqual(['20.000,00', '16.000,00', '12.800,00']);
+    expect(f(s.restbuchwert!)).toBe('51.200,00');
+  });
+  it('Satz vorgegeben: direkt Satz × Restbuchwert', () => {
+    const s = solveKalkAfa({ ...base, satz: '0.25', restwert: '0' });
+    expect(s.jahre!.map(f)).toEqual(['25.000,00', '18.750,00', '14.062,50']);
+  });
+});

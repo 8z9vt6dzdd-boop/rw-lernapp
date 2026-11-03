@@ -10,7 +10,7 @@ Die MBG Group ist ein reales Unternehmen (Getränke-Markenartikler, Sitz Paderbo
 - Name in `src/config.ts` zentral änderbar, falls die Kulisse später gewechselt werden soll.
 
 ## Firmensteckbrief (Lernversion)
-- **Name:** MBG Getränke OHG (Lernversion), Paderborn. Rechtsform im Szenario: Personengesellschaft (OHG), weil die Musterklausuren Buchungssätze „für eine Personengesellschaft" verlangen und Privatkonten vorkommen. Gesellschafter: zwei erfundene Personen.
+- **Name:** MBG Getränke OHG (Lernversion), Paderborn. Rechtsform im Szenario: Personengesellschaft (OHG), weil die Musterklausuren Buchungssätze „für eine Personengesellschaft" verlangen und Privatkonten vorkommen. Gesellschafter: Frank und Sabine Wessel (erfunden). Weitere feste Figuren: Jana Kröger (Buchhaltung), Tobias Hesse (Vertrieb), Dr. Leni Brandt (Controlling), siehe `09-lektionen.md`.
 - **Geschäftsmodell im Szenario:** Herstellung und Abfüllung eigener Getränke im Werk Paderborn (Industriebetrieb nach IKR) plus Zukauf und Weiterverkauf von Handelswaren (zugekaufte Spirituosen und Weine).
 - **Kunden:** Gastronomie, Getränkefachgroßhandel, Lebensmitteleinzelhandel, Tankstellen; Exportkunden in der EU (für innergemeinschaftliche Lieferung).
 - **Standorte:** Verwaltung und Werk Paderborn, Logistikzentrum Paderborn.

@@ -8,7 +8,7 @@ export const FIRMA: FirmaConfig = {
   ort: 'Paderborn',
   hinweisFiktiv:
     'Lernszenario mit fiktiven Zahlen. Kein Bezug zu tatsächlichen Geschäftsdaten der MBG Group.',
-  gesellschafter: ['Jana Hölscher', 'Tim Overbeck'],
+  gesellschafter: ['Frank Wessel', 'Sabine Wessel'],
   produkte: {
     energy: 'Paderquell Energy',
     lemon: 'Senne Lemon',

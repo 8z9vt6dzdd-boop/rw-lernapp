@@ -110,6 +110,11 @@ export const FEHLERTYPEN: Record<string, Fehlertyp> = {
     erklaerung:
       'Arithmetisch-degressiv: Degressionsbetrag = Abschreibungsbasis ÷ Summe der Jahresziffern (1 + 2 + … + n). Im ersten Jahr wird mit der höchsten Ziffer n multipliziert, dann mit n − 1 usw.',
   },
+  'wurzel-vergessen': {
+    titel: 'Satz ohne n-te Wurzel ermittelt',
+    erklaerung:
+      'Geometrisch-degressiv schrumpft der Buchwert jedes Jahr um denselben Prozentsatz. Deshalb: p = 100 · (1 − n-te Wurzel aus Restwert ÷ Anschaffungswert), nicht (1 − Restwert ÷ Anschaffungswert) ÷ n.',
+  },
   'satz-vorab-gerundet': {
     titel: 'Satz je Einheit vorab gerundet',
     erklaerung:

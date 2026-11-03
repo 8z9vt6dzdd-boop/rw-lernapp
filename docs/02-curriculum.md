@@ -11,6 +11,18 @@ Die Einstufung ist eine **Annahme** aus vier Musterklausuren und zwei Einsendeau
 
 Abkürzungen Lehrbrief: BA = Buchführung und Abschluss, K1 = KLR I, K2 = KLR II.
 
+## Abschnitt 0 – Grundverständnis (vor A, ohne Vorwissen)
+Reine Lektionen ohne Formeln (Details und Kern-Aha je Lektion: `09-lektionen.md`, Abschnitt 3). Relevanz: Voraussetzung.
+| Skill-ID | Lektion | Lehrbrief | Art |
+|---|---|---|---|
+| 0.1-wozu | Erster Tag bei der MBG: Wozu das alles? | BA 2.1 | Lektion |
+| 0.2-inventur | Inventur: Die MBG zählt alles | BA 2.2 | Lektion |
+| 0.3-bilanz | Die Bilanz: das Foto am 31.12. | BA 2.3 | Lektion |
+| 0.4-guv | Vom Foto zum Film: Gewinn und Verlust | BA 2.3 | Lektion |
+| 0.5-doppik | Warum doppelt? Jede Sache hat zwei Seiten | BA 2.3.1 | Lektion |
+| 0.6-konto | Das Konto: ein Notizzettel mit zwei Spalten | BA 2.3.2 | Lektion |
+| 0.7-zwei-brillen | Zwei Brillen: Buchhaltung und Kostenrechnung | BA 2.1, K1 1 | Lektion |
+
 ## Abschnitt A – Fundament (BA Kap. 1–2)
 | Skill-ID | Inhalt | Lehrbrief | Relevanz | Art |
 |---|---|---|---|---|
@@ -140,4 +152,4 @@ Zusammenstellung einer Probeklausur (90 Punkte):
 - **Teilkosten:** standardmäßig 0 Punkte. In den Einstellungen zuschaltbar („Teilkosten in Probeklausuren"); dann ersetzt eine K-Aufgabe (10–15 P.) die BAB- oder Kalkulationsaufgabe.
 
 ## Freischaltung
-Abschnitte A–B sind Voraussetzung für alles. Danach kann die Person frei zwischen C–F (Buchführung) und G–K (KLR) wechseln. Abschnitt K setzt G4 (fixe/variable Kosten) voraus. Innerhalb eines Abschnitts wird der Lernpfad empfohlen, aber nicht erzwungen.
+Abschnitt 0 und die Abschnitte A–B sind Voraussetzung für alles. Solange Abschnitte noch nicht vollständig mit Lektionen ausgestattet sind (bis M2c/M7), ist die Reihenfolge eine Empfehlung: Ein späterer Abschnitt lässt sich nach einem Hinweis trotzdem öffnen. Je Skill: Lektion → Übung (geblockt) → Wiederholung (gemischt); die Übung wird nach der Lektion oder dem bestandenen Überspringen-Test frei, bei Skills ohne Lektion sofort. Danach kann die Person frei zwischen C–F (Buchführung) und G–K (KLR) wechseln. Abschnitt K setzt G4 (fixe/variable Kosten) voraus. Innerhalb eines Abschnitts wird der Lernpfad empfohlen, aber nicht erzwungen.

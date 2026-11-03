@@ -339,7 +339,7 @@ export const kostenverlauf = defineGenerator<KostenverlaufParams, KostenverlaufS
     ];
     if (p.variante === 'aufloesung') {
       out.push({
-        fehlertyp: 'durchschnitt-statt-differenz',
+        fehlertyp: 'kv-durchschnitt-statt-differenz',
         parts: parts(p, solveKostenverlauf(p, { durchschnitt: true })),
       });
     }

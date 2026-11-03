@@ -13,7 +13,7 @@ export const FEHLERTYPEN_E: Record<string, Fehlertyp> = {
     erklaerung:
       'Transport, Montage, Fundament oder Überführung sind nötig, damit die Anlage betriebsbereit ist. Sie erhöhen die Anschaffungskosten und werden auf dem Anlagekonto aktiviert, nicht als Aufwand gebucht.',
   },
-  'rabatt-vergessen': {
+  'anlage-rabatt-vergessen': {
     titel: 'Rabatt nicht abgezogen',
     erklaerung:
       'Ein Sofortrabatt mindert den Anschaffungspreis direkt. Er wird nicht gesondert gebucht: Zuerst den Rabatt vom Listenpreis abziehen, dann die Nebenkosten addieren.',

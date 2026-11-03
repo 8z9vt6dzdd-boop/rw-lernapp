@@ -85,19 +85,29 @@ const BASIS_KONTEN: readonly Konto[] = [
     kurz: 'Forderungen a. LL',
   }),
   k('Zweifelhafte Forderungen', 'aktiv'),
-  k('Sonstige Forderungen', 'aktiv'),
+  k('Sonstige Forderungen', 'aktiv', ['Sonstige Vermögensgegenstände']),
   k('Vorsteuer', 'aktiv', ['VSt']),
   k('Bank', 'aktiv', ['Bankguthaben']),
   k('Kasse', 'aktiv'),
-  k('Aktive Rechnungsabgrenzung', 'aktiv', ['ARAP', 'aktive RAP'], { kurz: 'ARAP' }),
+  k('Aktive Rechnungsabgrenzung', 'aktiv', ['ARAP', 'aktive RAP', 'ARA'], { kurz: 'ARAP' }),
   // Passiv
   k('Eigenkapital', 'passiv', ['EK']),
   k('Privat', 'passiv', ['Privatkonto', 'Privatentnahmen', 'Privateinlagen'], {
     unterkontoVon: 'Eigenkapital',
   }),
-  k('Einzelwertberichtigung zu Forderungen', 'passiv', ['EWB'], { kurz: 'EWB' }),
-  k('Pauschalwertberichtigung zu Forderungen', 'passiv', ['PWB'], { kurz: 'PWB' }),
-  k('Rückstellungen', 'passiv'),
+  k(
+    'Einzelwertberichtigung zu Forderungen',
+    'passiv',
+    ['EWB', 'Einzelwertberichtigungen', 'Einzelwertberichtigungen auf Forderungen'],
+    { kurz: 'EWB' },
+  ),
+  k(
+    'Pauschalwertberichtigung zu Forderungen',
+    'passiv',
+    ['PWB', 'Pauschalwertberichtigungen', 'Pauschalwertberichtigungen auf Forderungen'],
+    { kurz: 'PWB' },
+  ),
+  k('Rückstellungen', 'passiv', ['Steuerrückstellungen', 'Sonstige Rückstellungen']),
   k('Darlehensschulden', 'passiv', ['Darlehen', 'Verbindlichkeiten gegenüber Kreditinstituten']),
   k(
     'Verbindlichkeiten aus Lieferungen und Leistungen',
@@ -107,7 +117,7 @@ const BASIS_KONTEN: readonly Konto[] = [
   ),
   k('Umsatzsteuer', 'passiv', ['USt']),
   k('Sonstige Verbindlichkeiten', 'passiv'),
-  k('Passive Rechnungsabgrenzung', 'passiv', ['PRAP', 'passive RAP'], { kurz: 'PRAP' }),
+  k('Passive Rechnungsabgrenzung', 'passiv', ['PRAP', 'passive RAP', 'PRA'], { kurz: 'PRAP' }),
   // Ertrag
   k('Umsatzerlöse für eigene Erzeugnisse', 'ertrag', ['Umsatzerlöse'], { kurz: 'Umsatzerlöse' }),
   k('Erlöse aus innergemeinschaftlicher Lieferung', 'ertrag'),
@@ -141,7 +151,7 @@ const BASIS_KONTEN: readonly Konto[] = [
   k('Abschreibungen auf Sachanlagen', 'aufwand', ['Abschreibungen auf SA'], {
     kurz: 'Abschreibungen auf SA',
   }),
-  k('Abschreibungen auf Forderungen', 'aufwand'),
+  k('Abschreibungen auf Forderungen', 'aufwand', ['Forderungsverluste']),
   k('Einstellung in Wertberichtigungen', 'aufwand'),
   k('Mietaufwendungen', 'aufwand'),
   k('Büromaterial', 'aufwand'),

@@ -8,7 +8,7 @@ export const FEHLERTYPEN_F1: Record<string, Fehlertyp> = {
     erklaerung:
       'Zur Wertuntergrenze der Herstellungskosten gehören neben den Material- und Fertigungseinzelkosten und den Sondereinzelkosten der Fertigung auch die notwendigen Material- und Fertigungsgemeinkosten.',
   },
-  'vertriebskosten-aktiviert': {
+  'vertriebskosten-in-herstellungskosten': {
     titel: 'Vertriebskosten einbezogen',
     erklaerung:
       'Vertriebskosten – auch Sondereinzelkosten des Vertriebs – dürfen nicht in die Herstellungskosten einbezogen werden. Sie entstehen erst beim Verkauf, nicht bei der Herstellung.',

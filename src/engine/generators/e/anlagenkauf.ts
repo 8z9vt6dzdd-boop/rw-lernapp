@@ -233,7 +233,7 @@ function variants(p: AnlagenkaufParams): ErrorVariant[] {
     out.push({ fehlertyp, parts: parts(p, solveAnlagenkauf(p, w)) });
   add('vorsteuer-aktiviert', { vorsteuerAktiviert: true });
   add('nebenkosten-als-aufwand', { nebenkostenAlsAufwand: true });
-  if (!dec(p.rabattSatz).isZero()) add('rabatt-vergessen', { rabattVergessen: true });
+  if (!dec(p.rabattSatz).isZero()) add('anlage-rabatt-vergessen', { rabattVergessen: true });
   add('steuer-falsches-konto', { steuerKonto: 'Umsatzsteuer' });
   if (p.variante === 'skonto') {
     add('nachlass-statt-anlagekonto', { minderungsKonto: 'Nachlässe für Rohstoffe' });

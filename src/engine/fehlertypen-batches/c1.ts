@@ -82,6 +82,11 @@ export const FEHLERTYPEN_C1: Record<string, Fehlertyp> = {
     erklaerung:
       'Mit der Rücksendung sinkt das Entgelt. Deshalb wird auch die Vorsteuer anteilig zurückgebucht: Vorsteuer im Haben, die Verbindlichkeit sinkt um den Bruttobetrag.',
   },
+  'gutschrift-nicht-abgezogen': {
+    titel: 'Gutschrift nicht abgezogen',
+    erklaerung:
+      'Eine Gutschrift (z. B. für zurückgegebene Leihpaletten) mindert die gesammelten Bezugskosten. Umgebucht wird nur der Saldo des Unterkontos nach Abzug der Gutschrift.',
+  },
   'gutschrift-brutto-als-netto': {
     titel: 'Bruttobetrag der Gutschrift als Nettowert behandelt',
     erklaerung:

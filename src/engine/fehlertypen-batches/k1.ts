@@ -8,7 +8,7 @@ export const FEHLERTYPEN_K1: Record<string, Fehlertyp> = {
     erklaerung:
       'Die Stückkosten einer Beschäftigung lassen sich nicht einfach mit einer anderen Menge multiplizieren. Sie enthalten einen Fixkostenanteil, der mit steigender Menge sinkt. Rechne immer mit K = K_f + k_v · x.',
   },
-  'durchschnitt-statt-differenz': {
+  'kv-durchschnitt-statt-differenz': {
     titel: 'Durchschnittskosten statt variable Kosten',
     erklaerung:
       'Gesamtkosten ÷ Menge ergibt die Stückkosten einschließlich Fixkosten. Die variablen Kosten je Einheit erhältst du aus Kostendifferenz ÷ Mengendifferenz, weil die Fixkosten in beiden Monaten gleich sind.',

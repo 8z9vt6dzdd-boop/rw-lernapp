@@ -260,7 +260,7 @@ function variants(p: F3Params): ErrorVariant[] {
   switch (p.variante) {
     case 'herstellungskosten':
       add('hk-nur-einzelkosten', { nurEinzelkosten: true });
-      add('vertriebskosten-aktiviert', { mitVertrieb: true });
+      add('vertriebskosten-in-herstellungskosten', { mitVertrieb: true });
       add('verwaltung-in-untergrenze', { verwaltungInUntergrenze: true });
       break;
     case 'niederstwert-uv':

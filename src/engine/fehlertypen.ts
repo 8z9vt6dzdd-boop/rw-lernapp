@@ -17,7 +17,7 @@ export interface Fehlertyp {
   erklaerung: string;
 }
 
-const BASIS: Record<string, Fehlertyp> = {
+export const FEHLERTYPEN_BASIS: Record<string, Fehlertyp> = {
   // Allgemein
   'summen-ungleich': {
     titel: 'Soll und Haben sind ungleich',
@@ -208,7 +208,7 @@ const BASIS: Record<string, Fehlertyp> = {
 };
 
 export const FEHLERTYPEN: Record<string, Fehlertyp> = {
-  ...BASIS,
+  ...FEHLERTYPEN_BASIS,
   ...FEHLERTYPEN_C1,
   ...FEHLERTYPEN_C2,
   ...FEHLERTYPEN_D,

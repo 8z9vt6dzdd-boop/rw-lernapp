@@ -1,5 +1,6 @@
 // Startseite (10-optik B4–B7): Serie, Tagesziel, Tagesaufgaben, Karriere, nächste Szene, Klausur-Stand.
 import { useMemo, useSyncExternalStore } from 'react';
+import { istInstalliert, istIosSafari } from '../geraet';
 import { fallInfo } from '../../engine/faelle';
 import { lektionFuerSkill } from '../../content/lessons';
 import { skillTitel } from '../../learning/prepare';
@@ -25,21 +26,6 @@ import { Button, Card, Chip, cx } from '../components/ui';
 import { Character } from '../figures/Character';
 import { Sprechblase } from '../lesson/Sprechblase';
 import { navigate, useEvents, useSettings } from '../hooks';
-
-function istIosSafari(): boolean {
-  const ua = navigator.userAgent;
-  const ios =
-    /iPhone|iPad|iPod/.test(ua) ||
-    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  return ios && !/CriOS|FxiOS|EdgiOS/.test(ua);
-}
-
-function istInstalliert(): boolean {
-  return (
-    window.matchMedia('(display-mode: standalone)').matches ||
-    (navigator as Navigator & { standalone?: boolean }).standalone === true
-  );
-}
 
 const breitQuery = '(min-width: 1024px)';
 function useBreit(): boolean {

@@ -78,7 +78,52 @@ export interface LaptopEvent {
   variant?: string;
 }
 
-export type LernEreignis = AttemptEvent | LektionEvent | UeberspringenEvent | LaptopEvent;
+/** Abgeschlossene Mini- oder Probeklausur (Protokoll für Übersicht und Statistik) */
+export interface KlausurEvent {
+  typ: 'klausur';
+  id: string;
+  ts: string;
+  deviceId: string;
+  klausurId: string;
+  art: 'mini' | 'probe';
+  titel: string;
+  punkte: number;
+  max: number;
+}
+
+/** Inhalt als fehlerhaft gemeldet (07-content-pipeline.md, Meldefunktion) */
+export interface MeldungEvent {
+  typ: 'meldung';
+  id: string;
+  ts: string;
+  deviceId: string;
+  /** Element-ID, z. B. Theorie-Element, Lektions-Bildschirm oder Generator-Skill */
+  elementId: string;
+  skillId?: SkillId;
+  seed?: number;
+  variant?: string;
+  kommentar?: string;
+  /** Meldung zurückgezogen (Inhalt wieder anzeigen) */
+  zurueckgezogen?: boolean;
+}
+
+/** Geräteübergreifende Einstellungen (Tagesziel, Klausurtermin, Figur …), jüngster Stand gilt */
+export interface EinstellungenEvent {
+  typ: 'einstellungen';
+  id: string;
+  ts: string;
+  deviceId: string;
+  werte: Partial<Settings>;
+}
+
+export type LernEreignis =
+  | AttemptEvent
+  | LektionEvent
+  | UeberspringenEvent
+  | LaptopEvent
+  | KlausurEvent
+  | MeldungEvent
+  | EinstellungenEvent;
 
 export type Theme = 'auto' | 'hell' | 'dunkel';
 

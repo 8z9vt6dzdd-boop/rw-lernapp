@@ -1,5 +1,6 @@
 // Erster Start: Begrüßung bei der MBG, eigene Figur gestalten, Tagesziel, Einstufung oder direkt loslegen.
 import { useState } from 'react';
+import { GeraeteVerbinden } from '../components/GeraeteVerbinden';
 import { ICH_ACCESSOIRES, ICH_FARBEN, ICH_FRISUREN } from '../../content/characters';
 import { ZIELE } from '../../learning/motivation';
 import type { Tagesziel } from '../../learning/types';
@@ -124,6 +125,7 @@ export function FigurScreen() {
 export function WillkommenScreen() {
   const settings = useSettings();
   const [schritt, setSchritt] = useState(0);
+  const [zweitesGeraet, setZweitesGeraet] = useState(false);
   const fertig = async (ziel: 'einstufung' | 'lernpfad') => {
     if (ziel === 'lernpfad') await saveSettings({ onboardingErledigt: true });
     navigate(ziel);
@@ -131,7 +133,7 @@ export function WillkommenScreen() {
   return (
     <div className="flex flex-col gap-4 pb-8">
       <div className="flex justify-center gap-1.5" aria-hidden="true">
-        {[0, 1, 2, 3].map((i) => (
+        {[0, 1, 2, 3, 4].map((i) => (
           <span
             key={i}
             className={cx('h-1.5 w-8 rounded-full', i <= schritt ? 'bg-accent' : 'bg-surface-3')}
@@ -211,6 +213,31 @@ export function WillkommenScreen() {
         </>
       ) : null}
       {schritt === 3 ? (
+        <>
+          <h1 className="text-2xl font-semibold">Lernst du auch auf einem zweiten Gerät?</h1>
+          <Sprechblase
+            s={{
+              figur: 'jana',
+              ausdruck: 'erklaert',
+              text: 'Unterwegs am Handy, abends am Laptop: Verbinde beide Geräte, dann hast du überall denselben Stand.',
+            }}
+          />
+          {zweitesGeraet ? (
+            <GeraeteVerbinden />
+          ) : (
+            <Button variant="primary" onClick={() => setZweitesGeraet(true)}>
+              Ja, Geräte verbinden
+            </Button>
+          )}
+          <Button onClick={() => setSchritt(4)}>
+            {zweitesGeraet ? 'Weiter' : 'Nein, nur dieses Gerät'}
+          </Button>
+          <p className="text-center text-sm text-muted">
+            Das geht auch später unter Einstellungen → Geräte verbinden.
+          </p>
+        </>
+      ) : null}
+      {schritt === 4 ? (
         <>
           <h1 className="text-2xl font-semibold">Kennst du dich schon aus?</h1>
           <Sprechblase

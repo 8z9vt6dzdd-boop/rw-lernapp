@@ -1,10 +1,16 @@
 // App-Rahmen: Navigation (unten auf dem Handy, links am Laptop), Update-Hinweis, Belohnungen,
 // Begrüßung beim ersten Start und Hinweis „fiktive Zahlen“.
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 import { FIRMA } from '../config';
 import { lektion } from '../content/lessons';
 import { requestPersistence } from '../storage/db';
+import { codeAusHash } from '../storage/kopplung';
+import { abgleichStarten } from '../storage/sync';
+import { AbgleichStatusZeile } from './components/GeraeteVerbinden';
+import { GeraeteScreen } from './screens/GeraeteScreen';
+import { HilfeScreen } from './screens/HilfeScreen';
+import { VerbindenFrage } from './VerbindenFrage';
 import { Button, Card, Icon, cx, type IconName } from './components/ui';
 import {
   navigate,
@@ -100,7 +106,10 @@ export function App() {
 
   useEffect(() => {
     void requestPersistence();
+    abgleichStarten();
   }, []);
+  // Geöffnet über den QR-Code eines anderen Geräts (…/#verbinden-…)
+  const [verbindenCode, setVerbindenCode] = useState(() => codeAusHash(window.location.hash));
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -126,7 +135,23 @@ export function App() {
     pruefen: <PruefenScreen />,
     fall: <FallScreen key={hash} />,
     klausur: <KlausurScreen key={hash} />,
+    geraete: <GeraeteScreen />,
+    hilfe: <HilfeScreen />,
   }[effektiv];
+
+  if (verbindenCode) {
+    return (
+      <main className="safe-top px-4">
+        <VerbindenFrage
+          code={verbindenCode}
+          onFertig={() => {
+            setVerbindenCode(null);
+            navigate('start');
+          }}
+        />
+      </main>
+    );
+  }
 
   return (
     <div className="min-h-dvh lg:flex">
@@ -164,6 +189,7 @@ export function App() {
               </li>
             ))}
           </ul>
+          <AbgleichStatusZeile className="mt-auto px-2 text-muted" />
         </nav>
       ) : null}
       <div className="flex min-h-dvh min-w-0 flex-1 flex-col">

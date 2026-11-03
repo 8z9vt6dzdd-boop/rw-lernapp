@@ -2,6 +2,7 @@
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import type { LernEreignis, Settings } from '../learning/types';
 import { DEFAULT_SETTINGS, allEvents, getSettings, subscribe } from '../storage/db';
+import { abgleichStatus, type AbgleichStatus } from '../storage/sync';
 
 export type Route =
   | 'start'
@@ -18,7 +19,9 @@ export type Route =
   | 'willkommen'
   | 'pruefen'
   | 'fall'
-  | 'klausur';
+  | 'klausur'
+  | 'geraete'
+  | 'hilfe';
 
 const ROUTES: Route[] = [
   'start',
@@ -36,6 +39,8 @@ const ROUTES: Route[] = [
   'pruefen',
   'fall',
   'klausur',
+  'geraete',
+  'hilfe',
 ];
 
 /** Pfadteile nach der Route, z. B. #/test/abschnitt/0 → ['abschnitt', '0'] */
@@ -127,4 +132,22 @@ export function useHash(): string {
     () => window.location.hash,
     () => '',
   );
+}
+
+/** Stand des Geräte-Abgleichs (aktualisiert sich bei jeder Änderung). */
+export function useAbgleich(): AbgleichStatus | null {
+  const [s, setS] = useState<AbgleichStatus | null>(null);
+  useEffect(() => {
+    let alive = true;
+    const load = () => abgleichStatus().then((x) => alive && setS(x));
+    load();
+    const unsub = subscribe(load);
+    const t = window.setInterval(load, 30_000);
+    return () => {
+      alive = false;
+      unsub();
+      window.clearInterval(t);
+    };
+  }, []);
+  return s;
 }

@@ -1,15 +1,14 @@
 // Statistik: Lernzeit je Woche, Klausur-Stand je Abschnitt, Klausuren, häufigste Denkfehler.
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { ABSCHNITTE } from '../../content/curriculum';
 import { fehlertyp } from '../../engine/fehlertypen';
 import { knotenFuer, readiness } from '../../learning/fortschritt';
 import { lernzeitJeWoche, tagKey } from '../../learning/motivation';
 import { skillTitel } from '../../learning/prepare';
-import { getKv } from '../../storage/db';
 import { Card } from '../components/ui';
 import { useEvents } from '../hooks';
 import { formatPunkte } from './FallScreen';
-import { PROTOKOLL, type KlausurProtokoll } from './KlausurScreen';
+import type { KlausurEvent } from '../../learning/types';
 
 function datum(tag: string): string {
   const [, m, d] = tag.split('-');
@@ -18,14 +17,7 @@ function datum(tag: string): string {
 
 export function StatistikScreen() {
   const events = useEvents();
-  const [klausuren, setKlausuren] = useState<KlausurProtokoll[]>([]);
-  useEffect(() => {
-    let alive = true;
-    void getKv<KlausurProtokoll[]>(PROTOKOLL).then((p) => alive && setKlausuren(p ?? []));
-    return () => {
-      alive = false;
-    };
-  }, []);
+  const klausuren = (events ?? []).filter((e): e is KlausurEvent => e.typ === 'klausur');
   const s = useMemo(() => {
     if (!events) return null;
     const heute = tagKey(new Date());

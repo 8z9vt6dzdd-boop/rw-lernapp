@@ -47,7 +47,7 @@ export default defineConfig({
     }),
   ],
   test: {
-    include: ['src/**/*.test.ts'],
+    include: ['src/**/*.test.ts', 'sync-worker/src/**/*.test.ts'],
     environment: 'node',
   },
 });

@@ -5,16 +5,16 @@ import { FAELLE } from '../../engine/faelle';
 import { miniKlausur, miniKlausurMoeglich } from '../../learning/klausur';
 import { getKv } from '../../storage/db';
 import { Button, Card, Chip } from '../components/ui';
-import { navigate } from '../hooks';
+import { navigate, useEvents } from '../hooks';
 import { formatPunkte } from './FallScreen';
-import { PROTOKOLL, type KlausurProtokoll } from './KlausurScreen';
+import type { KlausurEvent } from '../../learning/types';
 
 export function PruefenScreen() {
-  const [protokoll, setProtokoll] = useState<KlausurProtokoll[]>([]);
+  const events = useEvents();
+  const protokoll = (events ?? []).filter((e): e is KlausurEvent => e.typ === 'klausur');
   const [faelleOffen, setFaelleOffen] = useState<Record<string, boolean>>({});
   useEffect(() => {
     let alive = true;
-    void getKv<KlausurProtokoll[]>(PROTOKOLL).then((p) => alive && setProtokoll(p ?? []));
     void Promise.all(
       FAELLE.map(async (f) => {
         const s = await getKv<{ schritt: number }>(`fall:${f.id}`);
@@ -87,7 +87,7 @@ export function PruefenScreen() {
               const plan = miniKlausur(a.id, 1);
               const letzte = [...protokoll]
                 .reverse()
-                .find((p) => p.art === 'mini' && p.id.startsWith(`mini-${a.id}-`));
+                .find((p) => p.art === 'mini' && p.klausurId.startsWith(`mini-${a.id}-`));
               return (
                 <li
                   key={a.id}

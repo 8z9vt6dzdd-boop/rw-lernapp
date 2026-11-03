@@ -8,6 +8,7 @@ async function begruessungUeberspringen(page: import('@playwright/test').Page) {
   await page.getByRole('button', { name: /Los geht/ }).click();
   await page.getByRole('button', { name: 'Weiter' }).click();
   await page.getByRole('button', { name: 'Weiter' }).click();
+  await page.getByRole('button', { name: 'Nein, nur dieses Gerät' }).click();
   await page.getByRole('button', { name: 'Bei null anfangen' }).click();
   await expect(page.getByRole('heading', { level: 1, name: 'Lernpfad' })).toBeVisible();
 }

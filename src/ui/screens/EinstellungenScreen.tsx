@@ -1,5 +1,6 @@
 // Einstellungen: Tagesziel, Darstellung, Bewegung, Figur, Erfolge, Zurücksetzen.
 import { useState } from 'react';
+import { AbgleichStatusZeile } from '../components/GeraeteVerbinden';
 import { FIRMA } from '../../config';
 import { ZIELE } from '../../learning/motivation';
 import type { Tagesziel, Theme } from '../../learning/types';
@@ -81,6 +82,18 @@ export function EinstellungenScreen() {
           aktiv={settings.tagesziel}
           onWahl={(t) => void saveSettings({ tagesziel: t })}
         />
+      </Card>
+      <Card>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="min-w-0">
+            <h2 className="font-semibold">Geräte verbinden</h2>
+            <AbgleichStatusZeile className="mt-1 text-muted" />
+          </div>
+          <Button onClick={() => navigate('geraete')}>Öffnen</Button>
+        </div>
+        <p className="mt-2 text-sm text-muted">
+          Handy und Laptop mit demselben Lernstand. Auch: Lernstand als Datei sichern.
+        </p>
       </Card>
       <Card>
         <h2 className="font-semibold">Klausur</h2>
@@ -225,6 +238,13 @@ export function EinstellungenScreen() {
             Alles zurücksetzen …
           </Button>
         )}
+      </Card>
+      <Card className="flex flex-wrap items-center justify-between gap-3">
+        <div className="min-w-0">
+          <h2 className="font-semibold">Hilfe</h2>
+          <p className="text-sm text-muted">So funktioniert die App, Geräte verbinden, Ringe</p>
+        </div>
+        <Button onClick={() => navigate('hilfe')}>Öffnen</Button>
       </Card>
       <Card>
         <h2 className="font-semibold">Über diese App</h2>

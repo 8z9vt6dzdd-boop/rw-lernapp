@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 // Zentrale Einstellungen. Die Rahmenfirma ist eine fiktive Lernversion (08-firma-mbg.md):
 // Name und Branche dienen nur als Kulisse; alle Zahlen, Personen und Partner sind erfunden.
 import type { FirmaConfig } from './engine/firma';
@@ -59,3 +60,13 @@ export const FIRMA: FirmaConfig = {
 };
 
 export const UST_STANDARD = '0.19';
+
+/** Adresse des Abgleich-Dienstes (Cloudflare Worker, `sync-worker/`), wird beim Einrichten gesetzt. */
+const PRODUKTIV_SYNC_URL = '';
+
+/**
+ * Adresse des Abgleich-Dienstes. Leer = Abgleich aus.
+ * Für Tests per `VITE_SYNC_URL` überschreibbar (z. B. lokaler Dienst).
+ */
+export const SYNC_URL: string =
+  (import.meta.env?.VITE_SYNC_URL as string | undefined) ?? PRODUKTIV_SYNC_URL;

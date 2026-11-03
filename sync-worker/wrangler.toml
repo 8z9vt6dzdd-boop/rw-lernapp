@@ -1,0 +1,11 @@
+name = "rw-lernapp-sync"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+
+[vars]
+ERLAUBT = "https://8z9vt6dzdd-boop.github.io"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "rw-lernapp-sync"
+database_id = "PLATZHALTER"

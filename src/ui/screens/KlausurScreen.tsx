@@ -29,15 +29,6 @@ interface KlausurStand {
   antworten: Record<string, TaskAnswer>;
 }
 
-export interface KlausurProtokoll {
-  id: string;
-  titel: string;
-  art: 'mini' | 'probe';
-  ts: string;
-  punkte: number;
-  max: number;
-}
-
 const AKTIV = 'klausur:aktiv';
 
 /** Rückmeldung zur Bestehensgrenze (Standard: die Hälfte der Punkte). */
@@ -47,7 +38,6 @@ export function bestehensText(prozent: number, grenze: number): string {
     ? `Damit liegst du über ${ziel}. Die schwächsten Themen unten lohnen sich jetzt am meisten.`
     : `Noch unter ${ziel}. Kein Grund zur Sorge: Die Themen unten zeigen genau, wo du ansetzt.`;
 }
-export const PROTOKOLL = 'klausuren';
 
 function planVon(s: KlausurStand, teilkosten: boolean): KlausurPlan {
   return s.art === 'probe'
@@ -307,18 +297,17 @@ export function KlausurScreen() {
       ev.klausurId = plan.id;
       await addEvent(ev);
     }
-    const protokoll = (await getKv<KlausurProtokoll[]>(PROTOKOLL)) ?? [];
-    await setKv(PROTOKOLL, [
-      ...protokoll,
-      {
-        id: plan.id,
-        titel: plan.titel,
-        art: plan.art,
-        ts: new Date().toISOString(),
-        punkte: e.punkte,
-        max: e.max,
-      },
-    ]);
+    await addEvent({
+      typ: 'klausur',
+      id: crypto.randomUUID(),
+      ts: new Date().toISOString(),
+      deviceId: dev,
+      klausurId: plan.id,
+      art: plan.art,
+      titel: plan.titel,
+      punkte: e.punkte,
+      max: e.max,
+    });
     await deleteKv(AKTIV);
     spiele(plan.art === 'probe' ? 'feier' : 'lektion');
     setErgebnis(e);

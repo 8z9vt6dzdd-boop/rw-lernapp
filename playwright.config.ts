@@ -10,12 +10,23 @@ export default defineConfig({
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
-  webServer: {
-    command: 'npm run build && npx vite preview --port 4173 --strictPort',
-    url: 'http://localhost:4173/rw-lernapp/',
-    reuseExistingServer: !process.env.CI,
-    timeout: 180_000,
-  },
+  // Eigener Test-Build (dist-test) mit lokalem Abgleich-Dienst – der veröffentlichte Build in dist bleibt unberührt.
+  webServer: [
+    {
+      command: 'npm --prefix sync-worker run dev',
+      url: 'http://127.0.0.1:8787/',
+      reuseExistingServer: !process.env.CI,
+      timeout: 120_000,
+      env: { WRANGLER_SEND_METRICS: 'false' },
+    },
+    {
+      command: 'npx vite build --outDir dist-test && npx vite preview --outDir dist-test --port 4173 --strictPort',
+      url: 'http://localhost:4173/rw-lernapp/',
+      reuseExistingServer: !process.env.CI,
+      timeout: 180_000,
+      env: { VITE_SYNC_URL: 'http://127.0.0.1:8787' },
+    },
+  ],
   projects: [
     { name: 'handy', use: { ...devices['iPhone 13'], browserName: 'chromium' } },
     {

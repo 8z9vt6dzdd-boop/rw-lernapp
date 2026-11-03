@@ -25,6 +25,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Abgleich-Dienst für Tests
+        run: npm ci --prefix sync-worker
       - name: Typen prüfen
         run: npx tsc -b
       - name: Lint

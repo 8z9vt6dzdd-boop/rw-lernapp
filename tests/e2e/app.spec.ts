@@ -12,6 +12,10 @@ test('Startseite lädt ohne Fehler, Navigation erreicht alle Bereiche', async ({
   await page.getByRole('button', { name: 'Weiter' }).click();
   await page.getByRole('radio', { name: /leicht/ }).click();
   await page.getByRole('button', { name: 'Weiter' }).click();
+  await expect(
+    page.getByRole('heading', { name: 'Lernst du auch auf einem zweiten Gerät?' }),
+  ).toBeVisible();
+  await page.getByRole('button', { name: 'Nein, nur dieses Gerät' }).click();
   await page.getByRole('button', { name: 'Bei null anfangen' }).click();
   await expect(page.getByRole('heading', { level: 1, name: 'Lernpfad' })).toBeVisible();
   await expect(page.getByText('Lernszenario mit fiktiven Zahlen').first()).toBeVisible();

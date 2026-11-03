@@ -3,6 +3,9 @@
 // Name und Branche dienen nur als Kulisse; alle Zahlen, Personen und Partner sind erfunden.
 import type { FirmaConfig } from './engine/firma';
 
+/** Name der App (Titel, Home-Bildschirm, Startseite). */
+export const APP_NAME = 'RechnungsHeld';
+
 export const FIRMA: FirmaConfig = {
   name: 'MBG Getränke OHG (Lernversion)',
   kurz: 'MBG',

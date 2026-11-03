@@ -2,7 +2,7 @@
 // Begrüßung beim ersten Start und Hinweis „fiktive Zahlen“.
 import { useEffect, useState } from 'react';
 import { useRegisterSW } from 'virtual:pwa-register/react';
-import { FIRMA } from '../config';
+import { APP_NAME, FIRMA } from '../config';
 import { lektion } from '../content/lessons';
 import { requestPersistence } from '../storage/db';
 import { codeAusHash } from '../storage/kopplung';
@@ -167,7 +167,7 @@ export function App() {
             <div className="text-xs font-medium tracking-wide text-accent uppercase">
               {FIRMA.kurz} · Lernversion
             </div>
-            <div className="hand text-lg font-bold">Rechnungswesen</div>
+            <div className="hand text-lg font-bold">{APP_NAME}</div>
           </div>
           <ul className="flex flex-col gap-1">
             {NAV.map((n) => (

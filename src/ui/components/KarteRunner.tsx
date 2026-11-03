@@ -1,5 +1,6 @@
 // Wiederholungskarte (Interaktionstyp „theoriekarte“): Frage → Antwort aufdecken → Selbsteinschätzung (FSRS-Bewertung).
 import { useState } from 'react';
+import { MeldenKnopf } from './MeldenKnopf';
 import { merksatzKarten } from '../../learning/scheduler';
 import type { FsrsRating } from '../../learning/types';
 import { Button, Card, Chip, Icon } from './ui';
@@ -44,7 +45,9 @@ export function KarteRunner({
         </button>
       </div>
       <Card className="rotate-[-0.4deg] border-2 border-[color:var(--peep-ink)] bg-[#fdf4c9] text-[#1d1a17]">
-        <Chip>Wiederholungskarte · Lektion {karte.lektionId}</Chip>
+        <Chip>
+          Wiederholungskarte · {karte.lektionId ? `Lektion ${karte.lektionId}` : 'Theorie'}
+        </Chip>
         <h2 className="hand mt-3 text-xl font-bold">{karte.frage}</h2>
         {offen ? (
           <p className="einblenden mt-4 border-t border-dashed border-[#1d1a17]/40 pt-3 text-[17px]">
@@ -52,6 +55,7 @@ export function KarteRunner({
           </p>
         ) : null}
       </Card>
+      <MeldenKnopf key={merksatzId} elementId={`karte:${merksatzId}`} skillId={karte.skillId} />
       {!offen ? (
         <Button variant="primary" onClick={() => setOffen(true)}>
           Antwort zeigen

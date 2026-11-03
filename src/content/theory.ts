@@ -66,6 +66,10 @@ export function mcElemente(): McElement[] {
   return THEORIE.filter((e): e is McElement => e.typ === 'mc');
 }
 
+export function kartenElemente(): KartenElement[] {
+  return THEORIE.filter((e): e is KartenElement => e.typ === 'karte');
+}
+
 export function mcAlsPart(e: McElement, reihenfolge: number[]): WahlPart {
   return {
     typ: 'mc',

@@ -1,5 +1,7 @@
 // Einstellungen: Tagesziel, Darstellung, Bewegung, Figur, Erfolge, Zurücksetzen.
 import { useState } from 'react';
+import { meldungSpeichern } from '../../learning/ereignisse';
+import { elementTitel, gemeldeteMeldungen } from '../../learning/meldungen';
 import { AbgleichStatusZeile } from '../components/GeraeteVerbinden';
 import { FIRMA } from '../../config';
 import { ZIELE } from '../../learning/motivation';
@@ -7,7 +9,7 @@ import type { Tagesziel, Theme } from '../../learning/types';
 import { resetAll, saveSettings } from '../../storage/db';
 import { Button, Card, cx } from '../components/ui';
 import { Character } from '../figures/Character';
-import { navigate, useSettings } from '../hooks';
+import { navigate, useEvents, useSettings } from '../hooks';
 
 const THEMES: { id: Theme; label: string }[] = [
   { id: 'auto', label: 'Automatisch' },
@@ -46,6 +48,50 @@ function Auswahl<T extends string>({
         </button>
       ))}
     </div>
+  );
+}
+
+function GemeldeteInhalte() {
+  const events = useEvents();
+  const liste = events ? [...gemeldeteMeldungen(events).values()] : [];
+  return (
+    <Card>
+      <h2 className="font-semibold">Gemeldete Inhalte</h2>
+      {liste.length === 0 ? (
+        <p className="mt-1 text-[15px] text-muted">
+          Nichts gemeldet. Bei jeder Aufgabe, Karte und Lektion findest du „Fehler melden“.
+        </p>
+      ) : (
+        <>
+          <p className="mt-1 text-sm text-muted">
+            Diese Inhalte sind aus deinen Sitzungen genommen und werden geprüft.
+          </p>
+          <ul className="mt-2 flex flex-col">
+            {liste.map((m) => (
+              <li
+                key={m.elementId}
+                className="flex flex-wrap items-center justify-between gap-2 border-t border-line py-2 first:border-0"
+              >
+                <span className="min-w-0 text-[15px]">
+                  {elementTitel(m.elementId)}
+                  {m.kommentar ? (
+                    <span className="block text-sm text-muted">„{m.kommentar}“</span>
+                  ) : null}
+                </span>
+                <Button
+                  variant="ghost"
+                  onClick={() =>
+                    void meldungSpeichern({ elementId: m.elementId, zurueckgezogen: true })
+                  }
+                >
+                  Zurückziehen
+                </Button>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </Card>
   );
 }
 
@@ -239,6 +285,7 @@ export function EinstellungenScreen() {
           </Button>
         )}
       </Card>
+      <GemeldeteInhalte />
       <Card className="flex flex-wrap items-center justify-between gap-3">
         <div className="min-w-0">
           <h2 className="font-semibold">Hilfe</h2>

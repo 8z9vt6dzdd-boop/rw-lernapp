@@ -1,5 +1,7 @@
 // Eine Aufgabe Schritt für Schritt bearbeiten: Teil prüfen, Rückmeldung, gestufte Hilfen, Rechenweg.
 import { useMemo, useRef, useState, type FormEvent } from 'react';
+import { elementIdVon } from '../../learning/meldungen';
+import { MeldenKnopf } from './MeldenKnopf';
 import { DatenTabelle } from './DatenTabelle';
 import { checkPart, combineResults } from '../../engine/check';
 import { spiele } from '../sound';
@@ -265,6 +267,13 @@ export function TaskRunner({
             </Card>
           ) : null}
 
+          <MeldenKnopf
+            key={task.spec.key}
+            elementId={elementIdVon(task.spec)}
+            skillId={task.spec.skillId}
+            seed={task.spec.seed}
+            {...(task.spec.variant ? { variant: task.spec.variant } : {})}
+          />
           <div ref={bottomRef} />
         </div>
       </div>

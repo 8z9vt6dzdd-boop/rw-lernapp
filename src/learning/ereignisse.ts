@@ -1,6 +1,12 @@
 // Lernereignisse für Lektionen, Überspringen-Tests und die Laptop-Liste speichern.
 import { addEvent, deviceId } from '../storage/db';
-import type { LaptopEvent, LektionEvent, LernEreignis, UeberspringenEvent } from './types';
+import type {
+  LaptopEvent,
+  LektionEvent,
+  LernEreignis,
+  UeberspringenEvent,
+  MeldungEvent,
+} from './types';
 
 function offline(): boolean {
   return typeof navigator !== 'undefined' && navigator.onLine === false;
@@ -60,4 +66,29 @@ export function laptopListe(events: readonly LernEreignis[]): LaptopEvent[] {
     events.filter((e): e is LaptopEvent => e.typ === 'laptop-erledigt').map((e) => e.ref),
   );
   return events.filter((e): e is LaptopEvent => e.typ === 'laptop-merken' && !erledigt.has(e.ref));
+}
+
+/** Inhalt als fehlerhaft melden bzw. die Meldung zurückziehen. */
+export async function meldungSpeichern(d: {
+  elementId: string;
+  skillId?: string;
+  seed?: number;
+  variant?: string;
+  kommentar?: string;
+  zurueckgezogen?: boolean;
+}): Promise<MeldungEvent> {
+  const event: MeldungEvent = {
+    typ: 'meldung',
+    id: crypto.randomUUID(),
+    ts: new Date().toISOString(),
+    deviceId: await deviceId(),
+    elementId: d.elementId,
+  };
+  if (d.skillId) event.skillId = d.skillId;
+  if (d.seed !== undefined) event.seed = d.seed;
+  if (d.variant) event.variant = d.variant;
+  if (d.kommentar?.trim()) event.kommentar = d.kommentar.trim().slice(0, 1000);
+  if (d.zurueckgezogen) event.zurueckgezogen = true;
+  await addEvent(event);
+  return event;
 }

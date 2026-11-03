@@ -1,6 +1,7 @@
 // Zusammenstellung einer Kurz-Sitzung (5–10 Minuten): ca. 70 % fällige Wiederholungen (FSRS), 30 % Neues
 // aus dem aktuellen Abschnitt, gemischt (Interleaving). Ohne Lernstand: freie Mischung (für Tests per Seed).
 import { ABSCHNITTE, RELEVANZ_GEWICHT, skillInfo } from '../content/curriculum';
+import { elementIdVon, gemeldet } from './meldungen';
 import { mcElemente } from '../content/theory';
 import { FEHLERJAGD_ZUSATZ, TABELLEN_ZUSATZ, generatorFuer } from '../engine/generators';
 import { createRng, randomSeed, type Rng } from '../engine/rng';
@@ -132,7 +133,8 @@ export function kurzSitzungGeplant(
 ): TaskSpec[] {
   const rng = createRng(seed);
   const k = karten(events);
-  const frei = new Set(freieSkills(events));
+  const gem = gemeldet(events);
+  const frei = new Set(freieSkills(events).filter((id) => !gem.has(`aufgabe:${id}`)));
   const gewicht = (skillId: string) => RELEVANZ_GEWICHT[skillInfo(skillId)?.relevanz ?? 'mittel'];
   const aufgabe = (skillId: string): TaskSpec => {
     const spec: TaskSpec = { key: key(), art: 'aufgabe', skillId, seed: randomSeedFrom(rng) };
@@ -206,6 +208,23 @@ export function kurzSitzungGeplant(
     for (const skillId of rng.shuffle([...frei]).slice(0, 2))
       specs.push({ key: key(), art: 'erkennen', skillId, seed: randomSeedFrom(rng) });
   }
-  if (specs.length === 0) return [];
-  return verschraenken(rng, specs.slice(0, SITZUNG_GROESSE + 2));
+  // Eine Verständnisfrage aus den Theorie-Inhalten bereits gelernter Skills
+  const fragen = mcElemente().filter(
+    (el) =>
+      hatLektion(el.skill) && lektionErledigt(events, el.skill) && !gem.has(`theorie:${el.id}`),
+  );
+  if (fragen.length > 0) {
+    const el = rng.pick(fragen);
+    specs.push({
+      key: key(),
+      art: 'mc',
+      skillId: el.skill,
+      seed: randomSeedFrom(rng),
+      elementId: el.id,
+    });
+  }
+  // Gemeldete Inhalte kommen bis zur Prüfung nicht mehr vor
+  const erlaubt = specs.filter((s) => !gem.has(elementIdVon(s)));
+  if (erlaubt.length === 0) return [];
+  return verschraenken(rng, erlaubt.slice(0, SITZUNG_GROESSE + 2));
 }

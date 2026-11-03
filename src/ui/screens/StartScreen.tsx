@@ -1,5 +1,6 @@
 // Startseite (10-optik B4–B7): Serie, Tagesziel, Tagesaufgaben, Karriere, nächste Szene, Klausur-Stand.
 import { useMemo, useSyncExternalStore } from 'react';
+import { APP_NAME } from '../../config';
 import { istInstalliert, istIosSafari } from '../geraet';
 import { fallInfo } from '../../engine/faelle';
 import { lektionFuerSkill } from '../../content/lessons';
@@ -140,7 +141,7 @@ export function StartScreen() {
         />
         <div className="min-w-0">
           <div className="text-xs font-medium tracking-wide text-accent uppercase">
-            {daten.karriere.aktuell.titel}
+            {APP_NAME} · {daten.karriere.aktuell.titel}
           </div>
           <h1 className="hand text-2xl font-bold">
             {settings.name ? `Hallo, ${settings.name}!` : 'Hallo!'}

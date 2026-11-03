@@ -1,5 +1,6 @@
 // Lektions-Player: ein Bildschirm nach dem anderen, Fortschritt wird gespeichert, am Ende ein Belohnungsmoment.
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { MeldenKnopf } from '../components/MeldenKnopf';
 import type { Lektion, Screen } from '../../content/lessons/types';
 import { spiele } from '../sound';
 import { lektionSpeichern } from '../../learning/ereignisse';
@@ -229,6 +230,11 @@ export function LessonPlayer({ lektion }: { lektion: Lektion }) {
       </div>
       <div key={index} className="einblenden">
         <ScreenView s={screen} onDone={onDone} />
+        <MeldenKnopf
+          elementId={`lektion:${lektion.id}:${index}`}
+          skillId={lektion.skillId}
+          className="mt-6"
+        />
       </div>
       <div className="safe-bottom fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface/95 backdrop-blur">
         <div className="mx-auto flex max-w-3xl items-center gap-2 px-4 py-3 [&_button]:whitespace-nowrap">

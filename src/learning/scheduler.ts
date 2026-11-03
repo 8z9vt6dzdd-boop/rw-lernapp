@@ -3,6 +3,7 @@
 import { createEmptyCard, fsrs, type Card, type Grade } from 'ts-fsrs';
 import { LEKTIONEN, lektionFuerSkill } from '../content/lessons';
 import { generatorFuer } from '../engine/generators';
+import { kartenElemente } from '../content/theory';
 import { tagKey } from './motivation';
 import type { AttemptEvent, LernEreignis } from './types';
 
@@ -30,15 +31,27 @@ export interface MerksatzKarte {
   antwort: string;
 }
 
-/** Alle Merksätze der Lektionen als Wiederholungskarten. */
+/** Alle Merksätze der Lektionen plus aktive Theorie-Karten (07-content-pipeline.md) als Wiederholungskarten. */
+let merksatzCache: MerksatzKarte[] | null = null;
+
 export function merksatzKarten(): MerksatzKarte[] {
-  return LEKTIONEN.flatMap((l) =>
-    l.screens.flatMap((s) =>
-      s.typ === 'merksatz'
-        ? [{ id: s.id, skillId: l.skillId, lektionId: l.id, frage: s.frage, antwort: s.text }]
-        : [],
+  merksatzCache ??= [
+    ...LEKTIONEN.flatMap((l) =>
+      l.screens.flatMap((s) =>
+        s.typ === 'merksatz'
+          ? [{ id: s.id, skillId: l.skillId, lektionId: l.id, frage: s.frage, antwort: s.text }]
+          : [],
+      ),
     ),
-  );
+    ...kartenElemente().map((e) => ({
+      id: e.id,
+      skillId: e.skill,
+      lektionId: lektionFuerSkill(e.skill)?.id ?? '',
+      frage: e.frage,
+      antwort: e.beispiel ? `${e.antwort} Beispiel: ${e.beispiel}` : e.antwort,
+    })),
+  ];
+  return merksatzCache;
 }
 
 const KARTE_PREFIX = 'karte:';

@@ -1,5 +1,6 @@
 // Erster Start: Begrüßung bei der MBG, eigene Figur gestalten, Tagesziel, Einstufung oder direkt loslegen.
 import { useState } from 'react';
+import { APP_NAME } from '../../config';
 import { GeraeteVerbinden } from '../components/GeraeteVerbinden';
 import { ICH_ACCESSOIRES, ICH_FARBEN, ICH_FRISUREN } from '../../content/characters';
 import { ZIELE } from '../../learning/motivation';
@@ -146,6 +147,9 @@ export function WillkommenScreen() {
             <Character id="jana" ausdruck="freut" groesse={100} hintergrund={false} />
             <Character id="tobias" ausdruck="feiert" groesse={100} gespiegelt hintergrund={false} />
           </Schauplatz>
+          <p className="text-center text-sm font-medium tracking-wide text-accent uppercase">
+            {APP_NAME}
+          </p>
           <h1 className="hand text-center text-3xl font-bold">Willkommen bei der MBG!</h1>
           <Sprechblase
             s={{

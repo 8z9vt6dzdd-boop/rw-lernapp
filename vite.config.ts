@@ -18,8 +18,8 @@ export default defineConfig({
       registerType: 'prompt',
       includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Rechnungswesen trainieren',
-        short_name: 'RW-Training',
+        name: 'RechnungsHeld – Klausurtraining Rechnungswesen',
+        short_name: 'RechnungsHeld',
         description: 'Klausurtraining Rechnungswesen: Buchführung, Kosten- und Leistungsrechnung',
         lang: 'de',
         start_url: base,

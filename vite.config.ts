@@ -43,6 +43,8 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,svg,png,webmanifest,json}'],
         navigateFallback: `${base}index.html`,
         cleanupOutdatedCaches: true,
+        // Alle Inhalte (Lektionen, Generatoren) müssen offline verfügbar sein
+        maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
       },
     }),
   ],

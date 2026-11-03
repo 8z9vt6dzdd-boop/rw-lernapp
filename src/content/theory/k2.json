@@ -1,1 +1,349 @@
-[]
+[
+  {
+    "id": "K8-001",
+    "skill": "K8-voll-vs-teil",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.6, S. 37–38",
+    "frage": "Worin unterscheiden sich Vollkosten- und Teilkostenrechnung?",
+    "antwort": "Die Vollkostenrechnung rechnet alle Kosten den Kostenträgern zu, die Gemeinkosten über Schlüssel und Zuschlagssätze. Die Teilkostenrechnung rechnet nur die verursachungsgerecht zurechenbaren, variablen Kosten zu; die Fixkosten gehen als Block in das Betriebsergebnis ein.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "K8-002",
+    "skill": "K8-voll-vs-teil",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.5, S. 35 (Fußnote 63)",
+    "frage": "Was ist der Deckungsbeitrag eines Produkts?",
+    "antwort": "Je Stück die Differenz aus Preis und variablen Stückkosten. Der Name sagt, wofür er gebraucht wird: Er ist der Beitrag des Produkts zur Deckung der fixen Kosten; was darüber hinausgeht, ist Gewinn.",
+    "beispiel": "Senne Lemon: Preis 0,90 €, variable Kosten 0,55 € → Stückdeckungsbeitrag 0,35 €.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "K8-003",
+    "skill": "K8-voll-vs-teil",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.5, S. 34",
+    "frage": "Warum lässt sich das Verursachungsprinzip in seiner reinen Form nur in der Teilkostenrechnung verfolgen?",
+    "antwort": "Ein Ursache-Wirkungs-Zusammenhang zwischen Kostenträger und Kosten besteht nur bei den variablen Kosten bzw. Einzelkosten. Fixe Gemeinkosten entstehen nicht durch das einzelne Stück; ihre Verteilung in der Vollkostenrechnung folgt dem Durchschnittsprinzip über Schlüssel.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "K8-004",
+    "skill": "K8-voll-vs-teil",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 2.1, S. 51–52",
+    "frage": "Wofür braucht ein Betrieb trotz Teilkostenrechnung weiterhin die Vollkostenrechnung?",
+    "antwort": "Für die langfristige Preisbildung, weil der Preis auf Dauer alle Kosten decken muss, und für die Bewertung der Bestände an fertigen und unfertigen Erzeugnissen mit Herstellkosten.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "K8-mc-001",
+    "skill": "K8-voll-vs-teil",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 1.6, S. 37–38; Lehrbuch-Übungen Deckungsbeitragsrechnung",
+    "frage": "Ein Produkt zeigt nach der Vollkostenrechnung einen Verlust, sein Deckungsbeitrag ist aber positiv. Die zugerechneten Fixkosten lassen sich kurzfristig nicht abbauen. Was bewirkt es, das Produkt sofort zu streichen?",
+    "optionen": [
+      {
+        "text": "Das Betriebsergebnis sinkt um den Deckungsbeitrag des Produkts.",
+        "richtig": true
+      },
+      {
+        "text": "Das Betriebsergebnis steigt um den ausgewiesenen Verlust.",
+        "erklaerung": "Die zugerechneten Fixkosten bleiben bestehen und tragen künftig die anderen Produkte. Es fällt nur der Deckungsbeitrag weg."
+      },
+      {
+        "text": "Das Betriebsergebnis bleibt gleich.",
+        "erklaerung": "Mit dem Produkt fallen Erlöse und variable Kosten weg, also sein Deckungsbeitrag."
+      },
+      {
+        "text": "Das Betriebsergebnis steigt um die zugerechneten Fixkosten.",
+        "erklaerung": "Die Fixkosten fallen kurzfristig weiter an, sie werden nur anders verteilt."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "K8-mc-002",
+    "skill": "K8-voll-vs-teil",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 1.4.1, S. 31–32; K1 1.6, S. 37",
+    "frage": "Die MBG füllt im Winter weniger Senne Lemon ab. Warum steigen nach der Vollkostenrechnung die Selbstkosten je Flasche?",
+    "optionen": [
+      {
+        "text": "Die unveränderten Fixkosten verteilen sich auf weniger Flaschen.",
+        "richtig": true
+      },
+      {
+        "text": "Die variablen Kosten je Flasche steigen bei geringerer Menge.",
+        "erklaerung": "Variable Stückkosten bleiben je Flasche gleich; gestiegen ist der Fixkostenanteil je Flasche."
+      },
+      {
+        "text": "Die Fixkosten insgesamt steigen bei geringerer Menge.",
+        "erklaerung": "Die Fixkosten insgesamt bleiben gleich, nur ihr Anteil je Stück wächst."
+      },
+      {
+        "text": "Die Gemeinkostenzuschläge werden im Winter erhöht.",
+        "erklaerung": "Nicht die Zuschlagssätze sind der Grund, sondern die gleichen Fixkosten auf weniger Einheiten."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "K8-mc-003",
+    "skill": "K8-voll-vs-teil",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "Lehrbuch-Übungen Deckungsbeitragsrechnung (Zusatzauftrag); 04-fachregeln.md GC-22",
+    "frage": "Aufgabe erkennen: Ein Discounter bietet für eine Zusatzmenge einen Preis unter den Selbstkosten. Die Abfüllanlage hat freie Kapazität. Welche Rechnung ist gefragt?",
+    "optionen": [
+      {
+        "text": "Preis mit den variablen Stückkosten vergleichen (kurzfristige Preisuntergrenze)",
+        "richtig": true
+      },
+      {
+        "text": "Zuschlagskalkulation bis zu den Selbstkosten und Preis damit vergleichen",
+        "fehlertyp": "vollkosten-als-untergrenze",
+        "erklaerung": "Bei freier Kapazität fallen die Fixkosten ohnehin an. Kurzfristig zählt nur, ob der Preis die variablen Stückkosten übersteigt."
+      },
+      {
+        "text": "Relative Deckungsbeiträge je Abfüllminute bilden",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Relative Deckungsbeiträge braucht man nur bei einem Engpass. Hier ist Kapazität frei."
+      },
+      {
+        "text": "Kritische Menge zwischen zwei Verfahren berechnen",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Eine kritische Menge braucht man beim Vergleich zweier Möglichkeiten mit unterschiedlichen Fixkosten."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "K8-mc-004",
+    "skill": "K8-voll-vs-teil",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "Lehrbuch-Übungen Deckungsbeitragsrechnung (Engpass); 04-fachregeln.md GC-23",
+    "frage": "Aufgabe erkennen: Im Sommer reichen die Abfüllminuten nicht für alle Sorten, die sich verkaufen ließen. Welche Rechnung ist gefragt?",
+    "optionen": [
+      {
+        "text": "Rangfolge nach dem Deckungsbeitrag je Abfüllminute (relativer Deckungsbeitrag)",
+        "richtig": true
+      },
+      {
+        "text": "Rangfolge nach dem Deckungsbeitrag je Stück",
+        "fehlertyp": "rangfolge-nach-absolutem-db",
+        "erklaerung": "Bei einem Engpass entscheidet, was eine Sorte je Minute der knappen Anlage einbringt."
+      },
+      {
+        "text": "Rangfolge nach den Selbstkosten je Stück",
+        "erklaerung": "Selbstkosten enthalten geschlüsselte Fixkosten, die ohnehin anfallen. Sie verzerren die Rangfolge."
+      },
+      {
+        "text": "Alle Sorten anteilig kürzen",
+        "erklaerung": "Gleichmäßiges Kürzen verschenkt Deckungsbeitrag. Die knappe Zeit geht zuerst an die Sorte mit dem höchsten Beitrag je Minute."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "K8-mc-005",
+    "skill": "K8-voll-vs-teil",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "Lehrbuch-Übungen Deckungsbeitragsrechnung (Eigenfertigung oder Fremdbezug); 04-fachregeln.md GC-24",
+    "frage": "Aufgabe erkennen: Ein Lohnabfüller verlangt einen festen Preis je Dose. Selbst abzufüllen hätte niedrigere variable Kosten, aber eine zusätzliche Linie mit Fixkosten müsste gemietet werden. Welche Rechnung ist gefragt?",
+    "optionen": [
+      {
+        "text": "Kritische Menge: zusätzliche Fixkosten ÷ (Preis des Lohnabfüllers − eigene variable Kosten)",
+        "richtig": true
+      },
+      {
+        "text": "Nur die variablen Kosten mit dem Preis des Lohnabfüllers vergleichen",
+        "fehlertyp": "zusatzfixkosten-vergessen",
+        "erklaerung": "Die zusätzlichen Fixkosten entstehen nur bei eigener Abfüllung und gehören in den Vergleich."
+      },
+      {
+        "text": "Selbstkosten einschließlich aller umgelegten Fixkosten mit dem Preis vergleichen",
+        "fehlertyp": "fixkosten-bei-freier-kapazitaet",
+        "erklaerung": "Ohnehin anfallende Fixkosten bleiben außen vor. Nur die zusätzlichen Fixkosten der neuen Linie zählen."
+      },
+      {
+        "text": "Relative Deckungsbeiträge bilden",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Relative Deckungsbeiträge gehören zur Engpassplanung."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "K8-mc-006",
+    "skill": "K8-voll-vs-teil",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K2 2.1, S. 51–52",
+    "frage": "Aufgabe erkennen: Die MBG soll einer Hotelkette einen dauerhaften Listenpreis für Senne Lemon nennen. Welche Rechnung ist die Grundlage?",
+    "optionen": [
+      {
+        "text": "Vollkostenkalkulation (Selbstkosten plus Gewinn und Konditionen)",
+        "richtig": true
+      },
+      {
+        "text": "Nur die variablen Stückkosten als Preisuntergrenze",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Die variablen Stückkosten sind nur die kurzfristige Untergrenze. Ein dauerhafter Preis muss alle Kosten decken."
+      },
+      {
+        "text": "Relative Deckungsbeiträge",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Relative Deckungsbeiträge helfen bei einem Engpass, nicht bei der Preisfindung."
+      },
+      {
+        "text": "Kritische Menge",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Die kritische Menge vergleicht zwei Möglichkeiten mit unterschiedlichen Fixkosten."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "K8-kurz-001",
+    "skill": "K8-voll-vs-teil",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K1 1.5–1.6, S. 34–38; Lehrbuch-Übungen Deckungsbeitragsrechnung",
+    "frage": "Erläutern Sie, warum eine Entscheidung auf Basis der Vollkostenrechnung kurzfristig zu einem schlechteren Betriebsergebnis führen kann.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Die Vollkostenrechnung verteilt auch fixe Gemeinkosten über Schlüssel und Zuschläge auf die Stücke.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Dadurch wirken fixe Kosten je Stück so, als würden sie mit der Menge entstehen.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Kurzfristig fallen die Fixkosten unabhängig von der Entscheidung an; sie bleiben, wenn ein Produkt oder Auftrag wegfällt.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Entscheidungsrelevant ist der Deckungsbeitrag: Ein Produkt oder Auftrag mit positivem Deckungsbeitrag zu streichen bzw. abzulehnen, verschlechtert das Ergebnis.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Die Vollkostenrechnung rechnet alle Kosten den Kostenträgern zu, die fixen Gemeinkosten über Schlüssel und Zuschlagssätze. Je Stück sehen diese Fixkosten dann aus wie Kosten, die mit jeder Einheit entstehen. Kurzfristig ändern sie sich durch die Entscheidung aber nicht: Streicht man ein Produkt oder lehnt einen Auftrag ab, bleiben sie bestehen und müssen von den übrigen Produkten getragen werden. Maßgeblich ist deshalb der Deckungsbeitrag. Ist er positiv, verbessert das Produkt oder der Auftrag das Ergebnis, auch wenn der Preis unter den Selbstkosten liegt.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "K9-001",
+    "skill": "K9-plankosten",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.6, S. 37; Formel nach 03-aufgabentypen.md",
+    "frage": "Was sind Sollkosten in der flexiblen Plankostenrechnung?",
+    "antwort": "Das an die tatsächliche Beschäftigung angepasste Budget einer Kostenstelle: fixe Plankosten in voller Höhe plus variabler Plankostensatz × Istbeschäftigung.",
+    "beispiel": "Fix 120.000 €, variabel 90 €/h, Ist 1.800 h → Sollkosten 282.000 €.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "K9-002",
+    "skill": "K9-plankosten",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.1, S. 15; Formeln nach 03-aufgabentypen.md",
+    "frage": "Was zeigen Beschäftigungs- und Verbrauchsabweichung?",
+    "antwort": "Beschäftigungsabweichung = Sollkosten − verrechnete Plankosten: Fixkosten, die wegen abweichender Auslastung nicht (oder zu viel) verrechnet wurden. Verbrauchsabweichung = Istkosten − Sollkosten: Mehr- oder Minderverbrauch, den die Kostenstelle verantwortet.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "K9-mc-001",
+    "skill": "K9-plankosten",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 1.6, S. 37; Formeln nach 03-aufgabentypen.md",
+    "frage": "Plankosten 50.000 € bei 500 h, davon fix 20.000 €. Istbeschäftigung 400 h. Wie hoch sind die Sollkosten?",
+    "optionen": [
+      {
+        "text": "44.000 €",
+        "richtig": true
+      },
+      {
+        "text": "40.000 €",
+        "fehlertyp": "sollkosten-proportional",
+        "erklaerung": "Das sind die verrechneten Plankosten (100 €/h × 400 h). In den Sollkosten bleiben die Fixkosten voll erhalten."
+      },
+      {
+        "text": "50.000 €",
+        "erklaerung": "Das ist das Budget für die geplanten 500 Stunden, nicht für die tatsächlichen 400."
+      },
+      {
+        "text": "24.000 €",
+        "erklaerung": "Das sind nur die variablen Sollkosten (60 €/h × 400 h). Die Fixkosten von 20.000 € fehlen."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  }
+]

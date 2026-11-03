@@ -56,7 +56,7 @@ for (const g of GENERATOREN) {
     if (await hier.isVisible()) await hier.click();
     const parts = teileFuer(g.skillId, seed);
     for (const [i, part] of parts.entries()) {
-      await teilLoesen(page, part);
+      await teilLoesen(page, part, page.locator(`[data-part="${part.id}"]`));
       await page.getByRole('button', { name: 'Prüfen' }).click();
       await expect(page.getByText('Richtig', { exact: true }).nth(i)).toBeVisible();
       if (i < parts.length - 1) await page.getByRole('button', { name: 'Weiter' }).click();
@@ -64,7 +64,8 @@ for (const g of GENERATOREN) {
     await expect(page.getByRole('heading', { name: 'Aufgabe gelöst' })).toBeVisible();
     await page.getByRole('button', { name: 'Rechenweg ansehen' }).click();
     await page.getByRole('button', { name: /Nächste Aufgabe/ }).click();
-    await expect(page.getByText('Aufgabe 2 von 4')).toBeVisible();
+    // Aufgabe 2 – oder der Laptop-Hinweis, wenn jetzt erstmals eine große Tabelle kommt
+    await expect(page.getByText('Aufgabe 2 von 4').or(hier)).toBeVisible();
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1),
     ).toBe(true);

@@ -21,8 +21,9 @@ async function bildschirmBearbeiten(page: Page, s: Screen) {
       if (e.art === 'aufdecken')
         for (const k of e.karten)
           await page
-            .getByRole('button', { name: k.titel, exact: false })
-            .filter({ hasText: k.titel })
+            .getByRole('button', {
+              name: new RegExp(`^${k.titel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`),
+            })
             .first()
             .click();
       if (e.art === 'waage-zuordnen')
@@ -46,7 +47,10 @@ async function bildschirmBearbeiten(page: Page, s: Screen) {
       if (e.art === 'afa-vergleich')
         for (const name of ['arithmetisch-degressiv', 'geometrisch-degressiv'])
           await page.getByRole('button', { name, exact: true }).click();
-      if (e.art === 'kostenfunktion') await page.getByRole('slider').fill('10');
+      if (e.art === 'kostenfunktion') {
+        const regler = page.getByRole('slider');
+        await regler.fill((await regler.getAttribute('max')) ?? '0');
+      }
       return;
     }
     case 'vorhersage':

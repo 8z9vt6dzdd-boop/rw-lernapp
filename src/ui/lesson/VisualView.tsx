@@ -7,6 +7,7 @@ import { Lager } from '../visuals/Lager';
 import { Schauplatz } from '../visuals/Schauplatz';
 import { TKonto } from '../visuals/TKonto';
 import { Waage } from '../visuals/Waage';
+import { AfaVerlauf, Kostenfunktion, Kostenstellen, Kreislauf, Treppe } from '../visuals/Diagramme';
 
 export function VisualView({ v }: { v: Visual }) {
   switch (v.typ) {
@@ -66,5 +67,15 @@ export function VisualView({ v }: { v: Visual }) {
           ))}
         </Schauplatz>
       );
+    case 'kreislauf':
+      return <Kreislauf aktiv={v.aktiv} />;
+    case 'kostenstellen':
+      return <Kostenstellen hilfs={v.hilfs} haupt={v.haupt} pfeile={v.pfeile} />;
+    case 'treppe':
+      return <Treppe stufen={v.stufen} />;
+    case 'afa-verlauf':
+      return <AfaVerlauf basis={v.basis} restwert={v.restwert} nd={v.nd} verfahren={v.verfahren} satz={v.satz} />;
+    case 'kostenfunktion':
+      return <Kostenfunktion preis={v.preis} kv={v.kv} kf={v.kf} xmax={v.xmax} einheit={v.einheit} />;
   }
 }

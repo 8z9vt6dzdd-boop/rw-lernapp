@@ -214,6 +214,7 @@ export const lektion01: Lektion = {
     {
       typ: 'merksatz',
       id: '0.1-m1',
+      frage: 'Welche drei Fragen beantwortet das Rechnungswesen – und für wen?',
       text: 'Rechnungswesen beantwortet drei Fragen: Was haben wir? Was haben wir verdient? Was kostet uns etwas? Die Antworten brauchen Externe (Finanzamt, Bank) und Interne (Geschäftsführung).',
     },
     {

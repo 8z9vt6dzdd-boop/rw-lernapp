@@ -6,6 +6,7 @@ import { createRng } from '../../engine/rng';
 import { antwortAusPart } from '../../engine/testing';
 import { AUSDRUECKE, FIGUREN } from '../characters';
 import { LEKTIONEN } from './index';
+import { skillInfo } from '../curriculum';
 import { INTERAKTIV, LESEN, type Screen } from './types';
 
 function woerter(t: string): number {
@@ -133,6 +134,13 @@ describe.each(LEKTIONEN.map((l) => [l.id, l] as const))('Lektion %s', (_id, l) =
     ).toBe(true);
     expect(c.fachlichGeprueft.length).toBeGreaterThan(10);
     expect(l.kernAha.length).toBeGreaterThan(20);
+  });
+
+  it('gehört zu einem Skill des Lehrplans, Merksätze haben eine Kartenfrage', () => {
+    expect(skillInfo(l.skillId), l.skillId).toBeDefined();
+    expect(LEKTIONEN.filter((x) => x.id === l.id)).toHaveLength(1);
+    for (const s of l.screens) if (s.typ === 'merksatz') expect(s.frage.length).toBeGreaterThan(10);
+    expect(l.dauerMin).toBeLessThanOrEqual(l.abschnitt === '0' ? 6 : 8);
   });
 
   it('Lektion ist nicht zu lang', () => {

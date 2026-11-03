@@ -207,6 +207,7 @@ export const lektionC5: Lektion = {
     {
       typ: 'merksatz',
       id: 'C5-m1',
+      frage: 'Wie wird Lieferantenskonto berechnet und gebucht?',
       text: 'Skonto vom Bruttobetrag berechnen, dann zerlegen: Der Nettoanteil mindert den Einkaufspreis (Nachlässe), der Steueranteil korrigiert die Vorsteuer im Haben.',
     },
     {

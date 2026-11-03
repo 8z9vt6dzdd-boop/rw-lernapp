@@ -196,6 +196,7 @@ export const lektion06: Lektion = {
     {
       typ: 'merksatz',
       id: '0.6-m1',
+      frage: 'Was bedeuten Soll und Haben, und wo stehen Zugänge bei Aktiv- und Passivkonten?',
       text: 'Ein Konto hat zwei Seiten: Soll = links, Haben = rechts – mehr bedeuten die Wörter nicht. Aktivkonten: Anfangsbestand und Zugänge im Soll. Passivkonten: im Haben. Der Saldo steht auf der kleineren Seite.',
     },
     {

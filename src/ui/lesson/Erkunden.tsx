@@ -5,6 +5,7 @@ import { Decimal, formatEuro, formatProzent, round } from '../../engine/money';
 import { Button, cx } from '../components/ui';
 import { TKonto, type Eintrag } from '../visuals/TKonto';
 import { Waage, type Posten } from '../visuals/Waage';
+import { AFA_NAME, AfaVerlauf, Kostenfunktion, buchwerte, type AfaVerfahrenDiagramm } from '../visuals/Diagramme';
 
 type Done = (richtig?: boolean) => void;
 
@@ -320,6 +321,102 @@ function Aufdecken({ e, onDone }: { e: Extract<Erkunden, { art: 'aufdecken' }>; 
   );
 }
 
+function AfaVergleich({ e, onDone }: { e: Extract<Erkunden, { art: 'afa-vergleich' }>; onDone: Done }) {
+  const alle: AfaVerfahrenDiagramm[] = ['linear', 'arithmetisch', 'geometrisch'];
+  const [an, setAn] = useState<AfaVerfahrenDiagramm[]>(['linear']);
+  const [gesehen, setGesehen] = useState<Set<AfaVerfahrenDiagramm>>(new Set(['linear']));
+  const umschalten = (v: AfaVerfahrenDiagramm) => {
+    const next = an.includes(v) ? an.filter((x) => x !== v) : [...an, v];
+    setAn(next.length ? next : [v]);
+    const g = new Set(gesehen).add(v);
+    setGesehen(g);
+    if (g.size === alle.length) onDone();
+  };
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-wrap gap-2" role="group" aria-label="Verfahren ein- und ausblenden">
+        {alle.map((v) => (
+          <button key={v} type="button" aria-pressed={an.includes(v)} onClick={() => umschalten(v)} className={cx('min-h-10 rounded-lg border px-3 text-sm', an.includes(v) ? 'border-accent bg-accent-soft font-medium text-accent' : 'border-line-strong bg-surface')}>
+            {AFA_NAME[v]}
+          </button>
+        ))}
+      </div>
+      <AfaVerlauf basis={e.basis} restwert={e.restwert} nd={e.nd} verfahren={an} satz={e.satz} />
+      <table className="num w-full text-sm">
+        <thead>
+          <tr className="text-xs text-muted">
+            <th className="text-left font-medium">Abschreibung</th>
+            {an.map((v) => (
+              <th key={v} className="text-right font-medium">{AFA_NAME[v]}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {[1, 2, 3].map((t) => (
+            <tr key={t} className="border-t border-line">
+              <td>Jahr {t}</td>
+              {an.map((v) => {
+                const bw = buchwerte(v, e.basis, e.restwert, e.nd, e.satz);
+                return (
+                  <td key={v} className="text-right">{formatEuro(bw[t - 1]!.minus(bw[t]!))}</td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function KostenfunktionRegler({ e, onDone }: { e: Extract<Erkunden, { art: 'kostenfunktion' }>; onDone: Done }) {
+  const [x, setX] = useState(Math.round(e.xmax / 4));
+  const [bewegt, setBewegt] = useState(false);
+  const erloes = new Decimal(e.preis).times(x);
+  const kosten = new Decimal(e.kf).plus(new Decimal(e.kv).times(x));
+  const ergebnis = erloes.minus(kosten);
+  const schritt = Math.max(1, Math.round(e.xmax / 100));
+  return (
+    <div className="flex flex-col gap-3">
+      <Kostenfunktion preis={e.preis} kv={e.kv} kf={e.kf} xmax={e.xmax} x={x} einheit={e.einheit} />
+      <label className="flex flex-col gap-1">
+        <span className="num text-sm text-muted">
+          Absatzmenge: {x.toLocaleString('de-DE')} {e.einheit ?? 'Stück'}
+        </span>
+        <input
+          type="range"
+          min={0}
+          max={e.xmax}
+          step={schritt}
+          value={x}
+          onChange={(ev) => {
+            setX(Number(ev.target.value));
+            if (!bewegt) {
+              setBewegt(true);
+              onDone();
+            }
+          }}
+          className="w-full accent-[color:var(--accent)]"
+        />
+      </label>
+      <dl className="num grid grid-cols-3 gap-2 text-center text-sm">
+        <div className="rounded-lg bg-surface-2 p-2">
+          <dt className="text-xs text-muted">Erlöse</dt>
+          <dd className="font-semibold">{formatEuro(erloes, 0)}</dd>
+        </div>
+        <div className="rounded-lg bg-surface-2 p-2">
+          <dt className="text-xs text-muted">Kosten</dt>
+          <dd className="font-semibold">{formatEuro(kosten, 0)}</dd>
+        </div>
+        <div className={cx('rounded-lg p-2', ergebnis.isNegative() ? 'bg-warn-soft' : 'bg-ok-soft')}>
+          <dt className="text-xs text-muted">Ergebnis</dt>
+          <dd className="font-semibold">{formatEuro(ergebnis, 0)}</dd>
+        </div>
+      </dl>
+    </div>
+  );
+}
+
 export function ErkundenView({ e, onDone }: { e: Erkunden; onDone: Done }) {
   switch (e.art) {
     case 'waage-zuordnen':
@@ -332,5 +429,9 @@ export function ErkundenView({ e, onDone }: { e: Erkunden; onDone: Done }) {
       return <SkontoRegler e={e} onDone={onDone} />;
     case 'aufdecken':
       return <Aufdecken e={e} onDone={onDone} />;
+    case 'afa-vergleich':
+      return <AfaVergleich e={e} onDone={onDone} />;
+    case 'kostenfunktion':
+      return <KostenfunktionRegler e={e} onDone={onDone} />;
   }
 }

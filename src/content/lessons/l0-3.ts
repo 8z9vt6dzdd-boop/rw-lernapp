@@ -179,6 +179,7 @@ export const lektion03: Lektion = {
     {
       typ: 'merksatz',
       id: '0.3-m1',
+      frage: 'Was zeigen Aktiva und Passiva einer Bilanz?',
       text: 'Bilanz = Foto am Stichtag. Aktiva (links): wofür das Geld eingesetzt ist – Mittelverwendung. Passiva (rechts): woher es kommt – Mittelherkunft. Summe links = Summe rechts.',
     },
     {

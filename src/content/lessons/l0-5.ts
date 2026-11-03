@@ -216,6 +216,7 @@ export const lektion05: Lektion = {
     {
       typ: 'merksatz',
       id: '0.5-m1',
+      frage: 'Warum bleibt die Bilanz bei jedem Geschäftsvorfall im Gleichgewicht?',
       text: 'Doppelte Buchführung: Jeder Geschäftsvorfall verändert mindestens zwei Posten – woher und wohin. Deshalb bleibt die Bilanz immer im Gleichgewicht.',
     },
     {

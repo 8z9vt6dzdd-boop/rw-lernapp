@@ -1,11 +1,7 @@
 // Lektionen als Daten (09-lektionen.md, Abschnitt 10). Der Lektions-Player rendert sie.
 import type { Ausdruck, FigurId } from '../characters';
 import type { TaskPart } from '../../engine/task';
-import type { SchauplatzId } from '../../ui/visuals/Schauplatz';
-import type { Posten } from '../../ui/visuals/Waage';
-import type { Eintrag } from '../../ui/visuals/TKonto';
-import type { BelegZeile } from '../../ui/visuals/Beleg';
-import type { LagerPosten, Tank } from '../../ui/visuals/Lager';
+import type { BelegZeile, Eintrag, LagerPosten, Posten, SchauplatzId, Tank } from '../visual-types';
 
 export interface Sprecher {
   figur: FigurId;

@@ -6,7 +6,9 @@ import { prepareTask, skillTitel, type TaskSpec } from '../../learning/prepare';
 import { erstelleAttempt } from '../../learning/record';
 import { kurzSitzung, wiederholung } from '../../learning/session';
 import type { AttemptEvent } from '../../learning/types';
-import { addEvent, deviceId, eventsForSkill } from '../../storage/db';
+import { laptopListe, laptopSpeichern } from '../../learning/ereignisse';
+import { addEvent, allEvents, deviceId, eventsForSkill } from '../../storage/db';
+import { Sprechblase } from '../lesson/Sprechblase';
 import { Button, Card } from '../components/ui';
 import { TaskRunner, type TaskOutcome } from '../components/TaskRunner';
 import { navigate } from '../hooks';
@@ -25,8 +27,44 @@ function sitzungAusHash(): TaskSpec[] {
       seed: start !== null ? start + i : randomSeed(),
     }));
   }
-  if (start !== null) return kurzSitzung(start);
-  return kurzSitzung();
+  const mobil = istMobil();
+  if (start !== null) return kurzSitzung(start, { mobil });
+  return kurzSitzung(undefined, { mobil });
+}
+
+function istMobil(): boolean {
+  return window.matchMedia('(max-width: 767px)').matches;
+}
+
+function merkRef(): string | null {
+  return new URLSearchParams(window.location.hash.split('?')[1] ?? '').get('merk');
+}
+
+/** Hinweis vor Tabellenaufgaben auf dem Handy (CLAUDE.md, Regel 9). */
+function LaptopHinweis({ onHier, onMerken }: { onHier: () => void; onMerken: () => void }) {
+  return (
+    <div className="flex flex-col gap-4">
+      <Card>
+        <Sprechblase
+          s={{
+            figur: 'leni',
+            ausdruck: 'erklaert',
+            text: 'Diese Aufgabe lässt sich am Laptop deutlich bequemer bearbeiten. Große Tabellen sind auf dem Handy etwas fummelig.',
+          }}
+        />
+      </Card>
+      <div className="flex flex-col gap-2 sm:flex-row">
+        <Button variant="primary" onClick={onMerken}>
+          Für den Laptop merken
+        </Button>
+        <Button onClick={onHier}>Trotzdem hier lösen</Button>
+      </div>
+      <p className="text-sm text-muted">
+        Gemerkte Aufgaben erscheinen am Laptop oben auf der Startseite unter „Am Laptop
+        weitermachen“.
+      </p>
+    </div>
+  );
 }
 
 function dauerText(ms: number): string {
@@ -35,12 +73,34 @@ function dauerText(ms: number): string {
 }
 
 export function SessionScreen() {
-  const [queue, setQueue] = useState<TaskSpec[]>(sitzungAusHash);
+  const [queue, setQueue] = useState<TaskSpec[] | null>(() =>
+    merkRef() ? null : sitzungAusHash(),
+  );
+  const [hinweisOk, setHinweisOk] = useState<ReadonlySet<string>>(new Set());
+  const [gemerkt, setGemerkt] = useState(0);
   const [index, setIndex] = useState(0);
   const [ergebnisse, setErgebnisse] = useState<AttemptEvent[]>([]);
   const [wiederholt, setWiederholt] = useState<ReadonlySet<string>>(new Set());
 
-  const spec = queue[index];
+  useEffect(() => {
+    const ref = merkRef();
+    if (!ref) return;
+    void allEvents().then((ev) => {
+      const e = laptopListe(ev).find((x) => x.ref === ref);
+      if (!e) return setQueue([]);
+      const spec: TaskSpec = {
+        key: `laptop-${ref}`,
+        art: 'aufgabe',
+        skillId: e.skillId,
+        seed: e.seed,
+        laptopRef: ref,
+      };
+      if (e.variant) spec.variant = e.variant;
+      setQueue([spec]);
+    });
+  }, []);
+
+  const spec = queue?.[index];
   const task = useMemo(() => (spec ? prepareTask(spec) : null), [spec]);
 
   useEffect(() => {
@@ -61,14 +121,50 @@ export function SessionScreen() {
       loesungGezeigt: o.loesungGezeigt,
     });
     await addEvent(event);
+    if (spec.laptopRef)
+      await laptopSpeichern('laptop-erledigt', {
+        ref: spec.laptopRef,
+        skillId: spec.skillId,
+        seed: spec.seed,
+      });
     setErgebnisse((prev) => [...prev, event]);
     if (!event.correct && spec.art === 'aufgabe' && !wiederholt.has(spec.skillId)) {
       setWiederholt((prev) => new Set([...prev, spec.skillId]));
-      const pos = Math.min(queue.length, index + 3);
-      setQueue((prev) => [...prev.slice(0, pos), wiederholung(spec), ...prev.slice(pos)]);
+      setQueue((prev) => {
+        const q = prev ?? [];
+        const pos = Math.min(q.length, index + 3);
+        return [...q.slice(0, pos), wiederholung(spec), ...q.slice(pos)];
+      });
     }
     setIndex((i) => i + 1);
   };
+
+  if (queue === null) return null;
+
+  if (
+    spec &&
+    task &&
+    istMobil() &&
+    !spec.laptopRef &&
+    !hinweisOk.has(spec.skillId) &&
+    task.parts.some((p) => p.typ === 'tabelle')
+  ) {
+    return (
+      <LaptopHinweis
+        onHier={() => setHinweisOk(new Set([...hinweisOk, spec.skillId]))}
+        onMerken={async () => {
+          const d: { skillId: string; seed: number; variant?: string } = {
+            skillId: spec.skillId,
+            seed: spec.seed,
+          };
+          if (spec.variant) d.variant = spec.variant;
+          await laptopSpeichern('laptop-merken', d);
+          setGemerkt(gemerkt + 1);
+          setIndex(index + 1);
+        }}
+      />
+    );
+  }
 
   if (!spec || !task) {
     const geloest = ergebnisse.filter((e) => e.correct).length;
@@ -77,6 +173,12 @@ export function SessionScreen() {
       <div className="flex flex-col gap-4">
         <Card>
           <h2 className="text-xl font-semibold">Sitzung abgeschlossen</h2>
+          {gemerkt > 0 ? (
+            <p className="mt-1 text-sm text-muted">
+              {gemerkt === 1 ? 'Eine Aufgabe ist' : `${gemerkt} Aufgaben sind`} für den Laptop
+              gemerkt.
+            </p>
+          ) : null}
           <dl className="num mt-4 grid grid-cols-2 gap-4">
             <div>
               <dt className="text-sm text-muted">Aufgaben</dt>
@@ -133,7 +235,7 @@ export function SessionScreen() {
           </Button>
           <Button
             onClick={() => {
-              setQueue(kurzSitzung());
+              setQueue(kurzSitzung(undefined, { mobil: istMobil() }));
               setIndex(0);
               setErgebnisse([]);
               setWiederholt(new Set());

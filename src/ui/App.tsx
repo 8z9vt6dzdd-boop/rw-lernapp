@@ -1,16 +1,32 @@
-// App-Rahmen: Navigation (unten auf dem Handy, links am Laptop), Update-Hinweis, Hinweis „fiktive Zahlen“.
+// App-Rahmen: Navigation (unten auf dem Handy, links am Laptop), Update-Hinweis, Belohnungen,
+// Begrüßung beim ersten Start und Hinweis „fiktive Zahlen“.
 import { useEffect } from 'react';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 import { FIRMA } from '../config';
+import { lektion } from '../content/lessons';
 import { requestPersistence } from '../storage/db';
-import { Button, Icon, cx, type IconName } from './components/ui';
-import { navigate, useHash, useRoute, useSettings, useTheme, type Route } from './hooks';
+import { Button, Card, Icon, cx, type IconName } from './components/ui';
+import {
+  navigate,
+  routeParams,
+  useBewegung,
+  useHash,
+  useRoute,
+  useSettingsState,
+  useTheme,
+  type Route,
+} from './hooks';
+import { Belohnungen } from './lesson/Belohnungen';
+import { LessonPlayer } from './lesson/LessonPlayer';
 import { EinstellungenScreen } from './screens/EinstellungenScreen';
+import { ErfolgeScreen } from './screens/ErfolgeScreen';
 import { FirmaScreen } from './screens/FirmaScreen';
 import { LernpfadScreen } from './screens/LernpfadScreen';
 import { SessionScreen } from './screens/SessionScreen';
 import { StartScreen } from './screens/StartScreen';
 import { StatistikScreen } from './screens/StatistikScreen';
+import { EinstufungScreen, TestScreen } from './screens/TestScreen';
+import { FigurScreen, WillkommenScreen } from './screens/WillkommenScreen';
 
 const NAV: { route: Route; label: string; icon: IconName }[] = [
   { route: 'start', label: 'Start', icon: 'start' },
@@ -20,6 +36,9 @@ const NAV: { route: Route; label: string; icon: IconName }[] = [
   { route: 'einstellungen', label: 'Einstellungen', icon: 'einstellungen' },
 ];
 
+/** Bereiche ohne Navigation (volle Konzentration auf Lektion, Aufgabe oder Test). */
+const VOLLBILD: Route[] = ['sitzung', 'lektion', 'test', 'einstufung', 'willkommen'];
+
 function UpdateHinweis() {
   const {
     needRefresh: [needRefresh],
@@ -27,7 +46,7 @@ function UpdateHinweis() {
   } = useRegisterSW({ immediate: true });
   if (!needRefresh) return null;
   return (
-    <div role="status" className="fixed inset-x-0 top-0 z-50 flex justify-center p-3 safe-top">
+    <div role="status" className="safe-top fixed inset-x-0 top-0 z-50 flex justify-center p-3">
       <div className="flex items-center gap-3 rounded-xl border border-line bg-surface px-4 py-2 shadow-card">
         <span className="text-[15px]">Neue Version verfügbar</span>
         <Button
@@ -42,11 +61,28 @@ function UpdateHinweis() {
   );
 }
 
+function LektionRoute() {
+  const [id] = routeParams();
+  const l = id ? lektion(id) : undefined;
+  if (!l) {
+    return (
+      <Card>
+        <p>Diese Lektion gibt es (noch) nicht.</p>
+        <Button className="mt-3" onClick={() => navigate('lernpfad')}>
+          Zum Lernpfad
+        </Button>
+      </Card>
+    );
+  }
+  return <LessonPlayer key={l.id} lektion={l} />;
+}
+
 export function App() {
   const route = useRoute();
   const hash = useHash();
-  const settings = useSettings();
+  const [settings, geladen] = useSettingsState();
   useTheme(settings.theme);
+  useBewegung(settings.bewegungReduziert);
 
   useEffect(() => {
     void requestPersistence();
@@ -56,21 +92,30 @@ export function App() {
     window.scrollTo({ top: 0 });
   }, [route]);
 
-  const imSitzungsmodus = route === 'sitzung';
+  const onboarding = geladen && !settings.onboardingErledigt && route === 'start';
+  const effektiv: Route = onboarding ? 'willkommen' : route;
+  const vollbild = VOLLBILD.includes(effektiv);
 
   const screen = {
-    start: <StartScreen />,
+    start: geladen ? <StartScreen /> : null,
     lernpfad: <LernpfadScreen />,
     firma: <FirmaScreen />,
     statistik: <StatistikScreen />,
     einstellungen: <EinstellungenScreen />,
     sitzung: <SessionScreen key={hash} />,
-  }[route];
+    lektion: <LektionRoute key={hash} />,
+    test: <TestScreen key={hash} />,
+    einstufung: <EinstufungScreen />,
+    erfolge: <ErfolgeScreen />,
+    figur: <FigurScreen />,
+    willkommen: <WillkommenScreen />,
+  }[effektiv];
 
   return (
     <div className="min-h-dvh lg:flex">
       <UpdateHinweis />
-      {!imSitzungsmodus ? (
+      {!vollbild && geladen ? <Belohnungen /> : null}
+      {!vollbild ? (
         <nav
           aria-label="Hauptnavigation"
           className="hidden w-60 shrink-0 border-r border-line bg-surface lg:sticky lg:top-0 lg:flex lg:h-dvh lg:flex-col lg:p-4"
@@ -79,7 +124,7 @@ export function App() {
             <div className="text-xs font-medium tracking-wide text-accent uppercase">
               {FIRMA.kurz} · Lernversion
             </div>
-            <div className="font-semibold">Rechnungswesen</div>
+            <div className="hand text-lg font-bold">Rechnungswesen</div>
           </div>
           <ul className="flex flex-col gap-1">
             {NAV.map((n) => (
@@ -106,19 +151,19 @@ export function App() {
       <div className="flex min-h-dvh min-w-0 flex-1 flex-col">
         <main
           className={cx(
-            'mx-auto w-full flex-1 px-4 pt-4 safe-top sm:pt-6',
-            imSitzungsmodus ? 'max-w-3xl' : 'max-w-3xl pb-28 lg:pb-10',
+            'safe-top mx-auto w-full max-w-3xl flex-1 px-4 pt-4 sm:pt-6',
+            !vollbild && 'pb-28 lg:pb-10',
           )}
         >
           {screen}
         </main>
-        {!imSitzungsmodus ? (
+        {!vollbild ? (
           <footer className="mx-auto w-full max-w-3xl px-4 pb-28 text-xs text-muted lg:pb-6">
-            {FIRMA.hinweisFiktiv}
+            {FIRMA.hinweisFiktiv} Alle Personen sind erfunden.
           </footer>
         ) : null}
       </div>
-      {!imSitzungsmodus ? (
+      {!vollbild ? (
         <nav
           aria-label="Hauptnavigation"
           className="safe-bottom fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 backdrop-blur lg:hidden"

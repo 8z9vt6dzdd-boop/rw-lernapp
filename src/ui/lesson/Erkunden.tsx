@@ -137,15 +137,21 @@ function Geschaeftsvorfall({
         </div>
       ) : null}
       {naechster ? (
-        <Button
-          variant="primary"
-          onClick={() => {
-            setSchritte(schritte + 1);
-            if (schritte + 1 === e.vorfaelle.length) onDone(true);
-          }}
-        >
-          {schritte === 0 ? 'Ersten Vorfall buchen' : 'Nächster Vorfall'}: {naechster.text}
-        </Button>
+        <div className="flex flex-col gap-2 rounded-lg border-2 border-dashed border-accent p-3">
+          <div className="text-sm text-muted">
+            Vorfall {schritte + 1} von {e.vorfaelle.length}
+          </div>
+          <div className="font-medium">{naechster.text}</div>
+          <Button
+            variant="primary"
+            onClick={() => {
+              setSchritte(schritte + 1);
+              if (schritte + 1 === e.vorfaelle.length) onDone(true);
+            }}
+          >
+            Vorfall buchen
+          </Button>
+        </div>
       ) : (
         <p className="text-sm font-medium text-ok">
           Alle Vorfälle gebucht – und die Waage steht immer noch gerade.
@@ -172,15 +178,13 @@ function TkontoBuchen({
       text: e.anfang.text,
       betrag: e.anfang.betrag,
     });
-  e.vorgaenge
-    .slice(0, n)
-    .forEach((v, i) =>
-      (v.seite === 'soll' ? soll : haben).push({
-        text: v.text,
-        betrag: v.betrag,
-        neu: i === n - 1,
-      }),
-    );
+  e.vorgaenge.slice(0, n).forEach((v, i) =>
+    (v.seite === 'soll' ? soll : haben).push({
+      text: v.text,
+      betrag: v.betrag,
+      neu: i === n - 1,
+    }),
+  );
   const aktuell = e.vorgaenge[n];
   const waehle = (seite: 'soll' | 'haben') => {
     if (!aktuell) return;

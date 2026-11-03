@@ -15,6 +15,10 @@ export interface TaskSpec {
   variant?: string;
   /** Zweiter Versuch nach einem Fehler in derselben Sitzung */
   wiederholung?: boolean;
+  /** Kurzmodus auf dem Handy: nur Teilschritte ohne große Tabelle */
+  teilschritt?: boolean;
+  /** Aufgabe stammt aus der Liste „Am Laptop weitermachen“ (Verweis auf das Merken-Ereignis) */
+  laptopRef?: string;
   /** Theorie-Element bei art 'mc' */
   elementId?: string;
 }
@@ -123,10 +127,19 @@ export function prepareTask(spec: TaskSpec): PreparedTask {
       points: 1,
     };
   }
+  const alleTeile = g.parts(p, s);
+  const ohneTabelle = alleTeile.filter((t) => t.typ !== 'tabelle');
+  const teilschritt =
+    spec.teilschritt === true && ohneTabelle.length > 0 && ohneTabelle.length < alleTeile.length;
   return {
     spec,
-    text,
-    parts: g.parts(p, s),
+    text: teilschritt
+      ? {
+          ...text,
+          aufgabe: `${text.aufgabe} Hier auf dem Handy nur der erste Teilschritt – die ganze Tabelle übst du am Laptop.`,
+        }
+      : text,
+    parts: teilschritt ? ohneTabelle : alleTeile,
     variants: g.errorVariants(p),
     hints: g.hints(p, s),
     steps: g.steps(p, s),

@@ -5,7 +5,15 @@ import { buchungEingeben, sammleFehler, teileFuer, teilLoesen } from './helpers'
 test('Startseite lädt ohne Fehler, Navigation erreicht alle Bereiche', async ({ page }) => {
   const fehler = sammleFehler(page);
   await page.goto('./');
-  await expect(page.getByRole('heading', { name: 'Rechnungswesen trainieren' })).toBeVisible();
+  // Begrüßung beim ersten Start
+  await expect(page.getByRole('heading', { name: 'Willkommen bei der MBG!' })).toBeVisible();
+  await page.getByRole('button', { name: /Los geht/ }).click();
+  await page.getByRole('radio', { name: 'Afro' }).click();
+  await page.getByRole('button', { name: 'Weiter' }).click();
+  await page.getByRole('radio', { name: /leicht/ }).click();
+  await page.getByRole('button', { name: 'Weiter' }).click();
+  await page.getByRole('button', { name: 'Bei null anfangen' }).click();
+  await expect(page.getByRole('heading', { level: 1, name: 'Lernpfad' })).toBeVisible();
   await expect(page.getByText('Lernszenario mit fiktiven Zahlen').first()).toBeVisible();
   const nav = page.getByRole('navigation', { name: 'Hauptnavigation' }).locator('visible=true');
   for (const [label, heading] of [
@@ -13,7 +21,7 @@ test('Startseite lädt ohne Fehler, Navigation erreicht alle Bereiche', async ({
     ['Firma', 'MBG Getränke OHG (Lernversion)'],
     ['Statistik', 'Statistik'],
     ['Einstellungen', 'Einstellungen'],
-    ['Start', 'Rechnungswesen trainieren'],
+    ['Start', 'Hallo!'],
   ]) {
     await nav.getByRole('button', { name: label }).click();
     await expect(page.getByRole('heading', { level: 1, name: heading })).toBeVisible();
@@ -39,6 +47,9 @@ for (const g of GENERATOREN) {
     const fehler = sammleFehler(page);
     const seed = 11;
     await page.goto(`./#/sitzung?skill=${g.skillId}&seed=${seed}`);
+    const hier = page.getByRole('button', { name: 'Trotzdem hier lösen' });
+    await expect(page.getByText(/Aufgabe 1 von/).or(hier)).toBeVisible();
+    if (await hier.isVisible()) await hier.click();
     const parts = teileFuer(g.skillId, seed);
     for (const [i, part] of parts.entries()) {
       await teilLoesen(page, part);
@@ -115,7 +126,6 @@ test('Komplette Kurz-Sitzung bis zur Auswertung, Lernstand wird gespeichert', as
   }
   await expect(ende).toBeVisible();
   await page.getByRole('button', { name: 'Zur Startseite' }).click();
-  await expect(page.getByText('Insgesamt')).toBeVisible();
   const anzahl = await page.evaluate(
     () =>
       new Promise<number>((resolve) => {

@@ -18,7 +18,7 @@ export function Button({
       type="button"
       {...rest}
       className={cx(
-        'inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-3 text-[15px] font-medium whitespace-nowrap transition-colors sm:px-4 disabled:cursor-not-allowed disabled:opacity-50',
+        'inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-3 py-2 text-center text-[15px] leading-snug font-medium transition-colors sm:px-4 disabled:cursor-not-allowed disabled:opacity-50',
         variant === 'primary' && 'bg-accent text-on-accent hover:bg-accent-hover',
         variant === 'secondary' &&
           'border border-line-strong bg-surface text-ink hover:bg-surface-2',

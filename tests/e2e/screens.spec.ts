@@ -1,5 +1,5 @@
 // Bildschirmfotos zur Sichtprüfung (nur mit SCREENS=1): npx playwright test screens
-import { test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { teileFuer, teilLoesen } from './helpers';
 
 test.skip(!process.env.SCREENS, 'nur auf Anfrage');
@@ -43,6 +43,9 @@ for (const theme of ['hell', 'dunkel'] as const) {
 
     // Stufenleiter-Tabelle
     await page.goto('./#/sitzung?skill=I4-stufenleiter&seed=3');
+    const hier = page.getByRole('button', { name: 'Trotzdem hier lösen' });
+    await expect(page.getByText(/Aufgabe 1 von/).or(hier)).toBeVisible();
+    if (await hier.isVisible()) await hier.click();
     const [reihenfolge] = teileFuer('I4-stufenleiter', 3);
     await teilLoesen(page, reihenfolge!);
     await page.getByRole('button', { name: 'Prüfen' }).click();

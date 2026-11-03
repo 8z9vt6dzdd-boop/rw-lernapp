@@ -97,5 +97,5 @@ export interface Settings {
   /** Montag der zuletzt gesehenen Wochenrückblick-Woche (YYYY-MM-DD) */
   wochenrueckblickGesehen?: string;
   /** zuletzt gefeierte Karrierestufe bzw. Serien-Meilenstein (für Belohnungsszenen) */
-  gefeiert?: { karriere?: number; serie?: number; erfolge?: string[] };
+  gefeiert?: { karriere?: number; serie?: number; erfolge?: string[]; abschnitte?: string[] };
 }

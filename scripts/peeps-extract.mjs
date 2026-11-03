@@ -9,12 +9,53 @@ if (!src || !out) throw new Error('Aufruf: node scripts/peeps-extract.mjs <quell
 
 const AUSWAHL = {
   pose: [
-    'bust/Explaining', 'bust/PointingUp', 'bust/Coffee', 'bust/Device', 'bust/Paper', 'bust/ArmsCrossed',
-    'bust/Geek', 'bust/Turtleneck', 'bust/Sweater', 'bust/ButtonShirt', 'bust/BlazerBlackTee', 'bust/Thunder',
-    'bust/Whatever', 'bust/PocketShirt', 'bust/Hoodie', 'bust/PoloSweater',
+    'bust/Explaining',
+    'bust/PointingUp',
+    'bust/Coffee',
+    'bust/Device',
+    'bust/Paper',
+    'bust/ArmsCrossed',
+    'bust/Geek',
+    'bust/Turtleneck',
+    'bust/Sweater',
+    'bust/ButtonShirt',
+    'bust/BlazerBlackTee',
+    'bust/Thunder',
+    'bust/Whatever',
+    'bust/PocketShirt',
+    'bust/Hoodie',
+    'bust/PoloSweater',
   ],
-  face: ['Calm', 'Explaining', 'Smile', 'SmileBig', 'Concerned', 'Suspicious', 'Awe', 'SmileLol', 'LoveGrin', 'ConcernedFear', 'Driven', 'Cheeky'],
-  hair: ['Bun', 'MediumBangs', 'ShortMessy', 'Long', 'GrayShort', 'GrayBun', 'Medium', 'ShortCurly', 'Afro', 'Bangs', 'ShortWavy', 'FlatTop', 'LongCurly', 'Pomp'],
+  face: [
+    'Calm',
+    'Explaining',
+    'Smile',
+    'SmileBig',
+    'Concerned',
+    'Suspicious',
+    'Awe',
+    'SmileLol',
+    'LoveGrin',
+    'ConcernedFear',
+    'Driven',
+    'Cheeky',
+  ],
+  hair: [
+    'Bun',
+    'MediumBangs',
+    'ShortMessy',
+    'Long',
+    'GrayShort',
+    'GrayBun',
+    'Medium',
+    'ShortCurly',
+    'Afro',
+    'Bangs',
+    'ShortWavy',
+    'FlatTop',
+    'LongCurly',
+    'Pomp',
+  ],
   facialHair: ['Chin', 'MoustacheThin', 'GoateeCircle'],
   accessories: ['GlassRound', 'GlassClubmaster', 'GlassButterflyOutline'],
 };
@@ -31,7 +72,11 @@ function parseFile(text) {
     if (!d) continue;
     const t = body.match(/transform: '([^']*)'/)?.[1] ?? null;
     const fillRaw = body.match(/fill: ([^,]+?)(?:,|$)/)?.[1]?.trim() ?? '';
-    const fill = fillRaw.startsWith('backgroundColor') ? 'bg' : fillRaw.startsWith('strokeColor') ? 'stroke' : fillRaw.replace(/'/g, '');
+    const fill = fillRaw.startsWith('backgroundColor')
+      ? 'bg'
+      : fillRaw.startsWith('strokeColor')
+        ? 'stroke'
+        : fillRaw.replace(/'/g, '');
     const evenodd = /fillRule: 'evenodd'/.test(body);
     paths.push({ d, t, fill, evenodd });
   }
@@ -54,5 +99,8 @@ const header = `// Automatisch erzeugt mit scripts/peeps-extract.mjs – nicht v
 export interface PeepPath { d: string; t: string | null; fill: string; evenodd: boolean }
 export interface PeepPart { transform: string | null; paths: PeepPath[] }
 `;
-writeFileSync(out, header + `export const PARTS: Record<string, PeepPart> = ${JSON.stringify(parts)};\n`);
+writeFileSync(
+  out,
+  header + `export const PARTS: Record<string, PeepPart> = ${JSON.stringify(parts)};\n`,
+);
 console.log(`${Object.keys(parts).length} Bausteine geschrieben`);

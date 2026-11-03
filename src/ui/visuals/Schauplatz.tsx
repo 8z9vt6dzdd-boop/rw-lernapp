@@ -2,7 +2,9 @@
 import type { ReactNode } from 'react';
 import { STRICH, handLinie, handRechteck } from './hand';
 
-export type SchauplatzId = 'buero' | 'lager' | 'abfuellung' | 'besprechung' | 'gesellschafter';
+import type { SchauplatzId } from '../../content/visual-types';
+
+export type { SchauplatzId };
 
 export const SCHAUPLATZ_NAME: Record<SchauplatzId, string> = {
   buero: 'Büro Rechnungswesen',

@@ -3,9 +3,44 @@ import { useEffect, useState, useSyncExternalStore } from 'react';
 import type { LernEreignis, Settings } from '../learning/types';
 import { DEFAULT_SETTINGS, allEvents, getSettings, subscribe } from '../storage/db';
 
-export type Route = 'start' | 'lernpfad' | 'firma' | 'statistik' | 'einstellungen' | 'sitzung';
+export type Route =
+  | 'start'
+  | 'lernpfad'
+  | 'firma'
+  | 'statistik'
+  | 'einstellungen'
+  | 'sitzung'
+  | 'lektion'
+  | 'test'
+  | 'einstufung'
+  | 'erfolge'
+  | 'figur'
+  | 'willkommen';
 
-const ROUTES: Route[] = ['start', 'lernpfad', 'firma', 'statistik', 'einstellungen', 'sitzung'];
+const ROUTES: Route[] = [
+  'start',
+  'lernpfad',
+  'firma',
+  'statistik',
+  'einstellungen',
+  'sitzung',
+  'lektion',
+  'test',
+  'einstufung',
+  'erfolge',
+  'figur',
+  'willkommen',
+];
+
+/** Pfadteile nach der Route, z. B. #/test/abschnitt/0 → ['abschnitt', '0'] */
+export function routeParams(): string[] {
+  return window.location.hash
+    .replace(/^#\/?/, '')
+    .split('?')[0]!
+    .split('/')
+    .slice(1)
+    .map(decodeURIComponent);
+}
 
 function parseHash(): Route {
   const h = window.location.hash.replace(/^#\/?/, '').split(/[/?]/)[0] ?? '';
@@ -21,8 +56,9 @@ export function useRoute(): Route {
   return useSyncExternalStore(subscribeHash, parseHash, () => 'start' as Route);
 }
 
-export function navigate(route: Route): void {
-  window.location.hash = route === 'start' ? '#/' : `#/${route}`;
+export function navigate(route: Route, ...params: string[]): void {
+  window.location.hash =
+    route === 'start' ? '#/' : `#/${[route, ...params.map(encodeURIComponent)].join('/')}`;
 }
 
 export function useEvents(): LernEreignis[] | null {
@@ -40,11 +76,12 @@ export function useEvents(): LernEreignis[] | null {
   return events;
 }
 
-export function useSettings(): Settings {
-  const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
+/** Einstellungen plus Ladezustand (vor dem ersten Laden gelten die Standardwerte). */
+export function useSettingsState(): [Settings, boolean] {
+  const [state, setState] = useState<[Settings, boolean]>([DEFAULT_SETTINGS, false]);
   useEffect(() => {
     let alive = true;
-    const load = () => getSettings().then((s) => alive && setSettings(s));
+    const load = () => getSettings().then((s) => alive && setState([s, true]));
     load();
     const unsub = subscribe(load);
     return () => {
@@ -52,7 +89,20 @@ export function useSettings(): Settings {
       unsub();
     };
   }, []);
-  return settings;
+  return state;
+}
+
+export function useSettings(): Settings {
+  return useSettingsState()[0];
+}
+
+/** Bewegung reduzieren (App-Schalter) auf das Dokument anwenden. */
+export function useBewegung(reduziert: boolean): void {
+  useEffect(() => {
+    const root = document.documentElement;
+    if (reduziert) root.setAttribute('data-motion', 'reduziert');
+    else root.removeAttribute('data-motion');
+  }, [reduziert]);
 }
 
 /** Wendet hell/dunkel/automatisch auf das Dokument an. */

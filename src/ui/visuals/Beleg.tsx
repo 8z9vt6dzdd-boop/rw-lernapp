@@ -2,11 +2,9 @@
 import { formatEuro } from '../../engine/money';
 import { cx } from '../components/ui';
 
-export interface BelegZeile {
-  text: string;
-  betrag?: string;
-  fett?: boolean;
-}
+import type { BelegZeile } from '../../content/visual-types';
+
+export type { BelegZeile };
 
 export function Beleg({
   art = 'rechnung',

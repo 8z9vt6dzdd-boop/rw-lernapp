@@ -326,7 +326,7 @@ export function TaskRunner({
       <div ref={bottomRef} />
 
       <div className="safe-bottom fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface/95 backdrop-blur">
-        <div className="mx-auto flex max-w-3xl items-center gap-2 px-4 py-3">
+        <div className="mx-auto flex max-w-3xl items-center gap-2 px-4 py-3 [&_button]:whitespace-nowrap">
           {!fertig ? (
             <Button
               variant="ghost"

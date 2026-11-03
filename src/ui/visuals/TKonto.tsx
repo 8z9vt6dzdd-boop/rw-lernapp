@@ -3,11 +3,9 @@ import { Decimal, formatEuro } from '../../engine/money';
 import { cx } from '../components/ui';
 import { STRICH, handLinie } from './hand';
 
-export interface Eintrag {
-  text: string;
-  betrag: string;
-  neu?: boolean;
-}
+import type { Eintrag } from '../../content/visual-types';
+
+export type { Eintrag };
 
 export function TKonto({
   name,

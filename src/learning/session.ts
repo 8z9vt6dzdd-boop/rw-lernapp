@@ -36,7 +36,10 @@ function key(): string {
   return `t${Date.now().toString(36)}${zaehler}`;
 }
 
-export function kurzSitzung(seed = randomSeed()): TaskSpec[] {
+/** Skills mit großen Tabellen: auf dem Handy im Kurzmodus nur als Teilschritt. */
+export const TABELLEN_SKILLS = ['I4-stufenleiter', 'I5-simultan', 'J3-aequivalenz'];
+
+export function kurzSitzung(seed = randomSeed(), opts: { mobil?: boolean } = {}): TaskSpec[] {
   const rng = createRng(seed);
   const rechnen = gewichtetZiehen(rng, KURZ_GEWICHTE, 5);
   // „Aufgabe erkennen“ bevorzugt aus Skills, die in dieser Sitzung nicht gerechnet werden
@@ -45,12 +48,11 @@ export function kurzSitzung(seed = randomSeed()): TaskSpec[] {
   );
   const erkennen = gewichtetZiehen(rng, Object.keys(rest).length >= 2 ? rest : KURZ_GEWICHTE, 2);
   const specs: TaskSpec[] = [
-    ...rechnen.map((skillId) => ({
-      key: key(),
-      art: 'aufgabe' as const,
-      skillId,
-      seed: randomSeedFrom(rng),
-    })),
+    ...rechnen.map((skillId) => {
+      const spec: TaskSpec = { key: key(), art: 'aufgabe', skillId, seed: randomSeedFrom(rng) };
+      if (opts.mobil && TABELLEN_SKILLS.includes(skillId)) spec.teilschritt = true;
+      return spec;
+    }),
     ...erkennen.map((skillId) => ({
       key: key(),
       art: 'erkennen' as const,

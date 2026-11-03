@@ -3,12 +3,9 @@ import { Decimal, formatEuro } from '../../engine/money';
 import { cx } from '../components/ui';
 import { STRICH, handLinie } from './hand';
 
-export interface Posten {
-  text: string;
-  /** Betrag in Euro als Dezimal-String (optional; ohne Betrag zählt jeder Posten 1) */
-  betrag?: string;
-  neu?: boolean;
-}
+import type { Posten } from '../../content/visual-types';
+
+export type { Posten };
 
 function gewicht(posten: readonly Posten[]): InstanceType<typeof Decimal> {
   return posten.reduce((a, p) => a.plus(p.betrag ?? 1), new Decimal(0));
@@ -67,14 +64,14 @@ export function Waage({
             disabled={!onPosten}
             onClick={() => onPosten?.(seite, i)}
             className={cx(
-              'einblenden flex items-baseline justify-between gap-1 rounded-md px-1.5 py-0.5 text-left text-[11.5px] leading-tight sm:text-xs',
+              'einblenden flex flex-wrap items-baseline justify-between gap-x-1 rounded-md px-1.5 py-0.5 text-left text-[11.5px] leading-tight sm:text-xs',
               seite === 'links' ? 'bg-[#dcecec]' : 'bg-[#fbe6cf]',
               p.neu && 'ring-2 ring-[color:var(--senf)]',
             )}
           >
-            <span className="min-w-0">{p.text}</span>
+            <span className="min-w-0 break-words">{p.text}</span>
             {p.betrag ? (
-              <span className="num shrink-0 font-medium">{formatEuro(p.betrag, 0)}</span>
+              <span className="num ml-auto shrink-0 font-medium">{formatEuro(p.betrag, 0)}</span>
             ) : null}
           </button>
         ))}

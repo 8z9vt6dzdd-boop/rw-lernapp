@@ -1,19 +1,9 @@
 // Lager-Ansicht der MBG: Paletten im Regal und Tanks, die sich füllen oder leeren.
 import { STRICH, handLinie, handRechteck } from './hand';
 
-export interface LagerPosten {
-  name: string;
-  /** Anzahl Paletten (0–8) */
-  paletten: number;
-  farbe?: string;
-}
+import type { LagerPosten, Tank } from '../../content/visual-types';
 
-export interface Tank {
-  name: string;
-  /** Füllstand 0–1 */
-  fuellung: number;
-  farbe?: string;
-}
+export type { LagerPosten, Tank };
 
 export function Lager({
   regal = [],

@@ -197,3 +197,11 @@ Vom Auftraggeber gegen Lehrbriefe und Lehrbuch-Lösungen geprüft und bestätigt
 - [GEKLÄRT] **USt-Voranmeldung:** Zahllast überweisen mit „Umsatzsteuer an Bank“.
 - [GEKLÄRT] **Zusammengefasste Buchungssätze beim USt-Abschluss:** „Umsatzsteuer an Vorsteuer, an SBK“ gilt als richtig; das Feedback zeigt aber zwei getrennte Sätze als Klausur-Standard. Ein zusammengesetzter Buchungssatz darf in mehrere ausgeglichene Teilsätze aufgeteilt werden. Nicht zusammenfassbar sind zeitlich getrennte Vorgänge (Bruttomethode: Zahlung und spätere Steuerkorrektur) und der Abschluss des Kontos Bestandsveränderungen.
 - **Echte Geldbeträge** (Zahlungen, Skontobeträge, Steuerkorrekturen) werden in beiden Lösungspfaden auf Cent gerundet, damit Buchungssätze aufgehen. Der Zwei-Pfade-Vergleich aus Abschnitt 3 betrifft Rechengrößen wie Verrechnungssätze, Stückkosten oder Abschreibungssätze.
+
+## 7. Offene Punkte aus M2c–M5 (Prüfpunkt 2)
+1. `[ANNAHME – bitte prüfen]` Konteneröffnung über das **Eröffnungsbilanzkonto (EBK)**. Der Lehrbrief eröffnet über den Saldenvortrag (SV); Lektion A6 nennt beide Begriffe.
+2. `[ANNAHME – bitte prüfen]` Lektion A2 nennt **keine konkrete Aufbewahrungsfrist** für Belege, weil die aktuelle Rechtslage nicht verifiziert werden konnte.
+3. `[ANNAHME – bitte prüfen]` Die App sagt „Hauptkostenstellen“. Der Lehrbrief-Begriff „Endkostenstellen“ wird (noch) nicht zusätzlich genannt.
+4. `[ANNAHME – bitte prüfen]` Im Fall „Geschäftsgang“ zählen Bestandsveränderungen zu den **Erträgen**. Ein Minderbestand mindert also die Summe der Erträge, statt als Aufwand zu erscheinen. Der Gewinn ist in beiden Darstellungen gleich.
+5. `[ANNAHME – bitte prüfen]` Der Cliffhanger in J4 sagt, ein Auftrag unter den Selbstkosten könne sich lohnen. Das stimmt nur kurzfristig und bei freien Kapazitäten; die Teilkostenrechnung (Abschnitt K) greift das auf.
+6. `[ANNAHME – bitte prüfen]` Teilpunkte in Klausuren werden auf **halbe Punkte abgerundet**. Eine Bestehensgrenze wird nicht angezeigt (nur „über/unter der Hälfte der Punkte“).

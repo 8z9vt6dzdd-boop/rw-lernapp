@@ -46,6 +46,19 @@ describe('Probeklausur', () => {
   });
 });
 
+describe('Probeklausur mit Teilkosten', () => {
+  it('bleibt bei 90 Punkten; mit vorhandenen K-Generatoren ersetzt eine K-Aufgabe die Kalkulation', async () => {
+    const { generatorFuer } = await import('../engine/generators');
+    const { TEILKOSTEN_SKILLS } = await import('./klausur');
+    for (let seed = 1; seed <= 10; seed++) {
+      const p = probeklausur(seed, { teilkosten: true });
+      expect(p.aufgaben.reduce((a, x) => a + x.punkte, 0)).toBe(90);
+      const mitK = TEILKOSTEN_SKILLS.some((id) => generatorFuer(id));
+      expect(p.aufgaben.some((a) => a.skillId.startsWith('K'))).toBe(mitK);
+    }
+  });
+});
+
 describe('Mini-Klausur', () => {
   it('für jeden Abschnitt mit Rechen-Skills lösbar', () => {
     for (const a of ABSCHNITTE.filter((x) => miniKlausurMoeglich(x.id))) {

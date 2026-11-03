@@ -11,6 +11,15 @@ import { randomSeedFrom } from './session';
 import type { CheckResult, TaskAnswer } from '../engine/task';
 import { prepareTask, type PreparedTask } from './prepare';
 
+/** Teilkosten-Skills, aus denen bei zugeschalteten Teilkosten eine Aufgabe gezogen wird. */
+export const TEILKOSTEN_SKILLS = [
+  'K3-break-even',
+  'K5-preisuntergrenze',
+  'K6-engpass',
+  'K7-make-or-buy',
+  'K4-db-mehrstufig',
+];
+
 export interface KlausurAufgabe {
   key: string;
   titel: string;
@@ -185,8 +194,28 @@ export function probeklausur(seed: number, opts: { teilkosten?: boolean } = {}):
     aufgaben,
   };
   if (opts.teilkosten) {
-    plan.hinweis =
-      'Teilkosten-Aufgaben kommen mit dem nächsten Ausbau dazu. Bis dahin enthält die Probeklausur nur Vollkosten-Aufgaben.';
+    // 02-curriculum: Eine K-Aufgabe (15 P.) ersetzt die BAB- oder Kalkulationsaufgabe; die
+    // Leistungsverrechnung bekommt die übrigen 5 Punkte, damit es bei 90 Punkten bleibt.
+    const kSkills = TEILKOSTEN_SKILLS.filter((id) => generatorFuer(id));
+    if (kSkills.length > 0) {
+      const kSkill = rng.pick(kSkills);
+      plan.aufgaben = plan.aufgaben.map((a) =>
+        a.key === 'a7'
+          ? {
+              key: 'a7',
+              titel: generatorFuer(kSkill)!.titel,
+              skillId: kSkill,
+              seed: s(),
+              punkte: 15,
+            }
+          : a.key === 'a6'
+            ? { ...a, punkte: 29 }
+            : a,
+      );
+    } else {
+      plan.hinweis =
+        'Teilkosten-Aufgaben kommen mit dem nächsten Ausbau dazu. Bis dahin enthält die Probeklausur nur Vollkosten-Aufgaben.';
+    }
   }
   return plan;
 }

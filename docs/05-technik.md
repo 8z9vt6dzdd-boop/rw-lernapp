@@ -76,6 +76,8 @@ Warum Cloudflare statt Supabase: Kostenlose Supabase-Projekte werden nach 7 Tage
 2. Einstellungen → „Weiteres Gerät verbinden" zeigt einen **QR-Code**. Er enthält einen Link zur App mit dem Code (`…/#verbinden-<code>`).
 3. Auf dem zweiten Gerät QR-Code mit der Kamera scannen → App öffnet sich → „Mit diesem Lernstand verbinden?" → Ja. Fertig.
 4. Alternativ: Code als 8 deutsche Wörter zum Abtippen.
+
+**Umsetzung (Entscheidung M6):** Der Code besteht direkt aus 8 Wörtern einer festen Liste mit 256 Wörtern (`src/storage/woerter.ts`), also 64 Bit Zufall statt 128 Bit – nur so sind QR-Code und Wörter derselbe Code. Zusammen mit der Begrenzung der Anfragen je Code und Minute und dem Speichern nur des SHA-256-Hashes ist das Erraten praktisch ausgeschlossen. Auf dem iPhone öffnet der QR-Code die App im Browser; wer die App vom Home-Bildschirm nutzt, gibt dort die 8 Wörter ein (Hinweis in der App).
 Kein Konto, kein Passwort, keine E-Mail.
 
 ### Ablauf des Abgleichs
@@ -87,7 +89,7 @@ Kein Konto, kein Passwort, keine E-Mail.
 
 ### Worker-Schnittstelle (`sync-worker/`)
 - `POST /push` mit `{ code, events[] }` → speichert neue Ereignisse (`INSERT OR IGNORE`), max. 500 je Aufruf.
-- `GET /pull?code=…&since=<ms>` → Ereignisse seit `since`, je mit `_received_at`; die App merkt sich den höchsten Wert.
+- `GET /pull?code=…&since=<seq>` → Ereignisse nach der fortlaufenden Nummer `since` (robuster als Millisekunden), je mit `_received_at`; Antwort enthält `cursor`, `mehr` und die Zahl der beteiligten Geräte. Die App merkt sich den Cursor.
 - In der Datenbank liegt nur der SHA-256-Hash des Codes. Code-Mindestlänge prüfen, CORS nur für die GitHub-Pages-Adresse der App, einfache Begrenzung der Anfragen je Code und Minute.
 - Gespeichert werden nur Lernereignisse, Fehlermeldungen (`meldung`) und Einstellungen, keine personenbezogenen Daten.
 - Schema: `sync-worker/schema.sql`. Deployment mit `wrangler`; Claude Code richtet Worker, D1-Datenbank und die Worker-Adresse im Build vollständig selbst ein. Der Auftraggeber legt nur ein kostenloses Cloudflare-Konto an und bestätigt einmal die Anmeldung im Browser.

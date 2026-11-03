@@ -184,7 +184,7 @@ export function EinstellungenScreen() {
           <span>
             <span className="block text-[15px]">Teilkosten in Probeklausuren</span>
             <span className="block text-sm text-muted">
-              Standardmäßig aus. Die Teilkosten-Aufgaben folgen mit dem nächsten Ausbau.
+              Standardmäßig aus. Wenn an, ersetzt eine Teilkosten-Aufgabe die Kalkulationsaufgabe.
             </span>
           </span>
           <input

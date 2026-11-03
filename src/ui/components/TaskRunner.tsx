@@ -142,7 +142,7 @@ export function TaskRunner({
       <div
         className={
           breit
-            ? 'flex flex-col gap-4 lg:grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start lg:gap-6'
+            ? 'flex flex-col gap-4 lg:grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-start lg:gap-6'
             : 'contents'
         }
       >

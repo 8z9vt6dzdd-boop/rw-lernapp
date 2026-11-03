@@ -606,3 +606,22 @@ export function wochenrueckblick(events: readonly LernEreignis[], heute: string)
   if (staerkstes) r.staerkstesThema = staerkstes;
   return r;
 }
+
+/** Lernzeit in Minuten je Woche (Montag als Schlüssel), die letzten `anzahl` Wochen bis `heute`. */
+export function lernzeitJeWoche(
+  events: readonly LernEreignis[],
+  heute: string,
+  anzahl = 8,
+): { woche: string; minuten: number }[] {
+  const ms = new Map<string, number>();
+  for (const e of events) {
+    if (e.typ !== 'lektion' && e.typ !== 'ueberspringen' && e.typ !== 'attempt') continue;
+    const w = montagVon(tagKey(e.ts));
+    ms.set(w, (ms.get(w) ?? 0) + e.durationMs);
+  }
+  const start = montagVon(heute);
+  return Array.from({ length: anzahl }, (_, i) => {
+    const woche = plusTage(start, -7 * (anzahl - 1 - i));
+    return { woche, minuten: Math.round((ms.get(woche) ?? 0) / 60_000) };
+  });
+}

@@ -369,7 +369,7 @@ export function KlausurScreen() {
         })}
       </nav>
 
-      <div className="flex flex-col gap-4 lg:grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start lg:gap-6">
+      <div className="flex flex-col gap-4 lg:grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-start lg:gap-6">
         <Card className="lg:sticky lg:top-4 lg:max-h-[calc(100dvh-2rem)] lg:overflow-y-auto">
           <div className="flex flex-wrap items-center gap-2">
             <Chip tone="accent">Aufgabe {index + 1}</Chip>

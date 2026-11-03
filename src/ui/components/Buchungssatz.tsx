@@ -79,7 +79,7 @@ export function BuchungssatzBuilder({
           <div
             key={si}
             data-satz={si}
-            className="rounded-lg border border-line bg-surface-2/40 p-3"
+            className="@container rounded-lg border border-line bg-surface-2/40 p-3"
           >
             {saetze.length > 1 || labels[si] ? (
               <div className="mb-2 flex items-center justify-between">
@@ -100,7 +100,7 @@ export function BuchungssatzBuilder({
                 ) : null}
               </div>
             ) : null}
-            <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-3 @3xl:grid-cols-2">
               {(['soll', 'haben'] as const).map((seite) => (
                 <div key={seite} className="flex min-w-0 flex-col gap-2">
                   <div className="text-xs font-semibold tracking-wide text-muted uppercase">
@@ -115,7 +115,7 @@ export function BuchungssatzBuilder({
                       : '';
                     return (
                       <div key={zi} className="flex items-start gap-2">
-                        <div className="flex min-w-0 flex-1 flex-col gap-1.5 sm:flex-row">
+                        <div className="flex min-w-0 flex-1 flex-col gap-1.5 @md:flex-row">
                           <button
                             type="button"
                             disabled={disabled}
@@ -134,7 +134,7 @@ export function BuchungssatzBuilder({
                           </button>
                           <div
                             className={cx(
-                              'flex items-center rounded-lg border bg-surface sm:w-40',
+                              'flex items-center rounded-lg border bg-surface @md:w-40',
                               st === 'betrag'
                                 ? 'border-err bg-err-soft'
                                 : st === 'richtig'

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import type { AttemptEvent } from './types';
 import {
   erfolge,
   karriere,
@@ -155,5 +156,33 @@ describe('tageZwischen', () => {
     expect(tageZwischen('2026-11-03', '2026-11-03')).toBe(0);
     expect(tageZwischen('2026-11-03', '2026-11-01')).toBe(-2);
     expect(tageZwischen('2026-12-31', '2027-01-01')).toBe(1);
+  });
+});
+
+describe('lernzeitJeWoche', () => {
+  it('summiert Lernzeit je Kalenderwoche', async () => {
+    const { lernzeitJeWoche } = await import('./motivation');
+    const ev = (ts: string, min: number) =>
+      ({
+        typ: 'attempt' as const,
+        id: ts,
+        ts,
+        deviceId: 'd',
+        skillId: 's',
+        mode: 'kurz' as const,
+        answer: {},
+        correct: true,
+        hintsUsed: 0 as const,
+        errorTypes: [],
+        durationMs: min * 60_000,
+        fsrsRating: 3 as const,
+      }) as AttemptEvent;
+    const w = lernzeitJeWoche(
+      [ev('2026-11-02T10:00:00', 5), ev('2026-11-03T10:00:00', 7), ev('2026-10-28T10:00:00', 3)],
+      '2026-11-03',
+      3,
+    );
+    expect(w.map((x) => x.minuten)).toEqual([0, 3, 12]);
+    expect(w[2]!.woche).toBe('2026-11-02');
   });
 });

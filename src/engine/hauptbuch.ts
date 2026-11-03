@@ -1,6 +1,6 @@
 // Kleines Hauptbuch: Buchungssätze auf Konten verteilen, Salden bilden, GuV und Bilanz ableiten.
 import { getKonto, type KontoTyp } from './accounts';
-import type { ErwSatz } from './booking';
+import { satz, zeile, type ErwSatz } from './booking';
 import { Decimal, type Dec } from './money';
 
 export interface KontoBuch {
@@ -77,5 +77,39 @@ export class Hauptbuch {
       new Decimal(0),
     );
     return ertrag.minus(aufwand);
+  }
+
+  /** Saldo einer Seite auf ein anderes Konto übertragen (Abschlussbuchung). */
+  private uebertrage(von: string, nach: string): void {
+    const saldo = this.saldo(von);
+    if (saldo.isZero()) return;
+    this.buche(
+      saldo.gt(0)
+        ? satz([zeile(nach, saldo)], [zeile(von, saldo)])
+        : satz([zeile(von, saldo.neg())], [zeile(nach, saldo.neg())]),
+    );
+  }
+
+  /**
+   * Kopie mit vorläufigem Abschluss: Unterkonten in die Hauptkonten, Vorsteuer mit der
+   * Umsatzsteuer verrechnet, Erfolgskonten über die GuV ins Eigenkapital.
+   */
+  abgeschlossen(): Hauptbuch {
+    const hb = new Hauptbuch();
+    for (const [name, k] of this.konten)
+      hb.konten.set(name, { soll: [...k.soll], haben: [...k.haben] });
+    for (const name of [...hb.konten.keys()]) {
+      const haupt = getKonto(name).unterkontoVon;
+      if (haupt) hb.uebertrage(name, haupt);
+    }
+    const vst = hb.saldo('Vorsteuer');
+    const ust = hb.saldo('Umsatzsteuer').neg();
+    const verrechnung = Decimal.min(vst, ust);
+    if (verrechnung.gt(0))
+      hb.buche(satz([zeile('Umsatzsteuer', verrechnung)], [zeile('Vorsteuer', verrechnung)]));
+    for (const name of hb.kontenVomTyp('ertrag', 'aufwand'))
+      hb.uebertrage(name, 'Gewinn- und Verlustkonto');
+    hb.uebertrage('Gewinn- und Verlustkonto', 'Eigenkapital');
+    return hb;
   }
 }

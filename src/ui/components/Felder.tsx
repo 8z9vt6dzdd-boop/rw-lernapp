@@ -37,7 +37,7 @@ export function ZahlEingabe({
 }) {
   const falsch = bewertung === 'falsch';
   return (
-    <div className={cx('flex flex-col', compact ? 'min-w-[7.5rem]' : 'w-full')}>
+    <div className={cx('flex flex-col', compact ? 'min-w-[8.75rem]' : 'w-full')}>
       <div
         className={cx(
           'flex items-center rounded-lg border bg-surface focus-within:border-accent',
@@ -180,7 +180,7 @@ export function TabelleInput({
               {part.spalten.map((s) => (
                 <th
                   key={s}
-                  className="min-w-[7.5rem] p-2 text-right align-bottom text-xs font-semibold text-muted"
+                  className="min-w-[8.75rem] p-2 text-right align-bottom text-xs font-semibold text-muted"
                 >
                   {s}
                 </th>

@@ -114,7 +114,7 @@ export function miniKlausur(abschnittId: string, seed: number): KlausurPlan {
       titel: g.titel,
       skillId,
       seed: s,
-      punkte: Math.min(g.points, 15),
+      punkte: Math.min(g.points, 10),
     });
   });
   return {

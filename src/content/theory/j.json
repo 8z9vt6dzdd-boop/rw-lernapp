@@ -1,1 +1,83 @@
-[]
+[
+  {
+    "id": "J2-001",
+    "skill": "J2-division",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 2.2.2.2, S. 54",
+    "frage": "Unter welchen Voraussetzungen reicht die einstufige Divisionskalkulation?",
+    "antwort": "Es wird ein einheitliches Produkt hergestellt, und die Lagerbestände ändern sich nicht: Produktion und Absatz stimmen überein. Dann gilt Selbstkosten je Stück = Gesamtkosten der Periode ÷ Menge. In der Praxis sind beide Bedingungen selten gleichzeitig erfüllt.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J2-002",
+    "skill": "J2-division",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 2.2.2.3–2.2.2.4, S. 55–58",
+    "frage": "Was leistet die mehrstufige Divisionskalkulation zusätzlich zur zweistufigen?",
+    "antwort": "Die zweistufige Form berücksichtigt nur Lagerveränderungen bei Fertigerzeugnissen (Herstellkosten ÷ Produktion, Verwaltung und Vertrieb ÷ Absatz). Die mehrstufige bildet Stückherstellkosten je Fertigungsstufe und kann damit auch Zwischenlager an Halbfabrikaten bewerten.",
+    "beispiel": "Stufe 1: 9,00 €/hl; Stufe 2 addiert 6,00 €/hl → 15,00 €/hl für den Tank nach Stufe 2.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J5-001",
+    "skill": "J5-maschinensatz",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 2.2.5, S. 73–74",
+    "frage": "Wie wird ein Maschinenstundensatz ermittelt?",
+    "antwort": "Die maschinenbezogenen Gemeinkosten einer Periode (kalkulatorische Abschreibung und Zinsen, Raum-, Energie-, Wartungs- und Instandhaltungskosten) werden durch die Laufzeit der Maschine geteilt. Zählen dürfen nur Stunden, in denen die Maschine tatsächlich produziert, nicht Wartungs- oder Ruhezeiten.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J5-002",
+    "skill": "J5-maschinensatz",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 2.2.5, S. 73–76",
+    "frage": "Warum verbessert die Maschinensatzkalkulation die Zuschlagskalkulation?",
+    "antwort": "Die Zuschlagskalkulation unterstellt, dass Fertigungsgemeinkosten proportional zu den Fertigungslöhnen anfallen. In maschinenintensiver Fertigung hängen sie aber vor allem an der Laufzeit. Deshalb werden sie über Maschinenstundensätze verrechnet; nur die Restfertigungsgemeinkosten bleiben ein Zuschlag auf die Fertigungslöhne.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J6-001",
+    "skill": "J6-kuppel",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 2.2.6, S. 76–77",
+    "frage": "Warum lassen sich Kuppelprodukte nicht verursachungsgerecht kalkulieren?",
+    "antwort": "Sie entstehen zwangsläufig in einem gemeinsamen Prozess und in festen Mengenverhältnissen. Welches Produkt welche Kosten verursacht hat, lässt sich nicht feststellen. Man nutzt deshalb Näherungen: die Verteilungsmethode (Tragfähigkeit) oder die Restwertmethode.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J6-002",
+    "skill": "J6-kuppel",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 2.2.6.2, S. 80–81",
+    "frage": "Welche Schwächen hat die Restwertmethode?",
+    "antwort": "Für die Nebenprodukte werden keine Stückkosten ermittelt. Außerdem hängen die Kosten des Hauptprodukts von den Erlösen der Nebenprodukte ab: Steigt der Preis für ein Nebenprodukt, wird das Hauptprodukt rechnerisch billiger, obwohl sich an der Produktion nichts geändert hat.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J7-001",
+    "skill": "J7-gkv-ukv",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 2.3.2–2.3.3, S. 86–89",
+    "frage": "Was spricht für das Gesamtkostenverfahren, was für das Umsatzkostenverfahren?",
+    "antwort": "Gesamtkostenverfahren: einfach aufgebaut und gut aus der Finanzbuchhaltung abzuleiten, braucht aber die Bestandsveränderungen und zeigt nur das Ergebnis des ganzen Programms. Umsatzkostenverfahren: zeigt den Erfolg je Produktart, setzt aber eine ausgebaute Kostenträgerstückrechnung voraus.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J7-002",
+    "skill": "J7-gkv-ukv",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 2.3.1, S. 82",
+    "frage": "Wodurch unterscheidet sich die Betriebsergebnisrechnung von der GuV?",
+    "antwort": "Die Betriebsergebnisrechnung (Kostenträgerzeitrechnung, kurzfristige Erfolgsrechnung) dient der internen Steuerung, meist für einen Monat oder ein Quartal, und ist nicht an Handels- und Steuerrecht gebunden. Die GuV folgt strengen handels- und steuerrechtlichen Regeln.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  }
+]

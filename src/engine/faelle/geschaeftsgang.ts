@@ -4,7 +4,7 @@ import { FIRMA } from '../../config';
 import { loesung, satz, zeile, type BuchungsLoesung, type ErwSatz } from '../booking';
 import { feld } from '../generators/base';
 import { Hauptbuch } from '../hauptbuch';
-import { Decimal, Val, dec, formatEuro, formatNumber, type Dec } from '../money';
+import { Decimal, Val, dec, formatEuro, type Dec } from '../money';
 import { createRng, type Rng } from '../rng';
 import type { BuchungPart, ErrorVariant } from '../task';
 import type { Fall, FallSchritt } from './types';
@@ -563,8 +563,8 @@ export function geschaeftsgangFall(seed: number): Fall {
         id: 'bank',
         titel: 'Konto Bank',
         konto: 'Bank',
-        soll: s.bank.soll.map((x) => ({ text: x.text, betrag: formatNumber(x.betrag) })),
-        haben: s.bank.haben.map((x) => ({ text: x.text, betrag: formatNumber(x.betrag) })),
+        soll: s.bank.soll.map((x) => ({ text: x.text, betrag: x.betrag.toFixed(2) })),
+        haben: s.bank.haben.map((x) => ({ text: x.text, betrag: x.betrag.toFixed(2) })),
         felder: [
           feld('saldo', 'Schlussbestand Bank', V(s.bank.saldo)),
           {

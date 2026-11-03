@@ -43,6 +43,10 @@ async function bildschirmBearbeiten(page: Page, s: Screen) {
             })
             .click();
       if (e.art === 'skonto-regler') await page.getByRole('slider').fill('20');
+      if (e.art === 'afa-vergleich')
+        for (const name of ['arithmetisch-degressiv', 'geometrisch-degressiv'])
+          await page.getByRole('button', { name, exact: true }).click();
+      if (e.art === 'kostenfunktion') await page.getByRole('slider').fill('10');
       return;
     }
     case 'vorhersage':
@@ -176,7 +180,7 @@ test('„Kann ich schon“: bestandener Test schaltet die Übung frei', async ({
 
 test('Abschnitt überspringen: nicht bestanden führt freundlich zur Lektion', async ({ page }) => {
   await page.goto('./#/test/abschnitt/0');
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < 40; i++) {
     const naechste = page.getByRole('button', { name: /(Nächste Frage|Auswerten)/ });
     if (!(await naechste.isVisible())) break;
     const letzte = (await naechste.textContent())?.includes('Auswerten');

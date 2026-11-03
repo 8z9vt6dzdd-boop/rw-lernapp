@@ -1,5 +1,5 @@
 // Theorie-Inhalte im Format aus 07-content-pipeline.md. Nur Elemente mit Status „aktiv“ werden verwendet.
-import beispiele from './theory/beispiele.json';
+import beispiele from './theory/beispiele.json' with { type: 'json' };
 import type { WahlPart } from '../engine/task';
 
 interface Pruefung {

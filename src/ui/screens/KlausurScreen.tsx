@@ -112,7 +112,10 @@ export function KlausurScreen() {
   const starten = () => {
     const s: KlausurStand = {
       art: art as 'mini' | 'probe',
-      seed: Math.floor(Math.random() * 2 ** 31),
+      // ?seed= für reproduzierbare Durchläufe (Tests), sonst zufällig
+      seed:
+        Number(new URLSearchParams(window.location.hash.split('?')[1] ?? '').get('seed')) ||
+        Math.floor(Math.random() * 2 ** 31),
       start: Date.now(),
       antworten: {},
     };

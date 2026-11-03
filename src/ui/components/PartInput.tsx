@@ -272,7 +272,7 @@ function KurzantwortInput({
   );
 }
 
-export function PartInput({
+function PartInhalt({
   part,
   antwort,
   onChange,
@@ -377,4 +377,13 @@ export function PartInput({
         />
       );
   }
+}
+
+/** Eingabe für einen Aufgabenteil; `data-part` erlaubt gezielte Tests bei mehreren Teilen auf einer Seite. */
+export function PartInput(props: Parameters<typeof PartInhalt>[0]) {
+  return (
+    <div data-part={props.part.id} className="min-w-0">
+      <PartInhalt {...props} />
+    </div>
+  );
 }

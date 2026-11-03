@@ -1,5 +1,5 @@
 // Hilfen für die Playwright-Durchläufe: Aufgaben mit der Engine nachrechnen und Eingaben ausfüllen.
-import { expect, type Page } from '@playwright/test';
+import { expect, type Locator, type Page } from '@playwright/test';
 import { felderVon, formatSoll } from '../../src/engine/check';
 import { generatorFuer } from '../../src/engine/generators';
 import { getKonto } from '../../src/engine/accounts';
@@ -24,12 +24,13 @@ export function sammleFehler(page: Page): string[] {
 
 async function waehleKonto(
   page: Page,
+  root: Page | Locator,
   satz: number,
   seite: 'soll' | 'haben',
   zeile: number,
   konto: string,
 ) {
-  const block = page.locator(`[data-satz="${satz}"]`);
+  const block = root.locator(`[data-satz="${satz}"]`);
   const label = seite === 'soll' ? 'Soll' : 'Haben';
   await block.getByRole('button', { name: new RegExp(`^${label}-Konto ${zeile + 1}:`) }).click();
   const dialog = page.getByRole('dialog');
@@ -38,11 +39,15 @@ async function waehleKonto(
   await expect(dialog).toBeHidden();
 }
 
-export async function buchungEingeben(page: Page, saetze: SatzEingabe[]) {
+export async function buchungEingeben(
+  page: Page,
+  saetze: SatzEingabe[],
+  root: Page | Locator = page,
+) {
   for (const [si, s] of saetze.entries()) {
-    const block = page.locator(`[data-satz="${si}"]`);
+    const block = root.locator(`[data-satz="${si}"]`);
     if ((await block.count()) === 0)
-      await page.getByRole('button', { name: 'weiterer Buchungssatz' }).click();
+      await root.getByRole('button', { name: 'weiterer Buchungssatz' }).click();
     for (const seite of ['soll', 'haben'] as const) {
       const label = seite === 'soll' ? 'Soll' : 'Haben';
       for (const [zi, z] of s[seite].entries()) {
@@ -50,7 +55,7 @@ export async function buchungEingeben(page: Page, saetze: SatzEingabe[]) {
           .getByRole('button', { name: new RegExp(`^${label}-Konto `) })
           .count();
         if (zi >= vorhanden) await block.getByRole('button', { name: `Zeile ${label}` }).click();
-        await waehleKonto(page, si, seite, zi, z.konto);
+        await waehleKonto(page, root, si, seite, zi, z.konto);
         await block.getByRole('textbox', { name: `Betrag ${label} ${zi + 1}` }).fill(z.betrag);
       }
     }
@@ -58,7 +63,8 @@ export async function buchungEingeben(page: Page, saetze: SatzEingabe[]) {
 }
 
 /** Füllt einen Aufgabenteil mit der richtigen Lösung aus. */
-export async function teilLoesen(page: Page, part: TaskPart) {
+export async function teilLoesen(page: Page, part: TaskPart, scope?: Page | Locator) {
+  const root = scope ?? page;
   switch (part.typ) {
     case 'rechenkette':
     case 'tabelle':
@@ -66,7 +72,7 @@ export async function teilLoesen(page: Page, part: TaskPart) {
     case 'gleichungssystem':
       for (const f of felderVon(part)) {
         if (f.typ === 'auswahl') {
-          await page
+          await root
             .getByRole('radiogroup', { name: f.label, exact: true })
             .getByRole('radio', { name: f.soll, exact: true })
             .click();
@@ -75,28 +81,30 @@ export async function teilLoesen(page: Page, part: TaskPart) {
             f.kind === 'zahl' || f.kind === 'menge'
               ? formatPlain(f.soll.value, f.dp ?? 2)
               : formatNumber(f.soll.exact, f.dp ?? 2);
-          await page.getByRole('textbox', { name: f.label, exact: true }).fill(wert);
+          await root.getByRole('textbox', { name: f.label, exact: true }).fill(wert);
         }
       }
       return;
     case 'buchungssatz':
-      await buchungEingeben(page, eingabeAusLoesung(part.loesung));
+      await buchungEingeben(page, eingabeAusLoesung(part.loesung), root);
       return;
     case 'mc':
     case 'aufgabe-erkennen': {
       const richtig = part.optionen.find((o) => o.richtig)!;
-      await page.getByRole('radio', { name: richtig.text }).click();
+      await root.getByRole('radio', { name: richtig.text }).click();
       return;
     }
     case 'fehler-finden': {
-      await page.getByRole('button', { name: new RegExp(`^${part.fehlerZeile + 1}\\. `) }).click();
-      await page.getByRole('radio', { name: part.gruende.find((g) => g.richtig)!.text, exact: true }).click();
+      await root.getByRole('button', { name: new RegExp(`^${part.fehlerZeile + 1}\\. `) }).click();
+      await root
+        .getByRole('radio', { name: part.gruende.find((g) => g.richtig)!.text, exact: true })
+        .click();
       return;
     }
     case 'kurzantwort':
-      await page.getByRole('textbox', { name: 'Deine Antwort' }).fill(part.muster);
+      await root.getByRole('textbox', { name: 'Deine Antwort' }).fill(part.muster);
       for (const c of part.checkliste) {
-        await page.getByRole('checkbox', { name: c.aussage, exact: false }).check();
+        await root.getByRole('checkbox', { name: c.aussage, exact: false }).check();
       }
   }
 }

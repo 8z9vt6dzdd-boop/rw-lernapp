@@ -107,3 +107,11 @@ describe('KLR-Fall', () => {
     expect(s.vtgk.value.toFixed(2)).toBe('5.00');
   });
 });
+
+describe('T-Konto-Einträge', () => {
+  it('sind als Dezimal-Text lesbar', () => {
+    const bank = geschaeftsgangFall(3).schritte.find((s) => s.id === 'bank')!.parts[0]!;
+    if (bank.typ !== 'tkonto') throw new Error('kein T-Konto');
+    for (const e of [...bank.soll, ...bank.haben]) expect(e.betrag).toMatch(/^\d+\.\d{2}$/);
+  });
+});

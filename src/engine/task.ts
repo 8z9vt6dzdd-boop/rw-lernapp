@@ -89,6 +89,7 @@ export interface TKontoPart {
   id: string;
   titel: string;
   konto: string;
+  /** Beträge als Dezimal-Text mit Punkt, z. B. "1234.50" */
   soll: { text: string; betrag: string }[];
   haben: { text: string; betrag: string }[];
   felder: Feld[];

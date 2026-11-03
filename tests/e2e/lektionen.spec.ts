@@ -26,7 +26,7 @@ async function bildschirmBearbeiten(page: Page, s: Screen) {
               name: new RegExp(
                 `^${k.titel
                   .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-                  .replace(/[\s  ]+/g, '[\\s\\u00a0\\u202f]+')}`,
+                  .replace(/[\s\u00a0\u202f]+/g, '[\\s\\u00a0\\u202f]+')}`,
               ),
             })
             .first()

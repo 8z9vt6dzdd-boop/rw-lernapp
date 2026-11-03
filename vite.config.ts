@@ -51,5 +51,7 @@ export default defineConfig({
   test: {
     include: ['src/**/*.test.ts', 'sync-worker/src/**/*.test.ts'],
     environment: 'node',
+    // Eigenschaftstests laufen je Generator über 1.000 Seeds; CI-Rechner sind langsamer
+    testTimeout: 60_000,
   },
 });

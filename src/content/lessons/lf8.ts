@@ -7,7 +7,7 @@ import type { Lektion } from './types';
 
 const e = (v: { value: { toString(): string } } | string) =>
   formatEuro(typeof v === 'string' ? v : v.value.toString());
-const satzText = (p: F8Params) => formatSatz(solveF8(p).buchung.saetze[0]!).replace(/ /g, ' ');
+const satzText = (p: F8Params) => formatSatz(solveF8(p).buchung.saetze[0]!).replace(/\u00a0/g, ' ');
 
 // Rechtsstreit mit einem Gastronomen: Rückstellung 20.000 €, ohne Umsatzsteuer
 const KLAGE: F8Params = {

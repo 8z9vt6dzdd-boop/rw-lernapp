@@ -266,7 +266,7 @@ export const lektionJ4: Lektion = {
       cliffhanger: {
         figur: 'tobias',
         ausdruck: 'ueberrascht',
-        text: 'Leni meint, ein Auftrag unter den Selbstkosten kann sich trotzdem lohnen. Wie bitte?',
+        text: 'Leni meint, kurzfristig lohnt sich sogar ein Auftrag unter den Selbstkosten – bei freier Kapazität und einem Preis über den variablen Kosten. Warum, zeigt die Teilkostenrechnung.',
       },
     },
   ],

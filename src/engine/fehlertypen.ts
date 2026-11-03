@@ -83,6 +83,11 @@ export const FEHLERTYPEN: Record<string, Fehlertyp> = {
     erklaerung:
       'Endbestand größer als Anfangsbestand = Mehrbestand: Das Erzeugniskonto nimmt zu (Soll), Bestandsveränderungen im Haben (erhöht den Erfolg). Bei einem Minderbestand ist es umgekehrt.',
   },
+  'minderbestand-als-ertragsminderung': {
+    titel: 'Minderbestand von den Erträgen abgezogen',
+    erklaerung:
+      'Im GuV-Konto steht ein Minderbestand im Soll, also auf der Aufwandsseite, und ein Mehrbestand im Haben. Der Gewinn bleibt gleich, aber die Summen der Erträge und Aufwendungen ändern sich. Nur in der Staffelform nach HGB erscheint die Bestandsveränderung als eigene Ertragsposition.',
+  },
   'privat-als-aufwand': {
     titel: 'Privatentnahme vergessen oder als Aufwand behandelt',
     erklaerung:

@@ -114,7 +114,7 @@ export const lektionI4: Lektion = {
     {
       typ: 'konzept',
       titel: 'Vorkostenstellen und Hauptkostenstellen',
-      text: 'Vorkostenstellen arbeiten für andere Stellen, nicht direkt für das Produkt. Ihre Kosten werden über Verrechnungssätze – Kosten je kWh oder je Stunde – an die Stellen weitergegeben, die ihre Leistungen nutzen.',
+      text: 'Vorkostenstellen arbeiten für andere Stellen, nicht direkt für das Produkt. Ihre Kosten gehen über Verrechnungssätze an die Hauptkostenstellen – auch Endkostenstellen genannt.',
       visual: {
         typ: 'kostenstellen',
         hilfs: [

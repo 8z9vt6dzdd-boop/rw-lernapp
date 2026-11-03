@@ -62,6 +62,34 @@ describe('Fall E5 Geschäftsgang', () => {
     expect(s.bilanzsumme.toFixed(2)).toBe('366014.00');
   });
 
+  it('Golden Case Minderbestand: steht auf der Aufwandsseite', () => {
+    const p = {
+      ab: {
+        maschinen: '200000',
+        rohstoffe: '40000',
+        fe: '20000',
+        forderungen: '15000',
+        bank: '60000',
+        darlehen: '100000',
+        verbindlichkeiten: '20000',
+      },
+      einkauf: '30000',
+      verkauf: '100000',
+      loehne: '20000',
+      privat: '3000',
+      afa: '20000',
+      sbRohstoffe: '25000',
+      sbFe: '16000',
+      lieferant: 'L',
+      kunde: 'K',
+    };
+    const s = solveGeschaeftsgang(p);
+    // Erträge nur Umsatzerlöse 100.000; Aufwand 44.400 + 20.000 + 20.000 + Minderbestand 4.000 = 88.400
+    expect(s.ertraege.toFixed(2)).toBe('100000.00');
+    expect(s.aufwendungen.toFixed(2)).toBe('88400.00');
+    expect(s.gewinn.toFixed(2)).toBe('11600.00');
+  });
+
   it('Musterlösung jedes Schritts erreicht volle Punktzahl', () => {
     for (let seed = 1; seed <= 30; seed++) {
       for (const schritt of geschaeftsgangFall(seed).schritte) {

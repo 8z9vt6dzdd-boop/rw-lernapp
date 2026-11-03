@@ -203,10 +203,11 @@ export function solveGeschaeftsgang(p: GeschaeftsgangParams): GeschaeftsgangLoes
     ![...s.soll, ...s.haben].some((z) => z.konto === 'Schlussbilanzkonto');
   for (const l of Object.values(b)) for (const s of l.saetze) if (ohneSbk(s)) hb.buche(s);
 
-  const ertraege = hb.kontenVomTyp('ertrag').reduce((x, k) => x.minus(hb.saldo(k)), new Decimal(0));
-  const aufwendungen = hb
-    .kontenVomTyp('aufwand')
-    .reduce((x, k) => x.plus(hb.saldo(k)), new Decimal(0));
+  // Wie im GuV-Konto: Mehrbestand auf der Ertragsseite, Minderbestand auf der Aufwandsseite
+  const seiten = hb.guvSeiten();
+  const summe = (xs: { betrag: Dec }[]) => xs.reduce((x, y) => x.plus(y.betrag), new Decimal(0));
+  const ertraege = summe(seiten.ertrag);
+  const aufwendungen = summe(seiten.aufwand);
   const gewinn = hb.erfolg();
   b.guv = loesung([
     gewinn.gte(0)
@@ -502,7 +503,7 @@ export function geschaeftsgangFall(seed: number): Fall {
         'Alle Aufwands- und Ertragskonten werden über das Gewinn- und Verlustkonto abgeschlossen.',
       ],
       aufgabe:
-        'Ermittle die Summe der Erträge, die Summe der Aufwendungen und den Erfolg. Bilde den Buchungssatz für den Abschluss des Gewinn- und Verlustkontos. Rechne Bestandsveränderungen als Ertrag (Minderbestand mindert die Erträge).',
+        'Ermittle die Summe der Erträge, die Summe der Aufwendungen und den Erfolg. Bilde den Buchungssatz für den Abschluss des Gewinn- und Verlustkontos.',
     },
     parts: [
       {
@@ -522,15 +523,41 @@ export function geschaeftsgangFall(seed: number): Fall {
         fehlertyp: 'soll-haben-vertauscht',
         parts: [bp('guvAbschluss', '', loesung(B.guv!.saetze.map((x) => satz(x.haben, x.soll))))],
       },
+      ...(deltaFe.lt(0)
+        ? [
+            {
+              fehlertyp: 'minderbestand-als-ertragsminderung',
+              parts: [
+                {
+                  typ: 'rechenkette' as const,
+                  id: 'guv',
+                  titel: '',
+                  felder: [
+                    feld('ertraege', '', V(s.ertraege.plus(deltaFe))),
+                    feld('aufwendungen', '', V(s.aufwendungen.plus(deltaFe))),
+                  ],
+                },
+              ],
+            },
+          ]
+        : []),
     ],
     steps: [
       {
         titel: 'Erträge',
-        rechnung: `Umsatzerlöse ${e(p.verkauf)} ${deltaFe.gte(0) ? '+' : '−'} Bestandsveränderung ${e(deltaFe.abs())} = ${e(s.ertraege)}`,
+        rechnung: deltaFe.gte(0)
+          ? `Umsatzerlöse ${e(p.verkauf)} + Mehrbestand ${e(deltaFe)} = ${e(s.ertraege)}`
+          : `Umsatzerlöse ${e(p.verkauf)} = ${e(s.ertraege)}`,
+        erlaeuterung: deltaFe.gte(0)
+          ? 'Ein Mehrbestand steht im GuV-Konto im Haben, also auf der Ertragsseite.'
+          : undefined,
       },
       {
         titel: 'Aufwendungen',
-        rechnung: `Rohstoffe ${e(dec(a.rohstoffe).plus(p.einkauf).minus(skontoNetto).minus(p.sbRohstoffe))} + Löhne ${e(p.loehne)} + Abschreibung ${e(p.afa)} = ${e(s.aufwendungen)}`,
+        rechnung: `Rohstoffe ${e(dec(a.rohstoffe).plus(p.einkauf).minus(skontoNetto).minus(p.sbRohstoffe))} + Löhne ${e(p.loehne)} + Abschreibung ${e(p.afa)}${deltaFe.lt(0) ? ` + Minderbestand ${e(deltaFe.neg())}` : ''} = ${e(s.aufwendungen)}`,
+        erlaeuterung: deltaFe.lt(0)
+          ? 'Ein Minderbestand steht im GuV-Konto im Soll, also auf der Aufwandsseite.'
+          : undefined,
       },
       {
         titel: 'Gewinn',
@@ -540,7 +567,7 @@ export function geschaeftsgangFall(seed: number): Fall {
       },
     ],
     hints: [
-      'Erträge: Umsatzerlöse und Bestandsveränderungen. Aufwendungen: Rohstoffverbrauch, Löhne, Abschreibung.',
+      'Erträge: Umsatzerlöse und ein Mehrbestand. Aufwendungen: Rohstoffverbrauch, Löhne, Abschreibung und ein Minderbestand.',
       'Die Privatentnahme ist kein Aufwand und gehört nicht in die GuV.',
       'Gewinn = Erträge − Aufwendungen. Er steht im Gewinn- und Verlustkonto im Soll und geht ins Eigenkapital (Haben).',
     ],

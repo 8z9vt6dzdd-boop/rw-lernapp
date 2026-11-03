@@ -140,7 +140,10 @@ export const KONTEN: readonly Konto[] = [
   k('Betriebssteuern', 'aufwand'),
   k('Sonstige betriebliche Aufwendungen', 'aufwand'),
   // Abschluss
-  k('Eröffnungsbilanzkonto', 'abschluss', ['EBK'], { kurz: 'EBK' }),
+  k('Eröffnungsbilanzkonto', 'abschluss', ['EBK', 'Saldenvortrag', 'SV', 'Saldenvorträge'], {
+    kurz: 'EBK',
+    hinweis: 'auch Saldenvortrag (SV) genannt',
+  }),
   k('Schlussbilanzkonto', 'abschluss', ['SBK'], { kurz: 'SBK' }),
   k('Gewinn- und Verlustkonto', 'abschluss', ['GuV'], { kurz: 'GuV' }),
 ];

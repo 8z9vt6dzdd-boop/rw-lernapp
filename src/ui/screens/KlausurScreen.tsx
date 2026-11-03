@@ -39,6 +39,14 @@ export interface KlausurProtokoll {
 }
 
 const AKTIV = 'klausur:aktiv';
+
+/** Rückmeldung zur Bestehensgrenze (Standard: die Hälfte der Punkte). */
+export function bestehensText(prozent: number, grenze: number): string {
+  const ziel = grenze === 50 ? 'der Hälfte der Punkte' : `deiner Bestehensgrenze von ${grenze} %`;
+  return prozent >= grenze
+    ? `Damit liegst du über ${ziel}. Die schwächsten Themen unten lohnen sich jetzt am meisten.`
+    : `Noch unter ${ziel}. Kein Grund zur Sorge: Die Themen unten zeigen genau, wo du ansetzt.`;
+}
 export const PROTOKOLL = 'klausuren';
 
 function planVon(s: KlausurStand, teilkosten: boolean): KlausurPlan {
@@ -140,9 +148,7 @@ export function KlausurScreen() {
             </span>
           </p>
           <p className="mt-2 text-[15px]">
-            {ergebnis.prozent >= 50
-              ? 'Damit liegst du über der Hälfte der Punkte. Die schwächsten Themen unten lohnen sich jetzt am meisten.'
-              : 'Noch unter der Hälfte der Punkte. Kein Grund zur Sorge: Die Themen unten zeigen genau, wo du ansetzt.'}
+            {bestehensText(ergebnis.prozent, settings.bestehensgrenze ?? 50)}
           </p>
         </Card>
         <Card>

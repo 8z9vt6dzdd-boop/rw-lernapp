@@ -312,7 +312,7 @@ export function renderLv(p: LvParams, verfahren: 'stufenleiter' | 'simultan'): T
     titel: verfahren === 'stufenleiter' ? 'Stufenleiterverfahren' : 'Simultanverfahren',
     kontext: 'BAB der MBG: Leistungsverrechnung Energie und Instandhaltung',
     sachverhalt: [
-      `Im Werk Paderborn erbringen die Vorkostenstellen ${k.energie} (Strom, Dampf, Druckluft) und ${k.instandhaltung} (Werkstatt) Leistungen füreinander und für die Hauptkostenstellen.`,
+      `Im Werk Paderborn erbringen die Vorkostenstellen ${k.energie} (Strom, Dampf, Druckluft) und ${k.instandhaltung} (Werkstatt) Leistungen füreinander und für die Hauptkostenstellen (auch Endkostenstellen genannt).`,
       'Die primären Gemeinkosten und die Leistungsabgaben des Monats:',
     ],
     daten: datenTabelle(p),

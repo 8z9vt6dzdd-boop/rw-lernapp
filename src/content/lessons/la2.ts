@@ -101,7 +101,8 @@ export const lektionA2: Lektion = {
         {
           text: 'Belege werden direkt nach dem Buchen weggeworfen.',
           kategorie: 'Verstößt gegen die GoB',
-          erklaerung: 'Für Bücher, Inventare und Belege gelten gesetzliche Aufbewahrungsfristen.',
+          erklaerung:
+            'Für Bücher, Inventare und Belege gelten gesetzliche Aufbewahrungsfristen – für Buchungsbelege acht Jahre.',
         },
         { text: 'Jedes Konto hat eine klare, eindeutige Bezeichnung.', kategorie: 'Ordnungsgemäß' },
         {
@@ -141,7 +142,7 @@ export const lektionA2: Lektion = {
           },
           {
             titel: 'Aufbewahren',
-            text: 'Bücher und Belege über die gesetzlichen Fristen.',
+            text: 'Bücher 10 Jahre, Belege 8 Jahre, Briefe 6 Jahre.',
             farbe: '#4a9fd8',
           },
         ],
@@ -164,6 +165,33 @@ export const lektionA2: Lektion = {
       ],
       aufloesung:
         'Keine Buchung ohne Beleg – auch nicht beim Bargeld. Zeile 3 ist übrigens genau richtig: Fehler werden per Storno korrigiert, damit jede Änderung sichtbar bleibt.',
+    },
+    {
+      typ: 'verstaendnis',
+      frage: 'Wie lange muss die MBG eine Eingangsrechnung aus dem Jahr 2025 aufbewahren?',
+      figur: {
+        figur: 'sabine',
+        ausdruck: 'gruebelt',
+        text: 'Der Keller ist voll mit Ordnern. Was davon darf weg?',
+      },
+      optionen: [
+        {
+          text: '8 Jahre, gerechnet ab dem Ende des Jahres 2025',
+          richtig: true,
+          erklaerung:
+            'Richtig: Buchungsbelege wie Rechnungen, Quittungen und Kontoauszüge 8 Jahre. Handelsbücher, Inventare, Eröffnungsbilanzen, Jahresabschlüsse und Lageberichte 10 Jahre, Geschäftsbriefe 6 Jahre. Die Frist beginnt mit dem Schluss des Kalenderjahres.',
+        },
+        {
+          text: '6 Jahre ab dem Rechnungsdatum',
+          erklaerung:
+            '6 Jahre gelten für Handels- und Geschäftsbriefe. Rechnungen sind Buchungsbelege: 8 Jahre, und die Frist beginnt erst mit dem Schluss des Kalenderjahres.',
+        },
+        {
+          text: '10 Jahre, wie alle Unterlagen',
+          erklaerung:
+            'Für Buchungsbelege galten bis Ende 2024 zehn Jahre, seit 2025 sind es acht. Ältere Unterlagen – auch der Lehrbrief – nennen deshalb oft noch 10 Jahre. 10 Jahre gelten weiter für Bücher, Inventare und Jahresabschlüsse.',
+        },
+      ],
     },
     {
       typ: 'wer-hat-recht',
@@ -206,7 +234,7 @@ export const lektionA2: Lektion = {
       typ: 'merksatz',
       id: 'A2-m1',
       frage: 'Was verlangen die Grundsätze ordnungsmäßiger Buchführung (GoB)?',
-      text: 'Alle Kaufleute führen Bücher nach den GoB: keine Buchung ohne Beleg, vollständig und zeitlich geordnet, klar bezeichnet, nichts unkenntlich machen (Korrektur per Storno), Fristen einhalten. Schlussbilanz = Eröffnungsbilanz des Folgejahres.',
+      text: 'Alle Kaufleute führen Bücher nach den GoB: keine Buchung ohne Beleg, vollständig und zeitlich geordnet, klar bezeichnet, nichts unkenntlich machen (Korrektur per Storno), Fristen einhalten (Bücher 10, Belege 8, Briefe 6 Jahre). Schlussbilanz = Eröffnungsbilanz des Folgejahres.',
     },
     {
       typ: 'klausur',

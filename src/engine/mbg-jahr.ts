@@ -178,16 +178,9 @@ export function mbgJahr(erledigt: ReadonlySet<string>): MbgJahr {
       vorfaelle.push({ abschnitt, text: v.text });
     }
   }
-  const erfolgsKonten = (typ: 'aufwand' | 'ertrag') =>
-    hb
-      .kontenVomTyp(typ)
-      .map((konto) => ({
-        konto,
-        betrag: typ === 'aufwand' ? hb.saldo(konto) : hb.saldo(konto).neg(),
-      }))
-      .filter((x) => !x.betrag.isZero());
-  const aufwand = erfolgsKonten('aufwand');
-  const ertrag = erfolgsKonten('ertrag');
+  const seiten = hb.guvSeiten();
+  const aufwand = seiten.aufwand;
+  const ertrag = seiten.ertrag;
   const bil = hb.abgeschlossen().bilanz();
   return {
     aktiva: bil.aktiva,

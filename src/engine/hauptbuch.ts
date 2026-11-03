@@ -66,6 +66,25 @@ export class Hauptbuch {
     return { aktiva, passiva, summeAktiva: s(aktiva), summePassiva: s(passiva) };
   }
 
+  /**
+   * Seiten des Gewinn- und Verlustkontos (T-Konto): Erfolgskonten mit Soll-Saldo stehen auf der
+   * Aufwandsseite, mit Haben-Saldo auf der Ertragsseite. Ein Minderbestand (Bestandsveränderungen
+   * mit Soll-Saldo) erscheint damit wie im Lehrbuch auf der Aufwandsseite.
+   */
+  guvSeiten(): {
+    aufwand: { konto: string; betrag: Dec }[];
+    ertrag: { konto: string; betrag: Dec }[];
+  } {
+    const aufwand: { konto: string; betrag: Dec }[] = [];
+    const ertrag: { konto: string; betrag: Dec }[] = [];
+    for (const konto of this.kontenVomTyp('aufwand', 'ertrag')) {
+      const saldo = this.saldo(konto);
+      if (saldo.gt(0)) aufwand.push({ konto, betrag: saldo });
+      else if (saldo.lt(0)) ertrag.push({ konto, betrag: saldo.neg() });
+    }
+    return { aufwand, ertrag };
+  }
+
   /** Erfolg = Erträge − Aufwendungen (vor Abschluss der Erfolgskonten). */
   erfolg(): Dec {
     const ertrag = this.kontenVomTyp('ertrag').reduce(

@@ -89,6 +89,8 @@ export interface Settings {
   examDate?: string;
   theme: Theme;
   teilkostenInKlausur: boolean;
+  /** Bestehensgrenze in Prozent der Punkte (Standard 50) */
+  bestehensgrenze?: number;
   iosHinweisGesehen?: boolean;
   /** Bewegungen in der App ruhig stellen (zusätzlich zur Systemeinstellung) */
   bewegungReduziert: boolean;

@@ -101,6 +101,26 @@ export function EinstellungenScreen() {
             Dann zeigt die Startseite, wie viele Tage noch bleiben.
           </span>
         </label>
+        <label className="mt-4 flex flex-col gap-1">
+          <span className="text-[15px]">Bestehensgrenze in % (freiwillig)</span>
+          <input
+            type="number"
+            inputMode="numeric"
+            min={1}
+            max={100}
+            aria-label="Bestehensgrenze in Prozent"
+            value={settings.bestehensgrenze ?? 50}
+            onChange={(e) => {
+              const n = Math.round(Number(e.target.value));
+              if (n >= 1 && n <= 100) void saveSettings({ bestehensgrenze: n });
+            }}
+            className="num min-h-11 w-28 rounded-lg border border-line-strong bg-surface px-3 text-[15px]"
+          />
+          <span className="text-sm text-muted">
+            Die Unterlagen nennen keine Grenze. Die Klausur-Auswertung vergleicht deine Punkte
+            damit.
+          </span>
+        </label>
         <label className="mt-4 flex min-h-11 items-center justify-between gap-3">
           <span>
             <span className="block text-[15px]">Teilkosten in Probeklausuren</span>

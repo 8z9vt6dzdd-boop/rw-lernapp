@@ -1,4 +1,5 @@
 // Einheitliche Eingabe für alle Aufgabenteile (Kurzmodus, Lektion, Fall, Klausur).
+import { useState } from 'react';
 import { getKonto } from '../../engine/accounts';
 import type {
   FehlerFindenPart,
@@ -221,6 +222,8 @@ function KurzantwortInput({
   nachPruefung: boolean;
   disabled: boolean;
 }) {
+  // Erst schreiben, dann mit den Musterpunkten vergleichen (03-aufgabentypen.md)
+  const [vergleichen, setVergleichen] = useState(false);
   return (
     <div className="flex flex-col gap-3">
       <p className="text-[15px] font-medium">
@@ -235,39 +238,51 @@ function KurzantwortInput({
         className="w-full rounded-lg border border-line-strong bg-surface p-3 text-[15px]"
         placeholder="Antworte in eigenen Worten, in ganzen Sätzen."
       />
-      <div className="rounded-lg border border-line bg-surface-2 p-3">
-        <div className="text-sm font-semibold">Hake ab, was deine Antwort enthält:</div>
-        <ul className="mt-2 flex flex-col gap-2">
-          {part.checkliste.map((c, i) => (
-            <li key={i}>
-              <label className="flex items-start gap-2 text-[15px]">
-                <input
-                  type="checkbox"
-                  className="mt-1 h-5 w-5 accent-[color:var(--accent)]"
-                  checked={value.abgehakt.includes(i)}
-                  disabled={disabled}
-                  onChange={(e) =>
-                    onChange({
-                      ...value,
-                      abgehakt: e.target.checked
-                        ? [...value.abgehakt, i]
-                        : value.abgehakt.filter((x) => x !== i),
-                    })
-                  }
-                />
-                <span>
-                  {c.aussage} <span className="num text-muted">({c.punkte} P.)</span>
-                </span>
-              </label>
-            </li>
-          ))}
-        </ul>
-        {nachPruefung ? (
-          <p className="mt-3 border-t border-line pt-2 text-sm">
-            <span className="font-semibold">Musterantwort:</span> {part.muster}
-          </p>
-        ) : null}
-      </div>
+      {!vergleichen && !nachPruefung ? (
+        <button
+          type="button"
+          disabled={disabled || value.text.trim().length < 10}
+          onClick={() => setVergleichen(true)}
+          className="min-h-11 self-start rounded-lg border border-line-strong bg-surface px-3 text-[15px] font-medium disabled:opacity-50"
+        >
+          Antwort fertig – mit den Musterpunkten vergleichen
+        </button>
+      ) : null}
+      {vergleichen || nachPruefung ? (
+        <div className="rounded-lg border border-line bg-surface-2 p-3">
+          <div className="text-sm font-semibold">Hake ab, was deine Antwort enthält:</div>
+          <ul className="mt-2 flex flex-col gap-2">
+            {part.checkliste.map((c, i) => (
+              <li key={i}>
+                <label className="flex items-start gap-2 text-[15px]">
+                  <input
+                    type="checkbox"
+                    className="mt-1 h-5 w-5 accent-[color:var(--accent)]"
+                    checked={value.abgehakt.includes(i)}
+                    disabled={disabled}
+                    onChange={(e) =>
+                      onChange({
+                        ...value,
+                        abgehakt: e.target.checked
+                          ? [...value.abgehakt, i]
+                          : value.abgehakt.filter((x) => x !== i),
+                      })
+                    }
+                  />
+                  <span>
+                    {c.aussage} <span className="num text-muted">({c.punkte} P.)</span>
+                  </span>
+                </label>
+              </li>
+            ))}
+          </ul>
+          {nachPruefung ? (
+            <p className="mt-3 border-t border-line pt-2 text-sm">
+              <span className="font-semibold">Musterantwort:</span> {part.muster}
+            </p>
+          ) : null}
+        </div>
+      ) : null}
     </div>
   );
 }

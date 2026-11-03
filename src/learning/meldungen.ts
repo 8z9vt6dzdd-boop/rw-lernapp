@@ -9,7 +9,7 @@ import type { LernEreignis, MeldungEvent } from './types';
 /** Element-ID eines Sitzungsinhalts: Generator-Aufgaben je Skill, Karten und Fragen je Element. */
 export function elementIdVon(spec: Pick<TaskSpec, 'art' | 'skillId' | 'elementId'>): string {
   if (spec.art === 'karte') return `karte:${spec.elementId ?? ''}`;
-  if (spec.art === 'mc') return `theorie:${spec.elementId ?? ''}`;
+  if (spec.art === 'mc' || spec.art === 'kurzantwort') return `theorie:${spec.elementId ?? ''}`;
   return `aufgabe:${spec.skillId}`;
 }
 

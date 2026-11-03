@@ -2,7 +2,7 @@
 // aus dem aktuellen Abschnitt, gemischt (Interleaving). Ohne Lernstand: freie Mischung (für Tests per Seed).
 import { ABSCHNITTE, RELEVANZ_GEWICHT, skillInfo } from '../content/curriculum';
 import { elementIdVon, gemeldet } from './meldungen';
-import { mcElemente } from '../content/theory';
+import { kurzantwortElemente, mcElemente } from '../content/theory';
 import { FEHLERJAGD_ZUSATZ, TABELLEN_ZUSATZ, generatorFuer } from '../engine/generators';
 import { createRng, randomSeed, type Rng } from '../engine/rng';
 import { hatLektion, lektionErledigt, naechsterKnoten } from './fortschritt';
@@ -222,6 +222,23 @@ export function kurzSitzungGeplant(
       seed: randomSeedFrom(rng),
       elementId: el.id,
     });
+  }
+  // Am Laptop: eine Kurzantwort im Klausurstil zu einem gelernten Theorie-Thema
+  if (!opts.mobil) {
+    const ka = kurzantwortElemente().filter(
+      (el) =>
+        hatLektion(el.skill) && lektionErledigt(events, el.skill) && !gem.has(`theorie:${el.id}`),
+    );
+    if (ka.length > 0) {
+      const el = rng.pick(ka);
+      specs.push({
+        key: key(),
+        art: 'kurzantwort',
+        skillId: el.skill,
+        seed: randomSeedFrom(rng),
+        elementId: el.id,
+      });
+    }
   }
   // Gemeldete Inhalte kommen bis zur Prüfung nicht mehr vor
   const erlaubt = specs.filter((s) => !gem.has(elementIdVon(s)));

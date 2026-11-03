@@ -1,6 +1,6 @@
 // Bereitet eine Aufgabe aus einer Spezifikation (Skill, Seed, Art) für die Oberfläche vor.
 import { FIRMA } from '../config';
-import { mcAlsPart, mcElemente } from '../content/theory';
+import { kurzantwortElemente, mcAlsPart, mcElemente } from '../content/theory';
 import { generatorFuer, GENERATOREN, type AnyGenerator } from '../engine/generators';
 import { createRng } from '../engine/rng';
 import type {
@@ -17,7 +17,7 @@ import { getKonto } from '../engine/accounts';
 import { fehlertyp } from '../engine/fehlertypen';
 import { formatEuro } from '../engine/money';
 
-export type TaskArt = 'aufgabe' | 'erkennen' | 'mc' | 'karte' | 'fehler';
+export type TaskArt = 'aufgabe' | 'erkennen' | 'mc' | 'karte' | 'fehler' | 'kurzantwort';
 
 export interface TaskSpec {
   key: string;
@@ -73,9 +73,30 @@ const VERFAHREN_KLR = [
   'Angebotskalkulation: von den Selbstkosten zum Listenverkaufspreis',
 ];
 
+let verfahrenCache: { bf: string[]; klr: string[] } | null = null;
+
+/** Distraktoren: feste Liste plus die Verfahrensbeschreibungen aller Generatoren desselben Bereichs. */
+function verfahrenPool(): { bf: string[]; klr: string[] } {
+  if (verfahrenCache) return verfahrenCache;
+  const bf = new Set(VERFAHREN_BUCHFUEHRUNG);
+  const klr = new Set(VERFAHREN_KLR);
+  for (const g of GENERATOREN) {
+    for (const variant of g.variants.length ? g.variants : [undefined]) {
+      try {
+        const p = g.generate(createRng(7), variant ? { variant } : {});
+        (/^[A-F]/.test(g.skillId) ? bf : klr).add(g.verfahren(p));
+      } catch {
+        /* Variante nicht erzeugbar – überspringen */
+      }
+    }
+  }
+  verfahrenCache = { bf: [...bf], klr: [...klr] };
+  return verfahrenCache;
+}
+
 function erkennenPart(g: AnyGenerator, p: unknown, seed: number): WahlPart {
   const richtig = g.verfahren(p);
-  const pool = (/^[A-F]/.test(g.skillId) ? VERFAHREN_BUCHFUEHRUNG : VERFAHREN_KLR).filter(
+  const pool = (/^[A-F]/.test(g.skillId) ? verfahrenPool().bf : verfahrenPool().klr).filter(
     (v) => v !== richtig,
   );
   const rng = createRng(seed ^ 0x5eed);
@@ -169,6 +190,38 @@ export function prepareTask(spec: TaskSpec): PreparedTask {
       params: {},
       solution: {},
       points: 0,
+    };
+  }
+  if (spec.art === 'kurzantwort') {
+    const el = kurzantwortElemente().find((e) => e.id === spec.elementId);
+    if (!el) throw new Error(`Keine Kurzantwort ${spec.elementId}`);
+    return {
+      spec,
+      text: {
+        titel: 'Kurzantwort wie in der Klausur',
+        sachverhalt: [],
+        aufgabe: 'Antworte in eigenen Worten. Danach vergleichst du mit den Musterpunkten.',
+      },
+      parts: [
+        {
+          typ: 'kurzantwort',
+          id: 'kurzantwort',
+          frage: el.frage,
+          punkte: el.punkte,
+          checkliste: el.checkliste,
+          muster: el.muster,
+        },
+      ],
+      variants: [],
+      hints: [
+        'Nenne zuerst den Begriff, dann die Begründung, dann ein Beispiel.',
+        'Jeder Musterpunkt bringt einen Punkt: Schreibe lieber mehrere kurze, klare Aussagen.',
+        `Ein Musterpunkt lautet: ${el.checkliste[0]?.aussage ?? ''}`,
+      ],
+      steps: [],
+      params: { elementId: el.id },
+      solution: { muster: el.muster },
+      points: el.punkte,
     };
   }
   if (spec.art === 'mc') {

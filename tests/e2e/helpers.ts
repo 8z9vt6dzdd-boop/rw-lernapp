@@ -103,6 +103,7 @@ export async function teilLoesen(page: Page, part: TaskPart, scope?: Page | Loca
     }
     case 'kurzantwort':
       await root.getByRole('textbox', { name: 'Deine Antwort' }).fill(part.muster);
+      await root.getByRole('button', { name: /mit den Musterpunkten vergleichen/ }).click();
       for (const c of part.checkliste) {
         await root.getByRole('checkbox', { name: c.aussage, exact: false }).check();
       }

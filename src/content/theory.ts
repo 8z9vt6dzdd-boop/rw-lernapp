@@ -41,8 +41,16 @@ export interface KartenElement extends Basis {
   beispiel?: string;
 }
 
+export interface KurzantwortElement extends Basis {
+  typ: 'kurzantwort';
+  frage: string;
+  punkte: number;
+  checkliste: { aussage: string; punkte: number }[];
+  muster: string;
+}
+
 export type TheorieElement =
-  McElement | KartenElement | (Basis & { typ: 'zuordnung' | 'kurzantwort' });
+  McElement | KartenElement | KurzantwortElement | (Basis & { typ: 'zuordnung' });
 
 const ALLE = [
   beispiele,
@@ -64,6 +72,13 @@ export const THEORIE: readonly TheorieElement[] = ALLE.filter((e) => e.status ==
 
 export function mcElemente(): McElement[] {
   return THEORIE.filter((e): e is McElement => e.typ === 'mc');
+}
+
+export function kurzantwortElemente(): KurzantwortElement[] {
+  return THEORIE.filter(
+    (e): e is KurzantwortElement =>
+      e.typ === 'kurzantwort' && Array.isArray(e.checkliste) && typeof e.muster === 'string',
+  );
 }
 
 export function kartenElemente(): KartenElement[] {

@@ -80,6 +80,7 @@ function istUebung(e: AttemptEvent): boolean {
     !e.variant ||
     (e.variant !== 'erkennen' &&
       !e.variant.startsWith('mc:') &&
+      !e.variant.startsWith('ka:') &&
       !e.variant.startsWith(KARTE_PREFIX))
   );
 }

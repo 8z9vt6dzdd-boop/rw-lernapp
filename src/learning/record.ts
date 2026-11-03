@@ -58,6 +58,7 @@ export function erstelleAttempt(opts: {
 /** Art der Übung als Variante: „erkennen“ und „mc“ werden getrennt von Rechenaufgaben geführt. */
 export function eventVariant(task: PreparedTask): string | undefined {
   if (task.spec.art === 'erkennen') return 'erkennen';
+  if (task.spec.art === 'fehler') return 'fehlerjagd';
   if (task.spec.art === 'mc') return `mc:${task.spec.elementId ?? ''}`;
   return task.spec.variant;
 }

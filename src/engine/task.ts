@@ -83,7 +83,60 @@ export interface WahlPart {
   begruendung?: string;
 }
 
-export type TaskPart = RechenkettePart | TabellePart | BuchungPart | WahlPart;
+/** T-Konto: gegebene Einträge, gesucht sind Saldo, Saldoseite und Gegenkonto (03-aufgabentypen.md). */
+export interface TKontoPart {
+  typ: 'tkonto';
+  id: string;
+  titel: string;
+  konto: string;
+  soll: { text: string; betrag: string }[];
+  haben: { text: string; betrag: string }[];
+  felder: Feld[];
+}
+
+/** Gleichungen aufstellen (Simultanverfahren): Bausteine je Zeile, Lücken sind Zahlfelder. */
+export interface GleichungsTerm {
+  typ: 'text' | 'feld';
+  text?: string;
+  feld?: ZahlFeld;
+}
+
+export interface GleichungPart {
+  typ: 'gleichungssystem';
+  id: string;
+  titel: string;
+  zeilen: { label: string; terme: GleichungsTerm[] }[];
+}
+
+/** Fertige Lösung mit eingebautem Fehler: Zeile markieren und Begründung wählen. */
+export interface FehlerFindenPart {
+  typ: 'fehler-finden';
+  id: string;
+  frage: string;
+  zeilen: string[];
+  fehlerZeile: number;
+  gruende: WahlOption[];
+}
+
+/** Freitext mit Musterlösung und Selbstbewertung je Aussage. */
+export interface KurzantwortPart {
+  typ: 'kurzantwort';
+  id: string;
+  frage: string;
+  punkte: number;
+  checkliste: { aussage: string; punkte: number }[];
+  muster: string;
+}
+
+export type TaskPart =
+  | RechenkettePart
+  | TabellePart
+  | BuchungPart
+  | WahlPart
+  | TKontoPart
+  | GleichungPart
+  | FehlerFindenPart
+  | KurzantwortPart;
 
 // ---------- Antworten ----------
 
@@ -100,7 +153,9 @@ export interface SatzEingabe {
 export type PartAnswer =
   | { typ: 'felder'; werte: Record<string, string> }
   | { typ: 'buchung'; saetze: SatzEingabe[] }
-  | { typ: 'wahl'; optionId: string };
+  | { typ: 'wahl'; optionId: string }
+  | { typ: 'fehler'; zeile: number | null; grundId: string }
+  | { typ: 'kurzantwort'; text: string; abgehakt: number[] };
 
 export type TaskAnswer = Record<string, PartAnswer>;
 

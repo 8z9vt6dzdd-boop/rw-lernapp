@@ -2,13 +2,11 @@
 import { useMemo, useRef, useState, type FormEvent } from 'react';
 import { checkPart, combineResults } from '../../engine/check';
 import { spiele } from '../sound';
-import type { PartAnswer, PartResult, SatzEingabe, TaskAnswer, TaskPart } from '../../engine/task';
+import type { PartAnswer, PartResult, TaskAnswer } from '../../engine/task';
 import type { PreparedTask } from '../../learning/prepare';
-import { BuchungssatzBuilder, leereSaetze } from './Buchungssatz';
 import { Denkfehler, PartFeedback, Rechenweg } from './Feedback';
-import { RechenketteInput, TabelleInput, type FeldWerte } from './Felder';
+import { PartInput, istLeer, leereAntwort } from './PartInput';
 import { Button, Card, Chip, Icon, cx } from './ui';
-import { WahlInput } from './Wahl';
 
 export interface TaskOutcome {
   answers: TaskAnswer;
@@ -17,24 +15,6 @@ export interface TaskOutcome {
   hintsUsed: number;
   durationMs: number;
   loesungGezeigt: boolean;
-}
-
-function leereAntwort(part: TaskPart): PartAnswer {
-  switch (part.typ) {
-    case 'rechenkette':
-    case 'tabelle':
-      return { typ: 'felder', werte: {} };
-    case 'buchungssatz':
-      return { typ: 'buchung', saetze: leereSaetze(part.loesung.saetze.length) };
-    default:
-      return { typ: 'wahl', optionId: '' };
-  }
-}
-
-function istLeer(a: PartAnswer): boolean {
-  if (a.typ === 'wahl') return a.optionId === '';
-  if (a.typ === 'felder') return Object.values(a.werte).every((v) => v.trim() === '');
-  return a.saetze.every((s) => [...s.soll, ...s.haben].every((z) => !z.konto && !z.betrag.trim()));
 }
 
 export function TaskRunner({
@@ -211,42 +191,14 @@ export function TaskRunner({
         return (
           <Card key={p.id}>
             {'titel' in p ? <h3 className="mb-3 font-semibold">{p.titel}</h3> : null}
-            {p.typ === 'rechenkette' ? (
-              <RechenketteInput
-                part={p}
-                werte={(a as { werte: FeldWerte }).werte}
-                onChange={(w) => setAnswer(p.id, { typ: 'felder', werte: w })}
-                result={editing[p.id] ? undefined : r}
-                revealed={!!revealed[p.id]}
-                disabled={locked}
-              />
-            ) : p.typ === 'tabelle' ? (
-              <TabelleInput
-                part={p}
-                werte={(a as { werte: FeldWerte }).werte}
-                onChange={(w) => setAnswer(p.id, { typ: 'felder', werte: w })}
-                result={editing[p.id] ? undefined : r}
-                revealed={!!revealed[p.id]}
-                disabled={locked}
-              />
-            ) : p.typ === 'buchungssatz' ? (
-              <BuchungssatzBuilder
-                part={p}
-                saetze={(a as { saetze: SatzEingabe[] }).saetze}
-                onChange={(s) => setAnswer(p.id, { typ: 'buchung', saetze: s })}
-                result={editing[p.id] ? undefined : r}
-                revealed={!!revealed[p.id]}
-                disabled={locked}
-              />
-            ) : (
-              <WahlInput
-                part={p}
-                value={(a as { optionId: string }).optionId}
-                onChange={(id) => setAnswer(p.id, { typ: 'wahl', optionId: id })}
-                result={editing[p.id] ? undefined : r}
-                disabled={locked}
-              />
-            )}
+            <PartInput
+              part={p}
+              antwort={a}
+              onChange={(x) => setAnswer(p.id, x)}
+              result={editing[p.id] ? undefined : r}
+              revealed={!!revealed[p.id]}
+              disabled={locked}
+            />
             {r && !editing[p.id] ? (
               <div className="mt-4">
                 <PartFeedback

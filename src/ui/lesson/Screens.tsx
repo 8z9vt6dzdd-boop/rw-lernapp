@@ -4,19 +4,12 @@ import type { Option, Screen } from '../../content/lessons/types';
 import { checkPart, felderVon, formatSoll } from '../../engine/check';
 import { generatorFuer } from '../../engine/generators';
 import { createRng } from '../../engine/rng';
-import type {
-  PartAnswer,
-  PartResult,
-  RechenkettePart,
-  SatzEingabe,
-  TaskPart,
-} from '../../engine/task';
+import type { PartAnswer, PartResult, RechenkettePart } from '../../engine/task';
 import { FIRMA } from '../../config';
 import { Button, Card, Chip, StatusIcon, cx } from '../components/ui';
-import { BuchungssatzBuilder, leereSaetze } from '../components/Buchungssatz';
 import { PartFeedback } from '../components/Feedback';
-import { RechenketteInput, TabelleInput, type FeldWerte } from '../components/Felder';
-import { WahlInput } from '../components/Wahl';
+import { RechenketteInput, type FeldWerte } from '../components/Felder';
+import { PartInput, leereAntwort } from '../components/PartInput';
 import { Character } from '../figures/Character';
 import { Beleg } from '../visuals/Beleg';
 import { Schauplatz } from '../visuals/Schauplatz';
@@ -725,13 +718,6 @@ function Merksatz({ s }: { s: Extract<Screen, { typ: 'merksatz' }> }) {
   );
 }
 
-function leereAntwort(part: TaskPart): PartAnswer {
-  if (part.typ === 'buchungssatz')
-    return { typ: 'buchung', saetze: leereSaetze(part.loesung.saetze.length) };
-  if (part.typ === 'mc' || part.typ === 'aufgabe-erkennen') return { typ: 'wahl', optionId: '' };
-  return { typ: 'felder', werte: {} };
-}
-
 function Klausur({ s, onDone }: { s: Extract<Screen, { typ: 'klausur' }>; onDone: Done }) {
   const { part, variants, sachverhalt } = useMemo(() => {
     if ('typ' in s.part) return { part: s.part, variants: [], sachverhalt: [] as string[] };
@@ -757,42 +743,7 @@ function Klausur({ s, onDone }: { s: Extract<Screen, { typ: 'klausur' }>; onDone
         <p className="mt-2 text-[15px] font-medium">{s.aufgabe}</p>
       </div>
       <Card>
-        {part.typ === 'rechenkette' ? (
-          <RechenketteInput
-            part={part}
-            werte={(antwort as { werte: FeldWerte }).werte ?? {}}
-            onChange={(w) => setAntwort({ typ: 'felder', werte: w })}
-            result={result ?? undefined}
-            revealed={aufgedeckt}
-            disabled={fertig}
-          />
-        ) : part.typ === 'tabelle' ? (
-          <TabelleInput
-            part={part}
-            werte={(antwort as { werte: FeldWerte }).werte ?? {}}
-            onChange={(w) => setAntwort({ typ: 'felder', werte: w })}
-            result={result ?? undefined}
-            revealed={aufgedeckt}
-            disabled={fertig}
-          />
-        ) : part.typ === 'buchungssatz' ? (
-          <BuchungssatzBuilder
-            part={part}
-            saetze={(antwort as { saetze: SatzEingabe[] }).saetze}
-            onChange={(x) => setAntwort({ typ: 'buchung', saetze: x })}
-            result={result ?? undefined}
-            revealed={aufgedeckt}
-            disabled={fertig}
-          />
-        ) : (
-          <WahlInput
-            part={part}
-            value={(antwort as { optionId: string }).optionId}
-            onChange={(id) => setAntwort({ typ: 'wahl', optionId: id })}
-            result={result ?? undefined}
-            disabled={fertig}
-          />
-        )}
+        <PartInput part={part} antwort={antwort} onChange={setAntwort} result={result ?? undefined} revealed={aufgedeckt} disabled={fertig} />
         {result ? (
           <div className="mt-4">
             <PartFeedback result={result} />

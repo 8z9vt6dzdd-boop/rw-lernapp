@@ -3,9 +3,21 @@ import { FIRMA } from '../config';
 import { mcAlsPart, mcElemente } from '../content/theory';
 import { generatorFuer, GENERATOREN, type AnyGenerator } from '../engine/generators';
 import { createRng } from '../engine/rng';
-import type { ErrorVariant, SolutionStep, TaskPart, TaskText, WahlPart } from '../engine/task';
+import type {
+  BuchungPart,
+  ErrorVariant,
+  FehlerFindenPart,
+  SolutionStep,
+  TaskPart,
+  TaskText,
+  WahlOption,
+  WahlPart,
+} from '../engine/task';
+import { getKonto } from '../engine/accounts';
+import { fehlertyp } from '../engine/fehlertypen';
+import { formatEuro } from '../engine/money';
 
-export type TaskArt = 'aufgabe' | 'erkennen' | 'mc' | 'karte';
+export type TaskArt = 'aufgabe' | 'erkennen' | 'mc' | 'karte' | 'fehler';
 
 export interface TaskSpec {
   key: string;
@@ -82,6 +94,68 @@ function erkennenPart(g: AnyGenerator, p: unknown, seed: number): WahlPart {
   };
 }
 
+/** Aus einer typischen Fehlervariante eine „Fehler finden“-Aufgabe bauen (nur einzeilige Abweichung im Buchungssatz). */
+export function fehlerFindenTeil(
+  g: AnyGenerator,
+  p: unknown,
+  s: unknown,
+  seed: number,
+): FehlerFindenPart | null {
+  const richtig = g.parts(p, s).find((x: TaskPart): x is BuchungPart => x.typ === 'buchungssatz');
+  if (!richtig || richtig.loesung.saetze.length !== 1) return null;
+  const zeilenVon = (b: BuchungPart) =>
+    b.loesung.saetze[0]!.soll.map((z) => ({
+      seite: 'Soll',
+      konto: z.konto,
+      betrag: z.betrag.value.toFixed(2),
+    })).concat(
+      b.loesung.saetze[0]!.haben.map((z) => ({
+        seite: 'Haben',
+        konto: z.konto,
+        betrag: z.betrag.value.toFixed(2),
+      })),
+    );
+  const ref = zeilenVon(richtig).map((z) => `${z.seite}|${z.konto}|${z.betrag}`);
+  const kandidaten = (g.errorVariants(p) as ErrorVariant[]).flatMap((v) => {
+    const b = v.parts.find(
+      (x): x is BuchungPart => x.id === richtig.id && x.typ === 'buchungssatz',
+    );
+    if (!b || b.loesung.saetze.length !== 1) return [];
+    const zeilen = zeilenVon(b);
+    const anders = zeilen
+      .map((z, i) => ({ z, i }))
+      .filter(({ z }) => !ref.includes(`${z.seite}|${z.konto}|${z.betrag}`));
+    return zeilen.length === ref.length && anders.length === 1
+      ? [{ v, zeilen, fehler: anders[0]!.i }]
+      : [];
+  });
+  if (kandidaten.length === 0) return null;
+  const rng = createRng(seed ^ 0xfe41);
+  const k = rng.pick(kandidaten);
+  const andere = [
+    ...new Set((g.errorVariants(p) as ErrorVariant[]).map((v) => v.fehlertyp)),
+  ].filter((t) => t !== k.v.fehlertyp);
+  const ablenker = rng
+    .shuffle([...andere, 'konto-falsche-seite', 'summen-ungleich'])
+    .filter((t, i, a) => a.indexOf(t) === i && t !== k.v.fehlertyp)
+    .slice(0, 2);
+  const gruende = rng.shuffle([k.v.fehlertyp, ...ablenker]).map((t, i) => {
+    const o: WahlOption = { id: `g${i}`, text: fehlertyp(t).titel, richtig: t === k.v.fehlertyp };
+    if (t !== k.v.fehlertyp)
+      o.erklaerung = `Nein – richtig ist: ${fehlertyp(k.v.fehlertyp).titel}. ${fehlertyp(k.v.fehlertyp).erklaerung}`;
+    else o.fehlertyp = t;
+    return o;
+  });
+  return {
+    typ: 'fehler-finden',
+    id: 'fehler',
+    frage: 'Ein Kollege hat so gebucht. Welche Zeile ist falsch?',
+    zeilen: k.zeilen.map((z) => `${z.seite}: ${getKonto(z.konto).kurz} ${formatEuro(z.betrag)}`),
+    fehlerZeile: k.fehler,
+    gruende,
+  };
+}
+
 export function prepareTask(spec: TaskSpec): PreparedTask {
   if (spec.art === 'karte') {
     // Merksatz-Karten werden in der Sitzung direkt angezeigt (KarteRunner), hier nur Platzhalter
@@ -124,6 +198,26 @@ export function prepareTask(spec: TaskSpec): PreparedTask {
   const p = g.generate(createRng(spec.seed), opts);
   const s = g.solve(p);
   const text = g.render(p, FIRMA);
+  if (spec.art === 'fehler') {
+    const teil = fehlerFindenTeil(g, p, s, spec.seed);
+    if (teil) {
+      return {
+        spec,
+        text: { ...text, aufgabe: 'Fehlerjagd: Finde die falsche Zeile und begründe.' },
+        parts: [teil],
+        variants: [],
+        hints: [
+          'Prüfe jede Zeile: Stimmt das Konto, die Seite und der Betrag?',
+          'Achte besonders auf Steuerkonten und darauf, wovon Prozente gerechnet werden.',
+          `Der Fehler steckt in Zeile ${teil.fehlerZeile + 1}.`,
+        ],
+        steps: g.steps(p, s),
+        params: p,
+        solution: s,
+        points: 2,
+      };
+    }
+  }
   if (spec.art === 'erkennen') {
     return {
       spec,

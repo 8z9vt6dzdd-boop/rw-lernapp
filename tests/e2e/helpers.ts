@@ -80,7 +80,8 @@ export async function teilLoesen(page: Page, part: TaskPart) {
     case 'buchungssatz':
       await buchungEingeben(page, eingabeAusLoesung(part.loesung));
       return;
-    default: {
+    case 'mc':
+    case 'aufgabe-erkennen': {
       const richtig = part.optionen.find((o) => o.richtig)!;
       await page.getByRole('radio', { name: richtig.text }).click();
     }

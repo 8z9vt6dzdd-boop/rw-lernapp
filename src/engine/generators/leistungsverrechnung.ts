@@ -3,7 +3,14 @@ import { FIRMA } from '../../config';
 import { Fraction, fracToDec, solveLinear } from '../linear';
 import { Val, dec, formatNumber, sum } from '../money';
 import type { Rng } from '../rng';
-import type { ErrorVariant, TabellenZeile, TaskPart, TaskText, Zelle } from '../task';
+import type {
+  ErrorVariant,
+  GleichungsTerm,
+  TabellenZeile,
+  TaskPart,
+  TaskText,
+  Zelle,
+} from '../task';
 import { betrag, defineGenerator, eur, feld, isKrumm, plain, retry } from './base';
 
 export interface LvStelle {
@@ -377,6 +384,8 @@ export const stufenleiter = defineGenerator<LvParams, StufenleiterSolution>({
 // ---------- Simultan ----------
 
 export interface SimultanSolution {
+  /** Koeffizienten je Gleichung: primäre Kosten + Σ empfangen·q = Leistung·q */
+  gleichungen: { primaer: string; empfangen: number[]; leistung: number }[];
   saetze: Val[];
   saetzeBruch: Fraction[];
   umlage: Val[][];
@@ -421,7 +430,21 @@ export function solveSimultan(p: LvParams, w: SimultanWeg = {}): SimultanSolutio
   const summen = p.haupt.map((s, k) =>
     umlage.reduce((acc, row) => acc.plus(row[k]!), new Val(s.primaer)),
   );
-  return { saetze, saetzeBruch, umlage, summen, primaerGesamt: sum(ALLE(p).map((s) => s.primaer)) };
+  const gleichungen = p.hilfs.map((hs, k) => ({
+    primaer: hs.primaer,
+    empfangen: p.hilfs.map((_, l) =>
+      k === l && w.ohneEigenEmpfang ? 0 : w.zeileSpalte ? m(p, k, l) : m(p, l, k),
+    ),
+    leistung: gesamtLeistung(p, k) - (w.eigenDoppelt ? m(p, k, k) : 0),
+  }));
+  return {
+    saetze,
+    saetzeBruch,
+    umlage,
+    summen,
+    primaerGesamt: sum(ALLE(p).map((s) => s.primaer)),
+    gleichungen,
+  };
 }
 
 function simultanParts(p: LvParams, s: SimultanSolution): TaskPart[] {
@@ -442,7 +465,40 @@ function simultanParts(p: LvParams, s: SimultanSolution): TaskPart[] {
       zellen: s.summen.map((v, k) => feld(`summe-${k}`, `Summe ${p.haupt[k]!.name}`, v)),
     },
   ];
+  const gleichung: TaskPart = {
+    typ: 'gleichungssystem',
+    id: 'gleichungen',
+    titel: 'Gleichungen aufstellen',
+    zeilen: p.hilfs.map((hs, i) => {
+      const g = s.gleichungen[i]!;
+      const terme: GleichungsTerm[] = [
+        { typ: 'feld', feld: feld(`g-p-${i}`, `Primäre Kosten ${hs.name}`, g.primaer) },
+      ];
+      p.hilfs.forEach((von, j) => {
+        terme.push({ typ: 'text', text: '+' });
+        terme.push({
+          typ: 'feld',
+          feld: feld(
+            `g-m-${j}-${i}`,
+            `Menge von ${von.name} an ${hs.name}`,
+            g.empfangen[j]!,
+            'menge',
+            von.einheit,
+          ),
+        });
+        terme.push({ typ: 'text', text: `· q${j + 1}` });
+      });
+      terme.push({ typ: 'text', text: '=' });
+      terme.push({
+        typ: 'feld',
+        feld: feld(`g-l-${i}`, `Gesamtleistung ${hs.name}`, g.leistung, 'menge', hs.einheit),
+      });
+      terme.push({ typ: 'text', text: `· q${i + 1}` });
+      return { label: `Gleichung ${hs.name} (q${i + 1})`, terme };
+    }),
+  };
   return [
+    gleichung,
     {
       typ: 'rechenkette',
       id: 'saetze',

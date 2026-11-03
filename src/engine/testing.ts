@@ -13,8 +13,18 @@ export function eingabeAusLoesung(l: BuchungsLoesung): SatzEingabe[] {
 
 export function antwortAusPart(part: TaskPart): PartAnswer {
   switch (part.typ) {
+    case 'fehler-finden':
+      return {
+        typ: 'fehler',
+        zeile: part.fehlerZeile,
+        grundId: part.gruende.find((g) => g.richtig)?.id ?? '',
+      };
+    case 'kurzantwort':
+      return { typ: 'kurzantwort', text: part.muster, abgehakt: part.checkliste.map((_, i) => i) };
     case 'rechenkette':
-    case 'tabelle': {
+    case 'tabelle':
+    case 'tkonto':
+    case 'gleichungssystem': {
       const werte: Record<string, string> = {};
       for (const f of felderVon(part)) {
         werte[f.id] =

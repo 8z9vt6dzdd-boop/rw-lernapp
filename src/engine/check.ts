@@ -25,6 +25,12 @@ export function felderVon(part: TaskPart): Feld[] {
   if (part.typ === 'tabelle') {
     return part.zeilen.flatMap((z) => z.zellen.filter((c): c is ZahlFeld => c.typ === 'zahl'));
   }
+  if (part.typ === 'tkonto') return part.felder;
+  if (part.typ === 'gleichungssystem') {
+    return part.zeilen.flatMap((z) =>
+      z.terme.flatMap((t) => (t.typ === 'feld' && t.feld ? [t.feld] : [])),
+    );
+  }
   return [];
 }
 
@@ -49,7 +55,13 @@ function partWeight(part: TaskPart): number {
   switch (part.typ) {
     case 'rechenkette':
     case 'tabelle':
+    case 'tkonto':
+    case 'gleichungssystem':
       return Math.max(1, felderVon(part).length);
+    case 'kurzantwort':
+      return part.punkte;
+    case 'fehler-finden':
+      return 2;
     case 'buchungssatz':
       return Math.max(
         1,
@@ -210,7 +222,47 @@ export function checkPart(
   switch (part.typ) {
     case 'rechenkette':
     case 'tabelle':
+    case 'tkonto':
+    case 'gleichungssystem':
       return checkFelder(part, answer, vparts);
+    case 'fehler-finden': {
+      const a = answer?.typ === 'fehler' ? answer : { zeile: null, grundId: '' };
+      const zeileOk = a.zeile === part.fehlerZeile;
+      const grund = part.gruende.find((g) => g.id === a.grundId);
+      const grundOk = grund?.richtig === true;
+      const feedback = [
+        zeileOk
+          ? 'Die fehlerhafte Zeile ist richtig gefunden.'
+          : `Der Fehler steckt in Zeile ${part.fehlerZeile + 1}.`,
+        grundOk ? 'Die Begründung stimmt.' : (grund?.erklaerung ?? 'Die Begründung passt nicht.'),
+      ];
+      return {
+        partId: part.id,
+        korrekt: zeileOk && grundOk,
+        score: (Number(zeileOk) + Number(grundOk)) / 2,
+        feedback,
+        fehlertypen: !grundOk && grund?.fehlertyp ? [grund.fehlertyp] : [],
+        rundungshinweis: false,
+      };
+    }
+    case 'kurzantwort': {
+      // Selbstbewertung je Aussage der Musterlösung (03-aufgabentypen.md)
+      const a: { text: string; abgehakt: number[] } =
+        answer?.typ === 'kurzantwort' ? answer : { text: '', abgehakt: [] };
+      const erreicht = part.checkliste.reduce(
+        (x, c, i) => x + (a.abgehakt.includes(i) ? c.punkte : 0),
+        0,
+      );
+      const gesamt = part.checkliste.reduce((x, c) => x + c.punkte, 0);
+      return {
+        partId: part.id,
+        korrekt: gesamt > 0 && erreicht === gesamt,
+        score: gesamt === 0 ? 0 : erreicht / gesamt,
+        feedback: [`Selbstbewertung: ${erreicht} von ${gesamt} Punkten.`],
+        fehlertypen: [],
+        rundungshinweis: false,
+      };
+    }
     case 'buchungssatz':
       return checkBuchung(part, answer, vparts);
     case 'mc':

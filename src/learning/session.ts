@@ -89,6 +89,8 @@ export function wiederholung(spec: TaskSpec): TaskSpec {
 }
 
 export const SITZUNG_GROESSE = 8;
+/** Skills, deren Buchungssatz sich für „Fehler finden“ eignet */
+export const FEHLERJAGD_SKILLS = ['C5-skonto-einkauf', 'D4-skonto-verkauf'];
 export const ANTEIL_WIEDERHOLUNG = 0.7;
 
 /** Skills mit Übung, die schon frei sind (Lektion erledigt oder keine Lektion vorhanden). */

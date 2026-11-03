@@ -2,6 +2,7 @@
 import { ABSCHNITTE, RELEVANZ_GEWICHT, type Abschnitt, type Skill } from '../content/curriculum';
 import { lektionFuerSkill } from '../content/lessons';
 import { generatorFuer } from '../engine/generators';
+import { karten, skillStand } from './scheduler';
 import type { AttemptEvent, LernEreignis } from './types';
 
 export type KnotenStatus = 'erledigt' | 'offen' | 'gesperrt' | 'bald';
@@ -86,11 +87,15 @@ export function naechsterKnoten(events: readonly LernEreignis[]): Knoten | undef
 }
 
 /**
- * Klausur-Readiness (0–1): Mittel der Skill-Stände, gewichtet nach Klausurrelevanz.
- * Vorstufe bis zur Wiederholungsplanung (M3): Stand = Anteil gelöster unter den letzten 5 Aufgaben;
- * reine Lektions-Skills zählen als 0,6, sobald die Lektion erledigt ist.
+ * Klausur-Readiness (0–1): Mittel der Abrufwahrscheinlichkeiten aller Skills (FSRS), gewichtet nach
+ * Klausurrelevanz (01-didaktik.md). Nie geübte Skills zählen mit 0.
  */
-export function readiness(events: readonly LernEreignis[], abschnitt?: Abschnitt): number {
+export function readiness(
+  events: readonly LernEreignis[],
+  abschnitt?: Abschnitt,
+  now = new Date(),
+): number {
+  const k = karten(events);
   const abschnitte = abschnitt ? [abschnitt] : ABSCHNITTE;
   let summe = 0;
   let gewicht = 0;
@@ -98,13 +103,19 @@ export function readiness(events: readonly LernEreignis[], abschnitt?: Abschnitt
     for (const s of a.skills) {
       const w = RELEVANZ_GEWICHT[s.relevanz];
       gewicht += w;
-      const v = versuche(events, s.id).slice(-5);
-      let stand = 0;
-      if (v.length > 0)
-        stand = v.reduce((x, e) => x + (e.correct ? 1 : (e.partial ?? 0) * 0.5), 0) / 5;
-      if (lektionErledigt(events, s.id)) stand = Math.max(stand, hatUebung(s.id) ? 0.3 : 0.6);
-      summe += w * stand;
+      summe += w * (skillStand(k, s.id, now) ?? 0);
     }
   }
   return gewicht === 0 ? 0 : summe / gewicht;
+}
+
+/** Kompetenzring je Skill (0–1) oder null, wenn noch nichts gelernt wurde. */
+export function kompetenzRinge(
+  events: readonly LernEreignis[],
+  now = new Date(),
+): Map<string, number | null> {
+  const k = karten(events);
+  return new Map(
+    ABSCHNITTE.flatMap((a) => a.skills.map((s) => [s.id, skillStand(k, s.id, now)] as const)),
+  );
 }

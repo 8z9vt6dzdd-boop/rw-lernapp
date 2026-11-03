@@ -5,7 +5,7 @@ import { generatorFuer, GENERATOREN, type AnyGenerator } from '../engine/generat
 import { createRng } from '../engine/rng';
 import type { ErrorVariant, SolutionStep, TaskPart, TaskText, WahlPart } from '../engine/task';
 
-export type TaskArt = 'aufgabe' | 'erkennen' | 'mc';
+export type TaskArt = 'aufgabe' | 'erkennen' | 'mc' | 'karte';
 
 export interface TaskSpec {
   key: string;
@@ -83,6 +83,20 @@ function erkennenPart(g: AnyGenerator, p: unknown, seed: number): WahlPart {
 }
 
 export function prepareTask(spec: TaskSpec): PreparedTask {
+  if (spec.art === 'karte') {
+    // Merksatz-Karten werden in der Sitzung direkt angezeigt (KarteRunner), hier nur Platzhalter
+    return {
+      spec,
+      text: { titel: 'Karte', sachverhalt: [], aufgabe: '' },
+      parts: [],
+      variants: [],
+      hints: ['', '', ''],
+      steps: [],
+      params: {},
+      solution: {},
+      points: 0,
+    };
+  }
   if (spec.art === 'mc') {
     const el = mcElemente().find((e) => e.id === spec.elementId) ?? mcElemente()[0];
     if (!el) throw new Error('Keine Multiple-Choice-Inhalte vorhanden');

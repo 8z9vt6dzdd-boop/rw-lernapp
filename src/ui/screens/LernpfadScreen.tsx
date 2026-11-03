@@ -5,6 +5,7 @@ import { LEKTIONEN, lektionFuerSkill } from '../../content/lessons';
 import {
   abschnittAbgeschlossen,
   knotenFuer,
+  kompetenzRinge,
   naechsterKnoten,
   readiness,
   type Knoten,
@@ -62,7 +63,42 @@ function zielVon(k: Knoten): string | null {
   return `#/sitzung?skill=${encodeURIComponent(k.skill.id)}`;
 }
 
-function Pfad({ knoten, naechster }: { knoten: Knoten[]; naechster?: Knoten | undefined }) {
+/** Kompetenzring: Abrufwahrscheinlichkeit aus FSRS, verblasst, wenn lange nicht geübt. */
+function Ring({ wert }: { wert: number | null }) {
+  if (wert === null || wert <= 0) return null;
+  const r = 37;
+  const u = 2 * Math.PI * r;
+  return (
+    <svg
+      viewBox="0 0 80 80"
+      className="pointer-events-none absolute -inset-2 h-20 w-20 -rotate-90"
+      aria-hidden="true"
+    >
+      <circle cx="40" cy="40" r={r} fill="none" stroke="var(--surface-3)" strokeWidth="4" />
+      <circle
+        cx="40"
+        cy="40"
+        r={r}
+        fill="none"
+        stroke="#8cbf3f"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeDasharray={`${u * wert} ${u}`}
+        opacity={0.35 + 0.65 * wert}
+      />
+    </svg>
+  );
+}
+
+function Pfad({
+  knoten,
+  naechster,
+  ringe,
+}: {
+  knoten: Knoten[];
+  naechster?: Knoten | undefined;
+  ringe: Map<string, number | null>;
+}) {
   const [hinweis, setHinweis] = useState<string | null>(null);
   // Zickzack wie bei Duolingo, schmal genug für 360 px Breite
   const versatz = [0, 36, 56, 36, 0, -36, -56, -36];
@@ -118,6 +154,7 @@ function Pfad({ knoten, naechster }: { knoten: Knoten[]; naechster?: Knoten | un
               >
                 <KnotenIcon k={k} />
               </button>
+              <Ring wert={ringe.get(k.skill.id) ?? null} />
             </div>
             <span
               className={cx(
@@ -151,12 +188,14 @@ function AbschnittKarte({
   offen,
   onToggle,
   naechster,
+  ringe,
 }: {
   a: Abschnitt;
   events: readonly LernEreignis[];
   offen: boolean;
   onToggle: () => void;
   naechster?: Knoten | undefined;
+  ringe: Map<string, number | null>;
 }) {
   const knoten = knotenFuer(events, a);
   const verfuegbar = knoten.filter((k) => k.status !== 'bald');
@@ -193,7 +232,7 @@ function AbschnittKarte({
               Empfohlen: vorher Abschnitt 0, A und B. Du kannst aber schon hineinschauen.
             </p>
           ) : null}
-          <Pfad knoten={knoten} naechster={naechster} />
+          <Pfad knoten={knoten} naechster={naechster} ringe={ringe} />
           {hatLektionen && offeneLektionen ? (
             <Button
               variant="ghost"
@@ -212,6 +251,10 @@ function AbschnittKarte({
 export function LernpfadScreen() {
   const events = useEvents();
   const naechster = useMemo(() => (events ? naechsterKnoten(events) : undefined), [events]);
+  const ringe = useMemo(
+    () => (events ? kompetenzRinge(events) : new Map<string, number | null>()),
+    [events],
+  );
   const [offen, setOffen] = useState<Set<string> | null>(null);
   if (!events) return null;
   // Aufgeklappt: Abschnitte mit eigenem Fortschritt und der mit dem nächsten Schritt; sonst die ersten beiden mit Inhalten
@@ -244,6 +287,7 @@ export function LernpfadScreen() {
           a={a}
           events={events}
           naechster={naechster}
+          ringe={ringe}
           offen={aktivOffen.has(a.id)}
           onToggle={() => {
             const n = new Set(aktivOffen);

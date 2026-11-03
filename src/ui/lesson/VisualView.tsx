@@ -74,8 +74,18 @@ export function VisualView({ v }: { v: Visual }) {
     case 'treppe':
       return <Treppe stufen={v.stufen} />;
     case 'afa-verlauf':
-      return <AfaVerlauf basis={v.basis} restwert={v.restwert} nd={v.nd} verfahren={v.verfahren} satz={v.satz} />;
+      return (
+        <AfaVerlauf
+          basis={v.basis}
+          restwert={v.restwert}
+          nd={v.nd}
+          verfahren={v.verfahren}
+          satz={v.satz}
+        />
+      );
     case 'kostenfunktion':
-      return <Kostenfunktion preis={v.preis} kv={v.kv} kf={v.kf} xmax={v.xmax} einheit={v.einheit} />;
+      return (
+        <Kostenfunktion preis={v.preis} kv={v.kv} kf={v.kf} xmax={v.xmax} einheit={v.einheit} />
+      );
   }
 }

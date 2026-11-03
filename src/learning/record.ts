@@ -3,7 +3,7 @@ import { combineResults } from '../engine/check';
 import type { PartResult, TaskAnswer } from '../engine/task';
 import type { PreparedTask } from './prepare';
 import { fsrsRating } from './rating';
-import type { AttemptEvent, LernEreignis, Modus } from './types';
+import type { AttemptEvent, FsrsRating, LernEreignis, Modus } from './types';
 
 export function erstelleAttempt(opts: {
   task: PreparedTask;
@@ -73,4 +73,32 @@ export function plain(x: unknown): unknown {
       return v;
     }),
   );
+}
+
+/** Wiederholungskarte (Merksatz) mit Selbsteinschätzung als Lernereignis. */
+export function erstelleKartenAttempt(opts: {
+  merksatzId: string;
+  skillId: string;
+  rating: FsrsRating;
+  durationMs: number;
+  deviceId: string;
+  now?: Date;
+}): AttemptEvent {
+  const e: AttemptEvent = {
+    typ: 'attempt',
+    id: crypto.randomUUID(),
+    ts: (opts.now ?? new Date()).toISOString(),
+    deviceId: opts.deviceId,
+    skillId: opts.skillId,
+    variant: `karte:${opts.merksatzId}`,
+    mode: 'kurz',
+    answer: { selbsteinschaetzung: opts.rating },
+    correct: opts.rating >= 3,
+    hintsUsed: 0,
+    errorTypes: [],
+    durationMs: Math.round(opts.durationMs),
+    fsrsRating: opts.rating,
+  };
+  if (typeof navigator !== 'undefined' && navigator.onLine === false) e.offline = true;
+  return e;
 }

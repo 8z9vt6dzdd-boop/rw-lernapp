@@ -3,17 +3,18 @@ import { useEffect, useMemo, useState } from 'react';
 import { fehlertyp } from '../../engine/fehlertypen';
 import { randomSeed } from '../../engine/rng';
 import { prepareTask, skillTitel, type TaskSpec } from '../../learning/prepare';
-import { erstelleAttempt } from '../../learning/record';
-import { kurzSitzung, wiederholung } from '../../learning/session';
+import { erstelleAttempt, erstelleKartenAttempt } from '../../learning/record';
+import { kurzSitzung, kurzSitzungGeplant, wiederholung } from '../../learning/session';
 import type { AttemptEvent } from '../../learning/types';
 import { laptopListe, laptopSpeichern } from '../../learning/ereignisse';
 import { addEvent, allEvents, deviceId, eventsForSkill } from '../../storage/db';
 import { Sprechblase } from '../lesson/Sprechblase';
 import { Button, Card } from '../components/ui';
 import { TaskRunner, type TaskOutcome } from '../components/TaskRunner';
+import { KarteRunner } from '../components/KarteRunner';
 import { navigate } from '../hooks';
 
-function sitzungAusHash(): TaskSpec[] {
+function sitzungAusHash(): TaskSpec[] | null {
   const q = new URLSearchParams(window.location.hash.split('?')[1] ?? '');
   const skill = q.get('skill');
   // Optionaler Start-Seed macht die Aufgabenfolge reproduzierbar (z. B. für automatische Tests).
@@ -27,9 +28,9 @@ function sitzungAusHash(): TaskSpec[] {
       seed: start !== null ? start + i : randomSeed(),
     }));
   }
-  const mobil = istMobil();
-  if (start !== null) return kurzSitzung(start, { mobil });
-  return kurzSitzung(undefined, { mobil });
+  if (start !== null) return kurzSitzung(start, { mobil: istMobil() });
+  // Ohne Parameter: geplante Sitzung aus dem Lernstand (wird asynchron geladen)
+  return null;
 }
 
 function istMobil(): boolean {
@@ -81,6 +82,24 @@ export function SessionScreen() {
   const [index, setIndex] = useState(0);
   const [ergebnisse, setErgebnisse] = useState<AttemptEvent[]>([]);
   const [wiederholt, setWiederholt] = useState<ReadonlySet<string>>(new Set());
+
+  const [leer, setLeer] = useState(false);
+
+  const planen = () =>
+    allEvents().then((ev) => {
+      const geplant = kurzSitzungGeplant(ev, new Date(), undefined, { mobil: istMobil() });
+      setLeer(geplant.length === 0);
+      setQueue(geplant);
+    });
+
+  useEffect(() => {
+    if (merkRef() || sitzungAusHash() !== null) return;
+    void allEvents().then((ev) => {
+      const geplant = kurzSitzungGeplant(ev, new Date(), undefined, { mobil: istMobil() });
+      setLeer(geplant.length === 0);
+      setQueue(geplant);
+    });
+  }, []);
 
   useEffect(() => {
     const ref = merkRef();
@@ -140,6 +159,49 @@ export function SessionScreen() {
   };
 
   if (queue === null) return null;
+
+  if (leer) {
+    return (
+      <div className="flex flex-col gap-4">
+        <Card>
+          <Sprechblase
+            s={{
+              figur: 'jana',
+              ausdruck: 'erklaert',
+              text: 'Für die Kurz-Sitzung brauchst du zuerst eine Lektion. Danach planen wir deine Wiederholungen.',
+            }}
+          />
+        </Card>
+        <Button variant="primary" onClick={() => navigate('lernpfad')}>
+          Zum Lernpfad
+        </Button>
+      </div>
+    );
+  }
+
+  if (spec && spec.art === 'karte' && spec.elementId) {
+    return (
+      <KarteRunner
+        key={spec.key}
+        merksatzId={spec.elementId}
+        position={index + 1}
+        total={queue.length}
+        onExit={() => (index === 0 ? navigate('start') : setIndex(queue.length))}
+        onFertig={async (rating, durationMs) => {
+          const event = erstelleKartenAttempt({
+            merksatzId: spec.elementId!,
+            skillId: spec.skillId,
+            rating,
+            durationMs,
+            deviceId: await deviceId(),
+          });
+          await addEvent(event);
+          setErgebnisse((prev) => [...prev, event]);
+          setIndex((i) => i + 1);
+        }}
+      />
+    );
+  }
 
   if (
     spec &&
@@ -235,7 +297,7 @@ export function SessionScreen() {
           </Button>
           <Button
             onClick={() => {
-              setQueue(kurzSitzung(undefined, { mobil: istMobil() }));
+              void planen();
               setIndex(0);
               setErgebnisse([]);
               setWiederholt(new Set());

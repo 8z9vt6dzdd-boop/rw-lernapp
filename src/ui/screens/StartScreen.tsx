@@ -4,6 +4,7 @@ import { lektionFuerSkill } from '../../content/lessons';
 import { skillTitel } from '../../learning/prepare';
 import { laptopListe } from '../../learning/ereignisse';
 import { naechsterKnoten, readiness } from '../../learning/fortschritt';
+import { faellig, karten } from '../../learning/scheduler';
 import {
   ZIELE,
   karriere,
@@ -125,6 +126,9 @@ export function StartScreen() {
       readiness: readiness(events),
       laptop: laptopListe(events),
       rueckblick: wochenrueckblick(events, heute),
+      faellig: [...karten(events).values()].filter(
+        (k) => k.wiederholungen > 0 && faellig(k, new Date()),
+      ).length,
     };
   }, [events, settings.tagesziel, heute]);
 
@@ -300,7 +304,14 @@ export function StartScreen() {
           <div>
             <h2 className="text-lg font-semibold">Kurz-Sitzung</h2>
             <p className="mt-1 text-[15px] text-muted">
-              5–10 Minuten · gemischte Aufgaben · Aufgaben erkennen
+              5–10 Minuten · Wiederholung und Neues gemischt
+            </p>
+            <p className="num mt-1 text-sm font-medium text-accent">
+              {daten.faellig === 0
+                ? 'Heute nichts fällig – Neues lernen'
+                : daten.faellig === 1
+                  ? '1 Wiederholung fällig'
+                  : `${daten.faellig} Wiederholungen fällig`}
             </p>
           </div>
         </div>

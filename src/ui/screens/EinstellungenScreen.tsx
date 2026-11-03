@@ -110,7 +110,8 @@ export function EinstellungenScreen() {
           <span>
             <span className="block font-semibold">Töne</span>
             <span className="block text-sm text-muted">
-              Kurze, leise Töne bei Antworten und Erfolgen. Auf dem iPhone gilt der Stummschalter, Musik läuft weiter.
+              Kurze, leise Töne bei Antworten und Erfolgen. Auf dem iPhone gilt der Stummschalter,
+              Musik läuft weiter.
             </span>
           </span>
           <input

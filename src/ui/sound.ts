@@ -1,7 +1,8 @@
 // Sparsame Sound-Effekte, vollständig im Code erzeugt (Web Audio) – keine fremden Aufnahmen, keine Lizenzfragen.
 // iPhone: Audio-Sitzung „ambient“ → Stummschalter wird respektiert, laufende Musik/Podcasts laufen weiter.
 
-export type Ton = 'richtig' | 'falsch' | 'klack' | 'lektion' | 'serie' | 'erfolg' | 'feier' | 'akkord';
+export type Ton =
+  'richtig' | 'falsch' | 'klack' | 'lektion' | 'serie' | 'erfolg' | 'feier' | 'akkord';
 
 const LAUTSTAERKE = 0.16;
 
@@ -22,7 +23,9 @@ function audioSessionAmbient(): void {
 
 function context(): AudioContext | null {
   if (!an || typeof window === 'undefined') return null;
-  const AC = window.AudioContext ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+  const AC =
+    window.AudioContext ??
+    (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
   if (!AC) return null;
   if (!ctx) {
     audioSessionAmbient();
@@ -52,7 +55,13 @@ export function setToeneAn(wert: boolean): void {
 
 // ---------- Bausteine ----------
 
-function ton(c: AudioContext, freq: number, start: number, dauer: number, opts: { typ?: OscillatorType; lautstaerke?: number; bis?: number } = {}) {
+function ton(
+  c: AudioContext,
+  freq: number,
+  start: number,
+  dauer: number,
+  opts: { typ?: OscillatorType; lautstaerke?: number; bis?: number } = {},
+) {
   const o = c.createOscillator();
   const g = c.createGain();
   o.type = opts.typ ?? 'sine';
@@ -67,7 +76,18 @@ function ton(c: AudioContext, freq: number, start: number, dauer: number, opts: 
   o.stop(start + dauer + 0.02);
 }
 
-function rauschen(c: AudioContext, start: number, dauer: number, opts: { von: number; bis: number; q?: number; lautstaerke?: number; huellkurve?: 'zisch' | 'klack' | 'wellen' }) {
+function rauschen(
+  c: AudioContext,
+  start: number,
+  dauer: number,
+  opts: {
+    von: number;
+    bis: number;
+    q?: number;
+    lautstaerke?: number;
+    huellkurve?: 'zisch' | 'klack' | 'wellen';
+  },
+) {
   const laenge = Math.ceil(c.sampleRate * dauer);
   const buffer = c.createBuffer(1, laenge, c.sampleRate);
   const data = buffer.getChannelData(0);
@@ -88,7 +108,8 @@ function rauschen(c: AudioContext, start: number, dauer: number, opts: { von: nu
   } else if (opts.huellkurve === 'wellen') {
     // Einschenken: plätschernde Lautstärkeschwankungen
     g.gain.exponentialRampToValueAtTime(v * 0.6, start + 0.08);
-    for (let t = 0.1; t < dauer - 0.1; t += 0.07) g.gain.setValueAtTime(v * (0.45 + 0.4 * Math.abs(Math.sin(t * 37))), start + t);
+    for (let t = 0.1; t < dauer - 0.1; t += 0.07)
+      g.gain.setValueAtTime(v * (0.45 + 0.4 * Math.abs(Math.sin(t * 37))), start + t);
     g.gain.exponentialRampToValueAtTime(0.0001, start + dauer);
   } else {
     g.gain.exponentialRampToValueAtTime(v, start + 0.02);
@@ -133,8 +154,16 @@ export function spiele(t: Ton): void {
       break;
     case 'lektion':
       // Dose öffnen: „Pssst“, dann kurzer Jingle
-      rauschen(c, s, 0.45, { von: 6000, bis: 2500, q: 0.8, lautstaerke: 0.55, huellkurve: 'zisch' });
-      [0, 4, 7, 12].forEach((n, i) => ton(c, NOTE(n), s + 0.5 + i * 0.09, 0.22, { typ: 'triangle', lautstaerke: 0.4 }));
+      rauschen(c, s, 0.45, {
+        von: 6000,
+        bis: 2500,
+        q: 0.8,
+        lautstaerke: 0.55,
+        huellkurve: 'zisch',
+      });
+      [0, 4, 7, 12].forEach((n, i) =>
+        ton(c, NOTE(n), s + 0.5 + i * 0.09, 0.22, { typ: 'triangle', lautstaerke: 0.4 }),
+      );
       break;
     case 'serie':
       // Einschenken
@@ -148,12 +177,16 @@ export function spiele(t: Ton): void {
     case 'feier': {
       // Längerer Jingle zur Szene (ca. 2,5 s)
       const melodie = [0, 4, 7, 12, 7, 9, 11, 12];
-      melodie.forEach((n, i) => ton(c, NOTE(n), s + i * 0.18, 0.3, { typ: 'triangle', lautstaerke: 0.38 }));
+      melodie.forEach((n, i) =>
+        ton(c, NOTE(n), s + i * 0.18, 0.3, { typ: 'triangle', lautstaerke: 0.38 }),
+      );
       [0, 4, 7, 12].forEach((n) => ton(c, NOTE(n - 12), s + 1.5, 1.0, { lautstaerke: 0.22 }));
       break;
     }
     case 'akkord':
-      [0, 4, 7].forEach((n, i) => ton(c, NOTE(n), s + i * 0.03, 0.6, { typ: 'triangle', lautstaerke: 0.3 }));
+      [0, 4, 7].forEach((n, i) =>
+        ton(c, NOTE(n), s + i * 0.03, 0.6, { typ: 'triangle', lautstaerke: 0.3 }),
+      );
       break;
   }
 }

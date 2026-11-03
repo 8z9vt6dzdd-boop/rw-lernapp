@@ -100,7 +100,7 @@ export const lektionB1: Lektion = {
     {
       typ: 'konzept',
       titel: '100 % + 19 % = 119 %',
-      text: 'Der Nettobetrag ist 100 %. Die Umsatzsteuer kommt mit 19 % obendrauf, der Bruttobetrag ist also 119 %. Deshalb: netto mal 1,19 ergibt brutto, brutto geteilt durch 1,19 ergibt netto.',
+      text: 'Netto ist 100 %, die Umsatzsteuer kommt mit 19 % obendrauf: brutto = 119 %. Also netto × 1,19 = brutto, brutto ÷ 1,19 = netto. In allen Aufgaben gilt 19 % Umsatzsteuer, sofern nichts anderes angegeben ist.',
       visual: { typ: 'brutto-netto', brutto: R_BRUTTO.value.toString(), ustSatz: UST },
     },
     {

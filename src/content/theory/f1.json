@@ -439,28 +439,30 @@
     }
   },
   {
-    "id": "F2-Z01",
+    "id": "F2-011",
     "skill": "F2-hgb-grundlagen",
-    "typ": "mc",
-    "status": "zurueckgehalten",
-    "quelle": "BA 5.1, S. 125 (Tabelle 2); Übungsaufgabe 23",
-    "frage": "Eine GmbH hat an zwei aufeinanderfolgenden Stichtagen 120 Arbeitnehmer, eine Bilanzsumme von 30 Mio. € und Umsatzerlöse von 10 Mio. €. Zu welcher Größenklasse gehört sie?",
-    "optionen": [
-      {
-        "text": "Mittelgroß",
-        "richtig": true
-      },
-      {
-        "text": "Groß",
-        "erklaerung": "Nur die Bilanzsumme überschreitet die Grenze für große Kapitalgesellschaften."
-      },
-      {
-        "text": "Klein",
-        "erklaerung": "Arbeitnehmerzahl und Bilanzsumme liegen über den Grenzen für kleine Kapitalgesellschaften."
-      }
-    ],
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.1, S. 125; § 267 HGB (geltende Fassung)",
+    "frage": "Welche Schwellenwerte gelten für die Größenklassen der Kapitalgesellschaften (§ 267 HGB)?",
+    "antwort": "Klein: Bilanzsumme bis 7,5 Mio. €, Umsatzerlöse bis 15 Mio. €, bis 50 Arbeitnehmer. Mittelgroß: bis 25 Mio. €, 50 Mio. €, 250 Arbeitnehmer. Darüber: groß. Maßgeblich sind zwei von drei Merkmalen an zwei aufeinanderfolgenden Abschlussstichtagen. Die Werte gelten seit 17.04.2024; ältere Unterlagen, auch der Lehrbrief, nennen niedrigere Werte.",
+    "beispiel": "Eine GmbH hat zwei Jahre in Folge 9 Mio. € Bilanzsumme, 12 Mio. € Umsatz und 70 Arbeitnehmer. Bilanzsumme und Arbeitnehmer liegen über den Grenzen für kleine, der Umsatz nicht – zwei von drei überschritten, also nicht klein. Bei den Grenzen für mittelgroße wird nichts überschritten: mittelgroß.",
     "pruefung": {
-      "faktenabgleich": "zurueckgehalten: Schwellenwerte im Lehrbrief (6/12 Mio. €, 20/40 Mio. €) entsprechen nicht dem geltenden § 267 HGB; die Zwei-von-drei-Regel steht im Lehrbrief nur implizit. Siehe docs/m7/f1.md",
+      "faktenabgleich": "korrigiert – Schwellenwerte nach geltendem Recht (§ 241a HGB, § 141 AO, §§ 267, 267a HGB, Stand seit 17.04.2024 bzw. 2024), gegen den Gesetzestext geprüft und vom Auftraggeber am Prüfpunkt 3 bestätigt; Lehrbrief nennt ältere Werte",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F2-012",
+    "skill": "F2-hgb-grundlagen",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "§ 267a HGB (geltende Fassung)",
+    "frage": "Was ist eine Kleinstkapitalgesellschaft (§ 267a HGB)?",
+    "antwort": "Eine kleine Kapitalgesellschaft, die mindestens zwei der drei Grenzen nicht überschreitet: Bilanzsumme 450.000 €, Umsatzerlöse 900.000 €, 10 Arbeitnehmer im Jahresdurchschnitt. Für sie gibt es weitere Erleichterungen, etwa beim Anhang und bei der Offenlegung.",
+    "pruefung": {
+      "faktenabgleich": "korrigiert – Schwellenwerte nach geltendem Recht (§ 241a HGB, § 141 AO, §§ 267, 267a HGB, Stand seit 17.04.2024 bzw. 2024), gegen den Gesetzestext geprüft und vom Auftraggeber am Prüfpunkt 3 bestätigt; Lehrbrief nennt ältere Werte",
       "ueberschneidung": "ok",
       "datum": "2026-11-03"
     }
@@ -599,6 +601,20 @@
     "antwort": "Erkenntnisse, die nach dem Bilanzstichtag bis zur Aufstellung des Jahresabschlusses gewonnen werden, sind zu berücksichtigen – aber nur, soweit sie Vorgänge und Tatsachen betreffen, die bis zum Stichtag eingetreten sind. Was erst nach dem Stichtag entsteht, bleibt unberücksichtigt.",
     "pruefung": {
       "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F3-007",
+    "skill": "F3-wertmassstaebe",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.2, S. 131–132; § 255 Abs. 2 und 3 HGB",
+    "frage": "Was ist bei den Herstellungskosten nach § 255 Abs. 2 HGB Pflicht, was Wahlrecht, was verboten?",
+    "antwort": "Pflicht (Wertuntergrenze): Materialeinzelkosten, Fertigungseinzelkosten, Sondereinzelkosten der Fertigung sowie angemessene Teile der Material- und Fertigungsgemeinkosten und des fertigungsbedingten Werteverzehrs des Anlagevermögens (anteilige Abschreibungen). Wahlrecht (bis zur Wertobergrenze): Kosten der allgemeinen Verwaltung und Sozialkosten (Kantine, freiwillige soziale Leistungen, betriebliche Altersversorgung); außerdem zurechenbare Fremdkapitalzinsen (§ 255 Abs. 3). Verbot: Vertriebskosten und Forschungskosten.",
+    "pruefung": {
+      "faktenabgleich": "ok – gegen § 255 Abs. 2 HGB geprüft, vom Auftraggeber am Prüfpunkt 3 bestätigt",
       "ueberschneidung": "ok",
       "datum": "2026-11-03"
     }

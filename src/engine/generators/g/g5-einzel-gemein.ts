@@ -32,8 +32,7 @@ export interface KostenartG5 {
 export const KOSTENARTEN_G5: readonly KostenartG5[] = [
   {
     id: 'konzentrat',
-    text: (f) =>
-      `Fruchtsaftkonzentrat für ${f.produkte.lemon} laut Materialentnahmeschein der Charge`,
+    text: (f) => `Aromakonzentrat für ${f.produkte.lemon} laut Materialentnahmeschein der Charge`,
     zurechnung: EK,
     verhalten: VARIABEL,
     begruendung: 'Die Menge je Charge ist bekannt; der Betrag lässt sich direkt zurechnen.',

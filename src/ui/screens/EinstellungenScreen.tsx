@@ -6,7 +6,8 @@ import { AbgleichStatusZeile } from '../components/GeraeteVerbinden';
 import { FIRMA } from '../../config';
 import { ZIELE } from '../../learning/motivation';
 import type { Tagesziel, Theme } from '../../learning/types';
-import { resetAll, saveSettings } from '../../storage/db';
+import { saveSettings } from '../../storage/db';
+import { geraetZuruecksetzen } from '../../storage/sync';
 import { Button, Card, cx } from '../components/ui';
 import { Character } from '../figures/Character';
 import { navigate, useEvents, useSettings } from '../hooks';
@@ -184,7 +185,9 @@ export function EinstellungenScreen() {
           <span>
             <span className="block text-[15px]">Teilkosten in Probeklausuren</span>
             <span className="block text-sm text-muted">
-              Standardmäßig aus. Wenn an, ersetzt eine Teilkosten-Aufgabe die Kalkulationsaufgabe.
+              Standardmäßig aus. Erst einschalten, wenn feststeht, dass die Teilkostenrechnung in
+              deiner Klausur drankommt. Dann ersetzt eine Teilkosten-Aufgabe die
+              Kalkulationsaufgabe.
             </span>
           </span>
           <input
@@ -260,17 +263,20 @@ export function EinstellungenScreen() {
       <Card>
         <h2 className="font-semibold">Lernstand zurücksetzen</h2>
         <p className="mt-1 text-[15px] text-muted">
-          Löscht alle bearbeiteten Aufgaben, Lektionen und Einstellungen auf diesem Gerät.
+          Löscht alle bearbeiteten Aufgaben, Lektionen und Einstellungen auf diesem Gerät. Danach
+          ist das Gerät mit keinem anderen Gerät mehr verbunden und bekommt neue 8 Wörter.
         </p>
         {fertig ? (
-          <p className="mt-3 text-[15px] text-ok">Alles wurde zurückgesetzt.</p>
+          <p className="mt-3 text-[15px] text-ok">
+            Alles wurde zurückgesetzt. Dieses Gerät ist mit keinem Lernstand mehr verbunden.
+          </p>
         ) : bestaetigen ? (
           <div className="mt-3 flex flex-wrap gap-2">
             <Button
               variant="primary"
               className="bg-err hover:bg-err"
               onClick={async () => {
-                await resetAll();
+                await geraetZuruecksetzen();
                 setBestaetigen(false);
                 setFertig(true);
               }}

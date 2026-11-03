@@ -94,6 +94,7 @@ test('Tabellenaufgabe auf dem Handy: Laptop-Hinweis, merken, Liste am Laptop', a
     viewport: { width: 390, height: 844 },
     hasTouch: true,
     isMobile: true,
+    timezoneId: test.info().project.use.timezoneId,
   });
   const p = await handy.newPage();
   await p.goto('./#/sitzung?skill=I4-stufenleiter&seed=3');

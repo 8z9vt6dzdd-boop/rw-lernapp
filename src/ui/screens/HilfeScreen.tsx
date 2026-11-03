@@ -45,6 +45,10 @@ export function HilfeScreen() {
         </p>
       </Abschnitt>
 
+      <Abschnitt titel="Umsatzsteuer in den Aufgaben">
+        <p>In allen Aufgaben gilt 19 % Umsatzsteuer, sofern nichts anderes angegeben ist.</p>
+      </Abschnitt>
+
       <Abschnitt titel="Handy und Laptop verbinden">
         <p>
           Öffne auf einem Gerät Einstellungen → <strong>Geräte verbinden</strong>. Dort steht ein

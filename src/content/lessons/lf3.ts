@@ -152,7 +152,7 @@ export const lektionF3: Lektion = {
           text: 'Lieferantenrechnung in US-Dollar: Der Dollar ist bis zum Stichtag gestiegen',
           kategorie: HOECHST,
         },
-        { text: 'Fruchtsaftkonzentrat im Lager: Marktpreis gefallen', kategorie: STRENG },
+        { text: 'Aromakonzentrat im Lager: Marktpreis gefallen', kategorie: STRENG },
         {
           text: 'Abfüllanlage: Gebrauchtpreise nur vorübergehend eingebrochen',
           kategorie: GEMILDERT,
@@ -164,7 +164,7 @@ export const lektionF3: Lektion = {
     {
       typ: 'vorgerechnet',
       titel: 'Herstellungskosten eines selbst gebauten Förderbands',
-      text: 'Materialeinzelkosten 40.000 €, Fertigungslöhne 15.000 €, MGK 25 %, FGK 200 %, Sondereinzelkosten der Fertigung 3.000 €, Verwaltungsgemeinkosten 10 %, zurechenbare Fremdkapitalzinsen 1.500 €, Sondereinzelkosten des Vertriebs 2.500 €.',
+      text: 'Materialeinzelkosten 40.000 €, Fertigungslöhne 15.000 €, MGK 25 %, FGK 200 %, Sondereinzelkosten der Fertigung 3.000 €, anteilige Abschreibungen der Werkstattmaschinen 2.000 €, Verwaltungsgemeinkosten 10 %, Kantine und freiwillige soziale Leistungen 1.200 €, zurechenbare Fremdkapitalzinsen 1.500 €, Forschung 4.000 €, Sondereinzelkosten des Vertriebs 2.500 €.',
       schritte: [
         {
           text: 'Gemeinkosten berechnen',
@@ -173,20 +173,22 @@ export const lektionF3: Lektion = {
         },
         {
           text: 'Wertuntergrenze',
-          rechnung: '40.000 + 10.000 + 15.000 + 30.000 + 3.000 = 98.000 €',
+          rechnung: '40.000 + 10.000 + 15.000 + 30.000 + 3.000 + 2.000 = 100.000 €',
           warum:
-            'Pflichtbestandteile: Material- und Fertigungseinzelkosten, Sondereinzelkosten der Fertigung und die notwendigen Material- und Fertigungsgemeinkosten.',
+            'Pflicht: Material- und Fertigungseinzelkosten, Sondereinzelkosten der Fertigung, angemessene Material- und Fertigungsgemeinkosten und der fertigungsbedingte Werteverzehr der Anlagen (Abschreibungen).',
         },
         {
           text: 'Wertobergrenze',
-          rechnung: '98.000 + 9.800 (10 % Verwaltung) + 1.500 (Fremdkapitalzinsen) = 109.300 €',
+          rechnung:
+            '100.000 + 10.000 (10 % Verwaltung) + 1.200 (Sozialkosten) + 1.500 (Fremdkapitalzinsen) = 112.700 €',
           warum:
-            'Kosten der allgemeinen Verwaltung und zurechenbare Fremdkapitalzinsen dürfen einbezogen werden – Wahlrecht.',
+            'Allgemeine Verwaltungskosten, Sozialkosten und zurechenbare Fremdkapitalzinsen dürfen einbezogen werden – Wahlrecht.',
         },
         {
-          text: 'Vertriebskosten',
-          rechnung: 'Die 2.500 € bleiben draußen.',
-          warum: 'Vertriebskosten gehören nicht zur Herstellung: Einbeziehungsverbot.',
+          text: 'Forschung und Vertrieb',
+          rechnung: 'Die 4.000 € Forschung und die 2.500 € Vertrieb bleiben draußen.',
+          warum:
+            'Forschungs- und Vertriebskosten gehören nicht zur Herstellung: Einbeziehungsverbot.',
         },
       ],
     },

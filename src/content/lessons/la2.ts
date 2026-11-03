@@ -74,9 +74,9 @@ export const lektionA2: Lektion = {
             'Richtig: Jeder Kaufmann muss Bücher führen (§ 238 HGB). Eine OHG ist immer Kaufmann.',
         },
         {
-          text: 'Nur wenn sie mehr als 600.000 € Umsatz im Jahr hat.',
+          text: 'Nur wenn sie mehr als 800.000 € Umsatz im Jahr hat.',
           erklaerung:
-            'Diese Grenze befreit nur Einzelkaufleute (§ 241a HGB). Für eine OHG gilt sie nicht.',
+            'Diese Grenze (800.000 € Umsatz, 80.000 € Jahresüberschuss; ältere Unterlagen wie der Lehrbrief nennen noch 600.000 € und 60.000 €) befreit nur Einzelkaufleute (§ 241a HGB). Für eine OHG gilt sie nicht.',
         },
         {
           text: 'Nein, Buchführung ist freiwillig.',

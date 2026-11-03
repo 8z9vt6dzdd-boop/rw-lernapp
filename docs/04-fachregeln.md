@@ -206,5 +206,21 @@ Vom Auftraggeber gegen Lehrbriefe und Lehrbuch-Lösungen geprüft und bestätigt
 5. `[GEKLÄRT]` J4-Cliffhanger nennt die Einschränkung direkt: Ein Auftrag unter den Selbstkosten kann sich nur kurzfristig lohnen, wenn freie Kapazität besteht und der Preis über den variablen Kosten liegt; die Begründung folgt in der Teilkostenrechnung.
 6. `[GEKLÄRT]` Keine Bestehensgrenze in den Unterlagen. Anzeige „über/unter der Hälfte der Punkte“ bleibt; Abrunden der Teilpunkte auf halbe Punkte ist in Ordnung. In den Einstellungen unter „Klausur“ gibt es ein optionales Feld „Bestehensgrenze in %“ (Standard 50 %).
 
+## 7a. Geklärte Punkte aus M6–M7 (Prüfpunkt 3, 03.11.2026)
+Vom Auftraggeber gegen Lehrbriefe, Lehrbuch und aktuelle Rechtslage geprüft und bestätigt.
+
+1. `[GEKLÄRT]` **Über-/Unterdeckung:** Normalkosten > Istkosten = Überdeckung; Normalkosten < Istkosten = Unterdeckung (docs/m7/ij.md).
+2. `[GEKLÄRT]` **HGB-Schwellenwerte** (Stand seit 17.04.2024): Kleinstkapitalgesellschaft (§ 267a) 450.000 € Bilanzsumme, 900.000 € Umsatz, 10 Arbeitnehmer; klein (§ 267 Abs. 1) 7,5 Mio. €, 15 Mio. €, 50; mittelgroß (§ 267 Abs. 2) 25 Mio. €, 50 Mio. €, 250; darüber groß. Zuordnung: mindestens zwei von drei Merkmalen an zwei aufeinanderfolgenden Abschlussstichtagen. Buchführungspflicht: § 141 AO 800.000 € Umsatz bzw. 80.000 € Gewinn; § 241a HGB nennt dieselben Werte (gegen den Gesetzestext geprüft). Lektionen A2 und F2 weisen darauf hin, dass ältere Unterlagen (auch der Lehrbrief) niedrigere Werte nennen. Nur Theorie-Karten (A2-k-011, F2-011, F2-012), keine eigene Übung.
+3. `[GEKLÄRT]` **Erfolgsanalyse nach aktuellem HGB:** Zinsaufwendungen werden im Finanzergebnis abgezogen, EBIT statt der fehlerhaften EBITA-Erklärung, „Ergebnis vor Steuern“. Der frühere Begriff „Ergebnis der gewöhnlichen Geschäftstätigkeit“ (seit BilRUG entfallen) wird in Lektion F9 einmal erwähnt.
+4. `[GEKLÄRT]` **Herstellungskosten (§ 255 Abs. 2 HGB):** Pflicht = Materialeinzelkosten, Fertigungseinzelkosten, Sondereinzelkosten der Fertigung, angemessene Teile der Material- und Fertigungsgemeinkosten und des fertigungsbedingten Werteverzehrs des Anlagevermögens. Wahlrecht = allgemeine Verwaltungskosten und Sozialkosten (dazu zurechenbare Fremdkapitalzinsen nach Abs. 3). Verbot = Vertriebskosten und Forschungskosten. Umgesetzt im Generator F3 (GC-F3-1 neu, docs/m7/f1.md), in Lektion F3 und Karte F3-007.
+5. `[GEKLÄRT]` **Monatsgenaue Abschreibung:** Anschaffungsmonat zählt voll.
+6. `[GEKLÄRT]` **Kapitalbindung bei der Durchschnittswertverzinsung:** (Anschaffungswert + Restwert) ÷ 2.
+7. `[GEKLÄRT]` **Dem Kunden berechnete Fracht und Verpackung** werden auf Umsatzerlöse gebucht.
+8. `[GEKLÄRT]` **Erstattung eines Vorsteuerüberhangs:** „Bank an Vorsteuer“.
+9. `[GEKLÄRT]` **Teilkostenrechnung** bleibt in der App; in der Probeklausur standardmäßig ausgeschaltet, bis die lernende Person die Prüfungsrelevanz bestätigt (Schalter in den Einstellungen).
+10. `[GEKLÄRT]` **Umsatzsteuer:** In allen Aufgaben gilt 19 % Umsatzsteuer, sofern nichts anderes angegeben ist (so in Lektion B1 und in der Hilfe). Fruchtsaftkonzentrat ist überall durch Aromakonzentrat ersetzt; in Aufgaben nur Rohstoffe, die eindeutig mit 19 % besteuert werden.
+
+Die übrigen `[ANNAHME – bitte prüfen]`-Punkte in `docs/m7/` bleiben als vorsichtigste Annahme bestehen; Auffälligkeiten aus der Nutzung kommen über die Meldefunktion.
+
 ## 8. Golden Cases und Annahmen der M7-Generatoren
-Die Spezifikationen, Golden Cases (eigene Zahlen mit Herleitung) und Annahmen der in M7 ergänzten Generatoren stehen je Abschnitt in `docs/m7/<batch>.md` (a, b, c1, c2, d, e, f1, f2, g, h, ij, j, k1, k2) und gelten als Teil dieses Dokuments. Die zugehörigen Unit-Tests liegen unter `src/engine/generators/<batch>/`. Alle dort mit `[ANNAHME – bitte prüfen]` markierten Punkte werden am Prüfpunkt 3 gebündelt vorgelegt; die wichtigsten stehen in der Rückmeldung zum Prüfpunkt.
+Die Spezifikationen, Golden Cases (eigene Zahlen mit Herleitung) und Annahmen der in M7 ergänzten Generatoren stehen je Abschnitt in `docs/m7/<batch>.md` (a, b, c1, c2, d, e, f1, f2, g, h, ij, j, k1, k2) und gelten als Teil dieses Dokuments. Die zugehörigen Unit-Tests liegen unter `src/engine/generators/<batch>/`. Die wichtigsten Punkte wurden am Prüfpunkt 3 geklärt (Abschnitt 7a, in `docs/m7/` als `[GEKLÄRT – Prüfpunkt 3]` markiert).

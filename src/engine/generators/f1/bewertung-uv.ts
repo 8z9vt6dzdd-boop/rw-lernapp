@@ -54,7 +54,7 @@ interface ArtInfo {
 
 export const ARTEN: Record<VorratArt, ArtInfo> = {
   konzentrat: {
-    name: 'Fruchtsaftkonzentrat',
+    name: 'Aromakonzentrat',
     konto: 'Rohstoffe',
     einheit: 'kg',
     lieferanten: 'rohstoffe',

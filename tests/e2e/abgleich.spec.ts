@@ -5,7 +5,10 @@ import { sammleFehler } from './helpers';
 test.describe.configure({ mode: 'serial' });
 
 async function geraet(browser: Browser) {
-  const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+  const context = await browser.newContext({
+    viewport: { width: 1280, height: 900 },
+    timezoneId: test.info().project.use.timezoneId,
+  });
   const page = await context.newPage();
   const fehler = sammleFehler(page);
   return { context, page, fehler };
@@ -106,6 +109,48 @@ test('Verbinden über den Link im QR-Code', async ({ browser }) => {
   expect(c.fehler).toEqual([]);
   await a.context.close();
   await c.context.close();
+});
+
+test('Zurücksetzen trennt das Gerät vom gemeinsamen Lernstand', async ({ browser }) => {
+  test.setTimeout(120_000);
+  const a = await geraet(browser);
+  const b = await geraet(browser);
+  await miniKlausur(a.page, 'F');
+  const code = await woerter(a.page);
+  await b.page.goto('./#/geraete');
+  await b.page.getByRole('textbox', { name: '8 Wörter des anderen Geräts' }).fill(code.join(' '));
+  await b.page.getByRole('button', { name: 'Verbinden', exact: true }).click();
+  await b.page.getByRole('button', { name: 'Ja, verbinden' }).click();
+  await zeigtMini(b.page, 'F');
+
+  // B setzt in den Einstellungen alles zurück
+  await b.page.goto('./#/einstellungen');
+  await b.page.getByRole('button', { name: 'Alles zurücksetzen …' }).click();
+  await b.page.getByRole('button', { name: 'Ja, endgültig löschen' }).click();
+  await expect(b.page.getByText(/mit keinem Lernstand mehr verbunden/)).toBeVisible();
+
+  // B hat neue Wörter, keinen alten Lernstand und bekommt nichts mehr von A
+  const neu = await woerter(b.page);
+  expect(neu).not.toEqual(code);
+  await miniKlausur(a.page, 'G');
+  await a.page.goto('./#/geraete');
+  await expect(a.page.getByText(/Lernstand abgeglichen/).first()).toBeVisible({ timeout: 15_000 });
+  for (let i = 0; i < 3; i++) {
+    await b.page.goto('./#/pruefen');
+    await b.page.reload();
+    await b.page.waitForTimeout(1500);
+  }
+  for (const x of ['F', 'G'])
+    await expect(
+      b.page
+        .getByRole('listitem')
+        .filter({ hasText: new RegExp(`^${x}:`) })
+        .getByText(/zuletzt/),
+    ).toHaveCount(0);
+  await b.page.goto('./#/geraete');
+  await expect(b.page.getByText(/Geräte verbunden/)).toHaveCount(0);
+  await a.context.close();
+  await b.context.close();
 });
 
 test('Lernstand als Datei sichern und auf einem anderen Gerät übernehmen', async ({ browser }) => {

@@ -227,7 +227,7 @@ function skontoParts(
 
 const GEGENSTAENDE: Record<SkontoArt, string[]> = {
   // Reihenfolge passend zu den Lieferanten in config.ts
-  Rohstoffe: ['Aromen', 'Zitrusaromen', 'Fruchtsaftkonzentrat', 'Tequila-Aroma'],
+  Rohstoffe: ['Aromen', 'Zitrusaromen', 'Aromakonzentrat', 'Tequila-Aroma'],
   Hilfsstoffe: ['Dosen', 'Etiketten', 'Verschlüsse'],
   Betriebsstoffe: ['Kohlensäure (CO₂)', 'Reinigungsmittel für die Abfüllanlage'],
   'Vorprodukte und Fremdbauteile': ['Getränkegrundstoff'],

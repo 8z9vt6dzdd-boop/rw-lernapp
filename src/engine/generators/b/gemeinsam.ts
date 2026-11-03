@@ -72,7 +72,7 @@ export const EINKAUF_19: readonly Artikel[] = [
   { konto: 'Rohstoffe', text: 'Aromen', partner: L.rohstoffe[0]!, min: 1_000, max: 20_000 },
   {
     konto: 'Rohstoffe',
-    text: 'Fruchtsaftkonzentrat',
+    text: 'Aromakonzentrat',
     partner: L.rohstoffe[2]!,
     min: 2_000,
     max: 30_000,

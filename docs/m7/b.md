@@ -63,7 +63,7 @@ Eigenschaftstests: Netto + Steuer = Brutto exakt; Steuer = Netto × Satz (auf Ce
 
 ## Offene fachliche Fragen
 
-1. `[ANNAHME – bitte prüfen]` **Erstattung eines Vorsteuerüberhangs:** gebucht als „Bank an Vorsteuer“ (Saldo nach der Verrechnung steht auf dem Konto Vorsteuer). Der Lehrbrief sagt nur, dass der Überhang vom Finanzamt beglichen wird; einen Buchungssatz nennt er nicht.
+1. `[GEKLÄRT – Prüfpunkt 3]` **Erstattung eines Vorsteuerüberhangs:** gebucht als „Bank an Vorsteuer“ (Saldo nach der Verrechnung steht auf dem Konto Vorsteuer). Der Lehrbrief sagt nur, dass der Überhang vom Finanzamt beglichen wird; einen Buchungssatz nennt er nicht.
 2. `[ANNAHME – bitte prüfen]` **Zahllast in B2:** Die Aufgabe nennt die Zahllast und sagt ausdrücklich, dass die Verrechnung schon gebucht ist; gefragt ist nur die Überweisung („Umsatzsteuer an Bank“, 04 Abschnitt 6). Verrechnung plus Überweisung bleibt Aufgabe von B3.
 3. `[ANNAHME – bitte prüfen]` **Mehrere Positionen:** Die Steuer wird je Steuersatz auf die Summe der Nettobeträge berechnet und einmal gerundet (wie auf einer Rechnung). Rundet jemand je Position, weicht das höchstens um einen Cent je Position ab; die Toleranz fängt das bei krummen Werten ab.
 4. `[ANNAHME – bitte prüfen]` **7 % nur in B1** und nur für Gegenstände aus der Beispielliste des Lehrbriefs (Bücher, Zeitschriften, Personenbeförderung). B2 bucht ausschließlich zu 19 %, weil die MBG Getränke verkauft und ihre Werkstoffe im Szenario zum Regelsatz einkauft.

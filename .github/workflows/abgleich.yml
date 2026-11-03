@@ -7,11 +7,11 @@ on:
   workflow_dispatch:
     inputs:
       aktion:
-        description: 'veroeffentlichen oder meldungen'
+        description: 'veroeffentlichen, meldungen oder alles-loeschen (löscht alle gespeicherten Lernstände)'
         required: true
         default: veroeffentlichen
         type: choice
-        options: [veroeffentlichen, meldungen]
+        options: [veroeffentlichen, meldungen, alles-loeschen]
   push:
     branches: [main]
     paths: ['sync-worker/**']
@@ -90,3 +90,15 @@ jobs:
       - name: Gemeldete Inhalte ausgeben
         if: steps.zugang.outputs.ok == 'true' && env.AKTION == 'meldungen'
         run: node scripts/meldungen.ts | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Alle gespeicherten Lernstände löschen
+        if: steps.zugang.outputs.ok == 'true' && env.AKTION == 'alles-loeschen'
+        working-directory: sync-worker
+        run: |
+          zaehlen() {
+            npx wrangler d1 execute rw-lernapp-sync --remote --json --command "SELECT COUNT(*) AS ereignisse, COUNT(DISTINCT code_hash) AS lernstaende FROM events" \
+              | node -e "const r=JSON.parse(require('fs').readFileSync(0,'utf8'));const z=r[0].results[0];console.log('Ereignisse:', z.ereignisse, '– Lernstände:', z.lernstaende)"
+          }
+          echo "Vorher:"; zaehlen
+          # Der Zähler für die laufende Nummer (sqlite_sequence) bleibt bewusst stehen.
+          npx wrangler d1 execute rw-lernapp-sync --remote --yes --command "DELETE FROM events; DELETE FROM anfragen;"
+          echo "Nachher:"; zaehlen | tee -a "$GITHUB_STEP_SUMMARY"

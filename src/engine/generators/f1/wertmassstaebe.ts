@@ -27,6 +27,12 @@ export interface HkParams {
   vtgkSatz: string;
   /** auf den Herstellungszeitraum entfallende Fremdkapitalzinsen (Wahlbestandteil) */
   fkZinsen: string;
+  /** fertigungsbedingter Werteverzehr des Anlagevermögens (anteilige Abschreibungen, Pflicht) */
+  afaFert: string;
+  /** Sozialkosten: Kantine, freiwillige soziale Leistungen, betriebliche Altersversorgung (Wahlrecht) */
+  sozial: string;
+  /** Forschungskosten (Einbeziehungsverbot) */
+  forschung: string;
 }
 
 export interface UvParams {
@@ -101,6 +107,10 @@ interface Rechenweg {
   mitVertrieb?: boolean;
   /** Verwaltungsgemeinkosten schon in der Untergrenze */
   verwaltungInUntergrenze?: boolean;
+  /** fertigungsbedingte Abschreibungen nicht in die Untergrenze aufgenommen */
+  ohneWerteverzehr?: boolean;
+  /** Forschungskosten in die Obergrenze einbezogen */
+  mitForschung?: boolean;
   /** UV: Anschaffungskosten trotz niedrigerem Kurs */
   akBehalten?: boolean;
   /** höherer Tageswert angesetzt (Anschaffungskosten als Obergrenze missachtet) */
@@ -127,11 +137,13 @@ export function solveWertmassstab(p: F3Params, w: Rechenweg = {}): F3Solution {
       const mgk = new Val(p.mek).times(p.mgkSatz).round();
       const fgk = new Val(p.fl).times(p.fgkSatz).round();
       const einzel = new Val(p.mek).plus(p.fl).plus(p.sekf);
-      const basis = einzel.plus(mgk).plus(fgk);
+      let basis = einzel.plus(mgk).plus(fgk);
+      if (!w.ohneWerteverzehr) basis = basis.plus(p.afaFert);
       const vwgk = basis.times(p.vwgkSatz).round();
       let untergrenze = w.nurEinzelkosten ? einzel : basis;
       if (w.verwaltungInUntergrenze) untergrenze = untergrenze.plus(vwgk);
-      let obergrenze = basis.plus(vwgk).plus(p.fkZinsen);
+      let obergrenze = basis.plus(vwgk).plus(p.sozial).plus(p.fkZinsen);
+      if (w.mitForschung) obergrenze = obergrenze.plus(p.forschung);
       if (w.mitVertrieb) {
         const vtgk = basis.plus(vwgk).times(p.vtgkSatz).round();
         obergrenze = obergrenze.plus(p.sekv).plus(vtgk);
@@ -215,6 +227,20 @@ function parts(p: F3Params, s: F3Solution): TaskPart[] {
         feld('obergrenze', 'Wertobergrenze der Herstellungskosten', s.obergrenze!),
         {
           typ: 'auswahl',
+          id: 'sozial',
+          label: 'Einbeziehung der Sozialkosten',
+          optionen: EINBEZUG,
+          soll: 'Wahlrecht',
+        },
+        {
+          typ: 'auswahl',
+          id: 'forschung',
+          label: 'Einbeziehung der Forschungskosten',
+          optionen: EINBEZUG,
+          soll: 'Verbot',
+        },
+        {
+          typ: 'auswahl',
           id: 'vertrieb',
           label: 'Einbeziehung der Vertriebskosten',
           optionen: EINBEZUG,
@@ -262,6 +288,8 @@ function variants(p: F3Params): ErrorVariant[] {
       add('hk-nur-einzelkosten', { nurEinzelkosten: true });
       add('vertriebskosten-in-herstellungskosten', { mitVertrieb: true });
       add('verwaltung-in-untergrenze', { verwaltungInUntergrenze: true });
+      add('werteverzehr-vergessen', { ohneWerteverzehr: true });
+      add('forschung-in-herstellungskosten', { mitForschung: true });
       break;
     case 'niederstwert-uv':
       if (dec(p.kurs).lt(p.akJeStueck)) {
@@ -308,6 +336,9 @@ function genHk(rng: Rng, krumm: boolean): HkParams {
     sekv: String(rng.step(500, 4_000, 500)),
     vtgkSatz: rng.pick(['0.03', '0.05', '0.06']),
     fkZinsen: String(rng.step(500, 3_000, 250)),
+    afaFert: String(rng.step(1_000, 8_000, 500)),
+    sozial: String(rng.step(500, 3_000, 250)),
+    forschung: String(rng.step(1_000, 6_000, 500)),
   };
 }
 
@@ -387,13 +418,22 @@ function render(p: F3Params, firma: FirmaConfig): TaskText {
             ['Materialgemeinkosten', `${pct(p.mgkSatz)} der Materialeinzelkosten`],
             ['Fertigungsgemeinkosten', `${pct(p.fgkSatz)} der Fertigungslöhne`],
             ['Sondereinzelkosten der Fertigung', eur(p.sekf)],
+            [
+              'Anteilige Abschreibungen der eingesetzten Werkstattmaschinen (nicht in den FGK enthalten)',
+              eur(p.afaFert),
+            ],
             ['Verwaltungsgemeinkosten', `${pct(p.vwgkSatz)} der Wertuntergrenze`],
+            [
+              'Anteilige Kosten der Betriebskantine und freiwillige soziale Leistungen',
+              eur(p.sozial),
+            ],
+            ['Vorstudien für ein neues Abfüllverfahren (Forschung)', eur(p.forschung)],
             ['Sondereinzelkosten des Vertriebs', eur(p.sekv)],
             ['Vertriebsgemeinkosten', `${pct(p.vtgkSatz)} der Herstellungskosten`],
           ],
         },
         aufgabe:
-          'Ermittle die Wertuntergrenze und die Wertobergrenze der Herstellungskosten nach Handelsrecht (§ 255 Abs. 2 HGB) und gib an, wie Vertriebskosten zu behandeln sind.',
+          'Ermittle die Wertuntergrenze und die Wertobergrenze der Herstellungskosten nach Handelsrecht (§ 255 Abs. 2 HGB) und gib an, wie Sozial-, Forschungs- und Vertriebskosten zu behandeln sind.',
       };
     case 'niederstwert-uv':
       return {
@@ -495,20 +535,20 @@ export const wertmassstaebe = defineGenerator<F3Params, F3Solution>({
           },
           {
             titel: 'Wertuntergrenze',
-            rechnung: `${eur(p.mek)} + ${eur(s.mgk!)} + ${eur(p.fl)} + ${eur(s.fgk!)} + ${eur(p.sekf)} = ${eur(s.untergrenze!)}`,
+            rechnung: `${eur(p.mek)} + ${eur(s.mgk!)} + ${eur(p.fl)} + ${eur(s.fgk!)} + ${eur(p.sekf)} + Abschreibungen ${eur(p.afaFert)} = ${eur(s.untergrenze!)}`,
             erlaeuterung:
-              'Pflichtbestandteile: Material- und Fertigungseinzelkosten, Sondereinzelkosten der Fertigung sowie die notwendigen Material- und Fertigungsgemeinkosten.',
+              'Pflichtbestandteile (§ 255 Abs. 2 HGB): Material- und Fertigungseinzelkosten, Sondereinzelkosten der Fertigung sowie angemessene Teile der Material- und Fertigungsgemeinkosten und des fertigungsbedingten Werteverzehrs des Anlagevermögens.',
           },
           {
             titel: 'Wertobergrenze',
-            rechnung: `${eur(s.untergrenze!)} + Verwaltung ${eur(s.vwgk!)} + Fremdkapitalzinsen ${eur(p.fkZinsen)} = ${eur(s.obergrenze!)}`,
+            rechnung: `${eur(s.untergrenze!)} + Verwaltung ${eur(s.vwgk!)} + Sozialkosten ${eur(p.sozial)} + Fremdkapitalzinsen ${eur(p.fkZinsen)} = ${eur(s.obergrenze!)}`,
             erlaeuterung:
-              'Kosten der allgemeinen Verwaltung und zurechenbare Fremdkapitalzinsen dürfen einbezogen werden (Wahlrecht).',
+              'Kosten der allgemeinen Verwaltung, Sozialkosten (Kantine, freiwillige soziale Leistungen, betriebliche Altersversorgung) und zurechenbare Fremdkapitalzinsen dürfen einbezogen werden (Wahlrecht).',
           },
           {
-            titel: 'Vertriebskosten',
+            titel: 'Forschungs- und Vertriebskosten',
             erlaeuterung:
-              'Vertriebskosten, auch Sondereinzelkosten des Vertriebs, dürfen nicht in die Herstellungskosten einbezogen werden.',
+              'Forschungskosten und Vertriebskosten, auch Sondereinzelkosten des Vertriebs, dürfen nicht in die Herstellungskosten einbezogen werden (Verbot).',
           },
         ];
       case 'niederstwert-uv':
@@ -558,8 +598,8 @@ export const wertmassstaebe = defineGenerator<F3Params, F3Solution>({
       case 'herstellungskosten':
         return [
           'Herstellungskosten nach § 255 Abs. 2 HGB: Pflichtbestandteile bilden die Wertuntergrenze, Wahlbestandteile kommen bis zur Wertobergrenze dazu.',
-          `Untergrenze = MEK + MGK + Fertigungslöhne + FGK + Sondereinzelkosten der Fertigung. MGK hier ${eur(s.mgk!)}.`,
-          `Obergrenze = Untergrenze + ${pct(p.vwgkSatz)} Verwaltung + Fremdkapitalzinsen; Vertriebskosten bleiben draußen.`,
+          `Untergrenze = MEK + MGK + Fertigungslöhne + FGK + Sondereinzelkosten der Fertigung + fertigungsbedingte Abschreibungen. MGK hier ${eur(s.mgk!)}.`,
+          `Obergrenze = Untergrenze + ${pct(p.vwgkSatz)} Verwaltung + Sozialkosten + Fremdkapitalzinsen; Forschungs- und Vertriebskosten bleiben draußen.`,
         ];
       case 'niederstwert-uv':
         return [

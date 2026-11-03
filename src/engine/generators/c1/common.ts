@@ -32,7 +32,7 @@ export const GEGENSTAENDE: Record<Stoff, Gegenstand[]> = {
   Rohstoffe: [
     { name: 'Aromen', einheit: 'kg', preis: '24', kgJeEinheit: '1' },
     { name: 'Zitrusaromen', einheit: 'kg', preis: '18', kgJeEinheit: '1' },
-    { name: 'Fruchtsaftkonzentrat', einheit: 'l', preis: '3.5', kgJeEinheit: '1' },
+    { name: 'Aromakonzentrat', einheit: 'l', preis: '3.5', kgJeEinheit: '1' },
     { name: 'Tequila-Aroma', einheit: 'kg', preis: '30', kgJeEinheit: '1' },
   ],
   Hilfsstoffe: [

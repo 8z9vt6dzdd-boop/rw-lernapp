@@ -159,7 +159,8 @@ export const lektionF9: Lektion = {
         {
           text: 'Jahresüberschuss',
           rechnung: `${e(VOR_STEUERN)} − ${e(STEUERN_EE)} Steuern vom Einkommen und Ertrag − ${e(SONST_STEUERN)} sonstige Steuern = ${e(JUE)}`,
-          warum: 'Erst nach allen Steuern steht fest, was das Jahr unter dem Strich gebracht hat.',
+          warum:
+            'Erst nach allen Steuern steht fest, was das Jahr unter dem Strich gebracht hat. Die Zwischensumme davor heißt Ergebnis vor Steuern; ältere Unterlagen wie der Lehrbrief nennen noch das „Ergebnis der gewöhnlichen Geschäftstätigkeit“ – diesen Posten gibt es seit dem BilRUG (2016) nicht mehr.',
         },
       ],
     },

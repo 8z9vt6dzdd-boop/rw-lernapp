@@ -349,7 +349,7 @@ const VORLAGEN: Vorlage[] = [
     preis: [1_600, 2_600],
   },
   {
-    material: 'Fruchtsaftkonzentrat',
+    material: 'Aromakonzentrat',
     einheit: 'Fass',
     menge: [20, 80],
     step: 5,

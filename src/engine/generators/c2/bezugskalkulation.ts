@@ -224,7 +224,7 @@ const WAREN: Ware[] = [
     lieferanten: (f) => [f.lieferanten.rohstoffe[0]!, f.lieferanten.rohstoffe[2]!],
   },
   {
-    gegenstand: 'Fruchtsaftkonzentrat',
+    gegenstand: 'Aromakonzentrat',
     einheit: 'Liter',
     einzeln: 'Liter',
     basis: 1,

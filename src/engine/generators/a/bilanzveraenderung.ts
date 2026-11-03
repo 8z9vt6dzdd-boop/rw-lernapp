@@ -122,7 +122,7 @@ const VORLAGEN: readonly Vorlage[] = [
   {
     soll: ROH,
     haben: BANK,
-    text: 'Fruchtsaftkonzentrat wird eingekauft und sofort überwiesen.',
+    text: 'Aromakonzentrat wird eingekauft und sofort überwiesen.',
     spanne: [2_000, 20_000, 100],
   },
   // Passivtausch

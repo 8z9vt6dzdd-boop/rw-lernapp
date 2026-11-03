@@ -2,7 +2,7 @@
 
 Quellen (nur lokal gelesen, eigene Formulierung): BA 2.1.1–2.1.2 (S. 6–11), 2.2.1–2.2.2 (S. 11–27), 2.3.1.1 (S. 31–33, Aufbewahrung Inventar), 2.3.1.3–2.3.1.6 (S. 36–52), 2.3.2.1–2.3.2.2 (S. 55–60), 2.3.3–2.3.4 (S. 60–62); Lektionen `la1.ts`–`la7.ts` für Begriffe und Ton. Seitenangaben = Druckseiten (PDF-Seite − 18). Alle Zahlen eigen.
 
-Code: `src/engine/generators/a/` (gemeinsame Bausteine in `gemeinsam.ts`), Registrierung `src/engine/generators/batches/a.ts`, Fehlertypen `src/engine/fehlertypen-batches/a.ts` (alle mit Präfix `a-`), Theorie `src/content/theory/a.json`. Neue Konten waren nicht nötig. Umsatzsteuer kommt in A3–A7 nicht vor; Rohstoff-Sachverhalte nutzen trotzdem 19-%-Waren (Aromen, Fruchtsaftkonzentrat, Dosen, Etiketten), damit spätere Erweiterungen mit Steuer passen.
+Code: `src/engine/generators/a/` (gemeinsame Bausteine in `gemeinsam.ts`), Registrierung `src/engine/generators/batches/a.ts`, Fehlertypen `src/engine/fehlertypen-batches/a.ts` (alle mit Präfix `a-`), Theorie `src/content/theory/a.json`. Neue Konten waren nicht nötig. Umsatzsteuer kommt in A3–A7 nicht vor; Rohstoff-Sachverhalte nutzen trotzdem 19-%-Waren (Aromen, Aromakonzentrat, Dosen, Etiketten), damit spätere Erweiterungen mit Steuer passen.
 
 ## Generator-Spezifikationen
 
@@ -101,7 +101,7 @@ Ein zunächst entworfenes MC zur Induktion wurde gestrichen (doppelt zu A2-k-004
 
 ## Offene fachliche Fragen
 
-1. `[ANNAHME – bitte prüfen]` **Schwellenwerte der Buchführungspflicht.** Der Lehrbrief nennt für § 241a HGB und § 141 AO 600.000 € Umsatz und 60.000 € Gewinn bzw. Jahresüberschuss. Nach meinem Kenntnisstand wurden beide Grenzen für Geschäftsjahre ab 2024 auf 800.000 € bzw. 80.000 € angehoben (unbestätigt, nicht gegen den Gesetzestext geprüft). Aktive Inhalte nennen deshalb keine Zahlen; die Karte A2-Z01 mit den Lehrbriefwerten ist zurückgehalten, bis geklärt ist, welche Werte gelernt werden sollen. Hinweis: Lektion A2 nutzt „Nur wenn sie mehr als 600.000 € Umsatz im Jahr hat“ als falsche Antwort – das bleibt auch nach neuem Recht falsch (die MBG ist als OHG immer buchführungspflichtig).
+1. `[GEKLÄRT – Prüfpunkt 3]` **Schwellenwerte der Buchführungspflicht.** Der Lehrbrief nennt für § 241a HGB und § 141 AO 600.000 € Umsatz und 60.000 € Gewinn bzw. Jahresüberschuss. Nach meinem Kenntnisstand wurden beide Grenzen für Geschäftsjahre ab 2024 auf 800.000 € bzw. 80.000 € angehoben (unbestätigt, nicht gegen den Gesetzestext geprüft). Aktive Inhalte nennen deshalb keine Zahlen; die Karte A2-Z01 mit den Lehrbriefwerten ist zurückgehalten, bis geklärt ist, welche Werte gelernt werden sollen. Hinweis: Lektion A2 nutzt „Nur wenn sie mehr als 600.000 € Umsatz im Jahr hat“ als falsche Antwort – das bleibt auch nach neuem Recht falsch (die MBG ist als OHG immer buchführungspflichtig).
 2. `[ANNAHME – bitte prüfen]` **Entnahmen im Eigenkapitalvergleich (A7)** werden mit dem Betrag angesetzt, der auf dem Konto Privat steht. Um die Frage „netto oder brutto?“ bei Sachentnahmen mit Umsatzsteuer zu vermeiden, erzeugt A7 nur Geldentnahmen sowie Geld- und Sacheinlagen ohne Steuer. Bitte bestätigen, dass Sachentnahmen (Privat brutto an Entnahme v. G. u. s. L. und Umsatzsteuer) im Eigenkapitalvergleich mit dem Bruttobetrag zählen, bevor sie aufgenommen werden.
 3. `[ANNAHME – bitte prüfen]` **Eröffnungsbuchungen als Sammelsätze.** Die Musterlösung zeigt wie der Lehrbrief „Aktivkonten an EBK“ und „EBK an Passivkonten“; Einzelsätze je Konto und ein einziger zusammengefasster Satz gelten ebenfalls als richtig. Für den Abschluss der Erfolgskonten zeigt die Musterlösung je Konto einen Satz (wie Lektion A6), ebenfalls zusammenfassbar.
 4. **Rohstoff-Sachverhalte ohne Zucker und Malz** (Hinweis aus der Integration: ermäßigter Steuersatz). A3–A7 rechnen ohne Umsatzsteuer, verwenden aber vorsorglich nur Waren mit 19 %.
@@ -110,3 +110,5 @@ Ein zunächst entworfenes MC zur Induktion wurde gestrichen (doppelt zu A2-k-004
 
 - `content/zurueckgehalten.md` (nicht in meinem Schreibbereich): Zeile für **A2-Z01** ergänzen – „Schwellenwerte §§ 241a HGB, 141 AO im Lehrbrief vermutlich veraltet; zurückgehalten bis zur Klärung. Details: `docs/m7/a.md`.“
 - `src/engine/accounts.ts`: keine neuen Konten nötig.
+
+**Nachtrag Prüfpunkt 3 (03.11.2026):** Schwellenwerte bestätigt und gegen den Gesetzestext geprüft: § 241a HGB und § 141 AO nennen beide 800.000 € Umsatz und 80.000 € Jahresüberschuss bzw. Gewinn. Statt A2-Z01 gibt es die aktive Karte A2-k-011; Lektion A2 nennt die neuen Werte und den Hinweis auf die alten Werte im Lehrbrief.

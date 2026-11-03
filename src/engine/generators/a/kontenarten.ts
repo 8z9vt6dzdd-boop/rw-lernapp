@@ -301,11 +301,11 @@ export const BESTAND_VORLAGEN: readonly KontoVorlage[] = [
     zugang: [
       { text: 'Zitronenaroma wird auf Ziel eingekauft.', gegen: VERB },
       { text: 'Kräuteraroma wird gekauft und sofort überwiesen.', gegen: BANK },
-      { text: 'Fruchtsaftkonzentrat wird auf Rechnung geliefert.', gegen: VERB },
+      { text: 'Aromakonzentrat wird auf Rechnung geliefert.', gegen: VERB },
     ],
     abgang: [
       { text: 'Aromen werden für die Produktion entnommen.', gegen: AR },
-      { text: 'Fruchtsaftkonzentrat wandert in den Sirupkessel (Verbrauch).', gegen: AR },
+      { text: 'Aromakonzentrat wandert in den Sirupkessel (Verbrauch).', gegen: AR },
       { text: 'Kräuteraroma wird für eine Charge verbraucht.', gegen: AR },
     ],
   },

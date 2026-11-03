@@ -220,7 +220,7 @@ const VORLAGEN: Vorlage[] = [
   },
   {
     stoff: 'Rohstoffe',
-    gegenstand: 'Fruchtsaftkonzentrat',
+    gegenstand: 'Aromakonzentrat',
     verpackung: 'Leihcontainer',
     einzeln: 'Leihcontainer',
     preis: [60, 150],

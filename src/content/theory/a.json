@@ -536,16 +536,16 @@
     }
   },
   {
-    "id": "A2-Z01",
+    "id": "A2-k-011",
     "skill": "A2-gob",
     "typ": "karte",
-    "status": "zurueckgehalten",
-    "quelle": "BA 2.2.1, S. 11–12",
-    "frage": "Ab welchen Grenzen sind Einzelkaufleute bzw. gewerbliche Unternehmer buchführungspflichtig (§ 241a HGB, § 141 AO)?",
-    "antwort": "Lehrbrief: Befreiung nach § 241a HGB bis 600.000 € Umsatzerlöse und 60.000 € Jahresüberschuss an zwei aufeinanderfolgenden Stichtagen; steuerliche Pflicht nach § 141 AO bei mehr als 600.000 € Umsatz oder 60.000 € Gewinn.",
+    "status": "aktiv",
+    "quelle": "BA 2.2.1, S. 11–12; § 241a HGB, § 141 AO (geltende Fassung)",
+    "frage": "Ab welchen Grenzen ist man von der Buchführungspflicht befreit bzw. steuerlich buchführungspflichtig (§ 241a HGB, § 141 AO)?",
+    "antwort": "§ 241a HGB: Einzelkaufleute sind befreit, wenn sie an zwei aufeinanderfolgenden Stichtagen höchstens 800.000 € Umsatzerlöse und 80.000 € Jahresüberschuss haben. § 141 AO: Gewerbliche Unternehmer müssen Bücher führen, sobald der Umsatz 800.000 € oder der Gewinn 80.000 € übersteigt. Ältere Unterlagen, auch der Lehrbrief, nennen 600.000 € und 60.000 €. Für Gesellschaften wie die MBG gilt die Befreiung nie.",
     "pruefung": {
-      "faktenabgleich": "zurueckgehalten – Schwellenwerte des Lehrbriefs vermutlich veraltet (Anhebung seit 2024 unbestätigt); Klärung, welche Werte gelernt werden sollen",
-      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "faktenabgleich": "korrigiert – Schwellenwerte nach geltendem Recht (§ 241a HGB, § 141 AO, §§ 267, 267a HGB, Stand seit 17.04.2024 bzw. 2024), gegen den Gesetzestext geprüft und vom Auftraggeber am Prüfpunkt 3 bestätigt; Lehrbrief nennt ältere Werte",
+      "ueberschneidung": "ok",
       "datum": "2026-11-03"
     }
   }

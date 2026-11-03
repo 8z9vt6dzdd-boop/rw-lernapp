@@ -18,6 +18,16 @@ export const FEHLERTYPEN_F1: Record<string, Fehlertyp> = {
     erklaerung:
       'Kosten der allgemeinen Verwaltung sind ein Wahlbestandteil. Sie gehören in die Wertobergrenze, nicht in die Wertuntergrenze.',
   },
+  'werteverzehr-vergessen': {
+    titel: 'Abschreibungen der Fertigungsanlagen vergessen',
+    erklaerung:
+      'Der fertigungsbedingte Werteverzehr des Anlagevermögens – also die anteiligen Abschreibungen der eingesetzten Maschinen – ist Pflichtbestandteil und gehört schon in die Wertuntergrenze.',
+  },
+  'forschung-in-herstellungskosten': {
+    titel: 'Forschungskosten einbezogen',
+    erklaerung:
+      'Forschungskosten dürfen nach § 255 Abs. 2 HGB nicht in die Herstellungskosten einbezogen werden – weder in die Unter- noch in die Obergrenze.',
+  },
   'niederstwert-missachtet': {
     titel: 'Niedrigeren Wert nicht angesetzt',
     erklaerung:

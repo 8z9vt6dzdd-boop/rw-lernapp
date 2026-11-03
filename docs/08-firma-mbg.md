@@ -27,7 +27,7 @@ Die MBG Group ist ein reales Unternehmen (Getränke-Markenartikler, Sitz Paderbo
 ## Konten-Bezug im Szenario
 | Konto | Konkreter Inhalt bei der MBG |
 |---|---|
-| Rohstoffe | Aromen (z. B. Zitrusaromen, Tequila-Aroma), Fruchtsaftkonzentrat; Zucker und Braumalz nur in der Kostenrechnung ohne Umsatzsteuer (beide unterliegen 7 % USt nach Anlage 2 UStG, deshalb nie in Aufgaben mit 19 % Vor- oder Umsatzsteuer) |
+| Rohstoffe | Aromen (z. B. Zitrusaromen, Tequila-Aroma), Aromakonzentrat; Zucker und Braumalz nur in der Kostenrechnung ohne Umsatzsteuer (beide unterliegen 7 % USt nach Anlage 2 UStG, deshalb nie in Aufgaben mit 19 % Vor- oder Umsatzsteuer). In Aufgaben nur Rohstoffe, die eindeutig mit 19 % besteuert werden (Aromen, Aromakonzentrat); in allen Aufgaben gilt 19 % USt, sofern nichts anderes angegeben ist (Prüfpunkt 3) |
 | Hilfsstoffe | Dosen, Flaschen, Etiketten, Verschlüsse |
 | Betriebsstoffe | CO₂, Reinigungsmittel für die Abfüllanlage, Schmierstoffe |
 | Vorprodukte/Fremdbauteile | zugekaufter Getränkegrundstoff |

@@ -106,23 +106,23 @@ export const lektionF2: Lektion = {
     {
       typ: 'konzept',
       titel: 'Größenklassen nach § 267 HGB',
-      text: 'Kapitalgesellschaften werden nach Bilanzsumme, Umsatzerlösen und Zahl der Arbeitnehmer in kleine, mittelgroße und große eingeteilt. Je größer, desto mehr müssen sie offenlegen und desto kürzer ist die Frist zur Aufstellung.',
+      text: 'Kapitalgesellschaften werden nach Bilanzsumme, Umsatzerlösen und Arbeitnehmern eingeteilt – maßgeblich sind zwei von drei Merkmalen an zwei Stichtagen in Folge. Die Grenzen gelten seit 2024; ältere Unterlagen, auch der Lehrbrief, nennen niedrigere Werte.',
       visual: {
         typ: 'karten',
         karten: [
           {
             titel: 'Klein',
-            text: 'Arbeitnehmergrenze: bis 50. Offenlegung: Bilanz und Anhang verkürzt, keine GuV, kein Lagebericht. Aufstellung innerhalb von 6 Monaten.',
+            text: 'Bis 7,5 Mio. € Bilanzsumme, 15 Mio. € Umsatz, 50 Arbeitnehmer. Offenlegung: Bilanz und Anhang verkürzt, keine GuV, kein Lagebericht. Aufstellung innerhalb von 6 Monaten.',
             farbe: '#8cbf3f',
           },
           {
             titel: 'Mittelgroß',
-            text: 'Arbeitnehmergrenze: über 50 bis 250. Offenlegung: Bilanz verkürzt mit Zusatzangaben, GuV und Anhang verkürzt, Lagebericht. Aufstellung innerhalb von 3 Monaten.',
+            text: 'Bis 25 Mio. € Bilanzsumme, 50 Mio. € Umsatz, 250 Arbeitnehmer. Offenlegung: Bilanz verkürzt mit Zusatzangaben, GuV und Anhang verkürzt, Lagebericht. Aufstellung innerhalb von 3 Monaten.',
             farbe: '#e2b13c',
           },
           {
             titel: 'Groß',
-            text: 'Arbeitnehmergrenze: über 250. Offenlegung: Bilanz, GuV, Anhang und Lagebericht vollständig. Aufstellung innerhalb von 3 Monaten.',
+            text: 'Über den Grenzen für mittelgroße. Offenlegung: Bilanz, GuV, Anhang und Lagebericht vollständig. Aufstellung innerhalb von 3 Monaten.',
             farbe: '#e8792b',
           },
         ],
@@ -278,7 +278,7 @@ export const lektionF2: Lektion = {
     figurImDialog: true,
     klausurbrueckeUndCliffhanger: true,
     fachlichGeprueft:
-      'BA 5.1 (Gliederung des Dritten Buches §§ 238 ff., 264 ff., 336 ff., 340 ff.; KapCoRiLiG; Größenklassen § 267 nur Merkmale und Arbeitnehmergrenzen; Tabellen 3 und 4: Offenlegungsumfang und Fristen; § 264 Abs. 1 Anhang, Lagebericht; §§ 284–288 ohne vorgeschriebene Gliederung) und Lösungshinweis Übungsaufgabe 20 abgeglichen am 03.11.2026; Schwellenwerte für Bilanzsumme und Umsatz bewusst weggelassen (siehe docs/m7/f1.md)',
+      'BA 5.1 (Gliederung des Dritten Buches §§ 238 ff., 264 ff., 336 ff., 340 ff.; KapCoRiLiG; Größenklassen § 267 mit geltenden Schwellenwerten seit 17.04.2024 (vom Auftraggeber bestätigt, gegen Gesetzestext geprüft); Tabellen 3 und 4: Offenlegungsumfang und Fristen; § 264 Abs. 1 Anhang, Lagebericht; §§ 284–288 ohne vorgeschriebene Gliederung) und Lösungshinweis Übungsaufgabe 20 abgeglichen am 03.11.2026',
     verstaendlichOhneVorwissen: true,
     datum: '2026-11-03',
   },

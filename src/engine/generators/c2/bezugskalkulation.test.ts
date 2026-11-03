@@ -23,7 +23,7 @@ const AROMA: Angebot = {
   versicherung: '0',
 };
 
-// GC-C7-2: Angebotsvergleich, 2.000 Liter Fruchtsaftkonzentrat.
+// GC-C7-2: Angebotsvergleich, 2.000 Liter Aromakonzentrat.
 const A: Angebot = {
   lieferant: 'Fruchtkonzentrate Brakemeier GmbH (Detmold)',
   preis: '6',
@@ -44,7 +44,7 @@ const B: Angebot = {
 };
 const VERGLEICH: BezugParams = {
   variante: 'angebotsvergleich',
-  gegenstand: 'Fruchtsaftkonzentrat',
+  gegenstand: 'Aromakonzentrat',
   einheit: 'Liter',
   einheitEinzeln: 'Liter',
   preisBasis: 1,

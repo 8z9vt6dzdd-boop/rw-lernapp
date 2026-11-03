@@ -28,6 +28,9 @@ const HK: HkParams = {
   sekv: '2500',
   vtgkSatz: '0.05',
   fkZinsen: '1500',
+  afaFert: '2000',
+  sozial: '1200',
+  forschung: '4000',
 };
 
 const UV = (kurs: string, erholungErwartet = false): UvParams => ({
@@ -53,9 +56,11 @@ describe('F3 Golden Cases', () => {
     const s = solveWertmassstab(HK);
     expect(f(s.mgk)).toBe('10.000,00');
     expect(f(s.fgk)).toBe('30.000,00');
-    expect(f(s.untergrenze)).toBe('98.000,00');
-    expect(f(s.vwgk)).toBe('9.800,00');
-    expect(f(s.obergrenze)).toBe('109.300,00');
+    expect(f(s.untergrenze)).toBe('100.000,00');
+    expect(f(s.vwgk)).toBe('10.000,00');
+    expect(f(s.obergrenze)).toBe('112.700,00');
+    expect(f(solveWertmassstab(HK, { ohneWerteverzehr: true }).untergrenze)).toBe('98.000,00');
+    expect(f(solveWertmassstab(HK, { mitForschung: true }).obergrenze)).toBe('116.700,00');
   });
 
   it('GC-F3-2 Aktien im Umlaufvermögen (strenges Niederstwertprinzip)', () => {

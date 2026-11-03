@@ -14,6 +14,7 @@ import {
   setKv,
   uebernehmeEinstellungen,
   uebernehmeEreignisse,
+  resetAll,
 } from './db';
 import { neuerCode } from './kopplung';
 
@@ -56,6 +57,16 @@ async function setzeStatus(patch: Partial<AbgleichStatus>): Promise<void> {
 
 let laeuft: Promise<void> | null = null;
 let nochmal = false;
+
+/**
+ * Setzt dieses Gerät vollständig zurück: Ein laufender Abgleich wird erst abgewartet, dann werden
+ * Lernstand, Einstellungen und die 8 Wörter gelöscht. Das Gerät ist danach mit keinem Lernstand
+ * mehr verbunden und erhält beim nächsten Abgleich neue Wörter.
+ */
+export async function geraetZuruecksetzen(): Promise<void> {
+  while (laeuft) await laeuft.catch(() => undefined);
+  await resetAll();
+}
 
 /** Lädt neue lokale Ereignisse hoch und holt die der anderen Geräte ab. Mehrfachaufrufe werden gebündelt. */
 export function abgleichen(): Promise<void> {

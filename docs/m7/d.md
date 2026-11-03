@@ -90,7 +90,7 @@ Eigenschaftstests: Soll = Haben, Netto + Steuer = Brutto, Rabatt nur vom Listenp
 
 ## Offene fachliche Fragen
 
-1. `[ANNAHME – bitte prüfen]` Dem Kunden **berechnete Verpackung und Fracht** werden auf das jeweilige Umsatzerlöskonto gebucht (bei Handelswaren: Umsatzerlöse für Handelswaren), nicht auf ein eigenes Konto. Grundlage: Aufbau der Musterklausur; der Lehrbrief nennt keinen eigenen Fall.
+1. `[GEKLÄRT – Prüfpunkt 3]` Dem Kunden **berechnete Verpackung und Fracht** werden auf das jeweilige Umsatzerlöskonto gebucht (bei Handelswaren: Umsatzerlöse für Handelswaren), nicht auf ein eigenes Konto. Grundlage: Aufbau der Musterklausur; der Lehrbrief nennt keinen eigenen Fall.
 2. `[ANNAHME – bitte prüfen]` Die **Rückgabe berechneter Mehrwegverpackung** durch einen Kunden wird wie eine Rücksendung storniert (Umsatzerlöse und Umsatzsteuer im Soll), nicht über Erlösberichtigungen.
 3. `[ANNAHME – bitte prüfen]` Bei Rücksendungen wird der **Rechnungspreis nach Sofortrabatt** gutgeschrieben (Listenpreis × (1 − Rabatt)).
 4. `[ANNAHME – bitte prüfen]` **Bruttomethode bei Nachlässen** (D3): Gutschrift und spätere Steuerkorrektur bleiben zwei Buchungssätze und dürfen nicht zusammengefasst werden – analog zur geklärten Regel beim Kundenskonto (04, Abschnitt 6).

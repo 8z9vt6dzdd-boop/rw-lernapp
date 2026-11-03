@@ -104,7 +104,7 @@ export const lektionF4: Lektion = {
       titel: 'Pflicht, Wahlrecht oder Verbot?',
       kategorien: [PFLICHT, WAHL, VERBOT],
       elemente: [
-        { text: 'Vorräte an Fruchtsaftkonzentrat', kategorie: PFLICHT },
+        { text: 'Vorräte an Aromakonzentrat', kategorie: PFLICHT },
         { text: 'Verbindlichkeiten gegenüber dem Dosenwerk', kategorie: PFLICHT },
         { text: 'Aufwendungen für die Gründung des Unternehmens', kategorie: VERBOT },
         { text: 'Aufwendungen für die Beschaffung von Eigenkapital', kategorie: VERBOT },

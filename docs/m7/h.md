@@ -6,7 +6,7 @@ Quelle: Lehrbrief KLR I (K1), Kap. 2.2–2.7, S. 48–87, sowie die Reflexions- 
 
 ### H1 – Materialverbrauchsmengen (`src/engine/generators/h/materialmengen.ts`)
 
-- **Parameter:** Material (Etiketten, Zucker, Fruchtsaftkonzentrat), Anfangsbestand laut Inventur, 2–3 Zugänge laut Lieferschein, Endbestand laut Inventur, 3–4 Materialentnahmescheine, 2 Erzeugnisse mit Produktionsmenge und Bedarf je Einheit laut Stückliste, Einstandspreis frei Lager.
+- **Parameter:** Material (Etiketten, Zucker, Aromakonzentrat), Anfangsbestand laut Inventur, 2–3 Zugänge laut Lieferschein, Endbestand laut Inventur, 3–4 Materialentnahmescheine, 2 Erzeugnisse mit Produktionsmenge und Bedarf je Einheit laut Stückliste, Einstandspreis frei Lager.
 - **Konstruktion:** Sollverbrauch = Σ Menge × Bedarf; Entnahmen = Sollverbrauch + Mehrverbrauch (1–5 %); Inventurbestand = rechnerischer Endbestand − Schwund (1–4 %). Damit sind Schwund und Mehrverbrauch immer positiv, der Endbestand immer > 0.
 - **Lösung:** Inventurmethode: AB + Zugänge − EB laut Inventur. Skontrationsmethode: Σ Entnahmescheine; rechnerischer (Soll-)Endbestand = AB + Zugänge − Entnahmen; Inventurdifferenz = Soll-EB − Ist-EB. Retrograde Methode: Σ Produktionsmenge × Bedarf; Soll-EB = AB + Zugänge − Sollverbrauch. Vergleich: Lagerschwund (Skontration gegen Inventur) und Mehrverbrauch in der Fertigung (Entnahmen gegen Stückliste); Summe = Inventurverbrauch − Sollverbrauch. Bewertung (außer Vergleich): Verbrauchsmenge × Einstandspreis.
 - **Varianten:** `inventur`, `skontration`, `retrograd`, `vergleich`. Das Festwertverfahren (Verbrauch = Zugang) kommt nur in Lektion und Fehlertyp vor.
@@ -15,7 +15,7 @@ Quelle: Lehrbrief KLR I (K1), Kap. 2.2–2.7, S. 48–87, sowie die Reflexions- 
 
 ### H2 – Materialbewertung (`src/engine/generators/h/materialbewertung.ts`)
 
-- **Parameter:** Material (Zitronenaroma, Zucker in Säcken, Fruchtsaftkonzentrat, Braumalz), Anfangsbestand (Menge, Preis), 2–3 Zugänge mit verschiedenen Preisen und 3–4 datierte Abgänge im Wechsel; Bestand nie negativ, Endbestand > 0.
+- **Parameter:** Material (Zitronenaroma, Zucker in Säcken, Aromakonzentrat, Braumalz), Anfangsbestand (Menge, Preis), 2–3 Zugänge mit verschiedenen Preisen und 3–4 datierte Abgänge im Wechsel; Bestand nie negativ, Endbestand > 0.
 - **Verfahren:** Durchschnitt (periodisch mit Anfangsbestand; permanent nach jedem Zugang neu), Fifo, Lifo, Hifo, Lofo – jeweils periodisch und permanent (Lehrbrief K1 2.2.2).
 - **Lösung periodisch:** Verbrauchsmenge = Σ Abgänge. Durchschnittspreis = (Wert AB + Wert Zugänge) ÷ (Menge AB + Menge Zugänge), kaufmännisch auf 2 Stellen; Verbrauch = Menge × Preis; Endbestand = Endbestandsmenge × Preis (so in den Lösungshinweisen des Lehrbriefs). Verbrauchsfolge: Gesamtverbrauch aus allen Partien des Monats in der Reihenfolge des Verfahrens; Endbestand = Gesamtwert − Verbrauch.
 - **Lösung permanent:** Jeder Abgang nur aus dem Bestand am Tag des Abgangs. Durchschnitt: nach jedem Zugang Preis = (Restmenge × bisheriger Preis + Zugangsmenge × Zugangspreis) ÷ neue Menge, kaufmännisch auf 2 Stellen; der Bestand wird mit Menge × gerundetem Preis weitergeführt (Lehrbrief-Weg, Hauptlösung). Der ungerundete Weg ist als zweiter Lösungspfad hinterlegt und wird als „Rundung“ akzeptiert.
@@ -74,7 +74,7 @@ Zusätzlich lokal (nicht im Repository) nachgerechnet: Der Generator reproduzier
 
 ## Offene fachliche Fragen
 
-1. `[ANNAHME – bitte prüfen]` **Durchschnittswertverzinsung mit Restwert:** (Anschaffungswert + Restwert) ÷ 2 nach 04-fachregeln.md, Konvention 9. Der Lehrbrief nennt nur den „halben Anschaffungswert“; bei Restwert 0 stimmen beide überein.
+1. `[GEKLÄRT – Prüfpunkt 3]` **Durchschnittswertverzinsung mit Restwert:** (Anschaffungswert + Restwert) ÷ 2 nach 04-fachregeln.md, Konvention 9. Der Lehrbrief nennt nur den „halben Anschaffungswert“; bei Restwert 0 stimmen beide überein.
 2. `[ANNAHME – bitte prüfen]` **Restwertverzinsung:** Zinsen vom kalkulatorischen Restwert zu **Beginn** des jeweiligen Jahres (Jahr 1 = voller Anschaffungswert). Der Lehrbrief legt den Zeitpunkt nicht fest; die Aufgabe nennt ihn deshalb ausdrücklich.
 3. `[ANNAHME – bitte prüfen]` **Mittelwerte:** Umlaufvermögen mit (AB + EB) ÷ 2 (Lehrbrief: „mit Mittelwerten“, Reflexionsaufgabe 6); Abzugskapital wird im Generator direkt als Durchschnittsbestand vorgegeben.
 4. `[ANNAHME – bitte prüfen]` **Endbestand beim periodischen Durchschnitt:** Endbestandsmenge × gerundeter Durchschnittspreis (Lösungshinweis zu Übungsaufgabe 5). Das T-Konto im Lehrbrief zeigt dagegen den Saldo (Gesamtwert − Verbrauch); bei krummen Durchschnittspreisen weichen beide um wenige Euro ab. Die Aufgabe nennt die Formel ausdrücklich.

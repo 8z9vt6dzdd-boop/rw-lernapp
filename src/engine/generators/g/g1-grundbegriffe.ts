@@ -61,7 +61,7 @@ export const VORFAELLE_G1: readonly VorfallG1[] = [
     stufen: [N, J, J, J],
     bereich: [3_000, 25_000, 500],
     text: (b, f) =>
-      `Die MBG kauft Fruchtsaftkonzentrat für ${eur(b)} auf Ziel bei ${f.lieferanten.rohstoffe[2]}. Es wird noch im ${MONAT} zu Sirup verarbeitet.`,
+      `Die MBG kauft Aromakonzentrat für ${eur(b)} auf Ziel bei ${f.lieferanten.rohstoffe[2]}. Es wird noch im ${MONAT} zu Sirup verarbeitet.`,
     begruendung:
       'Auf Ziel gekauft: Die Verbindlichkeit steigt (Ausgabe), Geld fließt noch nicht (keine Auszahlung). Das Konzentrat wird im Monat für die Produktion verbraucht: Aufwand und Kosten.',
     fehler: [{ stufe: 0, fehlertyp: 'auszahlung-ausgabe-verwechselt' }],

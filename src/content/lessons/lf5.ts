@@ -31,7 +31,7 @@ export const lektionF5: Lektion = {
         {
           figur: 'jana',
           ausdruck: 'gruebelt',
-          text: 'Im Tank sind noch 1.200 kg Fruchtsaftkonzentrat. Eingekauft haben wir dieses Jahr zu vier verschiedenen Preisen.',
+          text: 'Im Tank sind noch 1.200 kg Aromakonzentrat. Eingekauft haben wir dieses Jahr zu vier verschiedenen Preisen.',
         },
         {
           figur: 'tobias',
@@ -130,7 +130,7 @@ export const lektionF5: Lektion = {
             'Richtig: regelmäßiger Ersatz, nachrangige Bedeutung des Gesamtwerts und nur geringe Veränderungen nach Wert, Menge und Zusammensetzung.',
         },
         {
-          text: 'Fruchtsaftkonzentrat: großer Wert, stark schwankende Mengen und Preise',
+          text: 'Aromakonzentrat: großer Wert, stark schwankende Mengen und Preise',
           erklaerung:
             'Wert und Menge schwanken stark, und der Gesamtwert ist bedeutend – das passt nicht zum Festwert.',
         },
@@ -209,7 +209,7 @@ export const lektionF5: Lektion = {
       titel: 'Was gehört zu welchem Vorratsposten?',
       kategorien: [RHB, UE, FE, HW],
       elemente: [
-        { text: 'Fruchtsaftkonzentrat im Rohstofftank', kategorie: RHB },
+        { text: 'Aromakonzentrat im Rohstofftank', kategorie: RHB },
         { text: 'Etiketten für Senne Lemon', kategorie: RHB },
         { text: 'Angesetzter Sirup im Lagertank', kategorie: UE },
         { text: 'Palettierte Dosen Paderquell Energy im Logistikzentrum', kategorie: FE },

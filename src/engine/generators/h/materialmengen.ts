@@ -177,7 +177,7 @@ const VORLAGEN: Vorlage[] = [
     preise: ['0.8', '0.85', '0.9', '0.95'],
   },
   {
-    material: 'Fruchtsaftkonzentrat',
+    material: 'Aromakonzentrat',
     einheit: 'l',
     erzeugnisEinheit: 'Chargen',
     erzeugnisse: [

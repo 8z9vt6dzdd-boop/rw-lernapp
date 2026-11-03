@@ -109,7 +109,7 @@ function datenTabelle(p: LvParams): TaskText['daten'] {
   };
 }
 
-function stufenParts(p: LvParams, s: StufenleiterSolution): TaskPart[] {
+export function stufenParts(p: LvParams, s: StufenleiterSolution): TaskPart[] {
   const h0 = p.hilfs[0]!;
   const h1 = p.hilfs[1]!;
   const leer: Zelle = { typ: 'leer' };
@@ -236,7 +236,7 @@ function zerlege(rng: Rng, total: number, n: number, unit: number): number[] {
   return sorted.slice(1).map((c, i) => (c - (sorted[i] ?? 0)) * unit);
 }
 
-function grundgeruest(rng: Rng, eigenverbrauch: boolean): LvParams {
+function grundgeruest(rng: Rng, eigenverbrauch: boolean, festeHaupt?: string[]): LvParams {
   const k = FIRMA.kostenstellen;
   const hauptAuswahl = [k.material, k.fertigung1, k.fertigung2, k.verwaltung, k.vertrieb];
   const anzahl = rng.int(2, 4);
@@ -244,8 +244,8 @@ function grundgeruest(rng: Rng, eigenverbrauch: boolean): LvParams {
     .shuffle([0, 1, 2, 3, 4])
     .slice(0, anzahl)
     .sort((a, b) => a - b);
-  const haupt = indizes.map((i) => ({
-    name: hauptAuswahl[i]!,
+  const haupt = (festeHaupt ?? indizes.map((i) => hauptAuswahl[i]!)).map((name) => ({
+    name,
     primaer: String(rng.step(10_000, 150_000, 1_000)),
   }));
   const hilfs: LvStelle[] = [
@@ -268,11 +268,12 @@ function grundgeruest(rng: Rng, eigenverbrauch: boolean): LvParams {
   return { hilfs, haupt, mengen };
 }
 
-function generateStufenleiter(rng: Rng, krumm: boolean): LvParams {
+/** Stufenleiter mit vorgegebenen Hauptkostenstellen (z. B. für den KLR-Fall). */
+export function generateStufenleiter(rng: Rng, krumm: boolean, festeHaupt?: string[]): LvParams {
   return retry(
     rng,
     (r) => {
-      const p = grundgeruest(r, false);
+      const p = grundgeruest(r, false, festeHaupt);
       const erste = r.int(0, 1);
       const zweite = 1 - erste;
       if (krumm) {
@@ -305,7 +306,7 @@ function generateStufenleiter(rng: Rng, krumm: boolean): LvParams {
   );
 }
 
-function renderLv(p: LvParams, verfahren: 'stufenleiter' | 'simultan'): TaskText {
+export function renderLv(p: LvParams, verfahren: 'stufenleiter' | 'simultan'): TaskText {
   const k = FIRMA.kostenstellen;
   return {
     titel: verfahren === 'stufenleiter' ? 'Stufenleiterverfahren' : 'Simultanverfahren',
@@ -322,7 +323,7 @@ function renderLv(p: LvParams, verfahren: 'stufenleiter' | 'simultan'): TaskText
   };
 }
 
-function stufenVariants(p: LvParams): ErrorVariant[] {
+export function stufenVariants(p: LvParams): ErrorVariant[] {
   return [
     {
       fehlertyp: 'reihenfolge-falsch',

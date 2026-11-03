@@ -21,7 +21,10 @@ import { ToeneBeobachter } from './ToeneBeobachter';
 import { LessonPlayer } from './lesson/LessonPlayer';
 import { EinstellungenScreen } from './screens/EinstellungenScreen';
 import { ErfolgeScreen } from './screens/ErfolgeScreen';
+import { FallScreen } from './screens/FallScreen';
 import { FirmaScreen } from './screens/FirmaScreen';
+import { KlausurScreen } from './screens/KlausurScreen';
+import { PruefenScreen } from './screens/PruefenScreen';
 import { LernpfadScreen } from './screens/LernpfadScreen';
 import { SessionScreen } from './screens/SessionScreen';
 import { StartScreen } from './screens/StartScreen';
@@ -38,7 +41,17 @@ const NAV: { route: Route; label: string; icon: IconName }[] = [
 ];
 
 /** Bereiche ohne Navigation (volle Konzentration auf Lektion, Aufgabe oder Test). */
-const VOLLBILD: Route[] = ['sitzung', 'lektion', 'test', 'einstufung', 'willkommen'];
+const VOLLBILD: Route[] = [
+  'sitzung',
+  'lektion',
+  'test',
+  'einstufung',
+  'willkommen',
+  'fall',
+  'klausur',
+];
+/** Breite Bereiche für den Fallmodus am Laptop */
+const BREIT: Route[] = ['fall', 'klausur'];
 
 function UpdateHinweis() {
   const {
@@ -110,6 +123,9 @@ export function App() {
     erfolge: <ErfolgeScreen />,
     figur: <FigurScreen />,
     willkommen: <WillkommenScreen />,
+    pruefen: <PruefenScreen />,
+    fall: <FallScreen key={hash} />,
+    klausur: <KlausurScreen key={hash} />,
   }[effektiv];
 
   return (
@@ -153,7 +169,8 @@ export function App() {
       <div className="flex min-h-dvh min-w-0 flex-1 flex-col">
         <main
           className={cx(
-            'safe-top mx-auto w-full max-w-3xl flex-1 px-4 pt-4 sm:pt-6',
+            'safe-top mx-auto w-full flex-1 px-4 pt-4 sm:pt-6',
+            BREIT.includes(effektiv) ? 'max-w-6xl' : 'max-w-3xl',
             !vollbild && 'pb-28 lg:pb-10',
           )}
         >

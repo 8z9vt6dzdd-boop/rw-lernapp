@@ -55,7 +55,10 @@ export type Visual =
       pfeile: { von: string; an: string; menge: string }[];
     }
   /** Kalkulations-Treppe: Stufen von Einzelkosten bis Preis */
-  | { typ: 'treppe'; stufen: { label: string; betrag: string; art: 'basis' | 'zuschlag' | 'summe' }[] }
+  | {
+      typ: 'treppe';
+      stufen: { label: string; betrag: string; art: 'basis' | 'zuschlag' | 'summe' }[];
+    }
   /** Abschreibungs-Verlauf: Buchwert über die Jahre, mehrere Verfahren zum Vergleich */
   | {
       typ: 'afa-verlauf';
@@ -67,7 +70,14 @@ export type Visual =
       satz?: string;
     }
   /** Kostenfunktion: Erlös- und Kostengerade mit Gewinnschwelle */
-  | { typ: 'kostenfunktion'; preis: string; kv: string; kf: string; xmax: number; einheit?: string };
+  | {
+      typ: 'kostenfunktion';
+      preis: string;
+      kv: string;
+      kf: string;
+      xmax: number;
+      einheit?: string;
+    };
 
 /** Interaktive Erkunden-Bausteine: etwas verändern und die Wirkung sofort sehen. */
 export type Erkunden =

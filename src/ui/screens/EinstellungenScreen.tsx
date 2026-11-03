@@ -83,6 +83,42 @@ export function EinstellungenScreen() {
         />
       </Card>
       <Card>
+        <h2 className="font-semibold">Klausur</h2>
+        <label className="mt-3 flex flex-col gap-1">
+          <span className="text-[15px]">Klausurtermin (freiwillig)</span>
+          <input
+            type="date"
+            aria-label="Klausurtermin"
+            value={settings.examDate ?? ''}
+            onChange={(e) =>
+              void saveSettings(
+                e.target.value ? { examDate: e.target.value } : { examDate: undefined },
+              )
+            }
+            className="min-h-11 w-full max-w-xs rounded-lg border border-line-strong bg-surface px-3 text-[15px]"
+          />
+          <span className="text-sm text-muted">
+            Dann zeigt die Startseite, wie viele Tage noch bleiben.
+          </span>
+        </label>
+        <label className="mt-4 flex min-h-11 items-center justify-between gap-3">
+          <span>
+            <span className="block text-[15px]">Teilkosten in Probeklausuren</span>
+            <span className="block text-sm text-muted">
+              Standardmäßig aus. Die Teilkosten-Aufgaben folgen mit dem nächsten Ausbau.
+            </span>
+          </span>
+          <input
+            type="checkbox"
+            role="switch"
+            aria-label="Teilkosten in Probeklausuren"
+            checked={settings.teilkostenInKlausur}
+            onChange={(e) => void saveSettings({ teilkostenInKlausur: e.target.checked })}
+            className="h-6 w-11 shrink-0 accent-[color:var(--accent)]"
+          />
+        </label>
+      </Card>
+      <Card>
         <h2 className="font-semibold">Darstellung</h2>
         <Auswahl<Theme>
           label="Darstellung"

@@ -15,7 +15,10 @@ export type Route =
   | 'einstufung'
   | 'erfolge'
   | 'figur'
-  | 'willkommen';
+  | 'willkommen'
+  | 'pruefen'
+  | 'fall'
+  | 'klausur';
 
 const ROUTES: Route[] = [
   'start',
@@ -30,6 +33,9 @@ const ROUTES: Route[] = [
   'erfolge',
   'figur',
   'willkommen',
+  'pruefen',
+  'fall',
+  'klausur',
 ];
 
 /** Pfadteile nach der Route, z. B. #/test/abschnitt/0 → ['abschnitt', '0'] */

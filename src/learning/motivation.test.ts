@@ -146,3 +146,14 @@ describe('Tagesaufgaben, XP, Stufen, Karriere, Erfolge', () => {
     expect(tagKey(new Date(2026, 0, 5))).toBe('2026-01-05');
   });
 });
+
+describe('tageZwischen', () => {
+  it('zählt Kalendertage über die Zeitumstellung hinweg', async () => {
+    const { tageZwischen } = await import('./motivation');
+    expect(tageZwischen('2026-03-28', '2026-03-30')).toBe(2);
+    expect(tageZwischen('2026-10-24', '2026-10-26')).toBe(2);
+    expect(tageZwischen('2026-11-03', '2026-11-03')).toBe(0);
+    expect(tageZwischen('2026-11-03', '2026-11-01')).toBe(-2);
+    expect(tageZwischen('2026-12-31', '2027-01-01')).toBe(1);
+  });
+});

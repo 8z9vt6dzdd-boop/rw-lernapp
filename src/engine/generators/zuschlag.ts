@@ -118,7 +118,7 @@ export function solveZuschlag(p: ZuschlagParams, w: Weg = {}): ZuschlagSolution 
   return { werte };
 }
 
-function parts(_p: ZuschlagParams, s: ZuschlagSolution): TaskPart[] {
+export function zuschlagParts(_p: ZuschlagParams, s: ZuschlagSolution): TaskPart[] {
   const felder: ZahlFeld[] = s.werte.map((w) => feld(w.id, w.label, w.wert));
   return [{ typ: 'rechenkette', id: 'schema', titel: 'Kalkulationsschema', felder }];
 }
@@ -266,7 +266,7 @@ export const zuschlag = defineGenerator<ZuschlagParams, ZuschlagSolution>({
     return daten ? { ...text, daten } : text;
   },
   solve: (p) => solveZuschlag(p),
-  parts,
+  parts: zuschlagParts,
   steps: (p, s) => {
     const get = (id: string) => s.werte.find((w) => w.id === id)?.wert;
     if (p.variante === 'angebot') {
@@ -314,7 +314,7 @@ export const zuschlag = defineGenerator<ZuschlagParams, ZuschlagSolution>({
   errorVariants: (p) => {
     const out: ErrorVariant[] = [];
     const add = (fehlertyp: string, w: Weg) =>
-      out.push({ fehlertyp, parts: parts(p, solveZuschlag(p, w)) });
+      out.push({ fehlertyp, parts: zuschlagParts(p, solveZuschlag(p, w)) });
     if (p.variante === 'angebot') add('im-hundert-statt-vom-hundert', { imHundertFalsch: true });
     if (p.variante === 'differenzierend' || p.variante === 'differenzierend-sek') {
       add('zuschlagsbasis-falsch', { vtAufHkPlusVw: true });

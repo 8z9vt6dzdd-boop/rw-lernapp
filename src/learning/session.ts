@@ -79,7 +79,7 @@ export function kurzSitzung(seed = randomSeed(), opts: { mobil?: boolean } = {})
   return rng.shuffle(specs);
 }
 
-function randomSeedFrom(rng: Rng): number {
+export function randomSeedFrom(rng: Rng): number {
   return Math.floor(rng.next() * 2 ** 32);
 }
 

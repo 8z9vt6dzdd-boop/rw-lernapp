@@ -17,6 +17,15 @@ export function plusTage(tag: string, n: number): string {
   return tagKey(new Date(y, m - 1, d + n));
 }
 
+/** Ganze Kalendertage von `von` bis `bis` (beide „JJJJ-MM-TT“), unabhängig von Sommerzeit. */
+export function tageZwischen(von: string, bis: string): number {
+  const utc = (t: string) => {
+    const [y, mo, d] = t.split('-').map(Number) as [number, number, number];
+    return Date.UTC(y, mo - 1, d);
+  };
+  return Math.round((utc(bis) - utc(von)) / 86_400_000);
+}
+
 export function montagVon(tag: string): string {
   const [y, m, d] = tag.split('-').map(Number) as [number, number, number];
   const x = new Date(y, m - 1, d);

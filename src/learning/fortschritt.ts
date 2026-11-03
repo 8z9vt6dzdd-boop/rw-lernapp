@@ -50,7 +50,7 @@ export function knotenFuer(events: readonly LernEreignis[], a: Abschnitt): Knote
   const out: Knoten[] = [];
   for (const skill of a.skills) {
     const lektion = hatLektion(skill.id);
-    const uebung = hatUebung(skill.id);
+    const uebung = hatUebung(skill.id) || skill.art === 'fall';
     const lDone = lektion && lektionErledigt(events, skill.id);
     if (lektion) out.push({ skill, typ: 'lektion', status: lDone ? 'erledigt' : 'offen' });
     else if (skill.art === 'lektion' || skill.art === 'theorie')

@@ -28,7 +28,7 @@ const UEB = solveUstAbschluss({
 const VST_JAN = new Val('18000');
 const UST_JAN = new Val('26000');
 const satzText = (s: (typeof JAN.buchung.saetze)[number] | undefined) =>
-  s ? formatSatz(s).replace(/ /g, ' ') : '';
+  s ? formatSatz(s).replace(/\u00a0/g, ' ') : '';
 
 export const lektionB3: Lektion = {
   id: 'B3',

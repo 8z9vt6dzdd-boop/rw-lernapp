@@ -1,5 +1,6 @@
 // Alle Bildschirmtypen einer Lektion (09-lektionen.md, Abschnitt 5).
 import { useEffect, useMemo, useState } from 'react';
+import { DatenTabelle } from '../components/DatenTabelle';
 import type { Option, Screen } from '../../content/lessons/types';
 import { checkPart, felderVon, formatSoll } from '../../engine/check';
 import { generatorFuer } from '../../engine/generators';
@@ -566,6 +567,7 @@ function Luecke({ s, onDone }: { s: Extract<Screen, { typ: 'luecke' }>; onDone: 
             {t}
           </p>
         ))}
+        {text.daten ? <DatenTabelle daten={text.daten} /> : null}
       </Card>
       {gegeben.length > 0 ? (
         <dl className="num grid grid-cols-2 gap-2 text-sm">
@@ -719,10 +721,16 @@ function Merksatz({ s }: { s: Extract<Screen, { typ: 'merksatz' }> }) {
 }
 
 function Klausur({ s, onDone }: { s: Extract<Screen, { typ: 'klausur' }>; onDone: Done }) {
-  const { part, variants, sachverhalt } = useMemo(() => {
-    if ('typ' in s.part) return { part: s.part, variants: [], sachverhalt: [] as string[] };
+  const { part, variants, sachverhalt, daten } = useMemo(() => {
+    if ('typ' in s.part)
+      return { part: s.part, variants: [], sachverhalt: [] as string[], daten: undefined };
     const t = teilAusGenerator(s.part.skillId, s.part.seed, s.part.partId, s.part.variant);
-    return { part: t.part, variants: t.variants, sachverhalt: t.text.sachverhalt };
+    return {
+      part: t.part,
+      variants: t.variants,
+      sachverhalt: t.text.sachverhalt,
+      daten: t.text.daten,
+    };
   }, [s]);
   const [antwort, setAntwort] = useState<PartAnswer>(() => leereAntwort(part));
   const [result, setResult] = useState<PartResult | null>(null);
@@ -740,10 +748,18 @@ function Klausur({ s, onDone }: { s: Extract<Screen, { typ: 'klausur' }>; onDone
             {t}
           </p>
         ))}
+        {daten ? <DatenTabelle daten={daten} /> : null}
         <p className="mt-2 text-[15px] font-medium">{s.aufgabe}</p>
       </div>
       <Card>
-        <PartInput part={part} antwort={antwort} onChange={setAntwort} result={result ?? undefined} revealed={aufgedeckt} disabled={fertig} />
+        <PartInput
+          part={part}
+          antwort={antwort}
+          onChange={setAntwort}
+          result={result ?? undefined}
+          revealed={aufgedeckt}
+          disabled={fertig}
+        />
         {result ? (
           <div className="mt-4">
             <PartFeedback result={result} />

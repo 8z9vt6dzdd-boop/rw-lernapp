@@ -83,6 +83,11 @@ export const FEHLERTYPEN: Record<string, Fehlertyp> = {
     erklaerung:
       'Endbestand größer als Anfangsbestand = Mehrbestand: Das Erzeugniskonto nimmt zu (Soll), Bestandsveränderungen im Haben (erhöht den Erfolg). Bei einem Minderbestand ist es umgekehrt.',
   },
+  'privat-als-aufwand': {
+    titel: 'Privatentnahme vergessen oder als Aufwand behandelt',
+    erklaerung:
+      'Privatentnahmen sind kein Aufwand und stehen nicht in der GuV. Sie mindern das Eigenkapital direkt: Eigenkapital am Ende = Anfangsbestand − Entnahmen + Einlagen + Gewinn.',
+  },
   'saldo-falsche-seite': {
     titel: 'Saldo der Bestandsveränderungen falsch abgeschlossen',
     erklaerung:

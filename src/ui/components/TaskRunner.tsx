@@ -1,5 +1,6 @@
 // Eine Aufgabe Schritt für Schritt bearbeiten: Teil prüfen, Rückmeldung, gestufte Hilfen, Rechenweg.
 import { useMemo, useRef, useState, type FormEvent } from 'react';
+import { DatenTabelle } from './DatenTabelle';
 import { checkPart, combineResults } from '../../engine/check';
 import { spiele } from '../sound';
 import type { PartAnswer, PartResult, TaskAnswer } from '../../engine/task';
@@ -24,9 +25,20 @@ export function TaskRunner({
   onFinish,
   onExit,
   wiederholungFolgt,
+  bezeichnung = 'Aufgabe',
+  weiterText,
+  abschlussText = 'Sitzung abschließen',
+  breit = false,
 }: {
   task: PreparedTask;
   wiederholungFolgt: boolean;
+  /** „Aufgabe“ (Kurzmodus) oder „Schritt“ (Fall) */
+  bezeichnung?: string;
+  /** Beschriftung für den Übergang zur nächsten Aufgabe bzw. zum nächsten Schritt */
+  weiterText?: string;
+  abschlussText?: string;
+  /** Fallmodus am Laptop: Sachverhalt links, Eingaben rechts */
+  breit?: boolean;
   position: number;
   total: number;
   onFinish: (o: TaskOutcome) => void;
@@ -107,7 +119,7 @@ export function TaskRunner({
       <div className="flex items-center justify-between gap-2">
         <div className="flex flex-wrap items-center gap-2">
           <span className="num text-sm text-muted">
-            Aufgabe {position} von {total}
+            {bezeichnung} {position} von {total}
           </span>
           {task.spec.wiederholung ? <Chip tone="accent">Noch einmal üben</Chip> : null}
         </div>
@@ -115,7 +127,7 @@ export function TaskRunner({
           type="button"
           onClick={onExit}
           className="flex h-10 items-center gap-1 rounded-lg px-2 text-sm text-muted hover:bg-surface-2"
-          aria-label="Sitzung beenden"
+          aria-label={bezeichnung === 'Aufgabe' ? 'Sitzung beenden' : 'Fall beenden'}
         >
           <Icon name="schliessen" className="h-5 w-5" /> Beenden
         </button>
@@ -127,160 +139,143 @@ export function TaskRunner({
         />
       </div>
 
-      <Card>
-        {task.text.kontext ? (
-          <div className="mb-1 text-xs font-medium tracking-wide text-accent uppercase">
-            {task.text.kontext}
-          </div>
-        ) : null}
-        <h2 className="text-lg font-semibold">{task.text.titel}</h2>
-        <div className="mt-2 flex flex-col gap-2 text-[15px]">
-          {task.text.sachverhalt.map((s, i) => (
-            <p key={i}>{s}</p>
-          ))}
-        </div>
-        {task.text.daten ? (
-          <div className="-mx-4 mt-3 overflow-x-auto px-4 sm:mx-0 sm:px-0">
-            <table className="num w-full border-collapse text-sm">
-              {task.text.daten.spalten.some((s) => s) ? (
-                <thead>
-                  <tr>
-                    {task.text.daten.spalten.map((s, i) => (
-                      <th
-                        key={i}
-                        className={cx(
-                          'border-b border-line px-2 py-1.5 text-xs font-semibold text-muted',
-                          i === 0 ? 'text-left' : 'text-right',
-                        )}
-                      >
-                        {s}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              ) : null}
-              <tbody>
-                {task.text.daten.zeilen.map((z, zi) => (
-                  <tr key={zi} className="border-b border-line last:border-0">
-                    {z.map((c, ci) => (
-                      <td
-                        key={ci}
-                        className={cx(
-                          'px-2 py-1.5',
-                          ci === 0 ? 'text-left' : 'text-right whitespace-nowrap',
-                        )}
-                      >
-                        {c}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ) : null}
-        <p className="mt-3 border-t border-line pt-3 text-[15px] font-medium">
-          {task.text.aufgabe}
-        </p>
-      </Card>
-
-      {task.parts.slice(0, active + 1).map((p) => {
-        const r = results[p.id];
-        const locked = (r !== undefined && !editing[p.id]) || p.id !== part.id;
-        const a = answers[p.id]!;
-        return (
-          <Card key={p.id}>
-            {'titel' in p ? <h3 className="mb-3 font-semibold">{p.titel}</h3> : null}
-            <PartInput
-              part={p}
-              antwort={a}
-              onChange={(x) => setAnswer(p.id, x)}
-              result={editing[p.id] ? undefined : r}
-              revealed={!!revealed[p.id]}
-              disabled={locked}
-            />
-            {r && !editing[p.id] ? (
-              <div className="mt-4">
-                <PartFeedback
-                  result={r}
-                  begruendung={
-                    (p.typ === 'mc' || p.typ === 'aufgabe-erkennen') &&
-                    (r.korrekt || revealed[p.id])
-                      ? p.begruendung
-                      : undefined
-                  }
-                />
-              </div>
-            ) : null}
-          </Card>
-        );
-      })}
-
-      {hintLevel > 0 && !fertig ? (
-        <Card className="border-accent/40 bg-accent-soft/40">
-          <h3 className="mb-2 text-sm font-semibold text-accent">Hilfen</h3>
-          <ol className="flex flex-col gap-2 text-[15px]">
-            {task.hints.slice(0, hintLevel).map((h, i) => (
-              <li key={i}>
-                <span className="font-medium">
-                  {i === 0 ? 'Aufgabentyp: ' : i === 1 ? 'Nächster Schritt: ' : 'Lösungsschritt: '}
-                </span>
-                {h}
-              </li>
-            ))}
-          </ol>
-        </Card>
-      ) : null}
-
-      {fertig && gesamt ? (
-        <Card>
-          <h3 className="font-semibold">
-            {gesamt.korrekt && !Object.values(revealed).some(Boolean)
-              ? 'Aufgabe gelöst'
-              : 'Aufgabe abgeschlossen'}
-          </h3>
-          <p className="mt-1 text-sm text-muted">
-            {gesamt.korrekt
-              ? hintLevel > 0
-                ? 'Richtig – mit Hilfe. Die Aufgabe kommt bald wieder, damit sie sicher sitzt.'
-                : 'Richtig beim ersten Versuch.'
-              : wiederholungFolgt
-                ? 'Beim ersten Versuch nicht ganz richtig. Eine ähnliche Aufgabe folgt später in dieser Sitzung.'
-                : 'Beim ersten Versuch nicht ganz richtig. Die Aufgabe kommt in den nächsten Sitzungen wieder.'}
-          </p>
-          {!gesamt.korrekt ? (
-            <div className="mt-3">
-              <Denkfehler
-                ids={gesamt.fehlertypen.filter(
-                  (f) => !task.parts.some((p) => results[p.id]?.fehlertypen.includes(f)),
-                )}
-              />
+      <div
+        className={
+          breit
+            ? 'flex flex-col gap-4 lg:grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start lg:gap-6'
+            : 'contents'
+        }
+      >
+        <Card
+          className={
+            breit ? 'lg:sticky lg:top-4 lg:max-h-[calc(100dvh-2rem)] lg:overflow-y-auto' : undefined
+          }
+        >
+          {task.text.kontext ? (
+            <div className="mb-1 text-xs font-medium tracking-wide text-accent uppercase">
+              {task.text.kontext}
             </div>
           ) : null}
-          {task.steps.length > 0 ? (
-            <div className="mt-3">
-              <button
-                type="button"
-                className="text-sm font-medium text-accent underline"
-                onClick={() => setShowWeg(!showWeg)}
-                aria-expanded={showWeg}
-              >
-                {showWeg ? 'Rechenweg ausblenden' : 'Rechenweg ansehen'}
-              </button>
-              {showWeg ? (
+          <h2 className="text-lg font-semibold">{task.text.titel}</h2>
+          <div className="mt-2 flex flex-col gap-2 text-[15px]">
+            {task.text.sachverhalt.map((s, i) => (
+              <p key={i}>{s}</p>
+            ))}
+          </div>
+          {task.text.daten ? <DatenTabelle daten={task.text.daten} /> : null}
+          <p className="mt-3 border-t border-line pt-3 text-[15px] font-medium">
+            {task.text.aufgabe}
+          </p>
+        </Card>
+        <div className={breit ? 'flex min-w-0 flex-col gap-4' : 'contents'}>
+          {task.parts.slice(0, active + 1).map((p) => {
+            const r = results[p.id];
+            const locked = (r !== undefined && !editing[p.id]) || p.id !== part.id;
+            const a = answers[p.id]!;
+            return (
+              <Card key={p.id}>
+                {'titel' in p ? <h3 className="mb-3 font-semibold">{p.titel}</h3> : null}
+                <PartInput
+                  part={p}
+                  antwort={a}
+                  onChange={(x) => setAnswer(p.id, x)}
+                  result={editing[p.id] ? undefined : r}
+                  revealed={!!revealed[p.id]}
+                  disabled={locked}
+                />
+                {r && !editing[p.id] ? (
+                  <div className="mt-4">
+                    <PartFeedback
+                      result={r}
+                      begruendung={
+                        (p.typ === 'mc' || p.typ === 'aufgabe-erkennen') &&
+                        (r.korrekt || revealed[p.id])
+                          ? p.begruendung
+                          : undefined
+                      }
+                    />
+                  </div>
+                ) : null}
+              </Card>
+            );
+          })}
+
+          {hintLevel > 0 && !fertig ? (
+            <Card className="border-accent/40 bg-accent-soft/40">
+              <h3 className="mb-2 text-sm font-semibold text-accent">Hilfen</h3>
+              <ol className="flex flex-col gap-2 text-[15px]">
+                {task.hints.slice(0, hintLevel).map((h, i) => (
+                  <li key={i}>
+                    <span className="font-medium">
+                      {i === 0
+                        ? 'Aufgabentyp: '
+                        : i === 1
+                          ? 'Nächster Schritt: '
+                          : 'Lösungsschritt: '}
+                    </span>
+                    {h}
+                  </li>
+                ))}
+              </ol>
+            </Card>
+          ) : null}
+
+          {fertig && gesamt ? (
+            <Card>
+              <h3 className="font-semibold">
+                {gesamt.korrekt && !Object.values(revealed).some(Boolean)
+                  ? 'Aufgabe gelöst'
+                  : 'Aufgabe abgeschlossen'}
+              </h3>
+              <p className="mt-1 text-sm text-muted">
+                {gesamt.korrekt
+                  ? hintLevel > 0
+                    ? 'Richtig – mit Hilfe. Die Aufgabe kommt bald wieder, damit sie sicher sitzt.'
+                    : 'Richtig beim ersten Versuch.'
+                  : wiederholungFolgt
+                    ? 'Beim ersten Versuch nicht ganz richtig. Eine ähnliche Aufgabe folgt später in dieser Sitzung.'
+                    : 'Beim ersten Versuch nicht ganz richtig. Die Aufgabe kommt in den nächsten Sitzungen wieder.'}
+              </p>
+              {!gesamt.korrekt ? (
                 <div className="mt-3">
-                  <Rechenweg steps={task.steps} />
+                  <Denkfehler
+                    ids={gesamt.fehlertypen.filter(
+                      (f) => !task.parts.some((p) => results[p.id]?.fehlertypen.includes(f)),
+                    )}
+                  />
                 </div>
               ) : null}
-            </div>
+              {task.steps.length > 0 ? (
+                <div className="mt-3">
+                  <button
+                    type="button"
+                    className="text-sm font-medium text-accent underline"
+                    onClick={() => setShowWeg(!showWeg)}
+                    aria-expanded={showWeg}
+                  >
+                    {showWeg ? 'Rechenweg ausblenden' : 'Rechenweg ansehen'}
+                  </button>
+                  {showWeg ? (
+                    <div className="mt-3">
+                      <Rechenweg steps={task.steps} />
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
+            </Card>
           ) : null}
-        </Card>
-      ) : null}
 
-      <div ref={bottomRef} />
+          <div ref={bottomRef} />
+        </div>
+      </div>
 
       <div className="safe-bottom fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface/95 backdrop-blur">
-        <div className="mx-auto flex max-w-3xl items-center gap-2 px-4 py-3 [&_button]:whitespace-nowrap">
+        <div
+          className={cx(
+            'mx-auto flex items-center gap-2 px-4 py-3 [&_button]:whitespace-nowrap',
+            breit ? 'max-w-6xl' : 'max-w-3xl',
+          )}
+        >
           {!fertig ? (
             <Button
               variant="ghost"
@@ -311,8 +306,8 @@ export function TaskRunner({
               {active < task.parts.length - 1
                 ? 'Weiter'
                 : position < total
-                  ? 'Nächste Aufgabe'
-                  : 'Sitzung abschließen'}
+                  ? (weiterText ?? `Nächste ${bezeichnung}`)
+                  : abschlussText}
               <Icon name="pfeil" className="h-5 w-5" />
             </Button>
           ) : (

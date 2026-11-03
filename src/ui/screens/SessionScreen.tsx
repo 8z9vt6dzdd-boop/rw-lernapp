@@ -1,5 +1,6 @@
 // Kurz-Sitzung: Aufgaben nacheinander, Fehler führen zu einer weiteren Übung desselben Typs.
 import { useEffect, useMemo, useState } from 'react';
+import { LaptopHinweis } from '../components/LaptopHinweis';
 import { fehlertyp } from '../../engine/fehlertypen';
 import { randomSeed } from '../../engine/rng';
 import { prepareTask, skillTitel, type TaskSpec } from '../../learning/prepare';
@@ -39,33 +40,6 @@ function istMobil(): boolean {
 
 function merkRef(): string | null {
   return new URLSearchParams(window.location.hash.split('?')[1] ?? '').get('merk');
-}
-
-/** Hinweis vor Tabellenaufgaben auf dem Handy (CLAUDE.md, Regel 9). */
-function LaptopHinweis({ onHier, onMerken }: { onHier: () => void; onMerken: () => void }) {
-  return (
-    <div className="flex flex-col gap-4">
-      <Card>
-        <Sprechblase
-          s={{
-            figur: 'leni',
-            ausdruck: 'erklaert',
-            text: 'Diese Aufgabe lässt sich am Laptop deutlich bequemer bearbeiten. Große Tabellen sind auf dem Handy etwas fummelig.',
-          }}
-        />
-      </Card>
-      <div className="flex flex-col gap-2 sm:flex-row">
-        <Button variant="primary" onClick={onMerken}>
-          Für den Laptop merken
-        </Button>
-        <Button onClick={onHier}>Trotzdem hier lösen</Button>
-      </div>
-      <p className="text-sm text-muted">
-        Gemerkte Aufgaben erscheinen am Laptop oben auf der Startseite unter „Am Laptop
-        weitermachen“.
-      </p>
-    </div>
-  );
 }
 
 function dauerText(ms: number): string {

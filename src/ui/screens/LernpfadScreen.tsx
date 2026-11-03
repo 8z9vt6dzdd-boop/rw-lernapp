@@ -1,5 +1,7 @@
 // Lernpfad im Duolingo-Stil: Abschnitte als Kapitel, je Skill Lektion → Übung (→ später Wiederholung).
 import { useMemo, useState } from 'react';
+import { fallFuerSkill } from '../../engine/faelle';
+import { miniKlausurMoeglich } from '../../learning/klausur';
 import { ABSCHNITTE, type Abschnitt } from '../../content/curriculum';
 import { LEKTIONEN, lektionFuerSkill } from '../../content/lessons';
 import {
@@ -60,6 +62,8 @@ function zielVon(k: Knoten): string | null {
     const l = lektionFuerSkill(k.skill.id);
     return l ? `#/lektion/${encodeURIComponent(l.id)}` : null;
   }
+  const fall = fallFuerSkill(k.skill.id);
+  if (fall) return `#/fall/${fall.id}`;
   return `#/sitzung?skill=${encodeURIComponent(k.skill.id)}`;
 }
 
@@ -242,6 +246,15 @@ function AbschnittKarte({
               Abschnitt überspringen – kurzer Test
             </Button>
           ) : null}
+          {miniKlausurMoeglich(a.id) ? (
+            <Button
+              variant="ghost"
+              className="mt-1 w-full"
+              onClick={() => navigate('klausur', 'mini', a.id)}
+            >
+              Mini-Klausur zu Abschnitt {a.id}
+            </Button>
+          ) : null}
         </div>
       ) : null}
     </Card>
@@ -281,6 +294,15 @@ export function LernpfadScreen() {
           Test.
         </p>
       </div>
+      <Card className="flex flex-wrap items-center justify-between gap-3">
+        <div className="min-w-0">
+          <h2 className="font-semibold">Fälle und Klausuren</h2>
+          <p className="text-sm text-muted">
+            Mehrstufige Fälle, Mini-Klausuren und die Probeklausur
+          </p>
+        </div>
+        <Button onClick={() => navigate('pruefen')}>Öffnen</Button>
+      </Card>
       {ABSCHNITTE.map((a) => (
         <AbschnittKarte
           key={a.id}

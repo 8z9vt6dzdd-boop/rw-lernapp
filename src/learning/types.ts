@@ -27,6 +27,8 @@ export interface AttemptEvent {
   expected?: unknown;
   /** ohne Netzverbindung gelernt (für den Erfolg „Ohne Netz“) */
   offline?: boolean;
+  /** Zugehörige Mini- oder Probeklausur */
+  klausurId?: string;
 }
 
 /** Lektion abgeschlossen oder per Test übersprungen */

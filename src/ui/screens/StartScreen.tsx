@@ -1,5 +1,6 @@
 // Startseite (10-optik B4–B7): Serie, Tagesziel, Tagesaufgaben, Karriere, nächste Szene, Klausur-Stand.
 import { useMemo, useSyncExternalStore } from 'react';
+import { fallInfo } from '../../engine/faelle';
 import { lektionFuerSkill } from '../../content/lessons';
 import { skillTitel } from '../../learning/prepare';
 import { laptopListe } from '../../learning/ereignisse';
@@ -12,6 +13,7 @@ import {
   serie,
   stufe,
   tagKey,
+  tageZwischen,
   tagesWerte,
   tagesaufgaben,
   wochenrueckblick,
@@ -126,11 +128,12 @@ export function StartScreen() {
       readiness: readiness(events),
       laptop: laptopListe(events),
       rueckblick: wochenrueckblick(events, heute),
+      tageBisKlausur: settings.examDate ? tageZwischen(heute, settings.examDate) : null,
       faellig: [...karten(events).values()].filter(
         (k) => k.wiederholungen > 0 && faellig(k, new Date()),
       ).length,
     };
-  }, [events, settings.tagesziel, heute]);
+  }, [events, settings.tagesziel, settings.examDate, heute]);
 
   if (!daten) return null;
   const zielAnteil = zielFortschritt(daten.werte, settings.tagesziel);
@@ -261,10 +264,16 @@ export function StartScreen() {
                 key={e.id}
                 className="flex items-center justify-between gap-3 border-t border-line py-2 first:border-0"
               >
-                <span className="text-[15px]">{skillTitel(e.skillId)}</span>
+                <span className="text-[15px]">
+                  {e.variant?.startsWith('fall:')
+                    ? (fallInfo(e.variant.slice(5))?.titel ?? skillTitel(e.skillId))
+                    : skillTitel(e.skillId)}
+                </span>
                 <Button
                   onClick={() =>
-                    (window.location.hash = `#/sitzung?merk=${encodeURIComponent(e.ref)}`)
+                    (window.location.hash = e.variant?.startsWith('fall:')
+                      ? `#/fall/${e.variant.slice(5)}?seed=${e.seed}&merk=${encodeURIComponent(e.ref)}`
+                      : `#/sitzung?merk=${encodeURIComponent(e.ref)}`)
                   }
                 >
                   Jetzt lösen
@@ -356,6 +365,20 @@ export function StartScreen() {
           Gewichtet nach Klausurrelevanz über alle drei Lehrbriefe. Wächst mit jeder Lektion und
           jeder gelösten Aufgabe.
         </p>
+        {daten.tageBisKlausur !== null ? (
+          <p className="num mt-2 text-[15px] font-medium">
+            {daten.tageBisKlausur > 1
+              ? `Noch ${daten.tageBisKlausur} Tage bis zur Klausur`
+              : daten.tageBisKlausur === 1
+                ? 'Morgen ist die Klausur'
+                : daten.tageBisKlausur === 0
+                  ? 'Heute ist die Klausur – viel Erfolg!'
+                  : 'Klausurtermin liegt in der Vergangenheit'}
+          </p>
+        ) : null}
+        <Button className="mt-3 w-full sm:w-auto" onClick={() => navigate('pruefen')}>
+          Fälle und Klausuren
+        </Button>
       </Card>
 
       {zeigeRueckblick ? (

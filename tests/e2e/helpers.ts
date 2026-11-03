@@ -62,6 +62,8 @@ export async function teilLoesen(page: Page, part: TaskPart) {
   switch (part.typ) {
     case 'rechenkette':
     case 'tabelle':
+    case 'tkonto':
+    case 'gleichungssystem':
       for (const f of felderVon(part)) {
         if (f.typ === 'auswahl') {
           await page
@@ -84,7 +86,18 @@ export async function teilLoesen(page: Page, part: TaskPart) {
     case 'aufgabe-erkennen': {
       const richtig = part.optionen.find((o) => o.richtig)!;
       await page.getByRole('radio', { name: richtig.text }).click();
+      return;
     }
+    case 'fehler-finden': {
+      await page.getByRole('button', { name: new RegExp(`^${part.fehlerZeile + 1}\\. `) }).click();
+      await page.getByRole('radio', { name: part.gruende.find((g) => g.richtig)!.text, exact: true }).click();
+      return;
+    }
+    case 'kurzantwort':
+      await page.getByRole('textbox', { name: 'Deine Antwort' }).fill(part.muster);
+      for (const c of part.checkliste) {
+        await page.getByRole('checkbox', { name: c.aussage, exact: false }).check();
+      }
   }
 }
 

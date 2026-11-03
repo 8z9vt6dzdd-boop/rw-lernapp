@@ -1,0 +1,18 @@
+# Studienunterlagen – urheberrechtlich geschützt, niemals hochladen
+quellen/
+*.pdf
+*.pptx
+*.xlsx
+
+node_modules/
+dist/
+dev-dist/
+coverage/
+playwright-report/
+test-results/
+.wrangler/
+.env
+.env.*
+.DS_Store
+*.log
+.claude/

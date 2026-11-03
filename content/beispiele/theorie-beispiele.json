@@ -1,0 +1,126 @@
+[
+  {
+    "id": "G2-001",
+    "skill": "G2-abgrenzung",
+    "typ": "zuordnung",
+    "status": "aktiv",
+    "quelle": "K1 1.2",
+    "aufgabe": "Ordne die Sachverhalte zu (Abrechnungsperiode: laufender Monat).",
+    "kategorien": [
+      "Neutraler Aufwand",
+      "Grundkosten (Zweckaufwand)",
+      "Anderskosten",
+      "Zusatzkosten",
+      "Weder Aufwand noch Kosten"
+    ],
+    "elemente": [
+      {
+        "text": "Spende an einen Sportverein",
+        "loesung": "Neutraler Aufwand",
+        "erklaerung": "Betriebsfremd: dient nicht der Leistungserstellung."
+      },
+      {
+        "text": "Kalkulatorischer Unternehmerlohn im Einzelunternehmen",
+        "loesung": "Zusatzkosten",
+        "erklaerung": "Kosten ohne entsprechenden Aufwand in der Finanzbuchhaltung."
+      },
+      {
+        "text": "Kalkulatorische Abschreibung, die von der bilanziellen abweicht",
+        "loesung": "Anderskosten",
+        "erklaerung": "Aufwand existiert, wird in der KLR aber anders bewertet."
+      },
+      {
+        "text": "Verbrauch von Rohstoffen in der Fertigung",
+        "loesung": "Grundkosten (Zweckaufwand)",
+        "erklaerung": "Aufwand und Kosten stimmen überein."
+      },
+      {
+        "text": "Tilgung eines Darlehens",
+        "loesung": "Weder Aufwand noch Kosten",
+        "erklaerung": "Nur eine Auszahlung, kein Werteverzehr."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F7-001",
+    "skill": "F7-rap",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 6.3",
+    "frage": "Wann bildet man einen aktiven Rechnungsabgrenzungsposten?",
+    "antwort": "Wenn eine Auszahlung vor dem Bilanzstichtag erfolgt, der zugehörige Aufwand aber ganz oder teilweise in das neue Geschäftsjahr gehört (Zahlung jetzt, Aufwand später).",
+    "beispiel": "Am 1.12. wird die Versicherung für Dezember bis November im Voraus bezahlt: 11/12 werden aktiv abgegrenzt.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "D4-mc-001",
+    "skill": "D4-skonto-verkauf",
+    "typ": "mc",
+    "status": "aktiv",
+    "frage": "Ein Kunde zahlt eine Rechnung über 2.380,00 € (inkl. 19 % USt) unter Abzug von 2 % Skonto. Welcher Betrag wird auf dem Konto Erlösberichtigungen gebucht?",
+    "optionen": [
+      {
+        "text": "40,00 €",
+        "richtig": true
+      },
+      {
+        "text": "47,60 €",
+        "fehlertyp": "keine-steuerkorrektur",
+        "erklaerung": "Das ist der Bruttoskonto. Die enthaltene Umsatzsteuer (7,60 €) wird separat korrigiert."
+      },
+      {
+        "text": "41,03 €",
+        "fehlertyp": "falscher-steuersatz",
+        "erklaerung": "Hier wurde mit 16 % statt 19 % herausgerechnet. Der Steuersatz der Rechnung gilt auch für die Skontokorrektur."
+      },
+      {
+        "text": "7,60 €",
+        "fehlertyp": "steuer-falsches-konto",
+        "erklaerung": "Das ist die Steuerkorrektur; sie gehört auf das Konto Umsatzsteuer."
+      }
+    ],
+    "quelle": "—",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "I4-kurz-001",
+    "skill": "I4-stufenleiter",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K2 1.4.2.3",
+    "frage": "Erläutern Sie, warum beim Stufenleiterverfahren die Reihenfolge der Hilfskostenstellen das Ergebnis beeinflusst.",
+    "punkte": 3,
+    "checkliste": [
+      {
+        "aussage": "Leistungen an bereits abgerechnete Stellen werden nicht mehr verrechnet (Rückflüsse bleiben unberücksichtigt).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Dadurch entsteht ein Fehler, dessen Höhe von der gewählten Reihenfolge abhängt.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Man rechnet die Stelle zuerst ab, die wertmäßig mehr an andere Hilfsstellen abgibt, um den Fehler klein zu halten.",
+        "punkte": 1
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  }
+]

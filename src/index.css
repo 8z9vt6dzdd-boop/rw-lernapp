@@ -1,0 +1,155 @@
+@import 'tailwindcss';
+
+/* Design-Tokens: ruhig, wie gute Finanzsoftware. Hell und dunkel über CSS-Variablen. */
+:root {
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --surface-2: #eef0f3;
+  --surface-3: #e3e6eb;
+  --border: #dde1e7;
+  --border-strong: #c5cbd4;
+  --text: #141920;
+  --muted: #586273;
+  --accent: #1c6670;
+  --accent-hover: #155159;
+  --accent-soft: #e3f0f1;
+  --on-accent: #ffffff;
+  --ok: #17703f;
+  --ok-soft: #e6f4ec;
+  --err: #b3261e;
+  --err-soft: #fbeceb;
+  --warn: #855400;
+  --warn-soft: #fdf3dd;
+  --focus: #2b7fff;
+  --shadow: 0 1px 2px rgb(16 24 40 / 0.06), 0 1px 3px rgb(16 24 40 / 0.08);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='hell']) {
+    --bg: #0e1318;
+    --surface: #151b22;
+    --surface-2: #1c242d;
+    --surface-3: #252f3a;
+    --border: #28323d;
+    --border-strong: #3a4653;
+    --text: #e7eaee;
+    --muted: #9aa4b2;
+    --accent: #5bb6c1;
+    --accent-hover: #7cc8d1;
+    --accent-soft: #15333a;
+    --on-accent: #0b1014;
+    --ok: #5fcf92;
+    --ok-soft: #12301f;
+    --err: #ff8a80;
+    --err-soft: #3a1a17;
+    --warn: #f3bf5a;
+    --warn-soft: #33280f;
+    --focus: #7fb0ff;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.4);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dunkel'] {
+  --bg: #0e1318;
+  --surface: #151b22;
+  --surface-2: #1c242d;
+  --surface-3: #252f3a;
+  --border: #28323d;
+  --border-strong: #3a4653;
+  --text: #e7eaee;
+  --muted: #9aa4b2;
+  --accent: #5bb6c1;
+  --accent-hover: #7cc8d1;
+  --accent-soft: #15333a;
+  --on-accent: #0b1014;
+  --ok: #5fcf92;
+  --ok-soft: #12301f;
+  --err: #ff8a80;
+  --err-soft: #3a1a17;
+  --warn: #f3bf5a;
+  --warn-soft: #33280f;
+  --focus: #7fb0ff;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-err: var(--err);
+  --color-err-soft: var(--err-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --shadow-card: var(--shadow);
+}
+
+html {
+  /* Angesteuerte Felder nicht unter der festen Knopfleiste verstecken */
+  scroll-padding-bottom: 8rem;
+  scroll-padding-top: 1rem;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Tabellarische Ziffern überall, wo Zahlen stehen */
+.num,
+input,
+table {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+input[type='text'],
+input[type='search'] {
+  font-size: 16px; /* verhindert Zoom auf iOS */
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

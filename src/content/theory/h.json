@@ -1,1 +1,330 @@
-[]
+[
+  {
+    "id": "H3-001",
+    "skill": "H3-arbeitskosten",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 2.3, S. 66",
+    "frage": "Aus welchen Bestandteilen setzen sich die Arbeitskosten zusammen?",
+    "antwort": "Aus Löhnen (Zeit- und Leistungslohn), Gehältern, Personalnebenkosten (gesetzliche sowie freiwillige oder tarifliche Sozialkosten), sonstigen Personalkosten (etwa bei Einstellung oder Entlassung) und dem kalkulatorischen Unternehmerlohn.",
+    "beispiel": "Bei der MBG: Akkordlohn im Abfüllteam, Gehalt in der Buchhaltung, Arbeitgeberanteil zur Sozialversicherung, Inserat für eine neue Stelle, Unternehmerlohn für Frank und Sabine Wessel.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H3-002",
+    "skill": "H3-arbeitskosten",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 2.3, S. 66–67",
+    "frage": "Worin unterscheiden sich Zeitlohn und Akkordlohn, und warum ist Akkordlohn meist Einzelkosten?",
+    "antwort": "Der Zeitlohn bezahlt die Dauer der Arbeit und passt, wenn Sorgfalt wichtiger ist als Menge. Der Akkordlohn als wichtigste Form des Leistungslohns richtet sich nach der Arbeitsmenge im Verhältnis zu einer Normalleistung. Je Stück bleiben die Lohnkosten konstant, daher lassen sie sich dem Erzeugnis direkt zurechnen.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H3-mc-003",
+    "skill": "H3-arbeitskosten",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 2.3, S. 67",
+    "frage": "Wie sind Gehälter bezogen auf die Kostenträger in der Regel einzuordnen?",
+    "optionen": [
+      { "text": "Als Gemeinkosten", "richtig": true },
+      {
+        "text": "Als Einzelkosten",
+        "erklaerung": "Einer Kostenstelle wie der Verwaltung lassen sich Gehälter oft direkt zurechnen, dem einzelnen Produkt aber nicht."
+      },
+      {
+        "text": "Als Zusatzkosten",
+        "erklaerung": "Gehälter werden in der Finanzbuchhaltung als Aufwand gebucht. Zusatzkosten sind Kosten ohne Aufwand."
+      },
+      {
+        "text": "Als neutraler Aufwand",
+        "erklaerung": "Gehälter dienen dem Betriebszweck und sind deshalb Kosten."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H3-mc-004",
+    "skill": "H3-arbeitskosten",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 2.3, S. 67",
+    "frage": "Welcher Posten gehört zu den gesetzlichen Sozialkosten?",
+    "optionen": [
+      { "text": "Der Arbeitgeberanteil zur Sozialversicherung", "richtig": true },
+      {
+        "text": "Vermögenswirksame Leistungen",
+        "erklaerung": "Sie werden freiwillig oder aufgrund eines Tarifvertrags gezahlt."
+      },
+      {
+        "text": "Zahlungen aus einer Pensionszusage",
+        "erklaerung": "Pensionszusagen beruhen auf freiwilliger oder tariflicher Grundlage."
+      },
+      {
+        "text": "Sonn- und Feiertagszuschläge",
+        "erklaerung": "Auch diese Zuschläge zählen zu den freiwilligen oder tariflichen Sozialkosten."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H3-mc-005",
+    "skill": "H3-arbeitskosten",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 2.3, S. 67–68",
+    "frage": "Welcher Posten zählt zu den sonstigen Personalkosten?",
+    "optionen": [
+      { "text": "Eine Abfindung bei der Trennung von einem Mitarbeiter", "richtig": true },
+      {
+        "text": "Der Akkordlohn in der Abfüllung",
+        "erklaerung": "Das ist ein Lohn (Leistungslohn)."
+      },
+      {
+        "text": "Der Arbeitgeberanteil zur Sozialversicherung",
+        "erklaerung": "Das ist eine gesetzliche Personalnebenkostenart."
+      },
+      {
+        "text": "Der kalkulatorische Unternehmerlohn",
+        "erklaerung": "Er ist ein eigener Bestandteil der Arbeitskosten."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H3-006",
+    "skill": "H3-arbeitskosten",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 2.3, S. 68–69",
+    "frage": "Warum werden Urlaubslöhne und Weihnachtsgeld in der Kostenrechnung zeitlich abgegrenzt?",
+    "antwort": "Sie belasten einzelne Monate, ohne mit deren Leistung zusammenzuhängen. Verteilt man sie nicht gleichmäßig auf das Jahr, sind manche Monate künstlich teuer und die Kalkulation wird verzerrt. Weicht die spätere Zahlung vom geplanten Betrag ab, geht die Differenz ins neutrale Ergebnis; die Vormonate werden nicht korrigiert.",
+    "beispiel": "Geplantes Weihnachtsgeld 48.000 €, gezahlt im November: In jedem Monat werden 4.000 € Kosten angesetzt.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H3-kurz-001",
+    "skill": "H3-arbeitskosten",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K1 2.3, S. 68",
+    "frage": "Erläutern Sie die Notwendigkeit, in der Kosten- und Leistungsrechnung einen kalkulatorischen Unternehmerlohn zu verrechnen.",
+    "punkte": 3,
+    "checkliste": [
+      {
+        "aussage": "In Einzelunternehmen und Personengesellschaften darf für die Mitarbeit der Inhaber kein Gehalt als Aufwand gebucht werden.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Die Inhaber stellen trotzdem ihre Arbeitskraft zur Verfügung und verzichten auf ein anderes Einkommen: Es entstehen Opportunitätskosten, die als Zusatzkosten in die Kostenrechnung gehören.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Bemessung nach dem Gehaltsniveau von Branche und Region unter Berücksichtigung der Unternehmensgröße; so werden Kosten und Preise mit denen von Kapitalgesellschaften vergleichbar.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Bei Einzelunternehmen und Personengesellschaften wie der MBG OHG erhalten die mitarbeitenden Gesellschafter kein Gehalt, das als Aufwand gebucht werden dürfte. Ihre Arbeitskraft ist aber ein echter Werteverzehr, denn sie könnten anderswo ein Gehalt beziehen (Opportunitätskosten). Deshalb wird ein kalkulatorischer Unternehmerlohn als Zusatzkosten angesetzt, bemessen am branchen- und regionsüblichen Gehalt für ein Unternehmen dieser Größe. Damit sind die Kosten vollständig und mit denen einer Kapitalgesellschaft vergleichbar, deren Geschäftsführer ein Gehalt erhalten.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H3-kurz-002",
+    "skill": "H3-arbeitskosten",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K1 2.3, S. 68–69",
+    "frage": "Erläutern Sie, warum Sonderzahlungen wie das Weihnachtsgeld in der Kostenrechnung zeitlich abgegrenzt werden und wie sich dies auf die Kalkulation auswirkt.",
+    "punkte": 3,
+    "checkliste": [
+      {
+        "aussage": "Sonderzahlungen fallen in einzelnen Monaten an, entstehen aber nicht durch die Leistung gerade dieser Monate.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Der erwartete Jahresbetrag wird gleichmäßig auf alle Monate verteilt (z. B. ein Zwölftel je Monat), damit die Kalkulation nicht verzerrt wird.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Weicht die tatsächliche Zahlung ab, wirkt die Differenz auf das neutrale Ergebnis; die Betriebsergebnisse der Vormonate werden nicht korrigiert.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Weihnachts- oder Urlaubsgeld wird nur in einzelnen Monaten gezahlt, die Mitarbeitenden erarbeiten den Anspruch aber über das ganze Jahr. Würde man die Zahlung dem Auszahlungsmonat anlasten, wären die dort hergestellten Produkte zu teuer und die übrigen zu billig kalkuliert. Deshalb wird der geplante Jahresbetrag gleichmäßig auf alle Monate verteilt. Weicht die spätere Zahlung davon ab, geht die Differenz in das neutrale Ergebnis, ohne die Vormonate zu korrigieren; so bleiben die Monatsergebnisse vergleichbar.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H6-001",
+    "skill": "H6-wagnisse",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 2.4.3, S. 83",
+    "frage": "Welche Wagnisarten unterscheidet die Kostenrechnung?",
+    "antwort": "Entwicklungswagnis (fehlgeschlagene Forschung und Entwicklung), Fertigungswagnis (Ausschuss, Konstruktionsfehler), Beständewagnis (Schwund, Verderb, Veralten von Lagerbeständen) und Vertriebswagnis (etwa Forderungsausfälle und Währungsverluste).",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H6-mc-002",
+    "skill": "H6-wagnisse",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 2.4.3, S. 83–84",
+    "frage": "Welches Risiko darf nicht als kalkulatorisches Wagnis angesetzt werden?",
+    "optionen": [
+      { "text": "Das allgemeine Unternehmerrisiko", "richtig": true },
+      {
+        "text": "Der Verderb von Lagerbeständen",
+        "erklaerung": "Das ist ein typisches Beständewagnis."
+      },
+      {
+        "text": "Ausschuss in der Fertigung",
+        "erklaerung": "Das ist das Fertigungswagnis."
+      },
+      {
+        "text": "Forderungsausfälle",
+        "erklaerung": "Sie gehören zum Vertriebswagnis."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H6-kurz-001",
+    "skill": "H6-wagnisse",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K1 2.4.3, S. 83–84, Lösungshinweis S. 105–106",
+    "frage": "Erläutern Sie, wie kalkulatorische Wagnisse bewertet werden und welche Positionen ihnen in der Finanzbuchhaltung gegenüberstehen.",
+    "punkte": 3,
+    "checkliste": [
+      {
+        "aussage": "Bewertung über Erfahrungs- bzw. Erwartungswerte vergangener Jahre oder der Branche, umgerechnet auf die Bezugsbasis (Prozentsatz oder Betrag je Leistungseinheit); auch übliche Versicherungsprämien können Anhaltspunkt sein.",
+        "punkte": 1
+      },
+      {
+        "aussage": "In der Finanzbuchhaltung stehen die Aufwendungen für tatsächlich eingetretene Schäden gegenüber; Wagniskosten sind deshalb Anderskosten (und Gemeinkosten).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Die Differenz zwischen kalkulatorischem Wagnis und tatsächlichem Schaden geht ins neutrale Ergebnis; allgemeines Unternehmerrisiko und versicherte Risiken werden nicht angesetzt.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Weil Schadensfälle zufällig eintreten, schätzt man aus den Erfahrungen der Vorjahre oder der Branche einen Erwartungswert und bezieht ihn auf eine Basis, etwa als Prozentsatz der Lagerbestände oder Umsätze. Auch die Prämie, die eine Versicherung für das Risiko verlangen würde, kann als Maßstab dienen. In der Finanzbuchhaltung werden dagegen die tatsächlich eingetretenen Schäden als Aufwand gebucht; die Wagniskosten sind daher Anderskosten. Die Differenz zwischen beiden fließt in das neutrale Ergebnis. Nicht angesetzt werden das allgemeine Unternehmerrisiko und Risiken, die bereits versichert sind.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H7-001",
+    "skill": "H7-sonstige-kostenarten",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 2.5, S. 85",
+    "frage": "Wie werden kalkulatorische Kosten im Einkreissystem nach dem Gemeinschaftskontenrahmen der Industrie gebucht?",
+    "antwort": "Die kalkulatorischen Kosten stehen in Kontenklasse 4, die Gegenbuchung als verrechnete kalkulatorische Kosten in Kontenklasse 2. Klasse 4 wird über das Betriebsergebniskonto abgeschlossen, Klasse 2 über das Abgrenzungssammelkonto; beide Salden gehen in die GuV.",
+    "beispiel": "Kalkulatorische Zinsen an verrechnete kalkulatorische Zinsen 5.000 €.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H7-mc-002",
+    "skill": "H7-sonstige-kostenarten",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 2.5, S. 85–86",
+    "frage": "Wie wirkt die Verbuchung kalkulatorischer Kosten auf das Gesamtergebnis in der GuV?",
+    "optionen": [
+      { "text": "Sie ist erfolgsneutral; das Gesamtergebnis ändert sich nicht.", "richtig": true },
+      {
+        "text": "Der Gewinn sinkt um die gesamten kalkulatorischen Kosten.",
+        "erklaerung": "Den kalkulatorischen Kosten im Betriebsergebnis stehen gleich hohe verrechnete Kosten im Abgrenzungsbereich gegenüber."
+      },
+      {
+        "text": "Der Gewinn sinkt nur um die Zusatzkosten.",
+        "erklaerung": "Auch Zusatzkosten werden über ein Gegenkonto verrechnet und heben sich in der GuV auf."
+      },
+      {
+        "text": "Der Gewinn steigt, weil verrechnete Kosten Erträge sind.",
+        "erklaerung": "Die verrechneten Kosten gleichen die gebuchten Kosten nur aus."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H7-003",
+    "skill": "H7-sonstige-kostenarten",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 2.6, S. 86",
+    "frage": "Was sind Kosten für Fremdleistungen, und wie werden sie angesetzt?",
+    "antwort": "Kosten für Leistungen Dritter, etwa Reparaturen, Transporte oder Beratung. Angesetzt wird der Nettorechnungsbetrag; sie sind daher immer Grundkosten (Zweckaufwand). Ob es Einzel- oder Gemeinkosten sind, hängt vom Einzelfall ab.",
+    "beispiel": "Reparatur der Sirupanlage durch eine Fremdfirma: 2.380 € brutto, angesetzt werden 2.000 € netto.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H7-mc-004",
+    "skill": "H7-sonstige-kostenarten",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 2.7, S. 86",
+    "frage": "Welche Steuer hat Kostencharakter?",
+    "optionen": [
+      { "text": "Die Kraftfahrzeugsteuer für die Lieferfahrzeuge", "richtig": true },
+      {
+        "text": "Die Umsatzsteuer",
+        "erklaerung": "Sie ist ein durchlaufender Posten und belastet das Betriebsergebnis nicht."
+      },
+      {
+        "text": "Die Körperschaftsteuer",
+        "erklaerung": "Gewinnsteuern sind Folge und nicht Voraussetzung der betrieblichen Tätigkeit."
+      },
+      {
+        "text": "Die Einkommensteuer der Gesellschafter",
+        "erklaerung": "Auch sie hängt am Gewinn, nicht an der Leistungserstellung."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H7-005",
+    "skill": "H7-sonstige-kostenarten",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 2.7, S. 86–87",
+    "frage": "Warum sind Gewinnsteuern wie Körperschaft- oder Einkommensteuer keine Kosten?",
+    "antwort": "Sie sind nicht Voraussetzung, sondern Folge der betrieblichen Tätigkeit: Sie entstehen erst, wenn ein Gewinn erzielt wurde. Ein Betrieb kann auch mit Verlust oder ohne Gewinn arbeiten.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H7-006",
+    "skill": "H7-sonstige-kostenarten",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 2.7, S. 86–87",
+    "frage": "Worin unterscheiden sich Steuern von Gebühren und Beiträgen, und wie sind diese Abgaben einzuordnen?",
+    "antwort": "Steuern stehen keine direkten Gegenleistungen gegenüber, Gebühren (etwa Zölle, Maut) und Beiträgen (etwa IHK-Pflichtbeitrag) dagegen erkennbare Leistungen der öffentlichen Hand. Kostensteuern, Gebühren und Beiträge gehen in gleicher Höhe in die Kostenrechnung ein (Grundkosten), gegebenenfalls zeitlich abgegrenzt.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "H7-kurz-001",
+    "skill": "H7-sonstige-kostenarten",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K1 2.7, S. 86–87, Lösungshinweis S. 104",
+    "frage": "Erläutern Sie, ob eine Ökosteuer auf den Energieverbrauch der Produktion Kostencharakter hat, und grenzen Sie sie von der Einkommen- bzw. Körperschaftsteuer ab.",
+    "punkte": 3,
+    "checkliste": [
+      {
+        "aussage": "Die Ökosteuer ist eine Verbrauchsteuer und Teil des Einstandspreises des Produktionsfaktors Energie.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Sie hängt ursächlich mit der Leistungserstellung zusammen und hat deshalb Kostencharakter (Kostensteuer).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Einkommen- und Körperschaftsteuer sind Gewinnsteuern: Folge, nicht Voraussetzung des Wirtschaftens, daher keine Kosten.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Die Ökosteuer wird auf den Energieverbrauch erhoben. Als Verbrauchsteuer erhöht sie den Einstandspreis der Energie, die für die Produktion gebraucht wird; sie entsteht also ursächlich durch die Leistungserstellung und hat Kostencharakter. Einkommen- und Körperschaftsteuer knüpfen dagegen an den Gewinn an. Sie sind Folge und nicht Voraussetzung der betrieblichen Tätigkeit und gehören zur Gewinnverwendung, deshalb sind sie keine Kosten.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  }
+]

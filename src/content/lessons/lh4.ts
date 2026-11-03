@@ -251,7 +251,7 @@ export const lektionH4: Lektion = {
       cliffhanger: {
         figur: 'leni',
         ausdruck: 'gruebelt',
-        text: 'Die Energieabteilung meldet Kosten von 30.000 € für den Monat. Aber wer hat den Strom eigentlich verbraucht?',
+        text: 'In der Maschine stecken jetzt 100.000 € von unserem Geld. Auf dem Festgeldkonto hätte es Zinsen gebracht – kostet uns das auch etwas?',
       },
     },
   ],

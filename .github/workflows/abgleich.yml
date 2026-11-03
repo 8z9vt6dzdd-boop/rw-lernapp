@@ -48,6 +48,14 @@ jobs:
           node-version: 24
       - run: npm ci --prefix sync-worker
         if: steps.zugang.outputs.ok == 'true'
+      - name: Zugang prüfen (Konto und Berechtigungen)
+        if: steps.zugang.outputs.ok == 'true'
+        working-directory: sync-worker
+        run: |
+          npx wrangler whoami || true
+          echo "Länge der Konto-ID: ${#CLOUDFLARE_ACCOUNT_ID} (erwartet 32)"
+          curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" https://api.cloudflare.com/client/v4/user/tokens/verify | node -e "const r=JSON.parse(require('fs').readFileSync(0,'utf8'));console.log('Token gültig:', r.success, r.result && r.result.status)"
+          curl -s -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" https://api.cloudflare.com/client/v4/accounts | node -e "const r=JSON.parse(require('fs').readFileSync(0,'utf8'));const ids=(r.result||[]).map(a=>a.id);console.log('Konten mit Zugriff:', ids.length, 'Konto-ID passt:', ids.includes(process.env.CLOUDFLARE_ACCOUNT_ID))"
       - name: Datenbank anlegen bzw. finden
         if: steps.zugang.outputs.ok == 'true'
         working-directory: sync-worker

@@ -1,1 +1,981 @@
-[]
+[
+  {
+    "id": "F1-001",
+    "skill": "F1-bilanztheorien",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 4.1, S. 115",
+    "frage": "Womit befassen sich Bilanztheorien?",
+    "antwort": "Mit den Aufgaben, dem Inhalt und der Ausgestaltung des Jahresabschlusses aus wirtschaftswissenschaftlicher Sicht – unabhängig von gesetzlichen Regeln. Den nachhaltigsten Einfluss auf das heutige deutsche Bilanzrecht haben die statische und die dynamische Bilanzauffassung.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F1-002",
+    "skill": "F1-bilanztheorien",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 4.2, S. 116",
+    "frage": "Was ist nach der statischen Bilanztheorie (Simon) die wesentliche Aufgabe der Bilanz?",
+    "antwort": "Die Ermittlung des Reinvermögens (Eigenkapitals) zum Stichtag. Im Vordergrund steht der Vermögensstatus zur Schuldendeckungskontrolle: Gläubiger sollen das Haftungspotenzial und die Liquiditätslage erkennen. Ein Gewinn oder Verlust zeigt sich als Änderung des Reinvermögens gegenüber der Vorjahresbilanz.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F1-003",
+    "skill": "F1-bilanztheorien",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 4.2, S. 116–117",
+    "frage": "Was unterscheidet Fortführungsstatik und Zerschlagungsstatik?",
+    "antwort": "Fortführungsstatik (Simon): Bewertet wird unter der Annahme, dass das Unternehmen fortgeführt wird – Anschaffungspreise abzüglich Abschreibungen. Zerschlagungsstatik (Reichsoberhandelsgericht 1873): Das Schuldendeckungspotenzial wird für den ungünstigsten Fall ermittelt, also zu Versilberungswerten bei Zerschlagung des Unternehmens.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F1-004",
+    "skill": "F1-bilanztheorien",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 4.3, S. 118–119",
+    "frage": "Welches Ziel verfolgt die dynamische Bilanztheorie (Schmalenbach)?",
+    "antwort": "Einen vergleichbaren Periodenerfolg – im Zeitablauf oder zwischen Unternehmen – als Maßstab der Wirtschaftlichkeit. Hauptaufgabe ist die Erfolgsermittlung in der GuV. Die Bilanz ist ihr Hilfsmittel: Als „Kräftespeicher“ nimmt sie die Posten auf, die noch nicht erfolgswirksam geworden sind.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F1-005",
+    "skill": "F1-bilanztheorien",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 4.3, S. 120",
+    "frage": "Was steht in der dynamischen Bilanz nach Schmalenbach auf der Aktivseite neben den Geldmitteln?",
+    "optionen": [
+      {
+        "text": "Vorleistungen: Einnahmen und Aufwendungen späterer Perioden",
+        "richtig": true
+      },
+      {
+        "text": "Nachleistungen: Erträge und Ausgaben späterer Perioden",
+        "erklaerung": "Diese Posten stehen auf der Passivseite neben dem Kapital."
+      },
+      {
+        "text": "Das Reinvermögen des Unternehmens",
+        "erklaerung": "Das Reinvermögen zu ermitteln ist das Ziel der statischen Bilanz."
+      },
+      {
+        "text": "Alle Gegenstände zu ihren Zerschlagungswerten",
+        "erklaerung": "Das entspricht der Zerschlagungsstatik des Reichsoberhandelsgerichts, nicht Schmalenbach."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F1-006",
+    "skill": "F1-bilanztheorien",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 4.3, S. 121",
+    "frage": "Welcher Kritikpunkt wird gegen Schmalenbachs Bilanzschema vorgebracht?",
+    "optionen": [
+      {
+        "text": "Auf Kredit beschaffte, noch nicht verbrauchte Rohstoffe lassen sich in dem Schema nicht unterbringen.",
+        "richtig": true
+      },
+      {
+        "text": "Das Schema kennt keine Abschreibungen.",
+        "erklaerung": "Im Gegenteil: Abschreibungen verteilen die Anschaffungsausgabe auf die Nutzungsperioden."
+      },
+      {
+        "text": "Das Schema stellt die Bilanz über die GuV.",
+        "erklaerung": "Bei Schmalenbach hat die Erfolgsrechnung den Vorrang."
+      },
+      {
+        "text": "Das Schema verlangt Zuschreibungen über die Anschaffungskosten hinaus.",
+        "erklaerung": "Schmalenbach lehnt Zuschreibungen aus Vorsichtsgründen grundsätzlich ab."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F1-007",
+    "skill": "F1-bilanztheorien",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 4.3, S. 121",
+    "frage": "Nach welchem Ziel wird in der dynamischen Bilanztheorie bewertet?",
+    "antwort": "Nach der Vergleichbarkeit der Periodenerfolge (relative Richtigkeit); Verzerrungen der Vermögenslage (absolute Richtigkeit) werden in Kauf genommen. Deshalb: höchstens Anschaffungs- oder Herstellungskosten, Vorräte nach dem Niederstwertprinzip, Zuschreibungen grundsätzlich abgelehnt.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F1-008",
+    "skill": "F1-bilanztheorien",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 4.4, S. 121–122",
+    "frage": "Welche heutige Regelung geht auf die statische Bilanztheorie zurück?",
+    "optionen": [
+      {
+        "text": "Der Grundsatz der Einzelbewertung (§ 252 Abs. 1 Nr. 3 HGB)",
+        "richtig": true
+      },
+      {
+        "text": "Die Bildung von Rechnungsabgrenzungsposten (§ 250 HGB)",
+        "erklaerung": "Periodengerechte Abgrenzung unabhängig von der Zahlung ist dynamisches Gedankengut."
+      },
+      {
+        "text": "Die Angabe von Vorjahreszahlen (§ 265 Abs. 2 HGB)",
+        "erklaerung": "Sie dient der Vergleichbarkeit im Zeitablauf – ein dynamischer Gedanke."
+      },
+      {
+        "text": "Die Stetigkeit der Methoden (§ 252 Abs. 1 Nr. 6 HGB)",
+        "erklaerung": "Auch die Stetigkeit sichert die Vergleichbarkeit – ebenfalls dynamisch."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F1-009",
+    "skill": "F1-bilanztheorien",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 4.4, S. 121–122",
+    "frage": "Nennen und erläutern Sie je zwei heutige handelsrechtliche Regelungen, die auf die statische bzw. auf die dynamische Bilanztheorie zurückgehen.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Statisch: Bewertung unter der Annahme der Unternehmensfortführung (going concern, § 252 Abs. 1 Nr. 2 HGB) – entspricht Simons Fortführungsstatik.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Statisch: Grundsatz der Einzelbewertung (§ 252 Abs. 1 Nr. 3 HGB) oder die Definition von Vermögensgegenständen und Schulden als selbständig bewertbare Werte bzw. Belastungen.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Dynamisch: periodengerechte Erfassung von Aufwendungen und Erträgen ohne Rücksicht auf den Tag der Zahlung (§ 252 Abs. 1 Nr. 5 HGB), etwa Rechnungsabgrenzungsposten (§ 250 HGB) oder planmäßige Abschreibung.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Dynamisch: Vergleichbarkeit im Zeitablauf, etwa Methoden- und Darstellungsstetigkeit oder die Angabe von Vorjahreszahlen (§ 265 Abs. 2 HGB).",
+        "punkte": 1
+      }
+    ],
+    "muster": "Auf die statische Bilanztheorie geht die Bewertung unter der Annahme der Unternehmensfortführung zurück (§ 252 Abs. 1 Nr. 2 HGB); sie entspricht Simons Fortführungsstatik. Ebenso stammt der Grundsatz der Einzelbewertung (§ 252 Abs. 1 Nr. 3 HGB) aus Simons Vorgehen. Dynamisches Gedankengut zeigt sich in der periodengerechten Erfassung von Aufwendungen und Erträgen unabhängig von der Zahlung (§ 252 Abs. 1 Nr. 5 HGB), zum Beispiel bei Rechnungsabgrenzungsposten und der Pflicht zur planmäßigen Abschreibung abnutzbarer Anlagen. Auch Vorschriften zur Vergleichbarkeit im Zeitablauf, etwa die Stetigkeit und die Angabe von Vorjahreszahlen, gehen auf die dynamische Sicht zurück.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F1-010",
+    "skill": "F1-bilanztheorien",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 4.2–4.3, S. 116–121",
+    "frage": "Erläutern Sie den Unterschied zwischen der statischen und der dynamischen Bilanztheorie. Geben Sie an, welches Rechenwerk jeweils im Mittelpunkt steht.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Statische Theorie (Simon): Hauptaufgabe ist die Ermittlung des Reinvermögens (Eigenkapitals) zum Stichtag.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Zweck ist die Schuldendeckungskontrolle (Gläubigerschutz); die Bilanz steht im Mittelpunkt, die GuV ist nur buchtechnisch angebunden.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Dynamische Theorie (Schmalenbach): Ziel ist ein vergleichbarer Periodenerfolg als Maßstab der Wirtschaftlichkeit.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Die GuV steht im Mittelpunkt; die Bilanz ist Hilfsmittel der Erfolgsrechnung („Kräftespeicher“) und nimmt die schwebenden Posten auf.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Nach der statischen Bilanztheorie, die auf Simon zurückgeht, soll die Bilanz das Reinvermögen des Unternehmens zum Stichtag ermitteln. Sie dient vor allem der Kontrolle, ob die Schulden gedeckt sind, und damit den Gläubigern. Im Mittelpunkt steht die Bilanz; die GuV ist mit ihr nur buchtechnisch verbunden. Die dynamische Bilanztheorie, maßgeblich von Schmalenbach geprägt, will dagegen einen vergleichbaren Periodenerfolg als Maßstab der Wirtschaftlichkeit ermitteln. Hier steht die GuV im Mittelpunkt. Die Bilanz ist nur ihr Hilfsmittel: Sie nimmt als „Kräftespeicher“ die Posten auf, die noch nicht erfolgswirksam geworden sind.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F2-001",
+    "skill": "F2-hgb-grundlagen",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.1, S. 124–128",
+    "frage": "Wie ist das Dritte Buch des HGB gegliedert?",
+    "antwort": "§§ 238 ff.: Vorschriften für alle Kaufleute. §§ 264 ff.: ergänzende Vorschriften für Kapitalgesellschaften (AG, KGaA, GmbH) und bestimmte Personengesellschaften. §§ 336 ff.: eingetragene Genossenschaften. §§ 340 ff.: Unternehmen bestimmter Geschäftszweige wie Kredit- und Finanzdienstleistungsinstitute, Versicherungsunternehmen und Pensionsfonds.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F2-002",
+    "skill": "F2-hgb-grundlagen",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.1, S. 124 und 129",
+    "frage": "Was regeln die Vorschriften für alle Kaufleute (§§ 238 ff. HGB)?",
+    "antwort": "Buchführung und Inventar, Eröffnungsbilanz und Jahresabschluss (Aufstellung, Ansatz und Bewertung), die Aufbewahrung von Unterlagen mit ihren Fristen und die Vorlage im Rechtsstreit. Die Ansatzvorschriften stehen in den §§ 246–251, die Bewertungsvorschriften in den §§ 252–256.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F2-003",
+    "skill": "F2-hgb-grundlagen",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 5.1, S. 125",
+    "frage": "Nach welchen Merkmalen teilt § 267 HGB Kapitalgesellschaften in kleine, mittelgroße und große ein?",
+    "optionen": [
+      {
+        "text": "Bilanzsumme, Umsatzerlöse und Zahl der Arbeitnehmer",
+        "richtig": true
+      },
+      {
+        "text": "Eigenkapital, Gewinn und Zahl der Gesellschafter",
+        "erklaerung": "Weder Eigenkapital noch Gewinn sind Größenmerkmale nach § 267 HGB."
+      },
+      {
+        "text": "Rechtsform, Branche und Börsennotierung",
+        "erklaerung": "Die Rechtsform entscheidet, ob die §§ 264 ff. gelten – nicht über die Größenklasse."
+      },
+      {
+        "text": "Umsatzerlöse, Gewinn und Steuerlast",
+        "erklaerung": "Nur die Umsatzerlöse gehören zu den Merkmalen; dazu kommen Bilanzsumme und Arbeitnehmerzahl."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F2-004",
+    "skill": "F2-hgb-grundlagen",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 5.1, S. 126 (Tabelle 3)",
+    "frage": "Welche Unterlagen muss eine mittelgroße Kapitalgesellschaft offenlegen?",
+    "optionen": [
+      {
+        "text": "Bilanz (verkürzt mit Zusatzangaben), GuV und Anhang (je verkürzt) sowie den Lagebericht",
+        "richtig": true
+      },
+      {
+        "text": "Nur Bilanz und Anhang, jeweils verkürzt",
+        "erklaerung": "Das ist der Umfang für kleine Kapitalgesellschaften."
+      },
+      {
+        "text": "Bilanz, GuV, Anhang und Lagebericht, jeweils vollständig",
+        "erklaerung": "Das gilt für große Kapitalgesellschaften."
+      },
+      {
+        "text": "Keine – offenlegen müssen nur große Kapitalgesellschaften",
+        "erklaerung": "Alle Größenklassen legen offen, nur in unterschiedlichem Umfang."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F2-005",
+    "skill": "F2-hgb-grundlagen",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.1, S. 127 (Tabelle 4)",
+    "frage": "Welche Aufstellungs- und Offenlegungsfristen gelten für Kapitalgesellschaften?",
+    "antwort": "Aufstellung (§ 264 HGB): kleine Kapitalgesellschaften innerhalb von 6 Monaten, mittelgroße und große innerhalb von 3 Monaten. Offenlegung (§ 325 HGB): für alle Größenklassen innerhalb von 12 Monaten.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F2-006",
+    "skill": "F2-hgb-grundlagen",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.1, S. 127; Lösungshinweis zu Übungsaufgabe 20",
+    "frage": "Woraus besteht der Jahresabschluss einer OHG und woraus der einer Kapitalgesellschaft?",
+    "antwort": "Einzelkaufleute und Personengesellschaften wie die OHG (sofern sie nicht unter das Publizitätsgesetz fallen): Bilanz und GuV. Kapitalgesellschaften: zusätzlich ein Anhang (§ 264 Abs. 1 HGB). Als eigenständiges Informationsinstrument kommt der Lagebericht (§ 289 HGB) hinzu; offenlegen müssen ihn mittelgroße und große Kapitalgesellschaften.",
+    "pruefung": {
+      "faktenabgleich": "korrigiert: Lagebericht nicht als Teil des Jahresabschlusses und nicht pauschal für kleine Kapitalgesellschaften behauptet (Lösungshinweis Übungsaufgabe 20 verkürzt; Tabelle 3 maßgeblich)",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F2-007",
+    "skill": "F2-hgb-grundlagen",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.1, S. 127",
+    "frage": "Welche Aufgaben haben Anhang und Lagebericht?",
+    "antwort": "Der Anhang ergänzt, korrigiert und entlastet Bilanz und GuV und unterstützt ihre Interpretation; sein Inhalt ist in den §§ 284–288 HGB geregelt, eine Gliederung schreibt das Gesetz nicht vor. Der Lagebericht (§ 289 HGB) verdichtet die Angaben des Jahresabschlusses und ergänzt sie sachlich und zeitlich.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F2-008",
+    "skill": "F2-hgb-grundlagen",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 5.1, S. 124 (Fußnote 43)",
+    "frage": "Eine GmbH & Co. KG ist rechtlich eine Personengesellschaft. Welche Rechnungslegungsvorschriften gelten für sie?",
+    "optionen": [
+      {
+        "text": "Zusätzlich die ergänzenden Vorschriften für Kapitalgesellschaften (§§ 264 ff. HGB), weil eine Kapitalgesellschaft Vollhafter ist",
+        "richtig": true
+      },
+      {
+        "text": "Nur die Vorschriften für alle Kaufleute (§§ 238 ff. HGB)",
+        "erklaerung": "Seit dem KapCoRiLiG werden solche &-Co-Gesellschaften wie Kapitalgesellschaften behandelt."
+      },
+      {
+        "text": "Die Vorschriften für eingetragene Genossenschaften",
+        "erklaerung": "Die §§ 336 ff. betreffen nur eingetragene Genossenschaften."
+      },
+      {
+        "text": "Gar keine, da Personengesellschaften nicht bilanzieren müssen",
+        "erklaerung": "Jeder Kaufmann muss bilanzieren – auch Personengesellschaften."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F2-009",
+    "skill": "F2-hgb-grundlagen",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.1.1, S. 6 (Abb. 1)",
+    "frage": "Wer sind interne und wer externe Adressaten des Rechnungswesens?",
+    "antwort": "Intern: Geschäftsführung, Abteilungsleiter und Mitarbeiter. Extern: Gläubiger, Staat, Aktionäre bzw. Anteilseigner, Mitarbeiter, Gewerkschaften und die Öffentlichkeit.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F2-010",
+    "skill": "F2-hgb-grundlagen",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 5.1, S. 124–128",
+    "frage": "Erläutern Sie den Aufbau des Dritten Buches des HGB und geben Sie an, welche Vorschriften für eine OHG gelten.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Vorschriften für alle Kaufleute (§§ 238 ff. HGB): Buchführung, Inventar, Eröffnungsbilanz und Jahresabschluss, Aufbewahrung.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Ergänzende Vorschriften für Kapitalgesellschaften und bestimmte Personengesellschaften (§§ 264 ff. HGB), etwa Anhang, Lagebericht, Prüfung, Offenlegung; abgestuft nach Größenklassen (§ 267 HGB).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Ergänzende Vorschriften für eingetragene Genossenschaften (§§ 336 ff. HGB) und für bestimmte Geschäftszweige wie Kreditinstitute und Versicherungen (§§ 340 ff. HGB).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Für eine OHG, deren Gesellschafter natürliche Personen sind, gelten nur die Vorschriften für alle Kaufleute.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Das Dritte Buch des HGB enthält die handelsrechtlichen Rechnungslegungsvorschriften. Die §§ 238 ff. gelten für alle Kaufleute: Sie regeln Buchführung und Inventar, Eröffnungsbilanz und Jahresabschluss einschließlich Ansatz und Bewertung sowie die Aufbewahrung. Die §§ 264 ff. ergänzen diese Regeln für Kapitalgesellschaften und bestimmte Personengesellschaften (etwa die GmbH & Co. KG), zum Beispiel um Anhang, Lagebericht, Prüfung und Offenlegung; der Umfang hängt von der Größenklasse nach § 267 ab. Weitere ergänzende Vorschriften gibt es für eingetragene Genossenschaften (§§ 336 ff.) und für Kreditinstitute, Versicherungen und Pensionsfonds (§§ 340 ff.). Eine OHG mit natürlichen Personen als Gesellschaftern unterliegt nur den Vorschriften für alle Kaufleute.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F2-Z01",
+    "skill": "F2-hgb-grundlagen",
+    "typ": "mc",
+    "status": "zurueckgehalten",
+    "quelle": "BA 5.1, S. 125 (Tabelle 2); Übungsaufgabe 23",
+    "frage": "Eine GmbH hat an zwei aufeinanderfolgenden Stichtagen 120 Arbeitnehmer, eine Bilanzsumme von 30 Mio. € und Umsatzerlöse von 10 Mio. €. Zu welcher Größenklasse gehört sie?",
+    "optionen": [
+      {
+        "text": "Mittelgroß",
+        "richtig": true
+      },
+      {
+        "text": "Groß",
+        "erklaerung": "Nur die Bilanzsumme überschreitet die Grenze für große Kapitalgesellschaften."
+      },
+      {
+        "text": "Klein",
+        "erklaerung": "Arbeitnehmerzahl und Bilanzsumme liegen über den Grenzen für kleine Kapitalgesellschaften."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "zurueckgehalten: Schwellenwerte im Lehrbrief (6/12 Mio. €, 20/40 Mio. €) entsprechen nicht dem geltenden § 267 HGB; die Zwei-von-drei-Regel steht im Lehrbrief nur implizit. Siehe docs/m7/f1.md",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F3-001",
+    "skill": "F3-wertmassstaebe",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.2, S. 131–133",
+    "frage": "Welche Wertmaßstäbe sind für die Bewertung im Jahresabschluss von Bedeutung?",
+    "antwort": "Anschaffungskosten, Herstellungskosten, fortgeführte Anschaffungs- oder Herstellungskosten (nach planmäßigen Abschreibungen) und der Tageswert (auch Zeit- oder Wiederbeschaffungswert), abgeleitet aus Börsen- oder Marktpreis. Der Teilwert ist ein steuerlicher Wertbegriff (§ 6 Abs. 1 EStG).",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F3-002",
+    "skill": "F3-wertmassstaebe",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 5.2, S. 131–132 (Tabelle 5)",
+    "frage": "Welche Kosten dürfen nicht in die Herstellungskosten nach § 255 Abs. 2 HGB einbezogen werden?",
+    "optionen": [
+      {
+        "text": "Vertriebsgemeinkosten",
+        "richtig": true
+      },
+      {
+        "text": "Materialeinzelkosten",
+        "erklaerung": "Sie sind Pflichtbestandteil der Herstellungskosten."
+      },
+      {
+        "text": "Kosten der allgemeinen Verwaltung",
+        "erklaerung": "Sie dürfen einbezogen werden (Wahlbestandteil)."
+      },
+      {
+        "text": "Sondereinzelkosten der Fertigung",
+        "erklaerung": "Sie gehören zu den Pflichtbestandteilen."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F3-003",
+    "skill": "F3-wertmassstaebe",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.3.1, S. 135–136",
+    "frage": "Was bedeutet das Vorsichtsprinzip für die Bewertung?",
+    "antwort": "Es dient der Kapitalerhaltung und damit dem Gläubigerschutz: Vermögensteile zum niedrigeren, Schulden zum höheren Wert ansetzen und vorhersehbare Risiken und Verluste erfassen. Anschaffungs- oder Herstellungskosten bilden die Wertobergrenze, damit keine noch nicht realisierten Gewinne ausgewiesen werden.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F3-004",
+    "skill": "F3-wertmassstaebe",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 5.3.1, S. 136 (Abb. 84)",
+    "frage": "Erläutern Sie den Unterschied zwischen strengem und gemildertem Niederstwertprinzip.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Strenges Niederstwertprinzip: gilt für das Umlaufvermögen; von Anschaffungs- bzw. Herstellungskosten, Börsen- oder Marktpreis und beizulegendem Wert ist stets der niedrigste anzusetzen.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Es gilt uneingeschränkt, also auch bei nur vorübergehender Wertminderung.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Gemildertes Niederstwertprinzip: gilt für das Anlagevermögen; außerplanmäßig abgeschrieben werden muss nur bei voraussichtlich dauernder Wertminderung.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Bei Finanzanlagen sind außerplanmäßige Abschreibungen auch bei voraussichtlich nicht dauernder Wertminderung möglich.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Beide Prinzipien sind Ausprägungen des Vorsichtsprinzips. Das strenge Niederstwertprinzip gilt für das Umlaufvermögen: Von den Anschaffungs- oder Herstellungskosten, dem Börsen- oder Marktpreis und dem am Stichtag beizulegenden Wert ist immer der niedrigste anzusetzen – auch wenn die Wertminderung nur vorübergehend ist. Das gemilderte Niederstwertprinzip gilt für das Anlagevermögen: Eine außerplanmäßige Abschreibung auf den niedrigeren beizulegenden Wert ist nur bei voraussichtlich dauernder Wertminderung vorgeschrieben. Lediglich bei Finanzanlagen darf auch bei nur vorübergehender Wertminderung abgeschrieben werden.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F3-005",
+    "skill": "F3-wertmassstaebe",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 5.3.1, S. 136; Übungsaufgabe 25 mit Lösungshinweis",
+    "frage": "Welche Aussage zum Höchstwertprinzip ist richtig?",
+    "optionen": [
+      {
+        "text": "Es ist eine Ausprägung des kaufmännischen Vorsichtsprinzips.",
+        "richtig": true
+      },
+      {
+        "text": "Es unterscheidet ein strenges und ein gemildertes Höchstwertprinzip.",
+        "erklaerung": "Diese Unterscheidung gibt es beim Niederstwertprinzip, nicht beim Höchstwertprinzip."
+      },
+      {
+        "text": "Es wird auf sämtliche Posten der Passivseite angewendet.",
+        "erklaerung": "Es betrifft die Bewertung von Schulden, nicht pauschal jeden Posten der Passivseite."
+      },
+      {
+        "text": "Es verlangt, Schulden mit dem niedrigeren von zwei Werten anzusetzen.",
+        "fehlertyp": "hoechstwert-missachtet",
+        "erklaerung": "Umgekehrt: Schulden werden mit dem höheren Wert angesetzt."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F3-006",
+    "skill": "F3-wertmassstaebe",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.3.1, S. 137–138",
+    "frage": "Was besagt das Prinzip der Wertaufhellung?",
+    "antwort": "Erkenntnisse, die nach dem Bilanzstichtag bis zur Aufstellung des Jahresabschlusses gewonnen werden, sind zu berücksichtigen – aber nur, soweit sie Vorgänge und Tatsachen betreffen, die bis zum Stichtag eingetreten sind. Was erst nach dem Stichtag entsteht, bleibt unberücksichtigt.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F4-001",
+    "skill": "F4-ansatz",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.3.2, S. 138",
+    "frage": "Was verlangt der Grundsatz der Vollständigkeit (§ 246 Abs. 1 HGB)?",
+    "antwort": "Sämtliche Vermögensgegenstände, Schulden und Rechnungsabgrenzungsposten sind in der Bilanz anzusetzen. Für sie besteht damit eine Bilanzierungspflicht – es sei denn, das Gesetz sieht ein Bilanzierungswahlrecht oder ein Bilanzierungsverbot vor.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F4-002",
+    "skill": "F4-ansatz",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.3.2, S. 138",
+    "frage": "Wem ist ein Wirtschaftsgut nach dem wirtschaftlichen Eigentum zuzurechnen?",
+    "antwort": "Demjenigen, der – ohne rechtlicher Eigentümer zu sein – tatsächlich über das Wirtschaftsgut bestimmt und den rechtlichen Eigentümer in der Regel während der gewöhnlichen Nutzungsdauer von jeder Einwirkung ausschließen kann (§ 39 Abs. 2 Nr. 1 AO).",
+    "beispiel": "Ware, die unter Eigentumsvorbehalt geliefert wurde, bilanziert der Erwerber.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F4-003",
+    "skill": "F4-ansatz",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 5.3.2, S. 138–139",
+    "frage": "Ein Leasingvertrag ohne Kauf- oder Verlängerungsoption hat eine Grundmietzeit von 95 % der betriebsgewöhnlichen Nutzungsdauer. Wem ist der Leasinggegenstand zuzurechnen?",
+    "optionen": [
+      {
+        "text": "Dem Leasingnehmer",
+        "richtig": true
+      },
+      {
+        "text": "Dem Leasinggeber",
+        "erklaerung": "Beim Leasinggeber bleibt er nur bei einer Grundmietzeit zwischen 40 % und 90 % der Nutzungsdauer ohne Option."
+      },
+      {
+        "text": "Leasinggeber und Leasingnehmer je zur Hälfte",
+        "erklaerung": "Ein Gegenstand wird immer nur einem zugerechnet."
+      },
+      {
+        "text": "Keinem von beiden",
+        "erklaerung": "Nach dem Grundsatz der Vollständigkeit muss ihn jemand bilanzieren."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F4-004",
+    "skill": "F4-ansatz",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 5.3.4, S. 140",
+    "frage": "Für welchen Posten besteht ein Bilanzierungsverbot?",
+    "optionen": [
+      {
+        "text": "Aufwendungen für die Gründung des Unternehmens und für die Beschaffung des Eigenkapitals (§ 248 Abs. 1 HGB)",
+        "richtig": true
+      },
+      {
+        "text": "Disagio eines Darlehens (§ 250 Abs. 3 HGB)",
+        "erklaerung": "Für das Disagio besteht ein Aktivierungswahlrecht."
+      },
+      {
+        "text": "Rechnungsabgrenzungsposten",
+        "erklaerung": "Sie unterliegen nach § 246 Abs. 1 HGB der Bilanzierungspflicht."
+      },
+      {
+        "text": "Pensionsrückstellungen für Zusagen vor dem 1.1.1987",
+        "erklaerung": "Hier besteht ein Passivierungswahlrecht."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F4-005",
+    "skill": "F4-ansatz",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.3.4, S. 140",
+    "frage": "Was besagt das Verrechnungsverbot, und welche Ausnahmen gibt es?",
+    "antwort": "Nach § 246 Abs. 2 Satz 1 HGB dürfen Soll- nicht mit Habensalden und Aufwendungen nicht mit Erträgen verrechnet werden. Ausnahmen sind zum Beispiel der Abzug der Erlösschmälerungen von den Umsatzerlösen (§ 277 Abs. 1 HGB) und die Zusammenfassung bestimmter GuV-Posten zum Rohergebnis.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F4-006",
+    "skill": "F4-ansatz",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.3.3, S. 139",
+    "frage": "Wie werden schwebende Geschäfte bilanziert?",
+    "antwort": "Schwebende Geschäfte sind abgeschlossen, aber von beiden Seiten noch nicht erfüllt. Solange Leistung und Gegenleistung gleichwertig sind, erscheinen sie nicht in der Bilanz; das Realisationsprinzip verhindert einen vorzeitigen Gewinnausweis. Für einen drohenden Verlust ist schon bei Erkennbarkeit eine Rückstellung zu bilden – steuerlich ist sie untersagt.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F4-007",
+    "skill": "F4-ansatz",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 5.3.3, S. 139",
+    "frage": "Wann werden Forderungen aus Lieferungen und Leistungen bilanziell erfasst?",
+    "optionen": [
+      {
+        "text": "Wenn sie als realisiert gelten; in der Praxis in der Regel bei Rechnungsstellung",
+        "richtig": true
+      },
+      {
+        "text": "Erst bei Zahlungseingang",
+        "erklaerung": "Bei Geldfluss werden Zahlungsvorgänge erfasst; die Forderung entsteht schon vorher."
+      },
+      {
+        "text": "Schon bei Vertragsabschluss",
+        "erklaerung": "Dann liegt noch ein schwebendes Geschäft vor, das nicht bilanziert wird."
+      },
+      {
+        "text": "Erst am Bilanzstichtag",
+        "erklaerung": "Der Stichtag ist kein Erfassungszeitpunkt für einzelne Forderungen."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F4-008",
+    "skill": "F4-ansatz",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 5.3.2 und 5.3.4, S. 138–140",
+    "frage": "Erläutern Sie die Begriffe Bilanzierungspflicht, Bilanzierungswahlrecht und Bilanzierungsverbot und nennen Sie jeweils ein Beispiel.",
+    "punkte": 3,
+    "checkliste": [
+      {
+        "aussage": "Pflicht: Nach dem Grundsatz der Vollständigkeit (§ 246 Abs. 1 HGB) sind alle Vermögensgegenstände, Schulden und Rechnungsabgrenzungsposten anzusetzen, zum Beispiel Vorräte oder Verbindlichkeiten.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Wahlrecht: Der Ansatz ist erlaubt, aber nicht vorgeschrieben, zum Beispiel ein Disagio (§ 250 Abs. 3 HGB) oder Pensionsrückstellungen für Zusagen vor dem 1.1.1987.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Verbot: Der Ansatz ist untersagt, zum Beispiel für Aufwendungen der Gründung und der Eigenkapitalbeschaffung (§ 248 Abs. 1 HGB) oder für Rückstellungen, die § 249 Abs. 1 HGB nicht nennt.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Eine Bilanzierungspflicht ergibt sich aus dem Grundsatz der Vollständigkeit: Alle Vermögensgegenstände, Schulden und Rechnungsabgrenzungsposten sind anzusetzen, etwa die Vorräte. Ein Bilanzierungswahlrecht erlaubt den Ansatz, ohne ihn zu verlangen; Beispiel ist das Disagio, also der Unterschied zwischen höherem Rückzahlungs- und niedrigerem Ausgabebetrag einer Verbindlichkeit. Ein Bilanzierungsverbot untersagt den Ansatz; so dürfen Aufwendungen für die Gründung des Unternehmens und für die Beschaffung des Eigenkapitals nicht aktiviert werden.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F4-009",
+    "skill": "F4-ansatz",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 5.3.2, S. 138–139",
+    "frage": "Erklären Sie das Rechtsinstitut des wirtschaftlichen Eigentums und nennen Sie ein Beispiel aus der Bilanzierungspraxis.",
+    "punkte": 3,
+    "checkliste": [
+      {
+        "aussage": "Für die Zurechnung in der Bilanz zählt das wirtschaftliche, nicht das rechtliche Eigentum (§ 39 Abs. 2 Nr. 1 AO).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Wirtschaftlicher Eigentümer ist, wer die tatsächliche Herrschaft ausübt und den rechtlichen Eigentümer im Regelfall für die gewöhnliche Nutzungsdauer ausschließen kann.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Beispiel: Ware unter Eigentumsvorbehalt bilanziert der Erwerber; oder Leasing mit Grundmietzeit über 90 % bzw. unter 40 % der Nutzungsdauer beim Leasingnehmer.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Ob ein Gegenstand in die eigene Bilanz gehört, richtet sich nicht nach dem rechtlichen, sondern nach dem wirtschaftlichen Eigentum (§ 39 Abs. 2 Nr. 1 AO). Wirtschaftlicher Eigentümer ist, wer – ohne rechtlicher Eigentümer zu sein – tatsächlich über das Wirtschaftsgut bestimmt und den rechtlichen Eigentümer während der gewöhnlichen Nutzungsdauer in aller Regel von jeder Einwirkung ausschließen kann. Beispiel: Ware, die unter Eigentumsvorbehalt geliefert wurde, bilanziert der Erwerber, obwohl sie rechtlich bis zur Bezahlung dem Lieferanten gehört.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F4-010",
+    "skill": "F4-ansatz",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.3.2, S. 139",
+    "frage": "Bei welchen Unternehmen spielt die Abgrenzung zwischen Betriebs- und Privatvermögen eine Rolle?",
+    "antwort": "Bei Personengesellschaften und Einzelunternehmen. Kapitalgesellschaften besitzen kein Privatvermögen; für sie stellt sich die Frage nicht.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F5-001",
+    "skill": "F5-bewertung-uv",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.3.5.1, S. 143",
+    "frage": "Welche Posten zählen nach § 266 HGB zum Umlaufvermögen, und wie gliedern sich die Vorräte?",
+    "antwort": "Umlaufvermögen: Vorräte; Forderungen und sonstige Vermögensgegenstände; Wertpapiere; Kassenbestand, Bank- und Postbankguthaben sowie Schecks. Zu den Vorräten gehören Handelswaren, Roh-, Hilfs- und Betriebsstoffe sowie unfertige und fertige Erzeugnisse.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F5-002",
+    "skill": "F5-bewertung-uv",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 5.3.5.1, S. 144",
+    "frage": "Welche Annahme liegt dem Lifo-Verfahren zugrunde?",
+    "optionen": [
+      {
+        "text": "Die zuletzt beschafften Güter werden zuerst verbraucht; der Endbestand stammt aus Anfangsbestand und ersten Zugängen.",
+        "richtig": true
+      },
+      {
+        "text": "Die zuerst beschafften Güter werden zuerst verbraucht; der Endbestand stammt aus den letzten Zugängen.",
+        "fehlertyp": "endbestand-fifo-lifo-vertauscht",
+        "erklaerung": "Das ist das Fifo-Verfahren."
+      },
+      {
+        "text": "Alle Einheiten werden mit dem gewogenen Durchschnittspreis bewertet.",
+        "erklaerung": "Das ist die Durchschnittsmethode (§ 240 Abs. 4 HGB)."
+      },
+      {
+        "text": "Ein fester Bestand wird jedes Jahr mit demselben Wert angesetzt.",
+        "erklaerung": "Das ist der Festwert (§ 240 Abs. 3 HGB)."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F5-003",
+    "skill": "F5-bewertung-uv",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.3.5.1, S. 144 (Abb. 86)",
+    "frage": "Unter welchen Voraussetzungen ist ein Festwert zulässig (§ 240 Abs. 3 HGB)?",
+    "antwort": "Für regelmäßig ersetzte Gegenstände des Sachanlagevermögens und für Roh-, Hilfs- und Betriebsstoffe, wenn ihr Gesamtwert für das Unternehmen von nachrangiger Bedeutung ist und sich Wert, Menge und Zusammensetzung nur geringfügig ändern. Eine Festmenge wird dann zu einem festen Wert angesetzt und in den Folgejahren beibehalten.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F5-004",
+    "skill": "F5-bewertung-uv",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 5.3.5.1, S. 143–145; BA 5.3.1, S. 136",
+    "frage": "Der Endbestand an Etiketten hat nach dem Fifo-Verfahren Anschaffungskosten von 8.400 €. Der Tageswert am Bilanzstichtag beträgt 7.900 €. Mit welchem Wert wird der Bestand bilanziert?",
+    "optionen": [
+      {
+        "text": "7.900 €",
+        "richtig": true
+      },
+      {
+        "text": "8.400 €",
+        "fehlertyp": "niederstwert-missachtet",
+        "erklaerung": "Im Umlaufvermögen gilt das strenge Niederstwertprinzip: Der niedrigere Tageswert ist anzusetzen."
+      },
+      {
+        "text": "8.150 €",
+        "erklaerung": "Einen Mittelwert aus beiden Werten sieht das Gesetz nicht vor."
+      },
+      {
+        "text": "500 €",
+        "erklaerung": "Das ist die notwendige Abschreibung, nicht der Bilanzansatz."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F5-005",
+    "skill": "F5-bewertung-uv",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.3.5.1, S. 145",
+    "frage": "Entbindet eine Bewertungsvereinfachung (Durchschnitt, Fifo, Lifo) vom Niederstwerttest?",
+    "antwort": "Nein. Die Verfahren dienen nur der vereinfachten Ermittlung der Anschaffungs- oder Herstellungskosten. Am Bilanzstichtag ist trotzdem zu prüfen, ob eine Abschreibung auf einen niedrigeren Wert geboten ist.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F5-006",
+    "skill": "F5-bewertung-uv",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 5.3.5.1, S. 143–145",
+    "frage": "Erläutern Sie, wie gleichartige Vorräte am Bilanzstichtag bewertet werden.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Grundsätzlich gilt die Einzelbewertung; bei gleichartigen Vorräten aus Lieferungen zu verschiedenen Preisen ist sie kaum möglich, daher ist eine Sammel- bzw. Gruppenbewertung erlaubt.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Gewogener Durchschnitt (§ 240 Abs. 4 HGB): Gesamtwert ÷ Gesamtmenge; auch steuerlich anerkannt.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Fifo: Endbestand aus den letzten Zugängen; Lifo: Endbestand aus Anfangsbestand und ersten Zugängen.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Danach strenges Niederstwertprinzip: Liegt der Tageswert darunter, wird er angesetzt; höchstens die Anschaffungskosten.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Vorräte sind grundsätzlich einzeln zu bewerten. Setzt sich ein Bestand aus Lieferungen zu unterschiedlichen Preisen zusammen, ist das kaum möglich; deshalb erlaubt das Gesetz für gleichartige Vorräte eine Sammel- bzw. Gruppenbewertung. Beim gewogenen Durchschnitt wird der Gesamtwert aus Anfangsbestand und Zugängen durch die Gesamtmenge geteilt. Das Fifo-Verfahren unterstellt, dass das zuerst Beschaffte zuerst verbraucht wird, sodass der Endbestand aus den letzten Zugängen stammt; beim Lifo-Verfahren stammt er aus dem Anfangsbestand und den ersten Zugängen. Die so ermittelten Anschaffungskosten werden anschließend mit dem Tageswert verglichen: Im Umlaufvermögen gilt das strenge Niederstwertprinzip, also der niedrigere Wert.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "F5-007",
+    "skill": "F5-bewertung-uv",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 5.3.5.1, S. 144 (Fußnote 47)",
+    "frage": "Welche Inventurverfahren gibt es für das Vorratsvermögen?",
+    "antwort": "Die Stichtagsinventur: körperliche Aufnahme zum Stichtag, zulässig innerhalb von 10 Tagen davor oder danach mit Fortschreibung bzw. Rückrechnung. Sie lässt sich ersetzen durch die permanente Inventur oder die verlegte Inventur innerhalb der letzten drei Monate vor bzw. der ersten zwei Monate nach dem Stichtag.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  }
+]

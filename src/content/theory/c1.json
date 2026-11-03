@@ -1,1 +1,230 @@
-[]
+[
+  {
+    "id": "C1-k-001",
+    "skill": "C1-bestand-vs-aufwand",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.1.2, S. 83 (mit Fußnote 25); BA 3.1.5, S. 95",
+    "frage": "Welche zwei Wege gibt es, den Einkauf von Werkstoffen und Handelswaren zu buchen?",
+    "antwort": "Bestandsorientiert: Der Einkauf erhöht das Bestandskonto (z. B. Rohstoffe), der Verbrauch wird später als Aufwand gebucht. Aufwandsorientiert (Just-in-time): Der Einkauf wird sofort auf dem Aufwandskonto (z. B. Aufwendungen für Rohstoffe) erfasst. Das lohnt sich vor allem, wenn die Lieferung direkt in die Produktion geht.",
+    "pruefung": {
+      "faktenabgleich": "ok – gegen BA 3.1.2 (S. 83, Fn. 25) und 3.1.5 (S. 95) geprüft",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "C1-k-002",
+    "skill": "C1-bestand-vs-aufwand",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.1.1, S. 81",
+    "frage": "Wie ermittelt man den Verbrauch mit der Inventurmethode und wie mit der Fortschreibungsmethode?",
+    "antwort": "Inventurmethode: Verbrauch = Anfangsbestand + Zugänge − Schlussbestand laut Inventur (der Verbrauch ergibt sich nachträglich). Fortschreibungs- bzw. Skontrationsmethode: Jede Entnahme wird einzeln mit Entnahmeschein gebucht; Anfangsbestand + Zugänge − Entnahmen = Schlussbestand.",
+    "pruefung": {
+      "faktenabgleich": "ok – gegen BA 3.1.1 (S. 81) geprüft",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "C1-k-003",
+    "skill": "C1-bestand-vs-aufwand",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.1.5, S. 95–96 (Abb. 66 und 67)",
+    "frage": "Was steht bei aufwandsorientierter Erfassung auf dem Bestandskonto Rohstoffe?",
+    "antwort": "Nur drei Positionen: Anfangsbestand, Schlussbestand und die Bestandsveränderung. Ein Mehrbestand steht im Soll (Gegenkonto: Aufwendungen für Rohstoffe im Haben, der Aufwand sinkt), ein Minderbestand im Haben (Aufwendungen für Rohstoffe im Soll, der Aufwand steigt).",
+    "pruefung": {
+      "faktenabgleich": "ok – gegen BA 3.1.5 (S. 95 f., Abb. 66/67) geprüft",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "C1-mc-001",
+    "skill": "C1-bestand-vs-aufwand",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 3.1.5, S. 95–96",
+    "frage": "Aufwandsorientierte Erfassung: Anfangsbestand Rohstoffe 8.000 €, Schlussbestand laut Inventur 5.000 €. Welche Buchung ist für die Bestandsveränderung richtig?",
+    "optionen": [
+      {
+        "text": "Aufwendungen für Rohstoffe an Rohstoffe 3.000 €",
+        "richtig": true
+      },
+      {
+        "text": "Rohstoffe an Aufwendungen für Rohstoffe 3.000 €",
+        "fehlertyp": "mehr-minder-verwechselt",
+        "erklaerung": "Der Schlussbestand ist kleiner als der Anfangsbestand: ein Minderbestand. Er erhöht den Aufwand und steht deshalb im Soll des Aufwandskontos."
+      },
+      {
+        "text": "Aufwendungen für Rohstoffe an Rohstoffe 5.000 €",
+        "fehlertyp": "schlussbestand-als-verbrauch",
+        "erklaerung": "Der Schlussbestand geht ins SBK. Gebucht wird nur die Differenz zwischen Anfangs- und Schlussbestand."
+      },
+      {
+        "text": "Bestandsveränderungen an Rohstoffe 3.000 €",
+        "erklaerung": "Das Konto Bestandsveränderungen gehört zu den unfertigen und fertigen Erzeugnissen. Bei Werkstoffen ist das Gegenkonto das Aufwandskonto."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok – gegen BA 3.1.5 (S. 95 f., Abb. 66) geprüft",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "C2-k-001",
+    "skill": "C2-bezugskosten",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.1.2, S. 83–84",
+    "frage": "Was sind Bezugskosten und welche typischen Beispiele gibt es?",
+    "antwort": "Bezugskosten sind Anschaffungsnebenkosten beim Einkauf von Werkstoffen und Handelswaren. Sie erhöhen die Anschaffungskosten (§ 255 Abs. 1 HGB). Beispiele: Fracht und Hausfracht, Porto, Transportversicherung, Verpackung, Provisionen für Handelsvertreter oder Makler.",
+    "pruefung": {
+      "faktenabgleich": "ok – gegen BA 3.1.2 (S. 83 f., Abb. 55 und Merkkasten) geprüft",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "C2-k-002",
+    "skill": "C2-bezugskosten",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.1.2, S. 83–84 (Abb. 56–58)",
+    "frage": "Wie werden Bezugskosten buchhalterisch erfasst und abgeschlossen?",
+    "antwort": "Netto auf einem eigenen Unterkonto, z. B. „Bezugskosten für Rohstoffe“, damit sie kontrolliert werden können; die Vorsteuer wird abgezogen, denn Bezugskosten sind umsatzsteuerpflichtig. Spätestens am Jahresende: „Rohstoffe an Bezugskosten für Rohstoffe“.",
+    "beispiel": "Fracht 600 € netto: Bezugskosten für Rohstoffe 600 €, Vorsteuer 114 € an Verbindlichkeiten a. LL 714 €.",
+    "pruefung": {
+      "faktenabgleich": "ok – gegen BA 3.1.2 (S. 83 f., Abb. 56–58) geprüft",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "C2-mc-001",
+    "skill": "C2-bezugskosten",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 3.1.2, S. 83–84",
+    "frage": "Eine Spedition bringt Hilfsstoffe ins Werk und berechnet 238 € einschließlich 19 % USt, die bar bezahlt werden. Welche Buchung ist richtig?",
+    "optionen": [
+      {
+        "text": "Bezugskosten für Hilfsstoffe 200 €, Vorsteuer 38 € an Kasse 238 €",
+        "richtig": true
+      },
+      {
+        "text": "Ausgangsfrachten 200 €, Vorsteuer 38 € an Kasse 238 €",
+        "fehlertyp": "bezugskosten-als-ausgangsfracht",
+        "erklaerung": "Ausgangsfrachten entstehen nur beim Versand an Kunden. Fracht für den Einkauf sind Bezugskosten."
+      },
+      {
+        "text": "Bezugskosten für Hilfsstoffe 238 € an Kasse 238 €",
+        "fehlertyp": "bezugskosten-ohne-vorsteuer",
+        "erklaerung": "Bezugskosten sind umsatzsteuerpflichtig: Die enthaltene Vorsteuer von 38 € wird abgezogen."
+      },
+      {
+        "text": "Hilfsstoffe an Bezugskosten für Hilfsstoffe 200 €",
+        "fehlertyp": "umbuchung-unterkonto-richtung",
+        "erklaerung": "Das ist die Umbuchung am Periodenende, nicht die Buchung der Speditionsrechnung."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok – gegen BA 3.1.2 (S. 83 f.) geprüft",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "C3-k-001",
+    "skill": "C3-ruecksendung-einkauf",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.1.3, S. 86",
+    "frage": "Wie wird eine Rücksendung an den Lieferer gebucht und warum wird dabei die Vorsteuer korrigiert?",
+    "antwort": "Die Rücksendung mindert nachträglich den gebuchten Werkstoffwert. Sie wird als Storno auf dem Bestandskonto zurückgebucht: Verbindlichkeiten a. LL an Stoffkonto und an Vorsteuer. Weil der Nettowert die Bemessungsgrundlage der Steuer ist, wird die Vorsteuer anteilig mit rückgängig gemacht.",
+    "pruefung": {
+      "faktenabgleich": "ok – gegen BA 3.1.3 (S. 86) geprüft; Lehrbrief spricht von Umsatzsteuer (Vorsteuer)",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "C4-k-001",
+    "skill": "C4-nachlaesse-einkauf",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.1.4.1, S. 87; BA 3.1.4.2, S. 90",
+    "frage": "Welche nachträglichen Preisnachlässe im Einkauf gibt es und wo werden sie gebucht?",
+    "antwort": "Preisnachlass nach anerkannter Mängelrüge (die Ware bleibt), Nachlass aus Kulanz, Boni bzw. Treuerabatt und Skonto. Sie mindern die Verbindlichkeit und werden nicht direkt auf dem Werkstoffkonto, sondern auf einem Unterkonto „Nachlässe für …“ gebucht.",
+    "pruefung": {
+      "faktenabgleich": "ok – gegen BA 3.1.4.1 (S. 87) und 3.1.4.2 (S. 90) geprüft",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "C4-k-002",
+    "skill": "C4-nachlaesse-einkauf",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.1.4.1, S. 87",
+    "frage": "Wie werden Sofortrabatte und Naturalrabatte buchhalterisch behandelt?",
+    "antwort": "Gar nicht gesondert: Ein Sofortrabatt mindert den Rechnungsbetrag schon im Voraus, ein Naturalrabatt erhöht die Liefermenge ohne Berechnung. Gebucht wird gleich der geminderte Rechnungspreis.",
+    "pruefung": {
+      "faktenabgleich": "ok – gegen BA 3.1.4.1 (S. 87) geprüft",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "C4-k-003",
+    "skill": "C4-nachlaesse-einkauf",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.1.4.1, S. 88–90 (Abb. 61 und 62)",
+    "frage": "Worin unterscheiden sich Netto- und Bruttomethode bei nachträglichen Nachlässen?",
+    "antwort": "Nettomethode: Der Nachlass wird netto auf dem Nachlasskonto gebucht, die Vorsteuer sofort korrigiert. Bruttomethode: Der Nachlass steht zunächst brutto auf dem Nachlasskonto; die Vorsteuer wird erst am Ende des Umsatzsteuer-Voranmeldungszeitraums mit „Nachlässe an Vorsteuer“ berichtigt.",
+    "pruefung": {
+      "faktenabgleich": "ok – gegen BA 3.1.4.1 (S. 88–90, Abb. 61/62) geprüft",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "C4-mc-001",
+    "skill": "C4-nachlaesse-einkauf",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 3.1.4.1, S. 88–89",
+    "frage": "Warum muss bei einem nachträglichen Preisnachlass im Einkauf die Vorsteuer gekürzt werden?",
+    "optionen": [
+      {
+        "text": "Weil das Entgelt und damit die Bemessungsgrundlage der Umsatzsteuer gesunken ist.",
+        "richtig": true
+      },
+      {
+        "text": "Weil die Ware an den Lieferer zurückgeht.",
+        "fehlertyp": "ruecksendung-als-nachlass",
+        "erklaerung": "Beim Preisnachlass bleibt die Ware bei der MBG. Nur der Preis sinkt – und mit ihm die Steuer."
+      },
+      {
+        "text": "Weil Nachlässe immer umsatzsteuerfrei sind.",
+        "fehlertyp": "nachlass-ohne-vorsteuer",
+        "erklaerung": "Der Nachlass enthält anteilig Steuer. Genau dieser Anteil wird bei der Vorsteuer korrigiert."
+      },
+      {
+        "text": "Weil der Lieferer dadurch Umsatzsteuer nachzahlen muss.",
+        "fehlertyp": "steuer-falsches-konto",
+        "erklaerung": "Der Lieferer schuldet weniger Umsatzsteuer; die MBG darf entsprechend weniger Vorsteuer abziehen."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok – gegen BA 3.1.4.1 (S. 88 f.) und 3.1.4.2 (S. 91, Minderung der Bemessungsgrundlage) geprüft",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  }
+]

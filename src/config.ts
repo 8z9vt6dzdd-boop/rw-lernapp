@@ -65,7 +65,7 @@ export const FIRMA: FirmaConfig = {
 export const UST_STANDARD = '0.19';
 
 /** Adresse des Abgleich-Dienstes (Cloudflare Worker, `sync-worker/`), wird beim Einrichten gesetzt. */
-const PRODUKTIV_SYNC_URL = '';
+const PRODUKTIV_SYNC_URL = 'https://rw-lernapp-sync.gphc72nt7b.workers.dev';
 
 /**
  * Adresse des Abgleich-Dienstes. Leer = Abgleich aus.

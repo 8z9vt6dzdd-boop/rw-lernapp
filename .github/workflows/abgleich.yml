@@ -79,9 +79,14 @@ jobs:
           url=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
           echo "Adresse: $url"
           echo "### Abgleich-Dienst: $url" >> "$GITHUB_STEP_SUMMARY"
-          code=$(curl -s -o /dev/null -w '%{http_code}' -H 'Origin: https://8z9vt6dzdd-boop.github.io' "$url/pull?code=x")
-          echo "Probeaufruf: HTTP $code (400 erwartet)"
-          test "$code" = "400"
+          # Neue workers.dev-Adressen brauchen manchmal ein bis zwei Minuten
+          for i in 1 2 3 4 5 6 7 8 9; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' -H 'Origin: https://8z9vt6dzdd-boop.github.io' "$url/pull?code=x")
+            echo "Probeaufruf $i: HTTP $code (400 erwartet)"
+            [ "$code" = "400" ] && exit 0
+            sleep 20
+          done
+          exit 1
       - name: Gemeldete Inhalte ausgeben
         if: steps.zugang.outputs.ok == 'true' && env.AKTION == 'meldungen'
         run: node scripts/meldungen.ts | tee -a "$GITHUB_STEP_SUMMARY"

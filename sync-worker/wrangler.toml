@@ -8,4 +8,4 @@ ERLAUBT = "https://8z9vt6dzdd-boop.github.io"
 [[d1_databases]]
 binding = "DB"
 database_name = "rw-lernapp-sync"
-database_id = "PLATZHALTER"
+database_id = "93cd7d89-7478-4493-bdf5-6612b8601b4a"

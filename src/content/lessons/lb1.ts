@@ -113,7 +113,7 @@ export const lektionB1: Lektion = {
           kategorie: 'Umsatzsteuer (die MBG schuldet sie)',
         },
         {
-          text: 'Steuer auf der Rechnung des Zuckerlieferanten',
+          text: 'Steuer auf der Rechnung des Aromenlieferanten',
           kategorie: 'Vorsteuer (die MBG bekommt sie zurück)',
         },
         {
@@ -243,7 +243,7 @@ export const lektionB1: Lektion = {
       cliffhanger: {
         figur: 'tobias',
         ausdruck: 'gruebelt',
-        text: 'Morgen kommen 20 Paletten Zucker mit Rechnung. Und wo trage ich da die Steuer ein?',
+        text: 'Morgen kommen zwölf Kanister Zitrusaroma mit Rechnung. Und wo trage ich da die Steuer ein?',
       },
     },
   ],

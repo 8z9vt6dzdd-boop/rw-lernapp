@@ -9,8 +9,9 @@ const e = (v: Val) => formatEuro(v.value);
 const UST = '0.19';
 const steuer = (netto: string) => new Val(netto).times(UST).fix();
 
-const Z_NETTO = new Val('6000');
-const Z_VST = steuer('6000');
+// Zitrusaroma: 12 Kanister à 25 kg, 20 € je kg netto
+const Z_NETTO = new Val('20').times(12 * 25);
+const Z_VST = steuer(Z_NETTO.value.toString());
 const Z_BRUTTO = Z_NETTO.plus(Z_VST);
 
 const D_VST = steuer('4000');
@@ -43,7 +44,7 @@ export const lektionB2: Lektion = {
   teaser: {
     figur: 'tobias',
     ausdruck: 'gruebelt',
-    text: 'Morgen kommen 20 Paletten Zucker. Und wo trage ich die Steuer ein?',
+    text: 'Morgen kommen zwölf Kanister Zitrusaroma. Und wo trage ich die Steuer ein?',
   },
   screens: [
     {
@@ -51,11 +52,11 @@ export const lektionB2: Lektion = {
       ort: 'lager',
       visual: {
         typ: 'beleg',
-        absender: 'Zuckerkontor Hellwegland KG (Lippstadt)',
+        absender: 'Aromahaus Tewes GmbH (Bielefeld)',
         nummer: '2026-0207',
         datum: '20.01.',
         zeilen: [
-          { text: 'Kristallzucker, 20 Paletten', betrag: Z_NETTO.value.toString() },
+          { text: 'Zitrusaroma, 12 Kanister à 25 kg', betrag: Z_NETTO.value.toString() },
           { text: 'zzgl. 19 % Umsatzsteuer', betrag: Z_VST.value.toString() },
           { text: 'Rechnungsbetrag', betrag: Z_BRUTTO.value.toString(), fett: true },
         ],
@@ -70,18 +71,18 @@ export const lektionB2: Lektion = {
         {
           figur: 'jana',
           ausdruck: 'gruebelt',
-          text: `Dann wäre unser Zucker ${e(Z_VST)} teurer, als er ist.`,
+          text: `Dann wäre unser Aroma ${e(Z_VST)} teurer, als es ist.`,
         },
       ],
       frage: 'Wohin gehört die Steuer auf der Rechnung?',
     },
     {
       typ: 'vorhersage',
-      frage: `Wo bucht die MBG die ${e(Z_VST)} Steuer aus der Zuckerrechnung?`,
+      frage: `Wo bucht die MBG die ${e(Z_VST)} Steuer aus der Aromenrechnung?`,
       optionen: [
         { text: 'Auf dem Konto Vorsteuer im Soll', richtig: true },
         { text: 'Auf dem Konto Umsatzsteuer im Haben' },
-        { text: 'Zusammen mit dem Zucker auf Rohstoffe' },
+        { text: 'Zusammen mit dem Aroma auf Rohstoffe' },
       ],
       aufloesung: `Die MBG holt sich diese Steuer vom Finanzamt zurück. Sie ist eine Forderung – Konto Vorsteuer, Zugang im Soll. Auf Rohstoffe kommen nur die ${e(Z_NETTO)} netto.`,
     },
@@ -113,7 +114,7 @@ export const lektionB2: Lektion = {
         art: 'tkonto-buchen',
         konto: 'Vorsteuer',
         vorgaenge: [
-          { text: 'Steuer aus der Zuckerrechnung', betrag: Z_VST.value.toString(), seite: 'soll' },
+          { text: 'Steuer aus der Aromenrechnung', betrag: Z_VST.value.toString(), seite: 'soll' },
           { text: 'Steuer aus der Dosenrechnung', betrag: D_VST.value.toString(), seite: 'soll' },
           {
             text: 'Rücksendung beschädigter Dosen: Steuerkorrektur',

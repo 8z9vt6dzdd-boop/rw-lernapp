@@ -32,9 +32,9 @@ export const FIRMA: FirmaConfig = {
   lieferanten: {
     rohstoffe: [
       'Aromahaus Tewes GmbH (Bielefeld)',
-      'Zuckerkontor Hellwegland KG (Lippstadt)',
+      'Grundstoffhandel Hellwegland KG (Lippstadt)',
       'Fruchtkonzentrate Brakemeier GmbH (Detmold)',
-      'Malzmühle Eggetal GmbH (Warburg)',
+      'Brauereibedarf Eggetal GmbH (Warburg)',
     ],
     hilfsstoffe: [
       'Dosenwerk Rüther KG (Bielefeld)',

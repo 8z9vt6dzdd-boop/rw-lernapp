@@ -14,7 +14,7 @@ const basis: AusgangsfrachtParams = {
   betrag: '1190',
   zahlung: 'kasse',
   stoff: 'Rohstoffe',
-  gegenstand: 'Zucker',
+  gegenstand: 'Aromen',
   kunde: 'Testkunde',
   produkt: '„Senne Lemon“',
   warenwert: '0',

@@ -31,9 +31,9 @@ export interface Gegenstand {
 export const GEGENSTAENDE: Record<Stoff, Gegenstand[]> = {
   Rohstoffe: [
     { name: 'Aromen', einheit: 'kg', preis: '24', kgJeEinheit: '1' },
-    { name: 'Zucker', einheit: 'kg', preis: '0.8', kgJeEinheit: '1' },
+    { name: 'Zitrusaromen', einheit: 'kg', preis: '18', kgJeEinheit: '1' },
     { name: 'Fruchtsaftkonzentrat', einheit: 'l', preis: '3.5', kgJeEinheit: '1' },
-    { name: 'Braumalz', einheit: 'kg', preis: '0.6', kgJeEinheit: '1' },
+    { name: 'Tequila-Aroma', einheit: 'kg', preis: '30', kgJeEinheit: '1' },
   ],
   Hilfsstoffe: [
     { name: 'Getränkedosen', einheit: 'Stück', preis: '0.1', kgJeEinheit: '0.02' },

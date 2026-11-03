@@ -114,7 +114,7 @@ export const lektionC4: Lektion = {
           erklaerung: 'Ware bleibt, nur der Preis sinkt (Mängelrüge).',
         },
         {
-          text: 'Jahresbonus vom Zuckerlieferanten',
+          text: 'Jahresbonus vom Aromenlieferanten',
           kategorie: 'Nachlass (Unterkonto Nachlässe)',
           erklaerung: 'Ein Bonus mindert nachträglich den Einkaufspreis.',
         },
@@ -170,7 +170,7 @@ export const lektionC4: Lektion = {
     },
     {
       typ: 'wer-hat-recht',
-      frage: `Zuckerkontor Hellwegland gewährt einen Bonus von 2 % auf ${formatEuro(BASIS.jahresumsatz)} Vorjahresumsatz. Wie bucht die MBG?`,
+      frage: `Das Aromahaus Tewes gewährt einen Bonus von 2 % auf ${formatEuro(BASIS.jahresumsatz)} Vorjahresumsatz. Wie bucht die MBG?`,
       a: {
         figur: 'tobias',
         ausdruck: 'freut',
@@ -179,7 +179,7 @@ export const lektionC4: Lektion = {
       b: {
         figur: 'jana',
         ausdruck: 'erklaert',
-        text: 'Der Bonus macht unseren Zucker nachträglich billiger. Also Nachlässe für Rohstoffe.',
+        text: 'Der Bonus macht unsere Aromen nachträglich billiger. Also Nachlässe für Rohstoffe.',
       },
       richtig: 'b',
       begruendungen: [

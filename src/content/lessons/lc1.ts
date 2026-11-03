@@ -10,8 +10,8 @@ const BASIS: C1Params = {
   variante: 'inventur-bestand',
   erfassung: 'bestand',
   stoff: 'Rohstoffe',
-  gegenstand: 'Zucker',
-  partner: 'Zuckerkontor Hellwegland KG (Lippstadt)',
+  gegenstand: 'Aromen',
+  partner: 'Aromahaus Tewes GmbH (Bielefeld)',
   ustSatz: '0.19',
   netto: '0',
   ab: '6000',
@@ -46,7 +46,7 @@ export const lektionC1: Lektion = {
   teaser: {
     figur: 'leni',
     ausdruck: 'gruebelt',
-    text: `Wir kaufen Zucker für ${ZUGANG}. Ist das jetzt Aufwand oder liegt das Geld im Lager?`,
+    text: `Wir kaufen Aromen für ${ZUGANG}. Ist das jetzt Aufwand oder liegt das Geld im Lager?`,
   },
   screens: [
     {
@@ -54,9 +54,9 @@ export const lektionC1: Lektion = {
       ort: 'lager',
       visual: {
         typ: 'lager',
-        titel: 'Zuckersilo im Werk Paderborn, Februar',
+        titel: 'Aromenlager im Werk Paderborn, Februar',
         tanks: [
-          { name: 'Zucker 1. Februar', fuellung: 0.4, farbe: '#e2b13c' },
+          { name: 'Aromen 1. Februar', fuellung: 0.4, farbe: '#e2b13c' },
           { name: 'nach zwei Lieferungen', fuellung: 0.95, farbe: '#e2b13c' },
           { name: 'Inventur 31. März', fuellung: 0.3, farbe: '#e2b13c' },
         ],
@@ -65,7 +65,7 @@ export const lektionC1: Lektion = {
         {
           figur: 'leni',
           ausdruck: 'gruebelt',
-          text: `Zwei Lieferungen Zucker für zusammen ${ZUGANG}. Haben wir jetzt ${ZUGANG} Kosten?`,
+          text: `Zwei Lieferungen Aromen für zusammen ${ZUGANG}. Haben wir jetzt ${ZUGANG} Kosten?`,
         },
         {
           figur: 'jana',
@@ -73,7 +73,7 @@ export const lektionC1: Lektion = {
           text: 'Kommt darauf an, wie wir den Einkauf erfassen. Es gibt zwei Wege.',
         },
       ],
-      frage: 'Ist ein Einkauf sofort Aufwand – oder erst, wenn der Zucker verbraucht ist?',
+      frage: 'Ist ein Einkauf sofort Aufwand – oder erst, wenn die Aromen verbraucht sind?',
     },
     {
       typ: 'dialog',
@@ -98,7 +98,7 @@ export const lektionC1: Lektion = {
     },
     {
       typ: 'vorhersage',
-      frage: `Die MBG legt Zucker für ${Z1} netto ins Silo. Noch ist kein Gramm davon verarbeitet. Was ist passiert?`,
+      frage: `Die MBG legt Aromen für ${Z1} netto ins Lager. Noch ist kein Tropfen davon verarbeitet. Was ist passiert?`,
       optionen: [
         { text: `Die MBG hat ${Z1} Aufwand.` },
         {
@@ -107,11 +107,11 @@ export const lektionC1: Lektion = {
         },
         { text: 'Gar nichts, solange die Rechnung nicht bezahlt ist.' },
       ],
-      aufloesung: `Solange der Zucker im Silo liegt, ist er Vermögen. Bestandsorientiert wird er deshalb auf dem Bestandskonto Rohstoffe gebucht: Rohstoffe ${Z1}, Vorsteuer ${e(EINKAUF.vorsteuer)} an Verbindlichkeiten a. LL ${e(EINKAUF.rechnung)}.`,
+      aufloesung: `Solange die Aromen im Lager stehen, sind sie Vermögen. Bestandsorientiert werden sie deshalb auf dem Bestandskonto Rohstoffe gebucht: Rohstoffe ${Z1}, Vorsteuer ${e(EINKAUF.vorsteuer)} an Verbindlichkeiten a. LL ${e(EINKAUF.rechnung)}.`,
     },
     {
       typ: 'konzept',
-      titel: 'Zwei Wege für denselben Zucker',
+      titel: 'Zwei Wege für dieselben Aromen',
       text: 'Bestandsorientiert: Einkauf aufs Bestandskonto, der Verbrauch wird später Aufwand. Aufwandsorientiert („Just-in-time“): Einkauf sofort als Aufwand, am Periodenende wird nur die Bestandsveränderung nachgebucht.',
       visual: {
         typ: 'karten',
@@ -151,7 +151,7 @@ export const lektionC1: Lektion = {
           erklaerung: 'Großer Vorrat, der nach und nach verbraucht wird.',
         },
         {
-          text: 'Frische Aromen werden täglich passend zur Abfüllmenge geliefert.',
+          text: 'Kohlensäure kommt täglich per Tankwagen, passend zur Abfüllmenge.',
           kategorie: 'Eher aufwandsorientiert',
           erklaerung: 'Was kommt, wird sofort verarbeitet – kaum Lagerbestand.',
         },
@@ -160,22 +160,22 @@ export const lektionC1: Lektion = {
     {
       typ: 'vorgerechnet',
       titel: 'Bestandsorientiert: Verbrauch per Inventur',
-      text: `Anfangsbestand Zucker ${AB}, Einkäufe ${Z1} und ${Z2}, Schlussbestand laut Inventur am 31. März ${SB}.`,
+      text: `Anfangsbestand Aromen ${AB}, Einkäufe ${Z1} und ${Z2}, Schlussbestand laut Inventur am 31. März ${SB}.`,
       schritte: [
         {
           text: 'Einkäufe stehen im Soll des Kontos Rohstoffe',
           rechnung: `${AB} + ${Z1} + ${Z2} = ${e(BESTAND.zugaenge.plus(BASIS.ab))}`,
-          warum: 'So viel Zucker war im Quartal insgesamt verfügbar.',
+          warum: 'So viele Aromen waren im Quartal insgesamt verfügbar.',
         },
         {
           text: 'Schlussbestand ins Schlussbilanzkonto',
           rechnung: `SBK an Rohstoffe ${SB}`,
-          warum: 'Was laut Inventur noch im Silo liegt, ist weiter Vermögen.',
+          warum: 'Was laut Inventur noch im Lager steht, ist weiter Vermögen.',
         },
         {
           text: 'Der Rest ist Verbrauch',
           rechnung: `${AB} + ${ZUGANG} − ${SB} = ${VERBRAUCH}`,
-          warum: 'Was weder im Silo noch in der Bilanz steht, wurde verarbeitet.',
+          warum: 'Was weder im Lager noch in der Bilanz steht, wurde verarbeitet.',
         },
         {
           text: 'Verbrauch als Aufwand buchen',
@@ -205,7 +205,7 @@ export const lektionC1: Lektion = {
       typ: 'vorhersage',
       frage: `Gleiche Zahlen, aber aufwandsorientiert: Die ${ZUGANG} stehen schon als Aufwand im Soll. Wie hoch ist der Aufwand am Ende?`,
       optionen: [{ text: ZUGANG }, { text: VERBRAUCH, richtig: true }, { text: SB }],
-      aufloesung: `Das Silo ist leerer als am Anfang: Minderbestand ${MINDER}. Es wurde also mehr verbraucht als eingekauft. Gebucht wird „Aufwendungen für Rohstoffe an Rohstoffe ${MINDER}“ – der Aufwand steigt auf ${VERBRAUCH}. Genau wie beim anderen Weg.`,
+      aufloesung: `Das Lager ist leerer als am Anfang: Minderbestand ${MINDER}. Es wurde also mehr verbraucht als eingekauft. Gebucht wird „Aufwendungen für Rohstoffe an Rohstoffe ${MINDER}“ – der Aufwand steigt auf ${VERBRAUCH}. Genau wie beim anderen Weg.`,
     },
     {
       typ: 'erkunden',
@@ -280,7 +280,7 @@ export const lektionC1: Lektion = {
       cliffhanger: {
         figur: 'tobias',
         ausdruck: 'ueberrascht',
-        text: 'Moment, auf der nächsten Zuckerrechnung steht noch Fracht! Ist das jetzt Zucker oder eine Ausgangsfracht?',
+        text: 'Moment, auf der nächsten Aromenrechnung steht noch Fracht! Gehört die zu den Aromen oder ist das eine Ausgangsfracht?',
       },
     },
   ],

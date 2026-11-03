@@ -9,8 +9,8 @@ const e = (v: Val) => formatEuro(v.value);
 const BASIS: C2Params = {
   variante: 'einkauf',
   stoff: 'Rohstoffe',
-  gegenstand: 'Zucker',
-  partner: 'Zuckerkontor Hellwegland KG (Lippstadt)',
+  gegenstand: 'Aromen',
+  partner: 'Aromahaus Tewes GmbH (Bielefeld)',
   ustSatz: '0.19',
   warenwert: '20000',
   posten: [{ art: 'Fracht', betrag: '500' }],
@@ -30,11 +30,16 @@ const BASIS: C2Params = {
 };
 const EK = solveC2(BASIS);
 const SPED = solveC2({ ...BASIS, variante: 'spedition' });
-const AUF = solveC2({ ...BASIS, variante: 'aufteilung', warenwert: '9000' });
-const AUF_FALSCH = rechneC2(
-  { ...BASIS, variante: 'aufteilung', warenwert: '9000' },
-  { schluesselVertauscht: true },
-);
+// Sammelladung: Kohlensäure (Betriebsstoff) und Etiketten, Zahlen wie GC-C2-03
+const AUF_BASIS: C2Params = {
+  ...BASIS,
+  variante: 'aufteilung',
+  stoff: 'Betriebsstoffe',
+  gegenstand: 'Kohlensäure (CO₂)',
+  warenwert: '9000',
+};
+const AUF = solveC2(AUF_BASIS);
+const AUF_FALSCH = rechneC2(AUF_BASIS, { schluesselVertauscht: true });
 const WARE = formatEuro(BASIS.warenwert);
 const FRACHT = e(EK.bezugskosten);
 const ANSCHAFFUNG = e(EK.warenwert.plus(EK.bezugskosten));
@@ -43,7 +48,7 @@ export const lektionC2: Lektion = {
   id: 'C2',
   skillId: 'C2-bezugskosten',
   abschnitt: 'C',
-  titel: 'Was kostet der Zucker wirklich?',
+  titel: 'Was kosten die Aromen wirklich?',
   kernAha:
     'Alles, was nötig ist, damit ein Werkstoff bei uns ankommt (Fracht, Verpackung, Versicherung), gehört zu seinen Anschaffungskosten. Es wird auf dem Unterkonto Bezugskosten gesammelt und am Periodenende auf das Stoffkonto umgebucht.',
   dauerMin: 7,
@@ -53,7 +58,7 @@ export const lektionC2: Lektion = {
   teaser: {
     figur: 'tobias',
     ausdruck: 'gruebelt',
-    text: `Auf der Zuckerrechnung stehen ${FRACHT} Fracht. Das sind doch Versandkosten, oder?`,
+    text: `Auf der Aromenrechnung stehen ${FRACHT} Fracht. Das sind doch Versandkosten, oder?`,
   },
   screens: [
     {
@@ -65,7 +70,7 @@ export const lektionC2: Lektion = {
         nummer: '2026-0311',
         datum: '03.02.',
         zeilen: [
-          { text: 'Zucker, 25 t', betrag: EK.warenwert.value.toString() },
+          { text: 'Zitrusaroma, 1.000 kg', betrag: EK.warenwert.value.toString() },
           { text: 'Fracht frei Werk Paderborn', betrag: EK.bezugskosten.value.toString() },
           { text: 'zzgl. 19 % Umsatzsteuer', betrag: EK.vorsteuer.value.toString() },
           { text: 'Rechnungsbetrag', betrag: EK.rechnung.value.toString(), fett: true },
@@ -80,7 +85,7 @@ export const lektionC2: Lektion = {
         },
         { figur: 'jana', ausdruck: 'gruebelt', text: 'Nur, wenn wir etwas verschicken.' },
       ],
-      frage: 'Gehört die Fracht zum Zucker – oder ist sie ein eigener Aufwand?',
+      frage: 'Gehört die Fracht zu den Aromen – oder ist sie ein eigener Aufwand?',
     },
     {
       typ: 'dialog',
@@ -143,7 +148,7 @@ export const lektionC2: Lektion = {
       visual: {
         typ: 'tkonten',
         konten: [
-          { name: 'Rohstoffe', soll: [{ text: 'Zucker', betrag: BASIS.warenwert }], haben: [] },
+          { name: 'Rohstoffe', soll: [{ text: 'Aromen', betrag: BASIS.warenwert }], haben: [] },
           {
             name: 'Bezugskosten für Rohstoffe',
             soll: [{ text: 'Fracht', betrag: EK.bezugskosten.value.toString() }],
@@ -152,7 +157,7 @@ export const lektionC2: Lektion = {
           },
           {
             name: 'Vorsteuer',
-            soll: [{ text: 'Rechnung Zucker', betrag: EK.vorsteuer.value.toString() }],
+            soll: [{ text: 'Rechnung Aromen', betrag: EK.vorsteuer.value.toString() }],
             haben: [],
           },
         ],
@@ -162,8 +167,8 @@ export const lektionC2: Lektion = {
       typ: 'vorhersage',
       frage: 'Worauf berechnet der Lieferer die Umsatzsteuer?',
       optionen: [
-        { text: 'Nur auf den Zucker' },
-        { text: 'Auf Zucker und Fracht zusammen', richtig: true },
+        { text: 'Nur auf die Aromen' },
+        { text: 'Auf Aromen und Fracht zusammen', richtig: true },
         { text: 'Gar nicht – Fracht ist steuerfrei' },
       ],
       aufloesung: `Bezugskosten sind umsatzsteuerpflichtig: (${WARE} + ${FRACHT}) × 19 % = ${e(EK.vorsteuer)}. Die MBG holt sich diese Vorsteuer vollständig vom Finanzamt zurück.`,
@@ -171,7 +176,7 @@ export const lektionC2: Lektion = {
     {
       typ: 'vorgerechnet',
       titel: 'Von der Rechnung bis zur Umbuchung',
-      text: `Zucker ${WARE} netto, Fracht ${FRACHT} netto, 19 % Umsatzsteuer, auf Ziel.`,
+      text: `Aromen ${WARE} netto, Fracht ${FRACHT} netto, 19 % Umsatzsteuer, auf Ziel.`,
       schritte: [
         {
           text: 'Eingangsrechnung buchen',
@@ -185,16 +190,16 @@ export const lektionC2: Lektion = {
             'Das Unterkonto wird über sein Hauptkonto abgeschlossen. Der Sollsaldo wandert ins Soll des Stoffkontos.',
         },
         {
-          text: 'Anschaffungskosten des Zuckers',
+          text: 'Anschaffungskosten der Aromen',
           rechnung: `${WARE} + ${FRACHT} = ${ANSCHAFFUNG}`,
-          warum: 'So viel hat es gekostet, den Zucker ins Silo zu bekommen.',
+          warum: 'So viel hat es gekostet, die Aromen ins Lager zu bekommen.',
         },
       ],
     },
     {
       typ: 'fehlerjagd',
       titel: 'Die Speditionsrechnung',
-      text: `Eine Spedition bringt Zucker ins Werk und kassiert ${e(SPED.rechnung)} brutto bar. Ein Kollege hat gebucht. Welche Zeile ist falsch?`,
+      text: `Eine Spedition bringt Aromen ins Werk und kassiert ${e(SPED.rechnung)} brutto bar. Ein Kollege hat gebucht. Welche Zeile ist falsch?`,
       zeilen: [
         `Soll: Ausgangsfrachten ${e(SPED.bezugskosten)}`,
         `Soll: Vorsteuer ${e(SPED.vorsteuer)}`,
@@ -213,7 +218,7 @@ export const lektionC2: Lektion = {
     },
     {
       typ: 'verstaendnis',
-      frage: `Eine Sammelladung bringt ${BASIS.kgErster / 1000} t Zucker (Wert ${formatEuro('9000')}) und ${BASIS.kgZweiter / 1000} t Etiketten (Wert ${formatEuro(BASIS.zweiterWarenwert)}). Die Fracht kostet ${formatEuro(BASIS.fracht)}. Wie viel davon gehört zum Zucker?`,
+      frage: `Eine Sammelladung bringt ${BASIS.kgErster / 1000} t Kohlensäure (Wert ${formatEuro(AUF_BASIS.warenwert)}) und ${BASIS.kgZweiter / 1000} t Etiketten (Wert ${formatEuro(BASIS.zweiterWarenwert)}). Die Fracht kostet ${formatEuro(BASIS.fracht)}. Wie viel davon gehört zur Kohlensäure?`,
       optionen: [
         {
           text: e(AUF.frachtErster),

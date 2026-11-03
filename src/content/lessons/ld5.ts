@@ -13,7 +13,7 @@ const SPEDITION: AusgangsfrachtParams = {
   betrag: '1190',
   zahlung: 'kasse',
   stoff: 'Rohstoffe',
-  gegenstand: 'Zucker',
+  gegenstand: 'Aromen',
   kunde: 'Landhotel Kerkhoff GmbH (Bad Driburg)',
   produkt: '„Senne Lemon“',
   warenwert: '0',
@@ -112,7 +112,7 @@ export const lektionD5: Lektion = {
       kategorien: ['Bezugskosten', 'Ausgangsfrachten', 'Umsatzerlöse'],
       elemente: [
         {
-          text: 'Eine Spedition bringt Zucker vom Lieferanten ins Werk; die MBG zahlt.',
+          text: 'Eine Spedition bringt Aromen vom Lieferanten ins Werk; die MBG zahlt.',
           kategorie: 'Bezugskosten',
           erklaerung: 'Fracht im Einkauf erhöht die Anschaffungskosten der Rohstoffe.',
         },
@@ -160,7 +160,7 @@ export const lektionD5: Lektion = {
         karten: [
           {
             titel: 'Fracht im Einkauf',
-            text: 'Die MBG zahlt den Transport von Zucker oder Dosen ins Werk: Bezugskosten für den Stoff, dazu Vorsteuer. Die Fracht gehört zu den Anschaffungskosten.',
+            text: 'Die MBG zahlt den Transport von Aromen oder Dosen ins Werk: Bezugskosten für den Stoff, dazu Vorsteuer. Die Fracht gehört zu den Anschaffungskosten.',
             farbe: '#1c6670',
           },
           {

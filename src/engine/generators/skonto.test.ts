@@ -10,7 +10,7 @@ const basis: Omit<SkontoParams, 'seite' | 'art' | 'methode' | 'gegeben' | 'betra
   {
     ustSatz: '0.19',
     partner: 'Testlieferant',
-    gegenstand: 'Zucker',
+    gegenstand: 'Aromen',
     vorlage: 0,
   };
 

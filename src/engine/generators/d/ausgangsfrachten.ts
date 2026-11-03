@@ -268,7 +268,7 @@ function steps(p: AusgangsfrachtParams, s: AusgangsfrachtSolution): SolutionStep
 }
 
 const GEGENSTAND: Record<'Rohstoffe' | 'Hilfsstoffe', string[]> = {
-  Rohstoffe: ['Zucker', 'Fruchtsaftkonzentrat', 'Braumalz'],
+  Rohstoffe: ['Aromen', 'Fruchtsaftkonzentrat', 'Tequila-Aroma'],
   Hilfsstoffe: ['Dosen', 'Glasflaschen', 'Etiketten'],
 };
 

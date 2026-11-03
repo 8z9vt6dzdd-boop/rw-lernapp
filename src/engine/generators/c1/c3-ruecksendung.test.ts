@@ -8,7 +8,7 @@ const basis: C3Params = {
   variante: 'netto',
   erfassung: 'bestand',
   stoff: 'Rohstoffe',
-  gegenstand: 'Zucker',
+  gegenstand: 'Aromen',
   einheit: 'kg',
   partner: 'Testlieferant',
   ustSatz: '0.19',
@@ -44,10 +44,10 @@ describe('Golden Cases C3 – Rücksendung an den Lieferer', () => {
     const s = solveC3({
       ...basis,
       variante: 'anteil',
-      gegenstand: 'Braumalz',
-      menge: 2000,
-      zurueck: 500,
-      preis: '0.6',
+      gegenstand: 'Zitrusaromen',
+      menge: 100,
+      zurueck: 25,
+      preis: '12',
     });
     expect(buchungText(s.buchung)).toEqual([
       'Verbindlichkeiten a. LL 357,00 € an Rohstoffe 300,00 €, an Vorsteuer 57,00 €',

@@ -9,7 +9,7 @@ const basis: C1Params = {
   variante: 'einkauf',
   erfassung: 'bestand',
   stoff: 'Rohstoffe',
-  gegenstand: 'Zucker',
+  gegenstand: 'Aromen',
   partner: 'Testlieferant',
   ustSatz: '0.19',
   netto: '0',

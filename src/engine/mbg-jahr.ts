@@ -55,7 +55,7 @@ export const KAPITEL_VORFAELLE: Record<string, Vorfall[]> = {
       ),
     },
     {
-      text: 'Einkauf von Zucker und Aromen auf Ziel',
+      text: 'Einkauf von Aromen auf Ziel',
       satz: s(
         [
           ['Rohstoffe', 150_000],

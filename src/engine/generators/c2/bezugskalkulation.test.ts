@@ -82,7 +82,7 @@ describe('Golden Cases Bezugskalkulation (GC-C7)', () => {
     // 12.000 kg Zucker à 80,00 € je 100 kg, 10 % Rabatt, 2 % Skonto, Fracht 2,50 € je 100 kg
     const k = kalkuliere(
       {
-        lieferant: 'Zuckerkontor Hellwegland KG (Lippstadt)',
+        lieferant: 'Grundstoffhandel Hellwegland KG (Lippstadt)',
         preis: '80',
         rabatt: '0.1',
         skonto: '0.02',

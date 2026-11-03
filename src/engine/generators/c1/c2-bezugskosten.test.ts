@@ -7,7 +7,7 @@ import { bezugskosten, solveC2, type C2Params } from './c2-bezugskosten';
 const basis: C2Params = {
   variante: 'einkauf',
   stoff: 'Rohstoffe',
-  gegenstand: 'Zucker',
+  gegenstand: 'Aromen',
   partner: 'Testlieferant',
   ustSatz: '0.19',
   warenwert: '0',

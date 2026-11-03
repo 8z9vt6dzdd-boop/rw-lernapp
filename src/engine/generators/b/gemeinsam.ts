@@ -77,7 +77,13 @@ export const EINKAUF_19: readonly Artikel[] = [
     min: 2_000,
     max: 30_000,
   },
-  { konto: 'Rohstoffe', text: 'Braumalz', partner: L.rohstoffe[3]!, min: 2_000, max: 25_000 },
+  {
+    konto: 'Rohstoffe',
+    text: `Tequila-Aroma für „${P.bier}“`,
+    partner: L.rohstoffe[3]!,
+    min: 1_000,
+    max: 15_000,
+  },
   {
     konto: 'Hilfsstoffe',
     text: 'Getränkedosen 0,33 l',

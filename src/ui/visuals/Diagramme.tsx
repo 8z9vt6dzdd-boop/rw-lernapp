@@ -164,7 +164,8 @@ export function Kostenstellen({
               <path d={d} {...STRICH} strokeWidth={1.4} markerEnd="url(#pfeil)" opacity={0.8} />
               <rect x={mx - 26} y={my - 9} width={52} height={14} rx={4} fill="var(--peep-paper)" />
               <text x={mx} y={my + 1.5} textAnchor="middle" fontSize="9" fill="currentColor">
-                {formatPlain(p.menge)} {einheit.get(p.von) ?? ''}
+                {/^-?\d+(\.\d+)?$/.test(p.menge) ? formatPlain(p.menge) : p.menge}{' '}
+                {einheit.get(p.von) ?? ''}
               </text>
             </g>
           );

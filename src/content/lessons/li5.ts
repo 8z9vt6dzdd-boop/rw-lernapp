@@ -258,7 +258,7 @@ export const lektionI5: Lektion = {
       cliffhanger: {
         figur: 'leni',
         ausdruck: 'freut',
-        text: 'Jetzt wissen wir, was jede Abteilung kostet. Aber was kostet eigentlich ein einzelner Karton Paderquell Energy?',
+        text: 'Jetzt kennen wir die Gemeinkosten jeder Hauptkostenstelle. Aber wie kommen sie in den Preis eines einzelnen Auftrags?',
       },
     },
   ],

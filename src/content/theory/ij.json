@@ -1,1 +1,496 @@
-[]
+[
+  {
+    "id": "I1-001",
+    "skill": "I1-kostenstellenbildung",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 1.1, S. 12–13",
+    "frage": "Welche Aufgaben hat die Kostenstellenrechnung?",
+    "antwort": "Sie zeigt, wo im Unternehmen Gemeinkosten entstehen, und bereitet sie für die Weiterverrechnung auf die Kostenträger auf – als Bindeglied zwischen Kostenarten- und Kostenträgerrechnung. Sie liefert Zuschlags- und Verrechnungssätze, bewertet innerbetriebliche Leistungen, verbessert die Bestandsbewertung und dient der Wirtschaftlichkeitskontrolle, Kostenplanung und Budgetierung je Verantwortungsbereich.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "I1-002",
+    "skill": "I1-kostenstellenbildung",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 1.1, S. 12; 1.2.2, S. 16–17",
+    "frage": "Was ist eine Kostenstelle?",
+    "antwort": "Ein abgegrenzter Bereich des Unternehmens, in dem Kosten anfallen und für den sie erfasst, geplant und kontrolliert werden. Abgegrenzt wird zum Beispiel nach Funktionen (Material, Fertigung, Verwaltung, Vertrieb), nach der räumlichen Lage oder nach Verantwortungsbereichen.",
+    "beispiel": "Bei der MBG: Energie, Instandhaltung, Material, Fertigung I (Sirup- und Braukeller), Fertigung II (Abfüllung), Verwaltung und Vertrieb.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "I1-003",
+    "skill": "I1-kostenstellenbildung",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 1.2.1, S. 14–16",
+    "frage": "Welche vier Grundsätze gelten für die Bildung von Kostenstellen?",
+    "antwort": "1. Die Gemeinkosten lassen sich eindeutig einer Kostenstelle zuordnen. 2. Leistungsabgabe und Kostenverursachung stehen in eindeutiger Beziehung – es gibt eine passende Maßgröße (Kostentreiber). 3. Kostenstelle und Verantwortungsbereich decken sich, genau eine Person ist verantwortlich. 4. Wirtschaftlichkeit: Der Aufwand der Gliederung darf ihren Nutzen nicht übersteigen.",
+    "beispiel": "Maßgröße für Raumkosten: die Fläche; für Abschreibungen: die Kapitalbindung.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "I1-004",
+    "skill": "I1-kostenstellenbildung",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K2 1.2.1, S. 15–16",
+    "frage": "Die MBG teilt ihren Sirup- und Braukeller in drei Kostenstellen auf. Welcher Zielkonflikt entsteht?",
+    "optionen": [
+      {
+        "text": "Es gibt mehr Informationen über Kostenursachen, aber gemeinsame Kosten wie das Gehalt des Braumeisters müssen nun geschlüsselt werden.",
+        "richtig": true
+      },
+      {
+        "text": "Keiner – feinere Kostenstellen sind immer besser.",
+        "erklaerung": "Eine feinere Gliederung erschwert die eindeutige Zuordnung der Belege und kostet Aufwand. Gesucht ist ein wirtschaftlicher Kompromiss."
+      },
+      {
+        "text": "Die neuen Kostenstellen dürfen keine Leistungen mehr an andere Stellen abgeben.",
+        "erklaerung": "Leistungsabgaben bleiben möglich. Der Konflikt besteht zwischen eindeutiger Zuordnung und genauerer Information."
+      },
+      {
+        "text": "Die Gemeinkosten des Braukellers werden dadurch zu Einzelkosten.",
+        "erklaerung": "Gegenüber den Produkten bleiben es Gemeinkosten; nur ihre Zuordnung zu Kostenstellen ändert sich."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "I1-005",
+    "skill": "I1-kostenstellenbildung",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K2 1.2.1, S. 15",
+    "frage": "Wie viele Personen sollen eine Kostenstelle verantworten?",
+    "optionen": [
+      {
+        "text": "Genau eine – eine Person darf aber mehrere Kostenstellen verantworten.",
+        "richtig": true
+      },
+      {
+        "text": "Mindestens zwei, damit sie sich gegenseitig kontrollieren.",
+        "erklaerung": "Bei geteilter Verantwortung ist unklar, wer Abweichungen erklären muss. Eine Kostenstelle hat genau eine verantwortliche Person."
+      },
+      {
+        "text": "Alle Beschäftigten der Kostenstelle gemeinsam.",
+        "erklaerung": "Verantwortung lässt sich nur einer Person klar zurechnen."
+      },
+      {
+        "text": "Niemand – Kostenstellen sind reine Rechengrößen.",
+        "erklaerung": "Kostenstellen sollen mit Verantwortungsbereichen übereinstimmen, damit Einsparungen umgesetzt werden können."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "I1-006",
+    "skill": "I1-kostenstellenbildung",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 1.2.2, S. 18; 1.3, S. 21",
+    "frage": "Wie unterscheiden sich Vorkostenstellen und Endkostenstellen?",
+    "antwort": "Vorkostenstellen erbringen Leistungen für andere Kostenstellen und arbeiten nicht direkt am Produkt; ihre Kosten gehen über die innerbetriebliche Leistungsverrechnung an die Endkostenstellen. Endkostenstellen dienen unmittelbar der Erstellung der Kostenträger, ihre Kosten werden den Kostenträgern zugerechnet – üblich sind Material, Fertigung, Verwaltung und Vertrieb. Im BAB heißen sie auch Hilfs- bzw. Hauptkostenstellen.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "I1-007",
+    "skill": "I1-kostenstellenbildung",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 1.2.2, S. 18",
+    "frage": "Was unterscheidet Haupt-, Neben- und Hilfskostenstellen nach produktionstechnischen Gesichtspunkten?",
+    "antwort": "In Hauptkostenstellen werden die Produkte direkt bearbeitet – in dieser engen Einteilung sind das nur die Fertigungsstellen. Nebenkostenstellen bearbeiten Nebenprodukte, etwa absatzfähige Kuppelprodukte. Hilfskostenstellen haben unterstützende Aufgaben und tragen nur indirekt zur Produktion bei.",
+    "beispiel": "Bei der MBG: Abfüllung als Hauptkostenstelle, Aufbereitung des Trebers zum Verkauf als Nebenkostenstelle, Werkstatt als Hilfskostenstelle.",
+    "pruefung": {
+      "faktenabgleich": "korrigiert: Hinweis ergänzt, dass Hauptkostenstellen in dieser Einteilung nur Fertigungsstellen sind (im BAB weiter gefasst, siehe I1-006)",
+      "ueberschneidung": "ok",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "I1-008",
+    "skill": "I1-kostenstellenbildung",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K2 1.2.2, S. 19 (Kostenstellenplan)",
+    "frage": "Zu welcher Gruppe eines Kostenstellenplans gehören Energieversorgung und Instandhaltung der MBG?",
+    "optionen": [
+      { "text": "Allgemeine Kostenstellen", "richtig": true },
+      {
+        "text": "Fertigungshauptstellen",
+        "erklaerung": "In Fertigungshauptstellen wird direkt am Produkt gearbeitet. Energie und Werkstatt leisten für viele Bereiche."
+      },
+      {
+        "text": "Vertriebskostenstellen",
+        "erklaerung": "Zum Vertrieb gehören etwa Verkauf, Fertigwarenlager und Versand."
+      },
+      {
+        "text": "Verwaltungskostenstellen",
+        "erklaerung": "Zur Verwaltung gehören etwa Unternehmensleitung, Personal sowie Finanz- und Rechnungswesen."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "I1-009",
+    "skill": "I1-kostenstellenbildung",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K2 1.2.2, S. 16–18",
+    "frage": "Welches Merkmal ist kein Einteilungskriterium für Kostenstellen?",
+    "optionen": [
+      { "text": "Die Kostenarten (je Kostenart eine Kostenstelle)", "richtig": true },
+      {
+        "text": "Die Funktionsbereiche (Material, Fertigung, Verwaltung, Vertrieb)",
+        "erklaerung": "Die funktionale Einteilung ist das übliche Kriterium."
+      },
+      {
+        "text": "Die Verantwortungsbereiche",
+        "erklaerung": "Auch nach Verantwortungsbereichen wird eingeteilt – der Organisationsplan hilft dabei."
+      },
+      {
+        "text": "Die räumliche Lage",
+        "erklaerung": "Eine räumlich-geografische Einteilung ist ebenfalls möglich und üblich."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "I1-010",
+    "skill": "I1-kostenstellenbildung",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K2 1.1, S. 12",
+    "frage": "Welche Aussage zur Kostenstellenrechnung trifft zu?",
+    "optionen": [
+      {
+        "text": "Sie befasst sich vor allem mit den Gemeinkosten; Einzelkosten werden den Kostenträgern direkt zugeordnet.",
+        "richtig": true
+      },
+      {
+        "text": "Sie verteilt vor allem die Einzelkosten auf die Kostenstellen.",
+        "erklaerung": "Einzelkosten lassen sich dem Produkt direkt zuordnen. Die Kostenstellenrechnung bereitet die Gemeinkosten auf."
+      },
+      {
+        "text": "Sie ermittelt das Betriebsergebnis der Periode.",
+        "erklaerung": "Das ist Aufgabe der Kostenträgerzeitrechnung."
+      },
+      {
+        "text": "Sie ersetzt die Kostenartenrechnung.",
+        "erklaerung": "Sie baut auf der Kostenartenrechnung auf und ist das Bindeglied zur Kostenträgerrechnung."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "I1-kurz-001",
+    "skill": "I1-kostenstellenbildung",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K2 1.2.1, S. 14–16",
+    "frage": "Erläutern Sie die Grundsätze, die bei der Bildung von Kostenstellen zu beachten sind.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Eindeutige Zuordnung: Jeder Gemeinkostenbeleg lässt sich genau einer Kostenstelle zuordnen.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Eindeutige Beziehung zwischen Leistungsabgabe und Kostenverursachung: Für jede Stelle gibt es eine passende Maßgröße (z. B. Fläche für Raumkosten).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Kostenstelle und Verantwortungsbereich stimmen überein; genau eine Person ist verantwortlich.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Wirtschaftlichkeit: Der Aufwand der Gliederung darf den Nutzen nicht übersteigen; zwischen grober (eindeutige Zuordnung) und feiner Gliederung (mehr Information) ist ein Kompromiss nötig.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Kostenstellen sollen so abgegrenzt sein, dass sich jeder Gemeinkostenbeleg eindeutig einer Stelle zuordnen lässt. Außerdem braucht jede Stelle eine Maßgröße, die mit ihren Kosten in eindeutiger Beziehung steht, etwa die Fläche für Raumkosten – das erleichtert die Leistungsverrechnung und die Verteilung auf die Kostenträger. Jede Kostenstelle sollte einem Verantwortungsbereich mit genau einer verantwortlichen Person entsprechen, die Abweichungen vertreten muss. Schließlich muss die Gliederung wirtschaftlich bleiben: Eine grobe Einteilung erleichtert die eindeutige Zuordnung, eine feine liefert mehr Information – gesucht ist ein Kompromiss, dessen Kosten den Nutzen nicht übersteigen.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J1-001",
+    "skill": "J1-ktr-grundlagen",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 2.1, S. 46",
+    "frage": "Welche Frage beantwortet die Kostenträgerrechnung – im Unterschied zur Kostenarten- und Kostenstellenrechnung?",
+    "antwort": "Kostenartenrechnung: Welche Kosten sind angefallen? Kostenstellenrechnung: Wo sind sie angefallen? Kostenträgerrechnung: Wofür sind sie angefallen? Einzelkosten gehen direkt in die Kostenträgerrechnung, Gemeinkosten über die Kostenstellen, zum Beispiel mit stellenbezogenen Zuschlagssätzen.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J1-002",
+    "skill": "J1-ktr-grundlagen",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 2.1, S. 47–48",
+    "frage": "Was unterscheidet Kostenträgerstückrechnung und Kostenträgerzeitrechnung?",
+    "antwort": "Die Stückrechnung (Kalkulation) ermittelt Herstell- und Selbstkosten je Leistungseinheit, etwa für Angebotspreise, Preisuntergrenzen oder die Bestandsbewertung. Die Zeitrechnung (Betriebsergebnisrechnung, kurzfristige Erfolgsrechnung) stellt die Leistungen einer Abrechnungsperiode den Kosten gegenüber und ermittelt das Betriebsergebnis – zur laufenden Kontrolle der Wirtschaftlichkeit.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J1-003",
+    "skill": "J1-ktr-grundlagen",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 2.2.1, S. 48–49",
+    "frage": "Welche Arten von Kostenträgern gibt es?",
+    "antwort": "Absatzleistungen, die am Markt verkauft werden – auftragsbestimmt (für einen konkreten Kundenauftrag) oder lagerbestimmt (für den anonymen Markt) –, und innerbetriebliche Leistungen, die aktivierbar oder nicht aktivierbar sind.",
+    "beispiel": "MBG: Sonderabfüllung für eine Hotelkette (auftragsbestimmt), Senne Lemon für den Handel (lagerbestimmt), selbst gebaute Förderanlage im Lager (innerbetrieblich, aktivierbar).",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J1-004",
+    "skill": "J1-ktr-grundlagen",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K2 2.2.1, S. 49–50",
+    "frage": "Wodurch unterscheiden sich Vor- und Nachkalkulation?",
+    "antwort": "Die Vorkalkulation erfolgt vor Auftragserteilung oder Produktionsbeginn und dient meist der Preisverhandlung bzw. dem Angebot. Die Nachkalkulation folgt nach Abschluss der Produktion und dient der Kostenkontrolle je Leistungseinheit. Beide kommen vor allem bei Einzel- und Auftragsfertigung zum Einsatz; bei standardisierten Produkten wird eher mit Plankosten kalkuliert.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J1-005",
+    "skill": "J1-ktr-grundlagen",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K2 2.2.1, S. 50–51 (Abb. 15)",
+    "frage": "Eine Abfülllinie der MBG füllt das ganze Jahr nur Paderquell Energy 0,25 l ab – immer gleich. Welches Kalkulationsverfahren passt?",
+    "optionen": [
+      { "text": "Divisionskalkulation", "richtig": true },
+      {
+        "text": "Zuschlagskalkulation",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Zuschläge braucht man bei verschiedenen Produkten mit unterschiedlicher Kostenverursachung. Bei einem einheitlichen Massenprodukt genügt die Division."
+      },
+      {
+        "text": "Äquivalenzziffernkalkulation",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Äquivalenzziffern gewichten mehrere Sorten. Hier gibt es nur eine."
+      },
+      {
+        "text": "Kuppelkalkulation",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Kuppelprodukte entstehen zwangsläufig gemeinsam in einem Prozess. Das ist hier nicht der Fall."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J1-006",
+    "skill": "J1-ktr-grundlagen",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K2 2.2.1, S. 50–51 (Abb. 15)",
+    "frage": "Die MBG füllt Paderquell Energy in 0,25 l, 0,33 l und 0,5 l ab – gleiche Rezeptur, gleiche Anlage. Welches Kalkulationsverfahren passt?",
+    "optionen": [
+      { "text": "Äquivalenzziffernkalkulation", "richtig": true },
+      {
+        "text": "Einstufige Divisionskalkulation",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Die einfache Division behandelt alle Dosen gleich, obwohl eine große Dose mehr Kosten verursacht. Die Äquivalenzziffernkalkulation – eine Form der Divisionskalkulation – gewichtet die Sorten."
+      },
+      {
+        "text": "Kuppelkalkulation",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Die Dosengrößen entstehen nicht zwangsläufig gemeinsam, sondern werden gezielt abgefüllt."
+      },
+      {
+        "text": "Differenzierende Zuschlagskalkulation",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Die Zuschlagskalkulation ist für Serien- und Einzelfertigung vorgesehen. Für Sorten aus gleichem Rohstoff und gleichem Verfahren ist die Äquivalenzziffernkalkulation das passende Verfahren."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J1-007",
+    "skill": "J1-ktr-grundlagen",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K2 2.2.1, S. 50–51 (Abb. 15)",
+    "frage": "Eine Hotelkette bestellt eine Sonderabfüllung mit eigenem Etikett und eigener Rezeptur. Welches Kalkulationsverfahren passt?",
+    "optionen": [
+      { "text": "Zuschlagskalkulation", "richtig": true },
+      {
+        "text": "Divisionskalkulation",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Die Division setzt gleichartige Massenprodukte voraus. Ein Einzelauftrag beansprucht die Kostenstellen anders als das übrige Programm."
+      },
+      {
+        "text": "Äquivalenzziffernkalkulation",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Äquivalenzziffern passen zu Sorten aus gleichem Rohstoff und gleichem Verfahren – nicht zu einem individuellen Auftrag."
+      },
+      {
+        "text": "Restwertmethode",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Die Restwertmethode gehört zur Kuppelkalkulation."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J1-008",
+    "skill": "J1-ktr-grundlagen",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K2 2.2.1, S. 50–51, 53 (Abb. 15, 16); 2.2.6, S. 76",
+    "frage": "Beim Brauen des Almeblick Tequila-Biers fällt zwangsläufig Treber an, den die MBG als Futtermittel verkauft. Welches Kalkulationsverfahren passt?",
+    "optionen": [
+      { "text": "Kuppelkalkulation (Restwert- oder Verteilungsmethode)", "richtig": true },
+      {
+        "text": "Äquivalenzziffernkalkulation",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Bier und Treber sind keine Sorten eines Produkts, sondern entstehen zwangsläufig gemeinsam: Kuppelproduktion."
+      },
+      {
+        "text": "Zuschlagskalkulation",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Die gemeinsamen Kosten des Brauprozesses lassen sich nicht verursachungsgerecht auf Bier und Treber zuschlagen."
+      },
+      {
+        "text": "Divisionskalkulation",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Bier und Treber sind zu verschieden, um sie einfach durch die Gesamtmenge zu teilen."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J1-009",
+    "skill": "J1-ktr-grundlagen",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K2 2.2.2.1, S. 53",
+    "frage": "Für welches Kalkulationsverfahren ist eine Kostenstellenrechnung für Kalkulationszwecke nicht erforderlich?",
+    "optionen": [
+      { "text": "Divisionskalkulation", "richtig": true },
+      {
+        "text": "Differenzierende Zuschlagskalkulation",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Sie braucht für jede Hauptkostenstelle einen eigenen Zuschlagssatz aus dem BAB."
+      },
+      {
+        "text": "Maschinenstundensatzrechnung",
+        "fehlertyp": "verfahren-verwechselt",
+        "erklaerung": "Der Maschinenstundensatz setzt die Fertigungsgemeinkosten einer Kostenstelle voraus."
+      },
+      {
+        "text": "Bei keinem – ohne BAB ist keine Kalkulation möglich",
+        "erklaerung": "Bei der Divisionskalkulation werden die gesamten Kosten gleichmäßig verteilt; sie schließt direkt an die Kostenartenrechnung an."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J1-010",
+    "skill": "J1-ktr-grundlagen",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K2 2.1, S. 47",
+    "frage": "Wie wird die Kostenträgerzeitrechnung auch genannt?",
+    "optionen": [
+      { "text": "Betriebsergebnisrechnung oder kurzfristige Erfolgsrechnung", "richtig": true },
+      {
+        "text": "Kalkulation",
+        "erklaerung": "Kalkulation ist ein anderer Name für die Kostenträgerstückrechnung."
+      },
+      {
+        "text": "Betriebsabrechnungsbogen",
+        "erklaerung": "Der BAB ist das Werkzeug der Kostenstellenrechnung."
+      },
+      {
+        "text": "Vorkalkulation",
+        "erklaerung": "Die Vorkalkulation ist eine Form der Stückrechnung vor Auftragserteilung."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J1-011",
+    "skill": "J1-ktr-grundlagen",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K2 2.2.1, S. 51",
+    "frage": "Was kennzeichnet die Sortenfertigung?",
+    "optionen": [
+      {
+        "text": "Gleicher Rohstoff und gleiches Fertigungsverfahren; die Produkte unterscheiden sich etwa nur in Größe oder Farbe.",
+        "richtig": true
+      },
+      {
+        "text": "In einem Prozess entstehen zwangsläufig mehrere Produkte.",
+        "erklaerung": "Das beschreibt die Kuppelproduktion."
+      },
+      {
+        "text": "Jedes Produkt wird nach individuellem Kundenwunsch gefertigt.",
+        "erklaerung": "Das beschreibt die Einzelfertigung."
+      },
+      {
+        "text": "Mehrere gleichartige Produkte nacheinander, danach ein deutlich anderes Produkt.",
+        "erklaerung": "Das beschreibt die Serienfertigung."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J1-kurz-001",
+    "skill": "J1-ktr-grundlagen",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K2 2.1, S. 47–48",
+    "frage": "Erläutern Sie den Unterschied zwischen Kostenträgerstückrechnung und Kostenträgerzeitrechnung.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Die Kostenträgerstückrechnung (Kalkulation) bezieht sich auf die einzelne Leistungseinheit.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Sie ermittelt Herstell- und Selbstkosten je Stück, z. B. für Angebotspreise, Preisuntergrenzen oder die Bestandsbewertung.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Die Kostenträgerzeitrechnung (Betriebsergebnisrechnung, kurzfristige Erfolgsrechnung) bezieht sich auf eine Abrechnungsperiode.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Sie stellt Leistungen und Kosten der Periode gegenüber, ermittelt das Betriebsergebnis und dient der laufenden Wirtschaftlichkeitskontrolle.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Die Kostenträgerstückrechnung, auch Kalkulation genannt, rechnet je Leistungseinheit: Sie ermittelt die Herstell- und Selbstkosten eines Stücks oder Auftrags, etwa als Grundlage für Angebotspreise, Preisuntergrenzen oder die Bewertung von Lagerbeständen. Die Kostenträgerzeitrechnung, auch Betriebsergebnisrechnung oder kurzfristige Erfolgsrechnung, betrachtet dagegen eine ganze Abrechnungsperiode: Sie stellt die erbrachten Leistungen den Kosten des Zeitraums gegenüber, ermittelt das Betriebsergebnis und dient der laufenden Kontrolle der Wirtschaftlichkeit.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "J1-kurz-002",
+    "skill": "J1-ktr-grundlagen",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K2 2.2.1, S. 50–51",
+    "frage": "Erläutern Sie, wovon die Wahl des Kalkulationsverfahrens abhängt, und ordnen Sie typischen Fertigungsarten ein Verfahren zu.",
+    "punkte": 5,
+    "checkliste": [
+      {
+        "aussage": "Die Wahl hängt vom Produktionsverfahren und den Eigenschaften des Betriebs ab: ein oder mehrere Produkte, unabhängig voneinander oder gemeinsam entstehend, Komplexität des Produktaufbaus.",
+        "punkte": 1
+      },
+      { "aussage": "Massenfertigung: Divisionskalkulation.", "punkte": 1 },
+      { "aussage": "Sortenfertigung: Äquivalenzziffernkalkulation.", "punkte": 1 },
+      { "aussage": "Serien- und Einzelfertigung: Zuschlagskalkulation.", "punkte": 1 },
+      {
+        "aussage": "Kuppelproduktion: Kuppelkalkulation (Restwert- oder Verteilungsmethode).",
+        "punkte": 1
+      }
+    ],
+    "muster": "Welches Kalkulationsverfahren geeignet ist, hängt vor allem vom Produktionsverfahren ab: Stellt der Betrieb ein oder mehrere Produkte her, entstehen sie unabhängig voneinander oder zwangsläufig gemeinsam, und wie komplex sind sie aufgebaut? Bei Massenfertigung eines einheitlichen Produkts genügt die Divisionskalkulation. Bei Sortenfertigung – gleicher Rohstoff, gleiches Verfahren, nur andere Größe – gewichtet die Äquivalenzziffernkalkulation. Serien- und Einzelfertigung verlangen die Zuschlagskalkulation, weil die Produkte die Kostenstellen unterschiedlich beanspruchen. Bei Kuppelproduktion werden die gemeinsamen Kosten mit der Restwert- oder der Verteilungsmethode zugeordnet.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  }
+]

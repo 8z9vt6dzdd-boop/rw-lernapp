@@ -1,11 +1,23 @@
 // Katalog der erkannten Denkfehler mit gezielter Erklärung (01-didaktik.md, Prinzip 6).
+import { FEHLERTYPEN_C1 } from './fehlertypen-batches/c1';
+import { FEHLERTYPEN_C2 } from './fehlertypen-batches/c2';
+import { FEHLERTYPEN_D } from './fehlertypen-batches/d';
+import { FEHLERTYPEN_E } from './fehlertypen-batches/e';
+import { FEHLERTYPEN_F1 } from './fehlertypen-batches/f1';
+import { FEHLERTYPEN_F2 } from './fehlertypen-batches/f2';
+import { FEHLERTYPEN_G } from './fehlertypen-batches/g';
+import { FEHLERTYPEN_H } from './fehlertypen-batches/h';
+import { FEHLERTYPEN_IJ } from './fehlertypen-batches/ij';
+import { FEHLERTYPEN_J } from './fehlertypen-batches/j';
+import { FEHLERTYPEN_K1 } from './fehlertypen-batches/k1';
+import { FEHLERTYPEN_K2 } from './fehlertypen-batches/k2';
 
 export interface Fehlertyp {
   titel: string;
   erklaerung: string;
 }
 
-export const FEHLERTYPEN: Record<string, Fehlertyp> = {
+const BASIS: Record<string, Fehlertyp> = {
   // Allgemein
   'summen-ungleich': {
     titel: 'Soll und Haben sind ungleich',
@@ -193,6 +205,22 @@ export const FEHLERTYPEN: Record<string, Fehlertyp> = {
     erklaerung:
       'Sondereinzelkosten der Fertigung gehören in die Herstellkosten, Sondereinzelkosten des Vertriebs in die Selbstkosten. Sie erhalten keinen Zuschlag.',
   },
+};
+
+export const FEHLERTYPEN: Record<string, Fehlertyp> = {
+  ...BASIS,
+  ...FEHLERTYPEN_C1,
+  ...FEHLERTYPEN_C2,
+  ...FEHLERTYPEN_D,
+  ...FEHLERTYPEN_E,
+  ...FEHLERTYPEN_F1,
+  ...FEHLERTYPEN_F2,
+  ...FEHLERTYPEN_G,
+  ...FEHLERTYPEN_H,
+  ...FEHLERTYPEN_IJ,
+  ...FEHLERTYPEN_J,
+  ...FEHLERTYPEN_K1,
+  ...FEHLERTYPEN_K2,
 };
 
 export function fehlertyp(id: string): Fehlertyp {

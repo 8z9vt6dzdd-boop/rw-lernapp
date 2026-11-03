@@ -2,7 +2,7 @@
 // aus dem aktuellen Abschnitt, gemischt (Interleaving). Ohne Lernstand: freie Mischung (für Tests per Seed).
 import { ABSCHNITTE, RELEVANZ_GEWICHT, skillInfo } from '../content/curriculum';
 import { mcElemente } from '../content/theory';
-import { generatorFuer } from '../engine/generators';
+import { FEHLERJAGD_ZUSATZ, TABELLEN_ZUSATZ, generatorFuer } from '../engine/generators';
 import { createRng, randomSeed, type Rng } from '../engine/rng';
 import { hatLektion, lektionErledigt, naechsterKnoten } from './fortschritt';
 import type { TaskSpec } from './prepare';
@@ -42,7 +42,12 @@ function key(): string {
 }
 
 /** Skills mit großen Tabellen: auf dem Handy im Kurzmodus nur als Teilschritt. */
-export const TABELLEN_SKILLS = ['I4-stufenleiter', 'I5-simultan', 'J3-aequivalenz'];
+export const TABELLEN_SKILLS = [
+  'I4-stufenleiter',
+  'I5-simultan',
+  'J3-aequivalenz',
+  ...TABELLEN_ZUSATZ,
+];
 
 export function kurzSitzung(seed = randomSeed(), opts: { mobil?: boolean } = {}): TaskSpec[] {
   const rng = createRng(seed);
@@ -90,7 +95,7 @@ export function wiederholung(spec: TaskSpec): TaskSpec {
 
 export const SITZUNG_GROESSE = 8;
 /** Skills, deren Buchungssatz sich für „Fehler finden“ eignet */
-export const FEHLERJAGD_SKILLS = ['C5-skonto-einkauf', 'D4-skonto-verkauf'];
+export const FEHLERJAGD_SKILLS = ['C5-skonto-einkauf', 'D4-skonto-verkauf', ...FEHLERJAGD_ZUSATZ];
 export const ANTEIL_WIEDERHOLUNG = 0.7;
 
 /** Skills mit Übung, die schon frei sind (Lektion erledigt oder keine Lektion vorhanden). */

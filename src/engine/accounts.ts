@@ -1,4 +1,16 @@
 // Kontenliste nach 04-fachregeln.md, Abschnitt 1 (IKR in Wortbezeichnungen).
+import { KONTEN_C1 } from './konten-batches/c1';
+import { KONTEN_C2 } from './konten-batches/c2';
+import { KONTEN_D } from './konten-batches/d';
+import { KONTEN_E } from './konten-batches/e';
+import { KONTEN_F1 } from './konten-batches/f1';
+import { KONTEN_F2 } from './konten-batches/f2';
+import { KONTEN_G } from './konten-batches/g';
+import { KONTEN_H } from './konten-batches/h';
+import { KONTEN_IJ } from './konten-batches/ij';
+import { KONTEN_J } from './konten-batches/j';
+import { KONTEN_K1 } from './konten-batches/k1';
+import { KONTEN_K2 } from './konten-batches/k2';
 
 export type KontoTyp = 'aktiv' | 'passiv' | 'aufwand' | 'ertrag' | 'abschluss';
 
@@ -46,7 +58,7 @@ function stoffKonten(stoff: Stoff, kurz: string): Konto[] {
   ];
 }
 
-export const KONTEN: readonly Konto[] = [
+const BASIS_KONTEN: readonly Konto[] = [
   // Aktiv
   k('Technische Anlagen und Maschinen', 'aktiv', ['TA u. Maschinen', 'TAuM', 'TA und Maschinen'], {
     kurz: 'TA und Maschinen',
@@ -146,6 +158,22 @@ export const KONTEN: readonly Konto[] = [
   }),
   k('Schlussbilanzkonto', 'abschluss', ['SBK'], { kurz: 'SBK' }),
   k('Gewinn- und Verlustkonto', 'abschluss', ['GuV'], { kurz: 'GuV' }),
+];
+
+export const KONTEN: readonly Konto[] = [
+  ...BASIS_KONTEN,
+  ...KONTEN_C1,
+  ...KONTEN_C2,
+  ...KONTEN_D,
+  ...KONTEN_E,
+  ...KONTEN_F1,
+  ...KONTEN_F2,
+  ...KONTEN_G,
+  ...KONTEN_H,
+  ...KONTEN_IJ,
+  ...KONTEN_J,
+  ...KONTEN_K1,
+  ...KONTEN_K2,
 ];
 
 export const KONTOTYP_LABEL: Record<KontoTyp, string> = {

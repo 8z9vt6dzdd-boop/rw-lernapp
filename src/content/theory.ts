@@ -1,5 +1,17 @@
 // Theorie-Inhalte im Format aus 07-content-pipeline.md. Nur Elemente mit Status „aktiv“ werden verwendet.
 import beispiele from './theory/beispiele.json' with { type: 'json' };
+import theorie_c1 from './theory/c1.json' with { type: 'json' };
+import theorie_c2 from './theory/c2.json' with { type: 'json' };
+import theorie_d from './theory/d.json' with { type: 'json' };
+import theorie_e from './theory/e.json' with { type: 'json' };
+import theorie_f1 from './theory/f1.json' with { type: 'json' };
+import theorie_f2 from './theory/f2.json' with { type: 'json' };
+import theorie_g from './theory/g.json' with { type: 'json' };
+import theorie_h from './theory/h.json' with { type: 'json' };
+import theorie_ij from './theory/ij.json' with { type: 'json' };
+import theorie_j from './theory/j.json' with { type: 'json' };
+import theorie_k1 from './theory/k1.json' with { type: 'json' };
+import theorie_k2 from './theory/k2.json' with { type: 'json' };
 import type { WahlPart } from '../engine/task';
 
 interface Pruefung {
@@ -32,7 +44,21 @@ export interface KartenElement extends Basis {
 export type TheorieElement =
   McElement | KartenElement | (Basis & { typ: 'zuordnung' | 'kurzantwort' });
 
-const ALLE = beispiele as unknown as TheorieElement[];
+const ALLE = [
+  beispiele,
+  theorie_c1,
+  theorie_c2,
+  theorie_d,
+  theorie_e,
+  theorie_f1,
+  theorie_f2,
+  theorie_g,
+  theorie_h,
+  theorie_ij,
+  theorie_j,
+  theorie_k1,
+  theorie_k2,
+].flat() as unknown as TheorieElement[];
 
 export const THEORIE: readonly TheorieElement[] = ALLE.filter((e) => e.status === 'aktiv');
 

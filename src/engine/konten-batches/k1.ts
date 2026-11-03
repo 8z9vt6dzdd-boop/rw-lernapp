@@ -1,0 +1,4 @@
+// Zusätzliche Konten M7, Batch k1 (nur wenn in accounts.ts noch nicht vorhanden; Bezeichnung exakt nach 04-fachregeln.md).
+import type { Konto } from '../accounts';
+
+export const KONTEN_K1: Konto[] = [];

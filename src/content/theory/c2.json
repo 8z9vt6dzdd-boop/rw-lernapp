@@ -1,1 +1,65 @@
-[]
+[
+  {
+    "id": "C6-001",
+    "skill": "C6-leihverpackung",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.1.2, S. 83 f.; BA S. 187 (Fußnote zur Leihemballage)",
+    "frage": "Was ist Leihverpackung und wie wird sie beim Einkauf gebucht?",
+    "antwort": "Leihverpackung ist mehrfach verwendbares Verpackungsmaterial des Lieferanten, etwa Paletten, Fässer oder Container. Berechnet der Lieferant sie, bucht der Käufer den Betrag (mit Vorsteuer) auf das Bezugskostenkonto des Stoffes. Eine Gutschrift bei Rückgabe mindert dieses Konto im Haben.",
+    "beispiel": "Die MBG erhält Dosen mit 20 Leihpaletten zu je 15 € netto: Bezugskosten für Hilfsstoffe 300 € im Soll.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "C6-mc-001",
+    "skill": "C6-leihverpackung",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA S. 187 (Fußnote zur Leihemballage); 04-fachregeln.md, Abschnitt 2 Nr. 6",
+    "frage": "Ein Lieferant schreibt der MBG für zurückgeschickte Leihcontainer 500,00 € netto gut (19 % USt). Wie wird gebucht?",
+    "optionen": [
+      {
+        "text": "Verbindlichkeiten a. LL 595,00 € an Bezugskosten für Rohstoffe 500,00 €, an Vorsteuer 95,00 €",
+        "richtig": true
+      },
+      {
+        "text": "Verbindlichkeiten a. LL 595,00 € an Nachlässe für Rohstoffe 500,00 €, an Vorsteuer 95,00 €",
+        "fehlertyp": "leihverpackung-gutschrift-nachlass",
+        "erklaerung": "Die Gutschrift betrifft die Verpackung, nicht den Preis der Rohstoffe. Sie mindert die Bezugskosten."
+      },
+      {
+        "text": "Verbindlichkeiten a. LL 500,00 € an Bezugskosten für Rohstoffe 500,00 €",
+        "fehlertyp": "leihverpackung-gutschrift-ohne-vorsteuer",
+        "erklaerung": "Mit dem Entgelt sinkt auch die Vorsteuer; die Verbindlichkeit sinkt um den Bruttobetrag."
+      },
+      {
+        "text": "Verbindlichkeiten a. LL 595,00 € an Rohstoffe 500,00 €, an Vorsteuer 95,00 €",
+        "fehlertyp": "leihverpackung-gutschrift-stoffkonto",
+        "erklaerung": "Zurückgegeben wurde die Verpackung, nicht die Ware. Gemindert wird das Bezugskostenkonto."
+      }
+    ],
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "C7-001",
+    "skill": "C7-bezugskalkulation",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.1.2, S. 83 f. (Anschaffungsnebenkosten); Lehrbuch-Übungen zur Bezugskalkulation",
+    "frage": "Wie kommt man vom Listeneinkaufspreis zum Bezugspreis?",
+    "antwort": "Listeneinkaufspreis minus Liefererrabatt ergibt den Zieleinkaufspreis, minus Liefererskonto den Bareinkaufspreis. Plus Bezugskosten wie Fracht, Verpackung oder Versicherung ergibt den Bezugspreis, auch Einstandspreis genannt. Er entspricht den Anschaffungskosten der Ware.",
+    "beispiel": "10.000 € − 10 % Rabatt = 9.000 €; − 2 % Skonto = 8.820 €; + 200 € Fracht = 9.020 € Bezugspreis.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  },
+  {
+    "id": "C8-001",
+    "skill": "C8-handelswaren",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 3.1.1, S. 80 f.",
+    "frage": "Was sind Handelswaren und wie ergibt sich ihr Aufwand bei bestandsorientierter Buchung?",
+    "antwort": "Handelswaren sind bewegliche Güter, die ohne Be- oder Verarbeitung weiterverkauft werden; Sortieren, Abpacken oder Etikettieren zählt nicht als Bearbeitung. Der Aufwand ergibt sich per Inventur: Anfangsbestand plus Zugänge minus Schlussbestand. Die Erlöse stehen auf Umsatzerlöse für Handelswaren.",
+    "beispiel": "AB 18.000 € + Einkäufe 64.000 € − SB 21.000 € = Wareneinsatz 61.000 €.",
+    "pruefung": { "faktenabgleich": "ok", "ueberschneidung": "ok", "datum": "2026-11-03" }
+  }
+]

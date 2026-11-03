@@ -218,7 +218,7 @@ export const lektionC5: Lektion = {
       cliffhanger: {
         figur: 'tobias',
         ausdruck: 'freut',
-        text: 'Apropos Nachlass: Ich habe einem Großhändler 3 % Bonus versprochen. Das ist doch kein Problem, oder?',
+        text: 'Auf der Dosenrechnung stehen 20 Leihpaletten extra. Bezahlen wir jetzt etwa auch die Paletten?',
       },
     },
   ],

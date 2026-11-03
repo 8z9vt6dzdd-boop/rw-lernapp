@@ -1,1 +1,552 @@
-[]
+[
+  {
+    "id": "A1-k-001",
+    "skill": "A1-rw-aufbau",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.1.1, S. 6–7",
+    "frage": "Welche drei Aufgaben hat das Rechnungswesen?",
+    "antwort": "Dokumentation: alle Geschäftsvorfälle zeitlich und sachlich geordnet aufgrund von Belegen festhalten. Kontrolle: Ist-Werte mit Soll-Werten vergleichen und so Zahlungsfähigkeit (Liquidität) und Wirtschaftlichkeit überwachen. Disposition und Steuerung: aufbereitete Zahlen als Grundlage für Planungen und Entscheidungen liefern, auch als Frühwarnsystem.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A1-k-002",
+    "skill": "A1-rw-aufbau",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.1.1, S. 6 (Abb. 1); 2.1.2, S. 7–10",
+    "frage": "In welche vier Teilbereiche gliedert sich das Rechnungswesen?",
+    "antwort": "Buchführung (Finanzbuchhaltung), Kosten- und Leistungsrechnung, Statistik und Planungsrechnung. Buchführung, Kostenrechnung und Statistik blicken auf Vergangenes; die Planungsrechnung baut darauf auf und richtet sich auf die Zukunft.",
+    "beispiel": "Bei der MBG: Eingangsrechnung des Dosenwerks erfassen (Buchführung), Kosten je Dose ermitteln (KLR), Umsatz mit dem Vorjahr vergleichen (Statistik), zweite Abfülllinie planen (Planungsrechnung).",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A1-k-003",
+    "skill": "A1-rw-aufbau",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.1.2, S. 7–8",
+    "frage": "Worin unterscheiden sich externes und internes Rechnungswesen?",
+    "antwort": "Externes Rechnungswesen = Finanzbuchhaltung: informiert vor allem Außenstehende (Gläubiger, Staat, Kapitalgeber) und dokumentiert anhand von Belegen alle Vorfälle, die Vermögen, Eigen- und Fremdkapital oder den Jahreserfolg verändern. Internes Rechnungswesen = Kosten- und Leistungsrechnung: erfasst den Werteverzehr in Produktion und Absatz und liefert Zahlen für Programm, Preise und Steuerung.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A1-k-004",
+    "skill": "A1-rw-aufbau",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.1.2, S. 8–9 (Abb. 2)",
+    "frage": "Wie ist Buchführung definiert, und welchen Zwecken dient sie?",
+    "antwort": "Buchführung ist die planmäßige, systematische und lückenlose Aufzeichnung der Wertbewegungen im Unternehmen und zwischen Unternehmen und Umwelt. Zwecke: Selbstinformation, Rechenschaftslegung, Grundlage der Besteuerung, Gläubigerschutz und Beweismittel.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A1-k-005",
+    "skill": "A1-rw-aufbau",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.1.2, S. 8",
+    "frage": "Warum hat die Buchführung eine zentrale Stellung im Rechnungswesen?",
+    "antwort": "Sie liefert die gesetzlich verlangten Informationen für interne und externe Adressaten, und sie stellt die Ist-Daten bereit, auf denen Kostenrechnung, Statistik und Planung aufbauen.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A1-k-006",
+    "skill": "A1-rw-aufbau",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.1.2, S. 9–10",
+    "frage": "Welche drei Teilrechnungen hat die Kosten- und Leistungsrechnung?",
+    "antwort": "Kostenartenrechnung: erfasst und gliedert alle Kosten einer Abrechnungsperiode (Ausgangspunkt). Kostenstellenrechnung: verteilt die Kosten mit dem Betriebsabrechnungsbogen auf die Stellen, in denen sie entstanden sind. Kostenträgerrechnung (Kalkulation): ermittelt die Stückkosten je Erzeugnis, Serie oder Auftrag.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A1-mc-001",
+    "skill": "A1-rw-aufbau",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 2.1.2, S. 9 (mit Fn. 4); 2.2.1, S. 11",
+    "frage": "Muss die MBG eine Kosten- und Leistungsrechnung führen?",
+    "optionen": [
+      {
+        "text": "Nein, sie ist grundsätzlich freiwillig; vorgeschrieben ist die Buchführung.",
+        "richtig": true
+      },
+      {
+        "text": "Ja, jeder Kaufmann ist nach § 238 HGB dazu verpflichtet.",
+        "erklaerung": "§ 238 HGB verpflichtet zur Buchführung. Die Kostenrechnung ist bis auf Sonderfälle (z. B. Leitsätze für öffentliche Aufträge) nicht gesetzlich vorgeschrieben."
+      },
+      {
+        "text": "Nur wenn sie mehr als 600.000 € Umsatz hat.",
+        "erklaerung": "Umsatzgrenzen betreffen die Buchführungspflicht nach Steuer- bzw. Handelsrecht, nicht die Kostenrechnung."
+      },
+      {
+        "text": "Ja, das Finanzamt verlangt sie für die Steuererklärung.",
+        "erklaerung": "Für die Besteuerung zählt die Buchführung. Die Kostenrechnung dient vor allem der internen Steuerung."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A1-mc-002",
+    "skill": "A1-rw-aufbau",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 2.1.2, S. 10",
+    "frage": "Die MBG vergleicht ihre Umsatzentwicklung mit Zahlen anderer Getränkehersteller und berechnet Kennzahlen. Welcher Teilbereich ist das?",
+    "optionen": [
+      {
+        "text": "Statistik",
+        "richtig": true
+      },
+      {
+        "text": "Kosten- und Leistungsrechnung",
+        "erklaerung": "Die KLR ermittelt Kosten und Leistungen der Produktion. Branchenvergleiche und Kennziffern gehören zur Statistik."
+      },
+      {
+        "text": "Planungsrechnung",
+        "erklaerung": "Die Planungsrechnung bereitet künftige Entscheidungen vor. Der Vergleich vorhandener Zahlen ist Statistik."
+      },
+      {
+        "text": "Buchführung",
+        "erklaerung": "Die Buchführung zeichnet Geschäftsvorfälle auf; sie wertet sie nicht vergleichend aus."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A1-mc-003",
+    "skill": "A1-rw-aufbau",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 2.1.2, S. 10–11",
+    "frage": "Welche Aufgabe gehört zur Planungsrechnung?",
+    "optionen": [
+      {
+        "text": "Die optimale Bestellmenge für Getränkedosen berechnen",
+        "richtig": true
+      },
+      {
+        "text": "Die Rechnung des Dosenwerks buchen",
+        "erklaerung": "Das Erfassen eines Belegs ist Buchführung."
+      },
+      {
+        "text": "Die Personalkosten des Vorjahres mit dem Vorvorjahr vergleichen",
+        "erklaerung": "Ein Periodenvergleich ist Statistik."
+      },
+      {
+        "text": "Die Gemeinkosten mit dem Betriebsabrechnungsbogen auf die Kostenstellen verteilen",
+        "erklaerung": "Das ist Kostenstellenrechnung, ein Teil der KLR."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A1-ka-001",
+    "skill": "A1-rw-aufbau",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 2.1.1, S. 6–7",
+    "frage": "Erläutern Sie die Aufgaben des Rechnungswesens.",
+    "punkte": 3,
+    "checkliste": [
+      {
+        "aussage": "Dokumentation: lückenlose, zeitlich und sachlich geordnete Aufzeichnung aller Geschäftsvorfälle aufgrund von Belegen (gesetzlich gefordert; Einblick für Vertragspartner).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Kontrolle: Ist-Werte mit Soll-Werten vergleichen, Liquidität und Wirtschaftlichkeit überwachen, bei Abweichungen Ursachen analysieren und gegensteuern.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Disposition und Steuerung: aufbereitete Zahlen als Grundlage für Planung und Entscheidungen, auch als Frühwarnsystem.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Das Rechnungswesen hat erstens eine Dokumentationsaufgabe: Alle Geschäftsvorfälle werden lückenlos, zeitlich und sachlich geordnet und belegt aufgezeichnet, wie es die Rechnungslegungsvorschriften verlangen; so können sich auch Vertragspartner ein Bild von der Lage des Unternehmens machen. Zweitens dient es der Kontrolle: Die tatsächlichen Werte werden mit den geplanten verglichen, damit Zahlungsfähigkeit und Wirtschaftlichkeit laufend überwacht und bei Abweichungen Gegenmaßnahmen ergriffen werden können. Drittens liefert es für Disposition und Steuerung aufbereitete Zahlen, auf die sich Planungen und Entscheidungen stützen, und wirkt dabei als Frühwarnsystem.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A1-ka-002",
+    "skill": "A1-rw-aufbau",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 2.1.2, S. 7–9",
+    "frage": "Unterscheiden Sie zwischen externem und internem Rechnungswesen.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Externes Rechnungswesen = Finanzbuchhaltung, Adressaten vor allem Gläubiger, Staat und außenstehende Kapitalgeber.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Es erfasst belegmäßig alle Vorfälle, die Vermögen, Eigen- und Fremdkapital oder den Jahreserfolg verändern; gesetzlich vorgeschrieben.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Internes Rechnungswesen = Kosten- und Leistungsrechnung, erfasst den Werteverzehr in Produktion und Absatz und ist nach innen gerichtet.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Es liefert Informationen für Produktionsprogramm, Preise, Planung und Steuerung sowie Wirtschaftlichkeitskontrolle; grundsätzlich freiwillig.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Das externe Rechnungswesen ist die Finanzbuchhaltung. Sie richtet sich vor allem an Außenstehende wie Gläubiger, Staat und Kapitalgeber und hält anhand von Belegen zeitlich und sachlich geordnet alle Vorgänge fest, die Vermögen, Eigen- und Fremdkapital oder den Jahreserfolg verändern. Sie ist für Kaufleute gesetzlich vorgeschrieben. Das interne Rechnungswesen ist die Kosten- und Leistungsrechnung. Sie betrachtet nur den eigentlichen Betriebszweck, erfasst den Werteverzehr in Produktion und Absatz und liefert nach innen Informationen für Produktionsprogramm, Preise, Planung und Steuerung sowie für die Kontrolle der Wirtschaftlichkeit. Sie ist grundsätzlich freiwillig.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-k-001",
+    "skill": "A2-gob",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.2.1, S. 11–12",
+    "frage": "Wer ist nach Handelsrecht zur Buchführung verpflichtet?",
+    "antwort": "Jeder Kaufmann (§ 238 Abs. 1 HGB), also wer ein Handelsgewerbe betreibt – etwa der eingetragene Kaufmann (e. K.), die OHG, KG, GmbH und AG. Einzelkaufleute mit geringem Umsatz und Jahresüberschuss können nach § 241a HGB befreit sein; für die MBG als OHG gilt das nicht.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-k-002",
+    "skill": "A2-gob",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.2.1, S. 12",
+    "frage": "Wie ist die Buchführungspflicht im Steuerrecht geregelt?",
+    "antwort": "Wer nach HGB buchführungspflichtig ist, ist es auch steuerlich (§ 140 AO, abgeleitete Pflicht). Zusätzlich verpflichtet § 141 AO gewerbliche Unternehmer, die keine Kaufleute sind (z. B. Handwerker), wenn ihr Umsatz oder Gewinn bestimmte Grenzen übersteigt.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-k-003",
+    "skill": "A2-gob",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.2.2.1, S. 17; 2.2.1, S. 16",
+    "frage": "Was sind die Grundsätze ordnungsmäßiger Buchführung (GoB), und für wen gelten sie?",
+    "antwort": "Die GoB sind ein unbestimmter Rechtsbegriff (u. a. § 238 Abs. 1, § 243 Abs. 1 HGB): Weil das Gesetz nicht jeden Fall regeln kann, bleibt die Buchführung so auch bei neuen Sachverhalten ordnungsgemäß. Sie gelten rechtsformunabhängig für alle Kaufleute, auch für den Jahresabschluss und über § 5 Abs. 1 EStG für die steuerliche Gewinnermittlung. Quellen: Wissenschaft und Praxis, Rechtsprechung, Empfehlungen der Wirtschaftsverbände.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-k-004",
+    "skill": "A2-gob",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.2.2.1, S. 17–19",
+    "frage": "Mit welchen Methoden werden GoB gewonnen?",
+    "antwort": "Induktion: aus den Ansichten ehrbarer Kaufleute – heute abgelehnt, weil Kaufleute sachkundig, aber nicht neutral sind. Deduktion: aus den Zwecken des Jahresabschlusses (betriebswirtschaftlich oder handelsrechtlich) – scheitert daran, dass es keinen eindeutig vorrangigen Zweck gibt. Hermeneutik: Auslegung nach Wortlaut, Zusammenhang, Entstehungsgeschichte und Zweck; sie bezieht die anderen Methoden ein.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-k-005",
+    "skill": "A2-gob",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.2.2.2, S. 20–21",
+    "frage": "Welche Dokumentationsgrundsätze gehören zu den GoB?",
+    "antwort": "Systematischer Aufbau (Kontenplan aus einem Kontenrahmen); Schutz der Konten vor Manipulation und Verlust; vollständige und verständliche Aufzeichnung (zeitliche Reihenfolge, deutsche Sprache, Euro, leserlich, Änderungen nur erkennbar per Storno); Beleggrundsatz mit Einzelerfassung; Einhaltung der Aufbewahrungs- und Aufstellungsfristen; ein angemessenes internes Überwachungssystem, das dokumentiert ist.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-k-006",
+    "skill": "A2-gob",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.2.2.2, S. 21–23",
+    "frage": "Welche Rahmengrundsätze für den Jahresabschluss gibt es?",
+    "antwort": "Richtigkeit und Willkürfreiheit; Vergleichbarkeit (formelle und materielle Stetigkeit, Bilanzidentität); Klarheit und Übersichtlichkeit; Vollständigkeit; Stichtagsprinzip; Periodisierung (Aufwand und Ertrag dem richtigen Geschäftsjahr zurechnen); Wirtschaftlichkeit bzw. Relevanz.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-k-007",
+    "skill": "A2-gob",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.2.2.2, S. 22 (Vergleichbarkeit); 2.3.2.2, S. 59",
+    "frage": "Was bedeutet Bilanzidentität?",
+    "antwort": "Die Schlussbilanz eines Geschäftsjahres und die Eröffnungsbilanz des folgenden Jahres müssen übereinstimmen (§ 252 Abs. 1 Nr. 1 HGB). Deshalb startet die MBG am 1.1. genau mit den Beständen ihres Schlussbilanzkontos vom 31.12.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-k-008",
+    "skill": "A2-gob",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.2.2.2, S. 24–25",
+    "frage": "Wann gilt ein Ertrag nach dem Realisationsgrundsatz als entstanden?",
+    "antwort": "Erst mit dem Umsatz: Vermögensgegenstände bleiben bis zum Verkauf mit Anschaffungs- oder Herstellungskosten angesetzt. Realisiert ist, wenn der Kaufvertrag geschlossen, die Lieferung oder Leistung erbracht ist, die Ware den Verfügungsbereich des Lieferers verlassen hat und abgerechnet werden kann – üblicherweise also im Zeitpunkt der Leistung.",
+    "beispiel": "Abgefüllte Dosen im Lager stehen zu Herstellungskosten in der Bilanz. Der höhere Verkaufspreis wird erst Ertrag, wenn die MBG die Paletten an den Kunden ausgeliefert hat.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-k-009",
+    "skill": "A2-gob",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.2.2.2, S. 26–27",
+    "frage": "Was verlangen Imparitäts- und Vorsichtsprinzip?",
+    "antwort": "Vorhersehbare Risiken und Verluste, die bis zum Stichtag entstanden sind, müssen schon im laufenden Abschluss als Aufwand berücksichtigt werden; Gewinne dagegen erst, wenn sie durch Umsatz realisiert sind (ungleiche Behandlung = Imparität). Vermögen eher niedrig (Niederstwertprinzip), Schulden eher hoch (Höchstwertprinzip) ansetzen. Ziel: überhöhte Ausschüttungen verhindern, Haftungssubstanz für Gläubiger erhalten.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-k-010",
+    "skill": "A2-gob",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "BA 2.3.1.1, S. 31–33 (Inventar); 04-fachregeln.md Abschn. 7.2",
+    "frage": "Wie lange muss die MBG ihre Unterlagen aufbewahren, und wann beginnt die Frist?",
+    "antwort": "Handelsbücher, Inventare, Eröffnungsbilanzen und Jahresabschlüsse: 10 Jahre. Buchungsbelege wie Rechnungen und Kontoauszüge: 8 Jahre (seit 2025; ältere Unterlagen, auch der Lehrbrief, nennen hier noch 10 Jahre). Empfangene und abgesandte Geschäftsbriefe: 6 Jahre. Die Frist beginnt mit dem Schluss des Kalenderjahres, in dem die Unterlage entstanden ist.",
+    "pruefung": {
+      "faktenabgleich": "korrigiert – Lehrbrief nennt nur Inventare/Handelsbücher 10 Jahre und den Fristbeginn; 8 Jahre für Belege und 6 Jahre für Briefe aus 04-fachregeln.md 7.2 (geklärt), Abweichung zum Lehrbrief im Text benannt",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-mc-001",
+    "skill": "A2-gob",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 2.2.2.2, S. 20–21",
+    "frage": "Tobias entdeckt eine falsch gebuchte Rechnung. Wie korrigiert die MBG den Fehler GoB-konform?",
+    "optionen": [
+      {
+        "text": "Mit einer Stornobuchung und anschließend der richtigen Buchung",
+        "richtig": true
+      },
+      {
+        "text": "Den falschen Betrag überschreiben, damit das Konto wieder stimmt",
+        "erklaerung": "Gebuchte Zahlen dürfen nicht unkenntlich gemacht werden. Jede Änderung muss erkennbar bleiben – deshalb Storno und Neubuchung."
+      },
+      {
+        "text": "Die Buchung löschen und den Beleg vernichten",
+        "erklaerung": "Das verstößt gegen den Beleggrundsatz und die Aufbewahrungspflicht. Korrigiert wird per Gegenbuchung."
+      },
+      {
+        "text": "Den Fehler bis zum Jahresende stehen lassen",
+        "erklaerung": "Die Buchführung muss richtig und vollständig sein. Ein erkannter Fehler wird per Storno berichtigt."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-mc-002",
+    "skill": "A2-gob",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 2.2.2.2, S. 22–23",
+    "frage": "Die MBG stellt im Februar ihren Jahresabschluss zum 31.12. auf. Welche Information muss sie nach dem Stichtagsprinzip noch berücksichtigen?",
+    "optionen": [
+      {
+        "text": "Ein Gastronom war schon im Dezember zahlungsunfähig; die MBG erfährt es erst im Februar.",
+        "richtig": true
+      },
+      {
+        "text": "Im Februar zerstört ein Sturm ein Lagerzelt.",
+        "erklaerung": "Die Ursache liegt im neuen Jahr – eine wertbegründende Information. Sie gehört in den Abschluss des Folgejahres."
+      },
+      {
+        "text": "Im Januar steigt der Preis für Aromen deutlich.",
+        "erklaerung": "Diese Entwicklung hat ihre Ursache im neuen Jahr und darf den Abschluss zum 31.12. nicht beeinflussen."
+      },
+      {
+        "text": "Keine – nach dem 31.12. bekannt gewordene Informationen sind immer tabu.",
+        "erklaerung": "Wertaufhellende Informationen, die Verhältnisse am Stichtag erhellen, sind bis zur Aufstellung zu berücksichtigen."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-mc-004",
+    "skill": "A2-gob",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "BA 2.2.1, S. 12–16",
+    "frage": "Die Buchführung erschwert Unterschlagungen und hilft, einen Verdacht aufzuklären. Welchem Zweck nach HGB ist das zuzuordnen?",
+    "optionen": [
+      {
+        "text": "Dokumentation",
+        "richtig": true
+      },
+      {
+        "text": "Rechenschaft",
+        "erklaerung": "Rechenschaft heißt, die Lage des Vermögens und den Erfolg gegenüber sich und Dritten offenzulegen. Schutz vor Unterschlagung und Beweisfunktion gehören zur Dokumentation."
+      },
+      {
+        "text": "Kapitalerhaltung",
+        "erklaerung": "Kapitalerhaltung zielt auf den Fortbestand des Unternehmens und begrenzte Ausschüttungen."
+      },
+      {
+        "text": "Steuerung",
+        "erklaerung": "Steuerung ist eine Aufgabe des Rechnungswesens insgesamt, kein Zweck der Buchführung nach HGB."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-ka-001",
+    "skill": "A2-gob",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 2.2.2.1, S. 17; 2.2.2.2, S. 20; 2.2.1, S. 16",
+    "frage": "Erläutern Sie Sinn und Bedeutung der Grundsätze ordnungsmäßiger Buchführung.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Unbestimmter Rechtsbegriff (§ 238 Abs. 1, § 243 Abs. 1 HGB): Das Gesetz kann nicht alle Fälle regeln; die GoB halten Buchführung und Abschluss auch bei neuen Sachverhalten ordnungsgemäß und werden fortentwickelt.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Schutz von Unternehmenseignern und Gläubigern vor falschen Informationen und Verlusten.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Gelten für alle Kaufleute unabhängig von der Rechtsform, für Buchführung und Jahresabschluss sowie für die steuerliche Gewinnermittlung (§ 5 Abs. 1 EStG).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Die einzelnen GoB stehen gleichrangig nebeneinander und stützen sich gegenseitig (Eiffelturm-Prinzip).",
+        "punkte": 1
+      }
+    ],
+    "muster": "Das HGB verweist mit den Grundsätzen ordnungsmäßiger Buchführung auf einen unbestimmten Rechtsbegriff, weil es nicht jeden denkbaren Sachverhalt ausdrücklich regeln kann. So bleiben Buchführung und Jahresabschluss auch bei neuen Entwicklungen ordnungsgemäß; die GoB werden laufend weiterentwickelt. Ihr Kern ist der Schutz der Eigentümer und Gläubiger vor falschen Informationen und vor Verlusten. Sie gelten für alle Kaufleute gleich welcher Rechtsform, erstrecken sich auf den Jahresabschluss und sind über § 5 Abs. 1 EStG auch für die steuerliche Gewinnermittlung maßgeblich. Die einzelnen Grundsätze sind gleichrangig und tragen sich gegenseitig – wie die Streben des Eiffelturms.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-ka-002",
+    "skill": "A2-gob",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "BA 2.2.2.2, S. 21–23",
+    "frage": "Nennen und erläutern Sie drei Rahmengrundsätze für den Jahresabschluss.",
+    "punkte": 3,
+    "checkliste": [
+      {
+        "aussage": "Ein erster Grundsatz richtig benannt und erläutert (z. B. Vollständigkeit: alle buchungspflichtigen Vorgänge, alle Vermögensgegenstände, Schulden, RAP, Aufwendungen und Erträge erfassen).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Ein zweiter Grundsatz richtig benannt und erläutert (z. B. Stichtagsprinzip: Abbildung zum Bilanzstichtag; wertaufhellende Informationen berücksichtigen, wertbegründende nicht).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Ein dritter Grundsatz richtig benannt und erläutert (z. B. Klarheit und Übersichtlichkeit, Vergleichbarkeit/Stetigkeit, Richtigkeit/Willkürfreiheit, Periodisierung oder Wirtschaftlichkeit/Relevanz).",
+        "punkte": 1
+      }
+    ],
+    "muster": "Vollständigkeit: In der Buchführung sind alle buchungspflichtigen Vorgänge zu erfassen, im Abschluss alle Vermögensgegenstände, Schulden und Rechnungsabgrenzungsposten sowie alle Aufwendungen und Erträge; erkennbare Risiken sind zu berücksichtigen. Stichtagsprinzip: Abgebildet werden die Verhältnisse am Bilanzstichtag. Informationen, die nach dem Stichtag bekannt werden, aber Verhältnisse des alten Jahres betreffen (wertaufhellend), werden noch berücksichtigt; Ereignisse mit Ursache im neuen Jahr (wertbegründend) nicht. Vergleichbarkeit: Bilanzidentität sowie gleichbleibende Bezeichnung, Gliederung und Bewertungsmethoden (Stetigkeit); Abweichungen sind zu erläutern.",
+    "pruefung": {
+      "faktenabgleich": "ok",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "A2-Z01",
+    "skill": "A2-gob",
+    "typ": "karte",
+    "status": "zurueckgehalten",
+    "quelle": "BA 2.2.1, S. 11–12",
+    "frage": "Ab welchen Grenzen sind Einzelkaufleute bzw. gewerbliche Unternehmer buchführungspflichtig (§ 241a HGB, § 141 AO)?",
+    "antwort": "Lehrbrief: Befreiung nach § 241a HGB bis 600.000 € Umsatzerlöse und 60.000 € Jahresüberschuss an zwei aufeinanderfolgenden Stichtagen; steuerliche Pflicht nach § 141 AO bei mehr als 600.000 € Umsatz oder 60.000 € Gewinn.",
+    "pruefung": {
+      "faktenabgleich": "zurueckgehalten – Schwellenwerte des Lehrbriefs vermutlich veraltet (Anhebung seit 2024 unbestätigt); Klärung, welche Werte gelernt werden sollen",
+      "ueberschneidung": "ok – check-overlap 0 Treffer",
+      "datum": "2026-11-03"
+    }
+  }
+]

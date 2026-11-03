@@ -1,1 +1,701 @@
-[]
+[
+  {
+    "id": "G1-karte-001",
+    "skill": "G1-grundbegriffe",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.2, S. 21–24",
+    "frage": "Wann fallen Auszahlung und Ausgabe auseinander?",
+    "antwort": "Bei Kreditvorgängen. Eine Auszahlung ist der Abfluss von Bargeld und Bankguthaben, eine Ausgabe die Abnahme des Geldvermögens (Kasse + Forderungen − Verbindlichkeiten). Wer eine Verbindlichkeit begleicht, hat eine Auszahlung ohne Ausgabe; wer auf Ziel kauft, eine Ausgabe ohne Auszahlung.",
+    "beispiel": "Die MBG kauft Etiketten auf Ziel: Ausgabe im Januar, Auszahlung erst bei Bezahlung der Rechnung im Februar.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G1-karte-002",
+    "skill": "G1-grundbegriffe",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.2, S. 24–25",
+    "frage": "Wann fallen Ausgabe und Aufwand auseinander?",
+    "antwort": "Wenn sich Bestände des Sachvermögens verändern – meist Lagerbestände, aber auch Anlagen. Aufwand ist der bewertete Verbrauch von Gütern und Dienstleistungen in der Periode. Werden gekaufte Rohstoffe eingelagert, liegt eine Ausgabe ohne Aufwand vor; wird aus einem früher angelegten Lager verbraucht, liegt Aufwand ohne Ausgabe vor. Eine gekaufte Anlage wird erst über Abschreibungen zu Aufwand.",
+    "beispiel": "Zucker aus dem Dezember-Bestand wird im Januar verarbeitet: Aufwand im Januar, die Ausgabe lag im Dezember.",
+    "pruefung": {
+      "faktenabgleich": "korrigiert – zweiter Durchlauf gegen K1 Kap. 1.2/1.3 (Korrektur übernommen, siehe docs/m7/g.md)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G1-karte-003",
+    "skill": "G1-grundbegriffe",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.2, S. 25",
+    "frage": "Die MBG verkauft im Januar Getränke, die schon im Vorjahr hergestellt und eingelagert wurden. Liegt im Januar ein Ertrag vor?",
+    "antwort": "Nach der Sicht des Lehrbriefs nicht: Der Verkauf ist eine Einnahme, doch der Wertzuwachs entstand bei der Herstellung im Vorjahr – dort lag der Ertrag. Das Sachvermögen sinkt in dem Umfang, in dem das Geldvermögen steigt.",
+    "beispiel": "Umgekehrt: Herstellung auf Lager ist Ertrag ohne Einnahme.",
+    "pruefung": {
+      "faktenabgleich": "ok – nach dem zweiten Durchlauf auf dessen Empfehlung ergänzt, gegen K1 1.2 Fall 10 (S. 25) geprüft",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G1-kurz-001",
+    "skill": "G1-grundbegriffe",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K1 1.2, S. 22–27",
+    "frage": "Erläutern Sie an einem Beispiel, wodurch sich Aufwand und Kosten unterscheiden.",
+    "punkte": 3,
+    "checkliste": [
+      {
+        "aussage": "Aufwand ist der gesamte bewertete Güterverzehr einer Periode (Begriff der Finanzbuchhaltung).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Kosten sind nur der betriebliche Güterverzehr für Erstellung und Absatz der Leistungen bzw. die Betriebsbereitschaft.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Passendes Beispiel, etwa eine Spende: Aufwand, aber keine Kosten (neutraler Aufwand); oder kalkulatorischer Unternehmerlohn: Kosten ohne Aufwand.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Aufwand ist der bewertete Verzehr von Gütern und Dienstleistungen einer Periode, wie ihn die Finanzbuchhaltung erfasst. Kosten umfassen dagegen nur den Verzehr, der der Erstellung und dem Absatz der betrieblichen Leistungen und der Aufrechterhaltung der Betriebsbereitschaft dient. Spendet die MBG an einen Sportverein, ist das Aufwand, aber keine Kosten, weil die Spende nicht der Getränkeherstellung dient.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G2-kurz-001",
+    "skill": "G2-abgrenzung",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K1 1.2, S. 26–27",
+    "frage": "Nennen Sie die drei Arten des neutralen Aufwands und geben Sie zu jeder Art ein Beispiel.",
+    "punkte": 3,
+    "checkliste": [
+      {
+        "aussage": "Betriebsfremder Aufwand, z. B. eine Spende oder Kursverluste aus Geldanlagen.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Periodenfremder Aufwand, z. B. eine Steuernachzahlung für ein Vorjahr.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Außerordentlicher Aufwand, z. B. ein nicht versicherter Brandschaden.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Neutraler Aufwand ist Aufwand, dem in der Periode keine Kosten gegenüberstehen. Betriebsfremd ist Aufwand, der nicht dem Betriebszweck dient, etwa eine Spende. Periodenfremd ist Aufwand, dessen Ursache in einer anderen Periode liegt, etwa eine Gewerbesteuernachzahlung für das Vorjahr. Außerordentlich ist Aufwand aus einem ungewöhnlichen Ereignis, etwa ein nicht versicherter Brandschaden im Lager.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G2-karte-001",
+    "skill": "G2-abgrenzung",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.2, S. 27–29",
+    "frage": "Worin unterscheiden sich Grundkosten, Anderskosten und Zusatzkosten?",
+    "antwort": "Grundkosten sind aufwandsgleich: Der Aufwand wird in gleicher Höhe übernommen. Anderskosten haben einen Aufwand, werden aber anders bewertet (aufwandsverschieden). Zusatzkosten haben keinen Aufwand in der Buchhaltung. Anders- und Zusatzkosten bilden die kalkulatorischen Kosten.",
+    "beispiel": "Versicherungsprämie (Grundkosten), kalkulatorische Abschreibung vom Wiederbeschaffungswert (Anderskosten), kalkulatorischer Unternehmerlohn (Zusatzkosten).",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G2-karte-002",
+    "skill": "G2-abgrenzung",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.6, S. 41–42",
+    "frage": "Wie ist eine Ergebnistabelle aufgebaut?",
+    "antwort": "Im Zweikreissystem stimmt sie Rechnungskreis I (Finanzbuchhaltung) und Rechnungskreis II (Kosten- und Leistungsrechnung) ab. Dazwischen liegt der Abgrenzungsbereich mit unternehmensbezogener Abgrenzung (neutrale Aufwendungen und Erträge) und kostenrechnerischen Korrekturen. Es gilt: Gesamtergebnis = neutrales Ergebnis + Betriebsergebnis.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G3-karte-001",
+    "skill": "G3-kostenbegriff",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.3, S. 30",
+    "frage": "Woran orientiert sich der pagatorische Kostenbegriff?",
+    "antwort": "An Auszahlungen. Er bewertet mit tatsächlich gezahlten Preisen und arbeitet daher mit vergangenheitsbezogenen Werten.",
+    "beispiel": "Die Abschreibung der Abfüllanlage wird vom gezahlten Anschaffungspreis berechnet.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G3-karte-002",
+    "skill": "G3-kostenbegriff",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.3, S. 30",
+    "frage": "Worauf stellt der wertmäßige Kostenbegriff ab?",
+    "antwort": "Auf den tatsächlichen Wertverzehr. Bewertet wird der Verbrauch aller Produktionsfaktoren, und neben gezahlten Preisen dürfen auch Planpreise oder kalkulatorische Werte angesetzt werden. Der Lehrbrief verwendet diesen Kostenbegriff.",
+    "beispiel": "Die Abschreibung der Abfüllanlage wird vom Wiederbeschaffungswert berechnet.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G3-karte-003",
+    "skill": "G3-kostenbegriff",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.3, S. 30",
+    "frage": "Welche drei Merkmale bestimmen den wertmäßigen Kostenbegriff?",
+    "antwort": "Verbrauch von Produktionsfaktoren, Betrieblichkeit der Leistungserstellung und Bewertung des Verbrauchs.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G3-mc-001",
+    "skill": "G3-kostenbegriff",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 1.3, S. 30",
+    "frage": "Welcher Wertansatz ist nur mit dem wertmäßigen, nicht mit dem pagatorischen Kostenbegriff vereinbar?",
+    "optionen": [
+      {
+        "text": "Abschreibung vom Wiederbeschaffungswert der Abfüllanlage",
+        "richtig": true
+      },
+      {
+        "text": "Abschreibung vom gezahlten Anschaffungspreis",
+        "erklaerung": "Der gezahlte Preis ist eine Auszahlung der Vergangenheit – genau damit arbeitet der pagatorische Kostenbegriff."
+      },
+      {
+        "text": "Zuckerverbrauch zum Preis der Lieferantenrechnung",
+        "erklaerung": "Auch das ist ein gezahlter Preis und damit pagatorisch möglich."
+      },
+      {
+        "text": "Gehälter laut Gehaltsabrechnung",
+        "erklaerung": "Gezahlte Gehälter beruhen auf Auszahlungen – pagatorisch möglich."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G3-mc-002",
+    "skill": "G3-kostenbegriff",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 1.3, S. 30",
+    "frage": "Die MBG kauft Aromen, die bis März im Lager bleiben. Woran scheitert der Kostencharakter im Januar?",
+    "optionen": [
+      {
+        "text": "Verbrauch von Produktionsfaktoren",
+        "richtig": true
+      },
+      {
+        "text": "Betrieblichkeit der Leistungserstellung",
+        "erklaerung": "Die Aromen sind für die Getränkeherstellung bestimmt; betrieblich sind sie."
+      },
+      {
+        "text": "Bewertung des Verbrauchs",
+        "erklaerung": "Ein Preis liegt vor. Es fehlt, dass überhaupt etwas verbraucht wurde."
+      },
+      {
+        "text": "Es fehlt kein Merkmal; es sind Kosten.",
+        "erklaerung": "Gekauft ist nicht verbraucht. Kosten entstehen erst mit der Verarbeitung."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G3-mc-003",
+    "skill": "G3-kostenbegriff",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 1.3, S. 30",
+    "frage": "Die MBG lässt das Dach eines Wohnhauses reparieren, das sie vermietet und betrieblich nicht nutzt. Material und Handwerkerleistung werden verbraucht und sind bewertet. Welches Merkmal wertmäßiger Kosten fehlt?",
+    "optionen": [
+      {
+        "text": "Betrieblichkeit der Leistungserstellung",
+        "richtig": true
+      },
+      {
+        "text": "Bewertung des Verbrauchs",
+        "erklaerung": "Die Rechnung des Handwerkers bewertet den Verbrauch."
+      },
+      {
+        "text": "Verbrauch von Produktionsfaktoren",
+        "erklaerung": "Material und Arbeitsleistung werden tatsächlich verbraucht."
+      },
+      {
+        "text": "Es fehlt kein Merkmal; es sind Kosten.",
+        "erklaerung": "Das Wohnhaus dient nicht der Getränkeherstellung: betriebsfremder, neutraler Aufwand, keine Kosten."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "korrigiert – zweiter Durchlauf gegen K1 Kap. 1.2/1.3 (Korrektur übernommen, siehe docs/m7/g.md)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G3-kurz-001",
+    "skill": "G3-kostenbegriff",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K1 1.3, S. 30",
+    "frage": "Grenzen Sie den pagatorischen vom wertmäßigen Kostenbegriff ab.",
+    "punkte": 2,
+    "checkliste": [
+      {
+        "aussage": "Pagatorisch: Orientierung an Auszahlungen, Bewertung mit gezahlten, vergangenheitsbezogenen Preisen (z. B. Abschreibung vom Anschaffungspreis).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Wertmäßig: tatsächlicher Wertverzehr aller verbrauchten Produktionsfaktoren, Bewertung auch mit Plan- oder kalkulatorischen Werten.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Der pagatorische Kostenbegriff knüpft an Auszahlungen an und bewertet den Verbrauch mit den tatsächlich gezahlten Preisen der Vergangenheit, etwa die Abschreibung vom Anschaffungspreis. Der wertmäßige Kostenbegriff stellt auf den tatsächlichen Wertverzehr ab und bezieht alle verbrauchten Produktionsfaktoren ein; neben gezahlten Preisen dürfen auch Planpreise oder kalkulatorische Werte angesetzt werden.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G3-kurz-002",
+    "skill": "G3-kostenbegriff",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K1 1.3, S. 30",
+    "frage": "Erläutern Sie die drei Merkmale, die den wertmäßigen Kostenbegriff bestimmen.",
+    "punkte": 3,
+    "checkliste": [
+      {
+        "aussage": "Verbrauch von Produktionsfaktoren: Güter und Dienstleistungen werden verzehrt, nicht bloß beschafft.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Betrieblichkeit: Der Verbrauch dient der betrieblichen Leistungserstellung (Herstellung, Absatz, Betriebsbereitschaft).",
+        "punkte": 1
+      },
+      {
+        "aussage": "Bewertung: Der Verbrauch wird in Geld bewertet, auch mit Plan- oder kalkulatorischen Werten.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Kosten im wertmäßigen Sinn verlangen erstens einen Verbrauch von Produktionsfaktoren; ein Einkauf auf Lager genügt nicht. Zweitens muss der Verbrauch betrieblich sein, also der Erstellung und dem Absatz der Leistungen oder der Betriebsbereitschaft dienen. Drittens wird der Verbrauch bewertet, wobei neben gezahlten Preisen auch Plan-, Tages- oder kalkulatorische Werte zulässig sind.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G4-karte-001",
+    "skill": "G4-fix-variabel",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.4.1, S. 30–32",
+    "frage": "Was unterscheidet fixe von variablen Kosten, und wie lautet die lineare Kostenfunktion?",
+    "antwort": "Fixe Kosten fallen unabhängig von der produzierten Menge an, variable Kosten ändern sich mit ihr. Bei linearem Verlauf gilt K = kv · x + Kf. Fixe Kosten lassen sich in der Regel nicht kurzfristig beeinflussen.",
+    "beispiel": "Miete der Lagerhalle (fix), Zucker für den Sirup (variabel).",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G4-mc-001",
+    "skill": "G4-fix-variabel",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 1.4.1, S. 30 (Fußnote)",
+    "frage": "Ab einer Monatsmenge von 8.000 hl stellt die MBG eine zweite Schichtleitung ein. Wie verhalten sich diese Kosten?",
+    "optionen": [
+      {
+        "text": "Intervallfix: innerhalb eines Bereichs konstant, beim Überschreiten der Grenze sprunghaft höher",
+        "richtig": true
+      },
+      {
+        "text": "Variabel, weil sie mit der Menge steigen",
+        "fehlertyp": "intervallfix-verkannt",
+        "erklaerung": "Sie steigen nicht mit jedem Hektoliter, sondern nur an der Grenze – und bleiben danach wieder konstant."
+      },
+      {
+        "text": "Fix, weil ein Gehalt nie von der Menge abhängt",
+        "fehlertyp": "intervallfix-verkannt",
+        "erklaerung": "Innerhalb eines Bereichs ja; an der Grenze springen die Kosten aber auf ein neues Niveau."
+      },
+      {
+        "text": "Gar keine Kosten, weil es sich um Personal handelt",
+        "erklaerung": "Gehälter sind Kosten, sobald sie für den Betrieb anfallen."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G5-kurz-001",
+    "skill": "G5-einzel-gemein",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K1 1.4.2, S. 33",
+    "frage": "Was versteht man unter unechten Gemeinkosten? Nennen Sie ein Beispiel.",
+    "punkte": 2,
+    "checkliste": [
+      {
+        "aussage": "Ihrem Inhalt nach Einzelkosten (und variabel), die einem Kostenträger grundsätzlich zugerechnet werden könnten.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Werden wie Gemeinkosten behandelt, weil die Zurechnung unvertretbar aufwendig wäre; Beispiel: Leim für Etiketten.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Unechte Gemeinkosten sind ihrem Inhalt nach Einzelkosten und damit variabel. Man könnte sie dem einzelnen Kostenträger zurechnen, doch die Erfassung wäre mit einem nicht zu vertretenden Aufwand verbunden. Deshalb werden sie wie Gemeinkosten verrechnet, zum Beispiel der Leim für die Etiketten.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G5-karte-001",
+    "skill": "G5-einzel-gemein",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.4.2, S. 33",
+    "frage": "Was sind Sondereinzelkosten?",
+    "antwort": "Kosten, die nicht einem einzelnen Stück, wohl aber einem Auftrag oder einer abgrenzbaren Vertriebsposition direkt zurechenbar sind. Sondereinzelkosten der Fertigung: etwa Rüstkosten. Sondereinzelkosten des Vertriebs: etwa Ausgangsfrachten oder Spezialverpackungen.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G5-mc-001",
+    "skill": "G5-einzel-gemein",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 1.4.2, S. 33",
+    "frage": "Welche Aussage zum Zusammenhang von fixen/variablen Kosten und Einzel-/Gemeinkosten stimmt?",
+    "optionen": [
+      {
+        "text": "Fixe Kosten sind regelmäßig Gemeinkosten.",
+        "richtig": true
+      },
+      {
+        "text": "Variable Kosten sind immer Einzelkosten.",
+        "fehlertyp": "unechte-gemeinkosten-verkannt",
+        "erklaerung": "Unechte Gemeinkosten sind variabel, werden aber wie Gemeinkosten behandelt."
+      },
+      {
+        "text": "Einzelkosten sind regelmäßig fix.",
+        "fehlertyp": "fix-variabel-vertauscht",
+        "erklaerung": "Einzelkosten wie Fertigungsmaterial steigen mit der Menge: Sie sind variabel."
+      },
+      {
+        "text": "Gemeinkosten sind immer variabel.",
+        "erklaerung": "Echte Gemeinkosten wie Miete oder Gehälter sind typischerweise fix."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G6-karte-001",
+    "skill": "G6-prinzipien",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.5, S. 34",
+    "frage": "Was besagt das Kostenverursachungsprinzip?",
+    "antwort": "Einem Kostenträger werden nur die Kosten zugerechnet, die seine Entstehung verursacht hat. Es ist das wichtigste Prinzip; ein exakter Ursache-Wirkungs-Zusammenhang besteht aber nur bei variablen Kosten bzw. Einzelkosten, daher lässt es sich rein nur in einer Teilkostenrechnung verwirklichen.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G6-karte-002",
+    "skill": "G6-prinzipien",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.5, S. 34",
+    "frage": "Was besagt das Durchschnittskostenprinzip?",
+    "antwort": "Gemeinkosten, die sich nicht direkt zuordnen lassen, werden proportional zu einer Schlüsselgröße auf die Kostenträger verteilt. Schlüssel können Mengengrößen (Leistungseinheiten, Raumanteil) oder Wertgrößen (Personalkosten, Kapitalbindung) sein. Angewendet wird es in der Kostenstellenrechnung.",
+    "beispiel": "Die Miete der Lagerhalle wird nach belegten Palettenstellplätzen verteilt.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G6-karte-003",
+    "skill": "G6-prinzipien",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.5, S. 34–35",
+    "frage": "Was besagt das Kostentragfähigkeitsprinzip, und wann wird es angewendet?",
+    "antwort": "Kosten werden nach der Belastbarkeit der Kostenträger verteilt: Ein Produkt trägt so viel, wie sein Deckungsbeitrag zulässt. Das kommt infrage, wenn der Markt einen voll kalkulierten Preis nicht zulässt, die MBG mit dem Produkt aber präsent bleiben will.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G6-karte-004",
+    "skill": "G6-prinzipien",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.5, S. 35",
+    "frage": "Was besagt das Identitätsprinzip?",
+    "antwort": "Einem Kalkulationsobjekt sind nur die Kosten zurechenbar, die durch die Entscheidung für genau dieses Objekt ausgelöst werden.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G6-mc-001",
+    "skill": "G6-prinzipien",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 1.5, S. 34",
+    "frage": "Für welche Kosten lässt sich das Verursachungsprinzip in reiner Form durchhalten?",
+    "optionen": [
+      {
+        "text": "Für variable Kosten bzw. Einzelkosten",
+        "richtig": true
+      },
+      {
+        "text": "Für alle Gemeinkosten",
+        "erklaerung": "Gemeinkosten haben keinen direkten Ursache-Wirkungs-Zusammenhang zum einzelnen Produkt; dafür gibt es das Durchschnittsprinzip."
+      },
+      {
+        "text": "Für fixe Kosten",
+        "erklaerung": "Fixe Kosten fallen unabhängig von der Menge an; kein einzelnes Produkt verursacht sie."
+      },
+      {
+        "text": "Für alle Kosten einer Vollkostenrechnung",
+        "erklaerung": "In reiner Form ist das Prinzip nur in einer Teilkostenrechnung umsetzbar."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G6-karte-005",
+    "skill": "G6-prinzipien",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.6, S. 39–40",
+    "frage": "Welche drei Stufen hat die Kostenrechnung, und welche Frage beantwortet jede?",
+    "antwort": "Kostenartenrechnung: Welche Kosten sind angefallen? Kostenstellenrechnung: Wo sind die Kosten angefallen? (vor allem Verteilung der Gemeinkosten) Kostenträgerrechnung: Wofür sind die Kosten angefallen?",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G6-mc-002",
+    "skill": "G6-prinzipien",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 1.6, S. 40",
+    "frage": "Wie heißt die Kostenträgerrechnung, die die gesamten Kosten und Erlöse einer Abrechnungsperiode ermittelt?",
+    "optionen": [
+      {
+        "text": "Kostenträgerzeitrechnung (Betriebsergebnisrechnung)",
+        "richtig": true
+      },
+      {
+        "text": "Kostenträgerstückrechnung (Kalkulation)",
+        "erklaerung": "Die Stückrechnung ermittelt die Kosten je Einheit eines Erzeugnisses."
+      },
+      {
+        "text": "Kostenstellenrechnung",
+        "erklaerung": "Sie fragt, wo die Kosten angefallen sind, und verteilt vor allem Gemeinkosten auf Bereiche."
+      },
+      {
+        "text": "Kostenartenrechnung",
+        "erklaerung": "Sie erfasst und ordnet alle angefallenen Kosten."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G6-karte-006",
+    "skill": "G6-prinzipien",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.6, S. 36–37",
+    "frage": "Wie unterscheiden sich Ist-, Normal- und Plankostenrechnung?",
+    "antwort": "Istkostenrechnung: tatsächliche Preise und Verbrauchsmengen abgelaufener Perioden. Normalkostenrechnung: Durchschnittswerte der Vergangenheit als feste Preise bzw. Normalkostensätze. Plankostenrechnung: Planwerte für Preise und Mengen künftiger Perioden; mit der Istkostenrechnung kombiniert dient sie der Kostenkontrolle.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G6-mc-003",
+    "skill": "G6-prinzipien",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 1.6, S. 36",
+    "frage": "Welcher Nachteil spricht gegen eine ausschließliche Istkostenrechnung?",
+    "optionen": [
+      {
+        "text": "Es fehlen Sollgrößen für die Kostenkontrolle, und sie ist sehr arbeits- und zeitintensiv.",
+        "richtig": true
+      },
+      {
+        "text": "Sie bildet die tatsächlichen Kosten nicht ab.",
+        "erklaerung": "Im Gegenteil: Genau das ist ihr Vorteil."
+      },
+      {
+        "text": "Sie ist für die Nachkalkulation ungeeignet.",
+        "erklaerung": "Für die Nachkalkulation eignet sie sich besonders."
+      },
+      {
+        "text": "Sie arbeitet nur mit Planpreisen.",
+        "erklaerung": "Planpreise kennzeichnen die Plankostenrechnung."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G6-mc-004",
+    "skill": "G6-prinzipien",
+    "typ": "mc",
+    "status": "aktiv",
+    "quelle": "K1 1.6, S. 37–38",
+    "frage": "Was kennzeichnet die Teilkostenrechnung im Unterschied zur Vollkostenrechnung?",
+    "optionen": [
+      {
+        "text": "Den Kostenträgern werden nur die variablen Kosten zugerechnet; die Fixkosten gehen als Block ins Betriebsergebnis.",
+        "richtig": true
+      },
+      {
+        "text": "Sie verteilt alle Kosten über Schlüssel auf die Kostenträger.",
+        "erklaerung": "So arbeitet die Vollkostenrechnung."
+      },
+      {
+        "text": "Sie lässt die Fixkosten ganz weg.",
+        "erklaerung": "Die Fixkosten werden nicht verteilt, aber im Betriebsergebnis berücksichtigt."
+      },
+      {
+        "text": "Sie rechnet nur mit Planwerten.",
+        "erklaerung": "Der Umfang der verrechneten Kosten (voll/teil) ist unabhängig vom Zeitbezug (Ist/Normal/Plan)."
+      }
+    ],
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G6-karte-007",
+    "skill": "G6-prinzipien",
+    "typ": "karte",
+    "status": "aktiv",
+    "quelle": "K1 1.6, S. 38",
+    "frage": "Was unterscheidet Vorkalkulation und Nachkalkulation?",
+    "antwort": "Die Vorkalkulation beurteilt einen Auftrag vor seiner Ausführung (ex ante). Die Nachkalkulation würdigt ihn nach der Abwicklung (ex post) und liefert eine Grundlage für künftige Entscheidungen.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  },
+  {
+    "id": "G6-kurz-001",
+    "skill": "G6-prinzipien",
+    "typ": "kurzantwort",
+    "status": "aktiv",
+    "quelle": "K1 1.5, S. 34–35",
+    "frage": "Erläutern Sie das Durchschnittsprinzip und das Tragfähigkeitsprinzip der Kostenverrechnung.",
+    "punkte": 4,
+    "checkliste": [
+      {
+        "aussage": "Durchschnittsprinzip: nicht direkt zurechenbare Gemeinkosten werden proportional zu einer Schlüsselgröße verteilt.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Schlüssel sind Mengengrößen (z. B. Raumanteil) oder Wertgrößen (z. B. Personalkosten); Anwendung in der Kostenstellenrechnung.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Tragfähigkeitsprinzip: Verteilung nach Belastbarkeit; ein Kostenträger trägt so viel, wie sein Deckungsbeitrag zulässt.",
+        "punkte": 1
+      },
+      {
+        "aussage": "Anwendung, wenn der Markt keinen voll kalkulierten Preis zulässt, die Marktpräsenz aber gewollt ist.",
+        "punkte": 1
+      }
+    ],
+    "muster": "Beim Durchschnittsprinzip werden Gemeinkosten, die sich keinem Kostenträger direkt zuordnen lassen, im Verhältnis einer Schlüsselgröße verteilt. Als Schlüssel dienen Mengengrößen wie Fläche oder Leistungseinheiten oder Wertgrößen wie Personalkosten; das Prinzip wird vor allem in der Kostenstellenrechnung genutzt. Beim Tragfähigkeitsprinzip richtet sich die Verteilung danach, wie viel ein Kostenträger tragen kann, also nach seinem Deckungsbeitrag. Es bietet sich an, wenn der Markt keinen voll kalkulierten Preis hergibt, das Unternehmen mit dem Produkt aber vertreten sein will.",
+    "pruefung": {
+      "faktenabgleich": "ok – zweiter Durchlauf gegen K1 Kap. 1.2–1.6 (S. 21–42)",
+      "ueberschneidung": "ok – scripts/check-overlap.ts, keine Übereinstimmung über 8 Wörter",
+      "datum": "2026-11-03"
+    }
+  }
+]

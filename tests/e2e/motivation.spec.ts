@@ -129,6 +129,6 @@ test('Tabellenaufgabe auf dem Handy: Laptop-Hinweis, merken, Liste am Laptop', a
 
 test('Bewegung reduzieren schaltet Animationen ab', async ({ page }) => {
   await page.goto('./#/einstellungen');
-  await page.getByRole('switch').click();
+  await page.getByRole('switch', { name: 'Bewegung reduzieren' }).click();
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'reduziert');
 });

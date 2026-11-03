@@ -1,6 +1,7 @@
 // Eine Aufgabe Schritt für Schritt bearbeiten: Teil prüfen, Rückmeldung, gestufte Hilfen, Rechenweg.
 import { useMemo, useRef, useState, type FormEvent } from 'react';
 import { checkPart, combineResults } from '../../engine/check';
+import { spiele } from '../sound';
 import type { PartAnswer, PartResult, SatzEingabe, TaskAnswer, TaskPart } from '../../engine/task';
 import type { PreparedTask } from '../../learning/prepare';
 import { BuchungssatzBuilder, leereSaetze } from './Buchungssatz';
@@ -84,6 +85,7 @@ export function TaskRunner({
 
   const pruefen = () => {
     const r = checkPart(part, answers[part.id], task.variants);
+    spiele(r.korrekt ? 'richtig' : 'falsch');
     setResults((prev) => ({ ...prev, [part.id]: r }));
     setErsteResults((prev) => (prev[part.id] ? prev : { ...prev, [part.id]: r }));
     setEditing((prev) => ({ ...prev, [part.id]: false }));

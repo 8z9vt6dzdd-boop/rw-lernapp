@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import type { Erkunden } from '../../content/lessons/types';
 import { Decimal, formatEuro, formatProzent, round } from '../../engine/money';
 import { Button, cx } from '../components/ui';
+import { spiele } from '../sound';
 import { TKonto, type Eintrag } from '../visuals/TKonto';
 import { Waage, type Posten } from '../visuals/Waage';
 import { AFA_NAME, AfaVerlauf, Kostenfunktion, buchwerte, type AfaVerfahrenDiagramm } from '../visuals/Diagramme';
@@ -190,6 +191,7 @@ function TkontoBuchen({
   const waehle = (seite: 'soll' | 'haben') => {
     if (!aktuell) return;
     if (seite === aktuell.seite) {
+      spiele('klack');
       setFehler(false);
       setN(n + 1);
       if (n + 1 === e.vorgaenge.length) onDone(fehlerZahl === 0);

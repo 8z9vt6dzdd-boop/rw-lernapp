@@ -17,6 +17,7 @@ import {
   type Route,
 } from './hooks';
 import { Belohnungen } from './lesson/Belohnungen';
+import { ToeneBeobachter } from './ToeneBeobachter';
 import { LessonPlayer } from './lesson/LessonPlayer';
 import { EinstellungenScreen } from './screens/EinstellungenScreen';
 import { ErfolgeScreen } from './screens/ErfolgeScreen';
@@ -114,6 +115,7 @@ export function App() {
   return (
     <div className="min-h-dvh lg:flex">
       <UpdateHinweis />
+      <ToeneBeobachter />
       {!vollbild && geladen ? <Belohnungen /> : null}
       {!vollbild ? (
         <nav

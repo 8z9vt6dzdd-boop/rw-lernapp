@@ -98,9 +98,28 @@ export function EinstellungenScreen() {
           <input
             type="checkbox"
             role="switch"
+            aria-label="Bewegung reduzieren"
             checked={settings.bewegungReduziert}
             onChange={(e) => void saveSettings({ bewegungReduziert: e.target.checked })}
             className="h-6 w-11 accent-[color:var(--accent)]"
+          />
+        </label>
+      </Card>
+      <Card>
+        <label className="flex min-h-11 items-center justify-between gap-3">
+          <span>
+            <span className="block font-semibold">Töne</span>
+            <span className="block text-sm text-muted">
+              Kurze, leise Töne bei Antworten und Erfolgen. Auf dem iPhone gilt der Stummschalter, Musik läuft weiter.
+            </span>
+          </span>
+          <input
+            type="checkbox"
+            role="switch"
+            aria-label="Töne"
+            checked={settings.toene}
+            onChange={(e) => void saveSettings({ toene: e.target.checked })}
+            className="h-6 w-11 shrink-0 accent-[color:var(--accent)]"
           />
         </label>
       </Card>

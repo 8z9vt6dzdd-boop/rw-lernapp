@@ -35,6 +35,7 @@ export const DEFAULT_SETTINGS: Settings = {
   theme: 'auto',
   teilkostenInKlausur: false,
   bewegungReduziert: false,
+  toene: true,
   ich: ICH_STANDARD,
   onboardingErledigt: false,
 };

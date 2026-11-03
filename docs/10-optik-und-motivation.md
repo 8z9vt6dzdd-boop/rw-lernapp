@@ -87,3 +87,7 @@ Auf der Startseite die Klausur-Readiness in Prozent (gewichtet nach Klausurrelev
 - Belohnungsszenen nach Lektion und Kapitel funktionieren; „Bewegung reduzieren" schaltet sie ruhig.
 - Serie, Serienschutz und Reparatur funktionieren über Datumswechsel (simuliert getestet).
 - Push: Auf einem iPhone mit installierter App kommt zur eingestellten Uhrzeit genau eine Erinnerung, aber nur, wenn das Tagesziel offen ist.
+
+## Teil D – Töne (Vorgabe Auftraggeber, 03.11.2026)
+Sparsam und nur an diesen Stellen: Antwort richtig (heller Klick < 0,3 s), Antwort falsch (weicher tiefer Ton, kein Buzzer), Buchung rastet im T-Konto ein („Klack“), Lektion geschafft (Dose öffnen „Pssst“ + kurzer Jingle), Tagesserie verlängert (Einschenken), Erfolg freigeschaltet (Anstoßen „Kling“), Beförderung/Kapitel geschafft (Jingle 2–3 s), alle drei Tagesaufgaben erledigt (kurzer Akkord). Keine Töne bei normalen Tipps, Eingaben, Seitenwechseln oder Sprechblasen.
+Technik: Audio-Sitzung „ambient“ (iPhone-Stummschalter wird respektiert, laufende Musik/Podcasts werden nicht unterbrochen), dezente Lautstärke, Schalter „Töne“ in den Einstellungen (Standard an). Umsetzung: alle Töne im Code erzeugt (`src/ui/sound.ts`), Lizenzen in `docs/LIZENZEN.md`.

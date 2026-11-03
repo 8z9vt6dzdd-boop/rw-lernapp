@@ -1,6 +1,7 @@
 // Lektions-Player: ein Bildschirm nach dem anderen, Fortschritt wird gespeichert, am Ende ein Belohnungsmoment.
 import { useCallback, useEffect, useRef, useState } from 'react';
-import type { Lektion } from '../../content/lessons/types';
+import type { Lektion, Screen } from '../../content/lessons/types';
+import { spiele } from '../sound';
 import { lektionSpeichern } from '../../learning/ereignisse';
 import { XP } from '../../learning/motivation';
 import { deleteKv, getKv, setKv } from '../../storage/db';
@@ -19,6 +20,17 @@ interface Stand {
 }
 
 const key = (id: string) => `lektion:${id}`;
+
+/** Bildschirme mit richtig/falsch-Ton (Erkunden und Entscheidungen bleiben still). */
+const BEWERTET: readonly Screen['typ'][] = [
+  'vorhersage',
+  'sortieren',
+  'wer-hat-recht',
+  'fehlerjagd',
+  'luecke',
+  'verstaendnis',
+  'klausur',
+];
 
 export function LessonPlayer({ lektion }: { lektion: Lektion }) {
   const events = useEvents();
@@ -42,10 +54,12 @@ export function LessonPlayer({ lektion }: { lektion: Lektion }) {
   const onDone = useCallback(
     (richtig?: boolean) => {
       setErledigt((prev) => (prev.has(index) ? prev : new Set(prev).add(index)));
-      if (richtig !== undefined)
+      if (richtig !== undefined) {
         setErgebnisse((prev) => (index in prev ? prev : { ...prev, [index]: richtig }));
+        if (BEWERTET.includes(lektion.screens[index]!.typ)) spiele(richtig ? 'richtig' : 'falsch');
+      }
     },
-    [index],
+    [index, lektion.screens],
   );
 
   const beginnen = (ab = 0, alt?: Stand) => {
@@ -77,6 +91,7 @@ export function LessonPlayer({ lektion }: { lektion: Lektion }) {
       fehlerGefunden,
     });
     await deleteKv(key(lektion.id));
+    spiele('lektion');
     setPhase('fertig');
   };
 

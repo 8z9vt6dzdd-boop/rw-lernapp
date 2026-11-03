@@ -90,6 +90,8 @@ export interface Settings {
   iosHinweisGesehen?: boolean;
   /** Bewegungen in der App ruhig stellen (zusätzlich zur Systemeinstellung) */
   bewegungReduziert: boolean;
+  /** Sparsame Sound-Effekte (Standard: an) */
+  toene: boolean;
   /** Aussehen der eigenen Figur */
   ich: IchAussehen;
   name?: string;

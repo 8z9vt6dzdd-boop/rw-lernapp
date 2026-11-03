@@ -1,6 +1,7 @@
 // Belohnungsmomente außerhalb der Lektion: Beförderung, Serien-Meilenstein, Kapitel geschafft, neuer Erfolg.
 // Jede Szene erscheint genau einmal und lässt sich sofort schließen.
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
+import { spiele } from '../sound';
 import { ABSCHNITTE } from '../../content/curriculum';
 import { abschnittAbgeschlossen } from '../../learning/fortschritt';
 import { erfolge, karriere, serie, tagKey } from '../../learning/motivation';
@@ -50,6 +51,13 @@ export function Belohnungen() {
     [events, settings],
   );
   if (!szene) return null;
+  return <BelohnungsSzene key={JSON.stringify(szene)} szene={szene} settings={settings} />;
+}
+
+function BelohnungsSzene({ szene, settings }: { szene: Szene; settings: Settings }) {
+  useEffect(() => {
+    spiele(szene.art === 'erfolg' ? 'erfolg' : szene.art === 'serie' ? 'serie' : 'feier');
+  }, [szene]);
   const g = settings.gefeiert ?? {};
   const schliessen = () => {
     const next = { ...g };

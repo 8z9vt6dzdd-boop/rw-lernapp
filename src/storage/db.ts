@@ -1,7 +1,7 @@
 // Lokale Speicherung in IndexedDB (über idb). Alles funktioniert offline.
 import { openDB, type DBSchema, type IDBPDatabase } from 'idb';
 import type { LernEreignis, Settings } from '../learning/types';
-import { WOCHENZIEL_STANDARD } from '../config';
+import { ICH_STANDARD } from '../content/characters';
 
 interface LernDB extends DBSchema {
   events: {
@@ -31,9 +31,12 @@ function db(): Promise<IDBPDatabase<LernDB>> {
 }
 
 export const DEFAULT_SETTINGS: Settings = {
-  weeklyGoal: WOCHENZIEL_STANDARD,
+  tagesziel: 'normal',
   theme: 'auto',
   teilkostenInKlausur: false,
+  bewegungReduziert: false,
+  ich: ICH_STANDARD,
+  onboardingErledigt: false,
 };
 
 type Listener = () => void;
@@ -64,7 +67,7 @@ export async function eventsForSkill(skillId: string): Promise<LernEreignis[]> {
 
 export async function getSettings(): Promise<Settings> {
   const stored = (await (await db()).get('kv', 'settings')) as Partial<Settings> | undefined;
-  return { ...DEFAULT_SETTINGS, ...stored };
+  return { ...DEFAULT_SETTINGS, ...stored, ich: { ...DEFAULT_SETTINGS.ich, ...stored?.ich } };
 }
 
 export async function saveSettings(patch: Partial<Settings>): Promise<Settings> {
@@ -72,6 +75,18 @@ export async function saveSettings(patch: Partial<Settings>): Promise<Settings> 
   await (await db()).put('kv', next, 'settings');
   notify();
   return next;
+}
+
+export async function getKv<T>(key: string): Promise<T | undefined> {
+  return (await (await db()).get('kv', key)) as T | undefined;
+}
+
+export async function setKv(key: string, value: unknown): Promise<void> {
+  await (await db()).put('kv', value, key);
+}
+
+export async function deleteKv(key: string): Promise<void> {
+  await (await db()).delete('kv', key);
 }
 
 export async function deviceId(): Promise<string> {

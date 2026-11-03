@@ -24,7 +24,10 @@ export function erstelleAttempt(opts: {
   const correct = combined.korrekt && !opts.loesungGezeigt;
   const hintsUsed = Math.min(3, Math.max(0, opts.hintsUsed)) as 0 | 1 | 2 | 3;
   const fruehereDauern = opts.frueher
-    .filter((e) => e.typ === 'attempt' && e.correct && e.variant === eventVariant(task))
+    .filter(
+      (e): e is AttemptEvent =>
+        e.typ === 'attempt' && e.correct && e.variant === eventVariant(task),
+    )
     .map((e) => e.durationMs);
   const event: AttemptEvent = {
     typ: 'attempt',
@@ -42,6 +45,7 @@ export function erstelleAttempt(opts: {
     durationMs: Math.round(opts.durationMs),
     fsrsRating: fsrsRating({ correct, hintsUsed, durationMs: opts.durationMs, fruehereDauern }),
   };
+  if (typeof navigator !== 'undefined' && navigator.onLine === false) event.offline = true;
   const variant = eventVariant(task);
   if (variant) event.variant = variant;
   if (!correct) {

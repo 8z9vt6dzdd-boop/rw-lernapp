@@ -59,4 +59,3 @@ export const FIRMA: FirmaConfig = {
 };
 
 export const UST_STANDARD = '0.19';
-export const WOCHENZIEL_STANDARD = 5;
